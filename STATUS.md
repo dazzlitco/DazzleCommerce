@@ -2,7 +2,7 @@
 
 **Last updated: 2026-11-23**
 
-**Overall: 1 of 177 pages built · 0 of 177 pushed · 0 of 177 reviewed/done**
+**Overall: 1 of 177 pages built · 1 of 177 pushed · 0 of 177 reviewed/done**
 
 ## What this is
 
@@ -29,7 +29,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 
 | Batch | Scope | Pages | Built | Pushed | Done | Status |
 |---|---|---:|---:|---:|---:|---|
-| 1 | Core | 23 | 1 | 0 | 0 | **Current — Homepage built, awaiting review** |
+| 1 | Core | 23 | 1 | 1 | 0 | **Current — Homepage pushed, Page 2 next** |
 | 2 | Services | 13 | 0 | 0 | 0 | Not started |
 | 3 | Platforms + Marketplaces | 22 | 0 | 0 | 0 | Not started |
 | 4 | Locations | 10 | 0 | 0 | 0 | Not started |
@@ -37,7 +37,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 | 6 | Case Studies + Testimonials | 12 | 0 | 0 | 0 | Not started |
 | 7 | Tools / Guides / Resources / Careers | 75 | 0 | 0 | 0 | Not started |
 | 8 | Blogs | 11 | 0 | 0 | 0 | Not started |
-| **Total** | | **177** | **1** | **0** | **0** | |
+| **Total** | | **177** | **1** | **1** | **0** | |
 
 Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog index + 10 posts.
 
@@ -69,8 +69,8 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 ## Current step
 
-- **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Batch 1, Page 1 — Homepage (`/`) built in Next.js/React with matching created images, verified against the live page (112/113 copy checks in rendered HTML on first pass; the 1 miss was FAQ answers in collapsed accordion items, fixed so all FAQ answers are now server-rendered — re-checked, all present). `npm run build` passes. **Not pushed to GitHub** — awaiting review/push approval.
-- **Next:** Push Homepage after Alif's review, then Batch 1, Page 2 — About Us (`/about-us/`). Only after Alif's go-ahead.
+- **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Homepage (`/`) built in Next.js/React with matching created images, verified against the live page, `npm run build` passes, and pushed to GitHub (commit `e0c3a5587f1e597ff1318082f12b90c579f97891`, 2026-11-23). That push contained the 19 text files (code, STATUS.md, RECORD_REGISTER.md, logos as SVG). The 5 photographic .webp images were not in that snapshot — see Change log.
+- **Next:** Upload the 5 .webp images to GitHub, then Batch 1, Page 2 — About Us (`/about-us/`). Only after Alif's go-ahead.
 - Nothing else from Batch 1 has been started. No other page is built.
 
 ## Per-page workflow (applies to every page)
@@ -95,4 +95,5 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | Date | Change |
 |---|---|
 | 2026-11-23 | STATUS.md + RECORD_REGISTER.md created. 0/177 built. Batch 1 confirmed, Homepage is next. |
+| 2026-11-23 | Homepage pushed to GitHub, commit `e0c3a5587f1e597ff1318082f12b90c579f97891`. 1/177 built, 1/177 pushed. Text files only (19 files); 5 .webp images still to upload. |
 | 2026-11-23 | Batch 1, Page 1 — Homepage (`/`) built in Next.js/React, verified locally, marked Built — awaiting review. 1/177 built, 0 pushed. Not pushed to GitHub. |
