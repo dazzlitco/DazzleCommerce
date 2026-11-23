@@ -18,7 +18,7 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 
 | Batch | Pages | Done | Pushed |
 |---|---:|---:|---:|
-| Batch 1 — Core | 23 | 2 | 2 |
+| Batch 1 — Core | 23 | 23 | 2 |
 | Batch 2 — Services | 13 | 0 | 0 |
 | Batch 3 — Platforms + Marketplaces | 22 | 0 | 0 |
 | Batch 4 — Locations | 10 | 0 | 0 |
@@ -26,9 +26,9 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch 6 — Case Studies + Testimonials | 12 | 0 | 0 |
 | Batch 7 — Tools / Guides / Resources / Careers | 75 | 0 | 0 |
 | Batch 8 — Blogs | 11 | 0 | 0 |
-| **Total** | **177** | **2** | **2** |
+| **Total** | **177** | **23** | **2** |
 
-Last updated: 2026-11-23 — Batch 1, #2 About Us (`/about-us/`) pushed to GitHub (code `22e4760`, photos `163521c`). 2 of 177 pages built, 2 pushed. Next page: Batch 1, #3 Services (`/services/`).
+Last updated: 2026-11-23 — Batch 1 complete locally: all 23 pages built and verified (`npm run build` passes, all 23 routes return HTTP 200). 23 of 177 pages built, 2 pushed. NOT pushed to GitHub yet — parent to push the whole batch. Next: Batch 2 (Services) after the Batch 1 push.
 
 ## Batch 1 — Core — 23 pages
 
@@ -36,27 +36,27 @@ Last updated: 2026-11-23 — Batch 1, #2 About Us (`/about-us/`) pushed to GitHu
 |---:|---|---|---|---|---|
 | 1 | https://dazzlecommerce.com/ | `app/page.tsx` | Core | Pushed | `e0c3a5587f1e597ff1318082f12b90c579f97891` (2026-11-23) |
 | 2 | https://dazzlecommerce.com/about-us/ | `app/about-us/page.tsx` | Core | Pushed | `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1` (2026-11-23); photos `163521c` |
-| 3 | https://dazzlecommerce.com/services/ | `app/services/page.tsx` | Core | Not started | — |
-| 4 | https://dazzlecommerce.com/contact/ | `app/contact/page.tsx` | Core | Not started | — |
-| 5 | https://dazzlecommerce.com/pricing/ | `app/pricing/page.tsx` | Core | Not started | — |
-| 6 | https://dazzlecommerce.com/how-we-work/ | `app/how-we-work/page.tsx` | Core | Not started | — |
-| 7 | https://dazzlecommerce.com/case-studies/ | `app/case-studies/page.tsx` | Core | Not started | — |
-| 8 | https://dazzlecommerce.com/portfolio/ | `app/portfolio/page.tsx` | Core | Not started | — |
-| 9 | https://dazzlecommerce.com/testimonials/ | `app/testimonials/page.tsx` | Core | Not started | — |
-| 10 | https://dazzlecommerce.com/faqs/ | `app/faqs/page.tsx` | Core | Not started | — |
-| 11 | https://dazzlecommerce.com/careers/ | `app/careers/page.tsx` | Core | Not started | — |
-| 12 | https://dazzlecommerce.com/partners/ | `app/partners/page.tsx` | Core | Not started | — |
-| 13 | https://dazzlecommerce.com/our-technology-stack/ | `app/our-technology-stack/page.tsx` | Core | Not started | — |
-| 14 | https://dazzlecommerce.com/locations-we-serve/ | `app/locations-we-serve/page.tsx` | Core | Not started | — |
-| 15 | https://dazzlecommerce.com/book-a-strategy-call/ | `app/book-a-strategy-call/page.tsx` | Core | Not started | — |
-| 16 | https://dazzlecommerce.com/request-a-proposal/ | `app/request-a-proposal/page.tsx` | Core | Not started | — |
-| 17 | https://dazzlecommerce.com/ecommerce-growth-assessment/ | `app/ecommerce-growth-assessment/page.tsx` | Core | Not started | — |
-| 18 | https://dazzlecommerce.com/ecommerce-audit/ | `app/ecommerce-audit/page.tsx` | Core | Not started | — |
-| 19 | https://dazzlecommerce.com/site-map/ | `app/site-map/page.tsx` | Core | Not started | — |
-| 20 | https://dazzlecommerce.com/privacy-policy/ | `app/privacy-policy/page.tsx` | Core — Legal | Not started | — |
-| 21 | https://dazzlecommerce.com/cookies-policy/ | `app/cookies-policy/page.tsx` | Core — Legal | Not started | — |
-| 22 | https://dazzlecommerce.com/gdpr-compliance/ | `app/gdpr-compliance/page.tsx` | Core — Legal | Not started | — |
-| 23 | https://dazzlecommerce.com/affiliate-disclaimer/ | `app/affiliate-disclaimer/page.tsx` | Core — Legal | Not started | — |
+| 3 | https://dazzlecommerce.com/services/ | `app/services/page.tsx` | Core | Built — awaiting review | — |
+| 4 | https://dazzlecommerce.com/contact/ | `app/contact/page.tsx` | Core | Built — awaiting review | — |
+| 5 | https://dazzlecommerce.com/pricing/ | `app/pricing/page.tsx` | Core | Built — awaiting review | — |
+| 6 | https://dazzlecommerce.com/how-we-work/ | `app/how-we-work/page.tsx` | Core | Built — awaiting review | — |
+| 7 | https://dazzlecommerce.com/case-studies/ | `app/case-studies/page.tsx` | Core | Built — awaiting review | — |
+| 8 | https://dazzlecommerce.com/portfolio/ | `app/portfolio/page.tsx` | Core | Built — awaiting review | — |
+| 9 | https://dazzlecommerce.com/testimonials/ | `app/testimonials/page.tsx` | Core | Built — awaiting review | — |
+| 10 | https://dazzlecommerce.com/faqs/ | `app/faqs/page.tsx` | Core | Built — awaiting review | — |
+| 11 | https://dazzlecommerce.com/careers/ | `app/careers/page.tsx` | Core | Built — awaiting review | — |
+| 12 | https://dazzlecommerce.com/partners/ | `app/partners/page.tsx` | Core | Built — awaiting review | — |
+| 13 | https://dazzlecommerce.com/our-technology-stack/ | `app/our-technology-stack/page.tsx` | Core | Built — awaiting review | — |
+| 14 | https://dazzlecommerce.com/locations-we-serve/ | `app/locations-we-serve/page.tsx` | Core | Built — awaiting review | — |
+| 15 | https://dazzlecommerce.com/book-a-strategy-call/ | `app/book-a-strategy-call/page.tsx` | Core | Built — awaiting review | — |
+| 16 | https://dazzlecommerce.com/request-a-proposal/ | `app/request-a-proposal/page.tsx` | Core | Built — awaiting review | — |
+| 17 | https://dazzlecommerce.com/ecommerce-growth-assessment/ | `app/ecommerce-growth-assessment/page.tsx` | Core | Built — awaiting review | — |
+| 18 | https://dazzlecommerce.com/ecommerce-audit/ | `app/ecommerce-audit/page.tsx` | Core | Built — awaiting review | — |
+| 19 | https://dazzlecommerce.com/site-map/ | `app/site-map/page.tsx` | Core | Built — awaiting review | — |
+| 20 | https://dazzlecommerce.com/privacy-policy/ | `app/privacy-policy/page.tsx` | Core — Legal | Built — awaiting review | — |
+| 21 | https://dazzlecommerce.com/cookies-policy/ | `app/cookies-policy/page.tsx` | Core — Legal | Built — awaiting review | — |
+| 22 | https://dazzlecommerce.com/gdpr-compliance/ | `app/gdpr-compliance/page.tsx` | Core — Legal | Built — awaiting review | — |
+| 23 | https://dazzlecommerce.com/affiliate-disclaimer/ | `app/affiliate-disclaimer/page.tsx` | Core — Legal | Built — awaiting review | — |
 
 ## Batch 2 — Services — 13 pages
 
@@ -259,3 +259,6 @@ Last updated: 2026-11-23 — Batch 1, #2 About Us (`/about-us/`) pushed to GitHu
 | 2026-11-23 | About Us pushed, commit `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1`. Text files only; 9 .webp images still to upload. |
 | 2026-11-23 | About Us photos uploaded, commit `163521c` — all 9 .webp files now in `public/images/` on GitHub. |
 | 2026-11-23 | #1 Homepage (`/`) — Built — awaiting review. Next.js App Router app scaffolded, homepage built with created images, `npm run build` passes, rendered HTML verified against the live extraction. Not pushed to GitHub. |
+
+| 2026-11-23 | Workflow changed by Alif: clone a full batch first, push and report. Do not stop after each page. Batch 1 built as one batch (pages 3–23), not pushed yet. |
+| 2026-11-23 | Batch 1, #3–#23 built and verified locally, marked Built — awaiting review: Services, Contact, Pricing, How We Work, Case Studies, Portfolio, Testimonials, FAQs, Careers, Partners, Our Technology Stack, Locations We Serve, Book a Strategy Call, Request a Proposal, eCommerce Growth Assessment, eCommerce Audit, Site Map, Privacy Policy, Cookies Policy, GDPR Compliance, Affiliate Disclaimer. 23/177 built, 2 pushed. `npm run build` passes; all 23 Batch 1 routes return HTTP 200. 83 new .webp images created (97 .webp in public/images/ total). Not pushed to GitHub. |
