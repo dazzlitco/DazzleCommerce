@@ -254,4 +254,5 @@ Last updated: 2026-11-23 — Batch 1, #1 Homepage (`/`) built and verified local
 | 2026-11-23 | Register created from page-sitemap.xml (167 URLs) + post-sitemap.xml (10 posts) = 177 URLs. Batches confirmed by Alif. |
 | 2026-11-23 | Decisions recorded: company-owned site, Next.js/React, matching images to be created, forms + all tools working, push after each page, Batch 1 confirmed. |
 | 2026-11-23 | Homepage pushed, commit `e0c3a5587f1e597ff1318082f12b90c579f97891`. Text files only; 5 .webp images still to upload. |
+| 2026-11-23 | Homepage photos uploaded, commit `c49cdf8` — all 5 .webp files now in `public/images/` on GitHub. |
 | 2026-11-23 | #1 Homepage (`/`) — Built — awaiting review. Next.js App Router app scaffolded, homepage built with created images, `npm run build` passes, rendered HTML verified against the live extraction. Not pushed to GitHub. |

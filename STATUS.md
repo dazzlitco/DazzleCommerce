@@ -69,8 +69,8 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 ## Current step
 
-- **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Homepage (`/`) built in Next.js/React with matching created images, verified against the live page, `npm run build` passes, and pushed to GitHub (commit `e0c3a5587f1e597ff1318082f12b90c579f97891`, 2026-11-23). That push contained the 19 text files (code, STATUS.md, RECORD_REGISTER.md, logos as SVG). The 5 photographic .webp images were not in that snapshot — see Change log.
-- **Next:** Upload the 5 .webp images to GitHub, then Batch 1, Page 2 — About Us (`/about-us/`). Only after Alif's go-ahead.
+- **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Homepage (`/`) built in Next.js/React with matching created images, verified against the live page, `npm run build` passes, and pushed to GitHub (commit `e0c3a5587f1e597ff1318082f12b90c579f97891`, 2026-11-23). That push contained the 19 text files (code, STATUS.md, RECORD_REGISTER.md, logos as SVG). The 5 photographic .webp images were uploaded separately via the GitHub website in commit `c49cdf8` (2026-11-23) — all 7 files are now in `public/images/` on GitHub.
+- **Next:** Batch 1, Page 2 — About Us (`/about-us/`). Only after Alif's go-ahead.
 - Nothing else from Batch 1 has been started. No other page is built.
 
 ## Per-page workflow (applies to every page)
@@ -96,4 +96,5 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 |---|---|
 | 2026-11-23 | STATUS.md + RECORD_REGISTER.md created. 0/177 built. Batch 1 confirmed, Homepage is next. |
 | 2026-11-23 | Homepage pushed to GitHub, commit `e0c3a5587f1e597ff1318082f12b90c579f97891`. 1/177 built, 1/177 pushed. Text files only (19 files); 5 .webp images still to upload. |
+| 2026-11-23 | Homepage photos uploaded to GitHub via the website, commit `c49cdf8` — all 5 .webp files now in `public/images/`. Homepage on GitHub is now complete. |
 | 2026-11-23 | Batch 1, Page 1 — Homepage (`/`) built in Next.js/React, verified locally, marked Built — awaiting review. 1/177 built, 0 pushed. Not pushed to GitHub. |
