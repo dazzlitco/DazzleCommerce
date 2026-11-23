@@ -18,7 +18,7 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 
 | Batch | Pages | Done | Pushed |
 |---|---:|---:|---:|
-| Batch 1 — Core | 23 | 1 | 1 |
+| Batch 1 — Core | 23 | 2 | 1 |
 | Batch 2 — Services | 13 | 0 | 0 |
 | Batch 3 — Platforms + Marketplaces | 22 | 0 | 0 |
 | Batch 4 — Locations | 10 | 0 | 0 |
@@ -26,16 +26,16 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch 6 — Case Studies + Testimonials | 12 | 0 | 0 |
 | Batch 7 — Tools / Guides / Resources / Careers | 75 | 0 | 0 |
 | Batch 8 — Blogs | 11 | 0 | 0 |
-| **Total** | **177** | **1** | **1** |
+| **Total** | **177** | **2** | **1** |
 
-Last updated: 2026-11-23 — Batch 1, #1 Homepage (`/`) built and verified locally, marked Built — awaiting review. 1 of 177 pages built, 0 pushed. Next page: Batch 1, #2 About Us (`/about-us/`) — only after review/push of the Homepage.
+Last updated: 2026-11-23 — Batch 1, #2 About Us (`/about-us/`) built and verified locally, marked Built — awaiting review. 2 of 177 pages built, 1 pushed. Next page: Batch 1, #3 Services (`/services/`).
 
 ## Batch 1 — Core — 23 pages
 
 | # | Source URL | Clone route | Category | Status | Pushed |
 |---:|---|---|---|---|---|
 | 1 | https://dazzlecommerce.com/ | `app/page.tsx` | Core | Pushed | `e0c3a5587f1e597ff1318082f12b90c579f97891` (2026-11-23) |
-| 2 | https://dazzlecommerce.com/about-us/ | `app/about-us/page.tsx` | Core | Not started | — |
+| 2 | https://dazzlecommerce.com/about-us/ | `app/about-us/page.tsx` | Core | Built — awaiting review | — |
 | 3 | https://dazzlecommerce.com/services/ | `app/services/page.tsx` | Core | Not started | — |
 | 4 | https://dazzlecommerce.com/contact/ | `app/contact/page.tsx` | Core | Not started | — |
 | 5 | https://dazzlecommerce.com/pricing/ | `app/pricing/page.tsx` | Core | Not started | — |
@@ -255,4 +255,5 @@ Last updated: 2026-11-23 — Batch 1, #1 Homepage (`/`) built and verified local
 | 2026-11-23 | Decisions recorded: company-owned site, Next.js/React, matching images to be created, forms + all tools working, push after each page, Batch 1 confirmed. |
 | 2026-11-23 | Homepage pushed, commit `e0c3a5587f1e597ff1318082f12b90c579f97891`. Text files only; 5 .webp images still to upload. |
 | 2026-11-23 | Homepage photos uploaded, commit `c49cdf8` — all 5 .webp files now in `public/images/` on GitHub. |
+| 2026-11-23 | About Us built and verified locally, marked Built — awaiting review. 2/177 built, 1 pushed. Not pushed to GitHub. |
 | 2026-11-23 | #1 Homepage (`/`) — Built — awaiting review. Next.js App Router app scaffolded, homepage built with created images, `npm run build` passes, rendered HTML verified against the live extraction. Not pushed to GitHub. |
