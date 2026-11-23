@@ -269,3 +269,4 @@ Last updated: 2026-11-23 — Batch 2 complete: all 13 service pages pushed to Gi
 | 2026-11-23 | Batch 2 pushed, code commit `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1`. 36/177 built, 36 pushed. |
 | 2026-11-23 | Batch 2 photos uploaded, commits `4321f96`, `7e7b3fe`, `3c6701a` — all 81 new .webp files now in `public/images/` on GitHub. Batch 2 complete. |
 | 2026-11-23 | Fidelity fix pass over all 36 built pages (#1–#36): invented UI removed and dropped live elements restored (see STATUS.md). `npm run build` passes, all 36 routes HTTP 200, 0 missing images. 26 new .webp images created, 31 orphaned .webp files deleted (173 .webp in public/images/ total). Page Pushed statuses unchanged — re-push pending (parent). |
+| 2026-11-23 | Fidelity fix pass: all 36 pages re-audited vs live and corrected; code commit `17cda2a`; 26 new photos `7b2fa86`; 31 orphaned images deleted (last `e89a75c`). |
