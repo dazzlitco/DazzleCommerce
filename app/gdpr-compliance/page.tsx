@@ -23,20 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-const toc = [
-  { id: "our-commitment", label: "Our Commitment" },
-  { id: "controller-or-processor", label: "Controller or Processor?" },
-  { id: "lawful-bases", label: "The Lawful Bases We Rely On" },
-  { id: "your-rights", label: "Your Rights and How to Exercise Them" },
-  { id: "technical-measures", label: "Technical and Organisational Measures" },
-  { id: "subprocessors", label: "Subprocessors" },
-  { id: "international-transfers", label: "International Data Transfers" },
-  { id: "data-processing-agreements", label: "Data Processing Agreements" },
-  { id: "data-breaches", label: "Personal Data Breaches" },
-  { id: "records-governance", label: "Records, Assessments and Governance" },
-  { id: "supervisory-authority", label: "Supervisory Authority and Complaints" },
-];
-
 const controllerRoles = [
   "Website visitors and enquiries — we are controller. Governed by this page and our Privacy Policy.",
   "Newsletter subscribers — controller.",
@@ -109,7 +95,6 @@ export default function GdprCompliancePage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Legal · Data Protection</p>
           <h1>GDPR Compliance</h1>
           <p className="lead">
             Our obligations under the EU and UK GDPR, the rights you hold, and the specific
@@ -122,30 +107,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 2. On this page — anchor navigation (addition for usability; the live page has no TOC, all labels are the live headings verbatim) */}
-      <section className="section" style={{ paddingTop: "2rem", paddingBottom: "0" }}>
-        <div className="container">
-          <div
-            className="card"
-            style={{ padding: "1.5rem 1.75rem", maxWidth: "760px" }}
-          >
-            <h2 style={{ fontSize: "1.1rem", margin: "0 0 0.75rem" }}>On this page</h2>
-            <ul style={{ margin: 0, paddingLeft: "1.25rem", columns: 1 }}>
-              {toc.map((t) => (
-                <li key={t.id} style={{ marginBottom: "0.4rem" }}>
-                  <Link href={`#${t.id}`}>{t.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Our Commitment */}
+      {/* 2. Our Commitment — the live page has no anchor navigation */}
       <section className="section" id="our-commitment">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Our Commitment</p>
             <h2>Our Commitment</h2>
             <p>
               The General Data Protection Regulation (EU 2016/679) and the UK GDPR give
@@ -159,11 +124,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 4. Controller or Processor? */}
+      {/* 3. Controller or Processor? */}
       <section className="section section-soft" id="controller-or-processor">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Roles</p>
             <h2>Controller or Processor?</h2>
             <ul className="check-list">
               {controllerRoles.map((r) => (
@@ -179,11 +143,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 5. The Lawful Bases We Rely On */}
+      {/* 4. The Lawful Bases We Rely On */}
       <section className="section" id="lawful-bases">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Lawful Bases</p>
             <h2>The Lawful Bases We Rely On</h2>
             <p>
               We never process personal data without a lawful basis, and we record which
@@ -205,11 +168,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 6. Your Rights and How to Exercise Them */}
+      {/* 5. Your Rights and How to Exercise Them */}
       <section className="section section-soft" id="your-rights">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Your Rights</p>
             <h2>Your Rights and How to Exercise Them</h2>
             <ul className="check-list">
               {rights.map((r) => (
@@ -227,20 +189,14 @@ export default function GdprCompliancePage() {
               why. If your data sits inside a client’s systems that we manage, we will
               forward your request to that client as controller within five working days.
             </p>
-            <div className="btn-row">
-              <Link className="btn" href="mailto:dpo@dazzlecommerce.com">
-                Email the Data Protection Lead
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. Technical and Organisational Measures */}
+      {/* 6. Technical and Organisational Measures */}
       <section className="section" id="technical-measures">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Security</p>
             <h2>Technical and Organisational Measures</h2>
             <p>
               Article 32 requires security appropriate to the risk. Ours includes TLS 1.3
@@ -256,11 +212,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 8. Subprocessors */}
+      {/* 7. Subprocessors */}
       <section className="section section-soft" id="subprocessors">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Subprocessors</p>
             <h2>Subprocessors</h2>
             <p>
               We use a small number of vetted subprocessors, each bound by a written
@@ -275,11 +230,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 9. International Data Transfers */}
+      {/* 8. International Data Transfers */}
       <section className="section" id="international-transfers">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Transfers</p>
             <h2>International Data Transfers</h2>
             <p>
               We operate across five countries, so transfers outside the UK and EEA are
@@ -293,11 +247,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 10. Data Processing Agreements */}
+      {/* 9. Data Processing Agreements */}
       <section className="section section-soft" id="data-processing-agreements">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Agreements</p>
             <h2>Data Processing Agreements</h2>
             <p>
               Every client engagement includes a Data Processing Agreement before any
@@ -311,11 +264,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 11. Personal Data Breaches */}
+      {/* 10. Personal Data Breaches */}
       <section className="section" id="data-breaches">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Breach Response</p>
             <h2>Personal Data Breaches</h2>
             <ol style={{ paddingLeft: "1.25rem", color: "var(--muted)" }}>
               {breachSteps.map((s) => (
@@ -328,11 +280,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 12. Records, Assessments and Governance */}
+      {/* 11. Records, Assessments and Governance */}
       <section className="section section-soft" id="records-governance">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Governance</p>
             <h2>Records, Assessments and Governance</h2>
             <p>
               We maintain an Article 30 record of processing activities and review it
@@ -348,11 +299,10 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 13. Supervisory Authority and Complaints */}
+      {/* 12. Supervisory Authority and Complaints */}
       <section className="section" id="supervisory-authority">
         <div className="container">
           <div style={{ maxWidth: "820px" }}>
-            <p className="eyebrow">Complaints</p>
             <h2>Supervisory Authority and Complaints</h2>
             <p>
               Raise a concern with us first — most issues are resolved quickly at that
@@ -366,7 +316,7 @@ export default function GdprCompliancePage() {
         </div>
       </section>
 
-      {/* 14. Final CTA */}
+      {/* 13. Final CTA */}
       <section className="section section-blue final-cta">
         <div className="container">
           <h2>Questions about how we handle your data?</h2>

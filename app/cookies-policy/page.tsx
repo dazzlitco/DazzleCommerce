@@ -23,17 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-const toc = [
-  { href: "#what-cookies-are", label: "What Cookies Are" },
-  { href: "#your-choices", label: "Your Choices" },
-  { href: "#categories", label: "Categories of Cookies We Use" },
-  { href: "#third-party-providers", label: "Third-Party Providers" },
-  { href: "#managing-cookies", label: "Managing Cookies in Your Browser" },
-  { href: "#do-not-track", label: "Do Not Track" },
-  { href: "#changes-and-contact", label: "Changes and Contact" },
-  { href: "#cookie-preferences", label: "Cookie Preferences" },
-];
-
 const categories = [
   {
     id: "strictly-necessary",
@@ -79,65 +68,12 @@ const categories = [
   },
 ];
 
-/* Working cookie-preference controls. The live copy describes opting in
-   through the consent banner and changing preferences at any time, but no
-   preference widget exists in the fetched live HTML, so this panel
-   implements exactly the choices the policy describes and stores them
-   under the policy's own dz_consent key. */
-const preferencesScript = `
-(function () {
-  var KEY = "dz_consent";
-  var boxes = {
-    analytics: document.getElementById("pref-analytics"),
-    advertising: document.getElementById("pref-advertising"),
-    functional: document.getElementById("pref-functional")
-  };
-  var status = document.getElementById("cookie-pref-status");
-  function read() {
-    try {
-      var saved = JSON.parse(window.localStorage.getItem(KEY) || "null");
-      if (saved) {
-        boxes.analytics.checked = !!saved.analytics;
-        boxes.advertising.checked = !!saved.advertising;
-        boxes.functional.checked = !!saved.functional;
-      }
-    } catch (e) {}
-  }
-  function save(message) {
-    var value = {
-      necessary: true,
-      analytics: boxes.analytics.checked,
-      advertising: boxes.advertising.checked,
-      functional: boxes.functional.checked,
-      updatedAt: new Date().toISOString()
-    };
-    try { window.localStorage.setItem(KEY, JSON.stringify(value)); } catch (e) {}
-    if (status) status.textContent = message;
-  }
-  function setAll(on) {
-    boxes.analytics.checked = on;
-    boxes.advertising.checked = on;
-    boxes.functional.checked = on;
-  }
-  var acceptAll = document.getElementById("pref-accept-all");
-  var rejectAll = document.getElementById("pref-reject-all");
-  var saveBtn = document.getElementById("pref-save");
-  if (acceptAll) acceptAll.addEventListener("click", function () { setAll(true); save("All cookies accepted. Your preferences have been saved."); });
-  if (rejectAll) rejectAll.addEventListener("click", function () { setAll(false); save("Only strictly necessary cookies are on. Your preferences have been saved."); });
-  if (saveBtn) saveBtn.addEventListener("click", function () { save("Your cookie preferences have been saved."); });
-  read();
-})();
-`;
-
 export default function CookiesPolicyPage() {
   return (
     <>
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p style={{ fontSize: "0.9rem", color: "var(--muted)", margin: "0 0 1rem" }}>
-            <Link href="/">Home</Link> &nbsp;›&nbsp; Cookies Policy
-          </p>
           <h1>Cookies Policy</h1>
           <p className="lead">
             Exactly which cookies this site sets, what each one does, how long it lasts and
@@ -150,30 +86,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 2. On this page */}
-      <section className="section" style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-        <div className="container">
-          <h2 style={{ fontSize: "1.25rem" }}>On this page</h2>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: "1rem 0 0",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.5rem 1.5rem",
-            }}
-          >
-            {toc.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 3. What Cookies Are */}
+      {/* 2. What Cookies Are — the live page has no table of contents */}
       <section className="section section-soft" id="what-cookies-are">
         <div className="container">
           <h2>What Cookies Are</h2>
@@ -192,7 +105,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 4. Your Choices */}
+      {/* 3. Your Choices */}
       <section className="section" id="your-choices">
         <div className="container">
           <h2>Your Choices</h2>
@@ -209,15 +122,10 @@ export default function CookiesPolicyPage() {
             lawfully. We honour Global Privacy Control (GPC) browser signals as a valid
             opt-out where applicable law recognises them.
           </p>
-          <div className="btn-row">
-            <Link className="btn" href="#cookie-preferences">
-              Manage Cookie Preferences
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* 5. Categories of Cookies We Use */}
+      {/* 4. Categories of Cookies We Use */}
       <section className="section section-soft" id="categories">
         <div className="container">
           <h2>Categories of Cookies We Use</h2>
@@ -243,7 +151,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 6. Third-Party Providers */}
+      {/* 5. Third-Party Providers */}
       <section className="section" id="third-party-providers">
         <div className="container">
           <h2>Third-Party Providers</h2>
@@ -271,7 +179,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 7. Managing Cookies in Your Browser */}
+      {/* 6. Managing Cookies in Your Browser */}
       <section className="section section-soft" id="managing-cookies">
         <div className="container">
           <h2>Managing Cookies in Your Browser</h2>
@@ -304,7 +212,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 8. Do Not Track */}
+      {/* 7. Do Not Track */}
       <section className="section" id="do-not-track">
         <div className="container">
           <h2>Do Not Track</h2>
@@ -316,7 +224,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 9. Changes and Contact */}
+      {/* 8. Changes and Contact */}
       <section className="section section-soft" id="changes-and-contact">
         <div className="container">
           <h2>Changes and Contact</h2>
@@ -330,83 +238,7 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 10. Cookie Preferences (working controls for the choices described above) */}
-      <section className="section" id="cookie-preferences">
-        <div className="container">
-          <p className="eyebrow">Your Choices</p>
-          <h2>Cookie Preferences</h2>
-          <p className="lead">
-            Essential cookies are always on because the site cannot function without them.
-            Everything else is off until you opt in, and you can change your mind at any time.
-          </p>
-          <div className="card" style={{ marginTop: "2rem" }}>
-            <label
-              style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", padding: "0.75rem 0" }}
-            >
-              <input type="checkbox" defaultChecked disabled style={{ marginTop: "0.25rem" }} />
-              <span>
-                <strong>Strictly necessary — always on</strong>
-                <br />
-                <span style={{ color: "var(--muted)" }}>
-                  Required for the site to work: security, load balancing and remembering your
-                  consent choice.
-                </span>
-              </span>
-            </label>
-            <label
-              style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", padding: "0.75rem 0" }}
-            >
-              <input id="pref-analytics" type="checkbox" style={{ marginTop: "0.25rem" }} />
-              <span>
-                <strong>Analytics and performance</strong>
-                <br />
-                <span style={{ color: "var(--muted)" }}>
-                  Help us understand which pages are useful and where people get stuck.
-                </span>
-              </span>
-            </label>
-            <label
-              style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", padding: "0.75rem 0" }}
-            >
-              <input id="pref-advertising" type="checkbox" style={{ marginTop: "0.25rem" }} />
-              <span>
-                <strong>Advertising and measurement</strong>
-                <br />
-                <span style={{ color: "var(--muted)" }}>
-                  Used to measure campaign performance. Set only with your consent.
-                </span>
-              </span>
-            </label>
-            <label
-              style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", padding: "0.75rem 0" }}
-            >
-              <input id="pref-functional" type="checkbox" style={{ marginTop: "0.25rem" }} />
-              <span>
-                <strong>Functional and preference</strong>
-                <br />
-                <span style={{ color: "var(--muted)" }}>
-                  Remembers display preferences such as region, and embedded video playback.
-                </span>
-              </span>
-            </label>
-            <p id="cookie-pref-status" role="status" style={{ color: "var(--muted)", minHeight: "1.5em" }} />
-            <div className="btn-row">
-              <button type="button" className="btn" id="pref-accept-all">
-                Accept All
-              </button>
-              <button type="button" className="btn btn-outline" id="pref-reject-all">
-                Reject Optional
-              </button>
-              <button type="button" className="btn btn-outline" id="pref-save">
-                Save Choices
-              </button>
-            </div>
-          </div>
-          <script dangerouslySetInnerHTML={{ __html: preferencesScript }} />
-        </div>
-      </section>
-
-      {/* 11. Final CTA */}
+      {/* 9. Final CTA */}
       <section className="section section-blue final-cta">
         <div className="container">
           <h2>Questions about how we handle your data?</h2>

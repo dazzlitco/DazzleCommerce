@@ -389,7 +389,7 @@ export default function RequestProposalPage() {
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "1.5rem" }}>
             <Link href="/">Home</Link> › <Link href="/pricing/">Pricing</Link> › Request a Proposal
           </p>
-          <div className="hero-grid">
+          <div>
             <div>
               <p className="eyebrow">Proposal request</p>
               <p className="eyebrow" style={{ display: "block", color: "var(--muted)" }}>
@@ -414,15 +414,6 @@ export default function RequestProposalPage() {
                 Every proposal is written against your numbers, not assembled from a template
                 with your logo dropped on it.
               </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/request-a-proposal-hero.webp"
-                alt="Two business buyers discussing documents over coffee"
-                width={1400}
-                height={788}
-                priority
-              />
             </div>
           </div>
           <div className="stat-row">
@@ -479,39 +470,27 @@ export default function RequestProposalPage() {
       {/* 3. The shape of it */}
       <section className="section section-soft" id="rp-anatomy">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">The shape of it</p>
-              <h2>Front-loaded, deliberately</h2>
-              <p>The first page is the argument. The scope and the price follow from it rather than leading it.</p>
-              <p>
-                Most agency proposals open with an About Us section, a client logo wall and a
-                description of the agency’s methodology. By the time anything about your business
-                appears, the reader has skimmed four pages. Ours opens on page one with what we
-                think is holding your revenue down and why we think it — then everything after
-                that is the case for fixing it in a particular order.
-              </p>
-              <p>
-                That structure has a side effect worth stating: if we cannot name a constraint
-                from what you have given us, the proposal says so rather than padding.
-                Occasionally the honest version of page one is that you should take the free
-                audit first, and we will tell you that instead of quoting.
-              </p>
-              <ul className="check-list">
-                <li>No logo wall, no methodology diagram, no filler case studies</li>
-                <li>Every number in it traceable to something you sent us</li>
-                <li>Written to be forwarded internally without a covering explanation</li>
-              </ul>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/request-a-proposal-shape.webp"
-                alt="Comparing a printed report against a laptop"
-                width={1200}
-                height={800}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">The shape of it</p>
+          <h2>Front-loaded, deliberately</h2>
+          <p>The first page is the argument. The scope and the price follow from it rather than leading it.</p>
+          <p>
+            Most agency proposals open with an About Us section, a client logo wall and a
+            description of the agency’s methodology. By the time anything about your business
+            appears, the reader has skimmed four pages. Ours opens on page one with what we
+            think is holding your revenue down and why we think it — then everything after
+            that is the case for fixing it in a particular order.
+          </p>
+          <p>
+            That structure has a side effect worth stating: if we cannot name a constraint
+            from what you have given us, the proposal says so rather than padding.
+            Occasionally the honest version of page one is that you should take the free
+            audit first, and we will tell you that instead of quoting.
+          </p>
+          <ul className="check-list">
+            <li>No logo wall, no methodology diagram, no filler case studies</li>
+            <li>Every number in it traceable to something you sent us</li>
+            <li>Written to be forwarded internally without a covering explanation</li>
+          </ul>
         </div>
       </section>
 
@@ -970,9 +949,7 @@ export default function RequestProposalPage() {
                 <p style={{ fontWeight: 800, color: "var(--blue)", fontSize: "0.85rem", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
                   {s.label}
                 </p>
-                <h3>
-                  <Link href={s.href}>{s.title}</Link>
-                </h3>
+                <h3>{s.title}</h3>
                 <p>{s.body}</p>
                 <p style={{ marginTop: "1rem", marginBottom: 0 }}>
                   <Link href={s.href} style={{ fontWeight: 700 }}>

@@ -1,17 +1,19 @@
-"use client";
-
-import { useMemo, useState, type FormEvent } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
-// NOTE: this file is a client component because the FAQ search filter and the
-// "ask a question" form need client-side state and validation.
-// (A client module cannot export `metadata`; the page title/description from
-// the extraction — "eCommerce Agency FAQs | Dazzle Commerce" / "Answers to 33
-// questions about eCommerce management and marketing services: scope, process,
-// SEO, platforms, marketplaces, pricing, reporting and results." — should be
-// added via a route-level metadata wrapper if the parent wants it.)
+// FAQs — /faqs/
+// Live source: https://dazzlecommerce.com/faqs/
+// Full word-for-word extraction: clone-plan/faqs-extraction.md
+//
+// Fidelity notes (live is the authority):
+// - The live page has NO search box and NO "ask a question" form anywhere in
+//   <main> — navigation is by category anchor links only. Both were removed.
+// - The live page has NO images inside <main> at all (text-only page). No
+//   hero or group images here.
+// - All 33 Q&As reproduced verbatim in 8 category accordion groups under the
+//   3 group headings, with the same anchor ids as live. Every answer is a
+//   plain single-paragraph string (no links, lists or extra paragraphs), so
+//   no JSX answers are needed.
 
 type Category = {
   id: string;
@@ -23,8 +25,6 @@ type FaqGroup = {
   label: string;
   heading: string;
   intro: string;
-  img: string;
-  imgAlt: string;
   categories: Category[];
 };
 
@@ -33,9 +33,6 @@ const groups: FaqGroup[] = [
     label: "General & Agency",
     heading: "How we work, and who does the work",
     intro: "Questions about the agency itself — scope, people and process.",
-    img: "/images/faqs-agency.webp",
-    imgAlt:
-      "A Dazzle Commerce strategist shaking hands with a client over an onboarding plan",
     categories: [
       {
         id: "faq-general",
@@ -91,9 +88,6 @@ const groups: FaqGroup[] = [
     label: "Services & Platforms",
     heading: "What we actually do, discipline by discipline",
     intro: "Management, marketing, SEO and the platforms and marketplaces we run.",
-    img: "/images/faqs-services.webp",
-    imgAlt:
-      "Dazzle Commerce specialists reviewing store listings and marketplace dashboards",
     categories: [
       {
         id: "faq-management",
@@ -189,9 +183,6 @@ const groups: FaqGroup[] = [
     label: "Pricing, Reporting & Results",
     heading: "What it costs and how you will know it worked",
     intro: "The commercial questions, answered without hedging.",
-    img: "/images/faqs-pricing.webp",
-    imgAlt:
-      "A Dazzle Commerce strategist presenting revenue and reporting figures to a client",
     categories: [
       {
         id: "faq-pricing",
@@ -242,267 +233,82 @@ const groups: FaqGroup[] = [
 ];
 
 const allCategories: Category[] = groups.flatMap((g) => g.categories);
-const totalFaqs = allCategories.reduce((n, c) => n + c.faqs.length, 0);
-
-type AskForm = { name: string; email: string; question: string };
-const emptyAsk: AskForm = { name: "", email: "", question: "" };
 
 export default function FaqsPage() {
-  const [query, setQuery] = useState("");
-  const [ask, setAsk] = useState<AskForm>(emptyAsk);
-  const [askErrors, setAskErrors] = useState<Partial<Record<keyof AskForm, string>>>({});
-  const [askSubmitted, setAskSubmitted] = useState(false);
-  const [askError, setAskError] = useState("");
-
-  const trimmedQuery = query.trim().toLowerCase();
-  const searchResults = useMemo(() => {
-    if (!trimmedQuery) return null;
-    return allCategories
-      .map((c) => ({
-        ...c,
-        faqs: c.faqs.filter(
-          (f) =>
-            f.q.toLowerCase().includes(trimmedQuery) ||
-            f.a.toLowerCase().includes(trimmedQuery),
-        ),
-      }))
-      .filter((c) => c.faqs.length > 0);
-  }, [trimmedQuery]);
-
-  const searchTotal = searchResults
-    ? searchResults.reduce((n, c) => n + c.faqs.length, 0)
-    : 0;
-
-  function setAskField<K extends keyof AskForm>(key: K, value: AskForm[K]) {
-    setAsk((f) => ({ ...f, [key]: value }));
-    setAskErrors((e) => ({ ...e, [key]: undefined }));
-  }
-
-  function validateAsk(): boolean {
-    const next: Partial<Record<keyof AskForm, string>> = {};
-    if (!ask.name.trim()) next.name = "Please enter your name.";
-    if (!ask.email.trim()) {
-      next.email = "Please enter your email address.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ask.email.trim())) {
-      next.email = "That email address does not look right — please check it.";
-    }
-    if (!ask.question.trim()) {
-      next.question = "Please write your question.";
-    } else if (ask.question.trim().length < 10) {
-      next.question = "Please give a little more detail so we can answer properly.";
-    }
-    setAskErrors(next);
-    return Object.keys(next).length === 0;
-  }
-
-  function handleAskSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setAskError("");
-    if (!validateAsk()) return;
-    try {
-      const existing = JSON.parse(localStorage.getItem("dazzle-faq-question") || "[]");
-      existing.push({ ...ask, submittedAt: new Date().toISOString() });
-      localStorage.setItem("dazzle-faq-question", JSON.stringify(existing));
-      setAskSubmitted(true);
-    } catch {
-      setAskError("Something went wrong saving your question. Please try again.");
-    }
-  }
-
-  function resetAsk() {
-    setAsk(emptyAsk);
-    setAskErrors({});
-    setAskSubmitted(false);
-  }
-
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero (text-only on live — no hero image) */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <p className="eyebrow">Frequently Asked Questions</p>
-              <h1>eCommerce Agency Questions, Answered Properly</h1>
-              <p className="lead">
-                Thirty-three questions we are actually asked, grouped by topic. Where the
-                honest answer is &ldquo;it depends&rdquo;, we have said what it depends on
-                rather than leaving you with a slogan.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="#categories">
-                  Browse by Category
-                </Link>
-                <Link className="btn btn-outline" href="/contact/">
-                  Ask Us Directly
-                </Link>
-              </div>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/faqs-hero.webp"
-                alt="A Dazzle Commerce strategist answering a client's questions about their online store"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+          <p className="eyebrow">Frequently Asked Questions</p>
+          <h1>eCommerce Agency Questions, Answered Properly</h1>
+          <p className="lead">
+            Thirty-three questions we are actually asked, grouped by topic. Where the
+            honest answer is &ldquo;it depends&rdquo;, we have said what it depends on
+            rather than leaving you with a slogan.
+          </p>
+          <div className="btn-row">
+            <Link className="btn" href="#categories">
+              Browse by Category
+            </Link>
+            <Link className="btn btn-outline" href="/contact/">
+              Ask Us Directly
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Browse FAQs by Category + search */}
+      {/* 2. Browse FAQs by Category */}
       <section className="section" id="categories" style={{ paddingTop: "32px" }}>
         <div className="container">
           <p className="eyebrow">Browse FAQs by Category</p>
           <h2>Eight topics, thirty-three answers</h2>
           <p className="lead">Jump straight to what you came for.</p>
-          <div style={{ maxWidth: "640px", marginTop: "24px" }}>
-            <label
-              htmlFor="faq-search"
-              style={{ display: "block", fontWeight: 700, marginBottom: "6px" }}
-            >
-              Search all {totalFaqs} answers
-            </label>
-            <input
-              id="faq-search"
-              type="search"
-              className="form-input"
-              style={{ width: "100%" }}
-              placeholder="Try “pricing”, “Amazon”, “SEO” or “onboarding”…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
+          <div className="card-grid card-grid-4">
+            {allCategories.map((c) => (
+              <article className="card platform-card" key={c.id}>
+                <h3 className="platform-name">
+                  <Link href={`#${c.id}`}>{c.title}</Link>
+                </h3>
+                <p>
+                  {c.faqs.length} question{c.faqs.length === 1 ? "" : "s"}
+                </p>
+              </article>
+            ))}
           </div>
-          {searchResults ? (
-            <div style={{ marginTop: "32px" }}>
-              <p style={{ fontWeight: 700 }}>
-                {searchTotal} {searchTotal === 1 ? "answer" : "answers"} matching
-                &ldquo;{query.trim()}&rdquo;
-                {searchTotal > 0 && (
-                  <>
-                    {" "}
-                    —{" "}
-                    <button
-                      type="button"
-                      onClick={() => setQuery("")}
-                      style={{
-                        background: "none",
-                        border: 0,
-                        padding: 0,
-                        font: "inherit",
-                        color: "var(--blue)",
-                        fontWeight: 700,
-                        cursor: "pointer",
-                        textDecoration: "underline",
-                      }}
-                    >
-                      Clear search
-                    </button>
-                  </>
-                )}
-              </p>
-              {searchTotal === 0 ? (
-                <div className="card" style={{ maxWidth: "820px" }}>
-                  <h3>No answers matched that search</h3>
-                  <p>
-                    Try a different word — or ask a senior strategist directly. The first
-                    reply comes from a person who does the work, not a sales development
-                    rep.
-                  </p>
-                  <div className="btn-row">
-                    <button
-                      type="button"
-                      className="btn btn-outline"
-                      onClick={() => setQuery("")}
-                    >
-                      Show all questions
-                    </button>
-                    <Link className="btn" href="/contact/">
-                      Ask Us Directly
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                searchResults.map((c) => (
-                  <div key={c.id} style={{ marginTop: "32px" }}>
-                    <h3>
-                      <Link href={`#${c.id}`}>{c.title}</Link>
-                    </h3>
-                    <FaqAccordion faqs={c.faqs} />
-                  </div>
-                ))
-              )}
-            </div>
-          ) : (
-            <div className="card-grid card-grid-4">
-              {allCategories.map((c) => (
-                <article className="card platform-card" key={c.id}>
-                  <h3 className="platform-name">
-                    <Link href={`#${c.id}`}>{c.title}</Link>
-                  </h3>
-                  <p>
-                    {c.faqs.length} question{c.faqs.length === 1 ? "" : "s"}
-                  </p>
-                </article>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
-      {/* 3–5. FAQ groups and categories (hidden while searching) */}
-      {!searchResults &&
-        groups.map((g, gi) => (
-          <div key={g.label}>
-            {/* Group intro */}
-            <section className={gi % 2 === 0 ? "section section-soft" : "section"}>
-              <div className="container">
-                <div className="split">
-                  {gi % 2 === 1 && (
-                    <div className="split-img">
-                      <Image src={g.img} alt={g.imgAlt} width={1920} height={1280} />
-                    </div>
-                  )}
-                  <div>
-                    <p className="eyebrow">{g.label}</p>
-                    <h2>{g.heading}</h2>
-                    <p className="lead">{g.intro}</p>
-                  </div>
-                  {gi % 2 === 0 && (
-                    <div className="split-img">
-                      <Image src={g.img} alt={g.imgAlt} width={1920} height={1280} />
-                    </div>
-                  )}
-                </div>
+      {/* 3–5. FAQ groups and categories */}
+      {groups.map((g, gi) => (
+        <div key={g.label}>
+          {/* Group intro */}
+          <section className={gi % 2 === 0 ? "section section-soft" : "section"}>
+            <div className="container">
+              <p className="eyebrow">{g.label}</p>
+              <h2>{g.heading}</h2>
+              <p className="lead">{g.intro}</p>
+            </div>
+          </section>
+          {/* Categories in this group */}
+          {g.categories.map((c, ci) => (
+            <section
+              key={c.id}
+              id={c.id}
+              className={ci % 2 === 0 ? "section" : "section section-soft"}
+            >
+              <div className="container center">
+                <h2>{c.title}</h2>
+                <FaqAccordion faqs={c.faqs} />
               </div>
             </section>
-            {/* Categories in this group */}
-            {g.categories.map((c, ci) => (
-              <section
-                key={c.id}
-                id={c.id}
-                className={
-                  ci % 2 === 0 ? "section" : "section section-soft"
-                }
-              >
-                <div className="container center">
-                  <p className="eyebrow">{g.label}</p>
-                  <h2>{c.title}</h2>
-                  <FaqAccordion faqs={c.faqs} />
-                  <p style={{ marginTop: "24px" }}>
-                    <Link href="#categories">Back to all categories</Link>
-                  </p>
-                </div>
-              </section>
-            ))}
-          </div>
-        ))}
+          ))}
+        </div>
+      ))}
 
-      {/* 6. Still have questions? + ask-a-question form */}
+      {/* 6. Still have questions? */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Still Have Questions?</p>
           <h2>Still have questions?</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             If your question is not here, it is probably a good one. Ask a senior
@@ -516,94 +322,6 @@ export default function FaqsPage() {
             <Link className="btn btn-outline" href="/pricing/">
               See Pricing &amp; Packages
             </Link>
-          </div>
-          <div
-            className="card"
-            style={{ maxWidth: "640px", margin: "40px auto 0", textAlign: "left" }}
-          >
-            {askSubmitted ? (
-              <div role="status">
-                <h3>Thank you — your question is in.</h3>
-                <p style={{ color: "var(--muted)" }}>
-                  Thanks, {ask.name.trim()}. A senior strategist will reply to{" "}
-                  {ask.email.trim()} — usually within one business day. If your question
-                  is urgent, the fastest route is the free strategy call above.
-                </p>
-                <button type="button" className="btn btn-outline" onClick={resetAsk}>
-                  Ask another question
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleAskSubmit} noValidate>
-                <h3 style={{ marginBottom: "0.25rem" }}>Ask your question</h3>
-                <p style={{ color: "var(--muted)" }}>
-                  No sales script, no obligation — just an answer from someone who does
-                  the work.
-                </p>
-                <div className="form-field">
-                  <label htmlFor="ask-name">
-                    Your name <span className="required">*</span>
-                  </label>
-                  <input
-                    id="ask-name"
-                    className="form-input"
-                    type="text"
-                    autoComplete="name"
-                    value={ask.name}
-                    onChange={(e) => setAskField("name", e.target.value)}
-                  />
-                  {askErrors.name && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {askErrors.name}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="ask-email">
-                    Email <span className="required">*</span>
-                  </label>
-                  <input
-                    id="ask-email"
-                    className="form-input"
-                    type="email"
-                    autoComplete="email"
-                    value={ask.email}
-                    onChange={(e) => setAskField("email", e.target.value)}
-                  />
-                  {askErrors.email && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {askErrors.email}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="ask-question">
-                    Your question <span className="required">*</span>
-                  </label>
-                  <textarea
-                    id="ask-question"
-                    className="form-input"
-                    rows={4}
-                    style={{ width: "100%", resize: "vertical" }}
-                    value={ask.question}
-                    onChange={(e) => setAskField("question", e.target.value)}
-                  />
-                  {askErrors.question && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {askErrors.question}
-                    </p>
-                  )}
-                </div>
-                {askError && (
-                  <p className="form-msg form-msg-dark err" role="alert">
-                    {askError}
-                  </p>
-                )}
-                <button type="submit" className="btn">
-                  Send My Question
-                </button>
-              </form>
-            )}
           </div>
         </div>
       </section>

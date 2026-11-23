@@ -211,8 +211,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ## Deviations (clone vs live)
 - Images are created matching images, not copies of the live files (per project rules). All 19 clone images are prefixed `ecommerce-creative-content-` (1 hero, 12 asset tiles, 6 portfolio projects), all 1920×1280 .webp.
-- The live portfolio grid repeats the same 6 projects across 7 tab panels with a different stock image per panel (19 portfolio image slots in the HTML). The clone uses one image per project and filters one grid client-side, as the Batch 1 portfolio page does; filter membership per tab was verified from the live tab panels and is recorded in section 9 above.
-- The `Our pricing page` link inside FAQ 4's answer is rendered as plain text in the clone because the shared FaqAccordion component renders FAQ answers as plain strings (same limitation as Batch 1). The words are verbatim; /pricing/ is linked from the hero (`See pricing`) and the final CTA (`See pricing and packages`).
+- The live portfolio grid repeats the same 6 projects across 7 tab panels with a different stock image per panel (19 portfolio image slots in the HTML). The clone now restores that structure: 7 tab panels (All / Product / Ads / Social / Email / Marketplace / Video), each panel holding its own copy of its subset grid (19 card slots in the DOM, projects repeated per panel exactly as live, filter membership per §9). Each project reuses its one matching image in every panel it appears in — live uses a different stock photo per panel for the same project, which created matching images cannot reproduce.
+- FAQ 4's answer now renders `Our pricing page` as a real link → /pricing/ (JSX answer, now that the shared FaqAccordion accepts ReactNode).
 - The `our full FAQ page` link in the FAQ section intro is rendered as a link in the clone (intro paragraph, not inside the accordion).
-- The page is a client component (`"use client"`) because the portfolio asset-type filter is interactive (same approach as app/portfolio/page.tsx), so it exports no per-page metadata; the live title/description are recorded at the top of this file (Batch 1 pattern for client pages).
+- The page is a client component (`"use client"`) because the portfolio tab panels are interactive (same approach as app/portfolio/page.tsx), so it exports no per-page metadata; the live title/description are recorded at the top of this file (Batch 1 pattern for client pages).
 - No form in the main content on the live page, so there is none in the clone; the only forms are the shared footer newsletter form and Register modal.
+
+## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
+- Fresh live fetch agrees with this extraction throughout; no copy corrections needed. The tab-panel restore and FAQ 4 link above were the fixes made in this pass.

@@ -317,40 +317,27 @@ export default function CareersPage() {
 
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero (text-only on live — no hero image) */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <p className="eyebrow">Careers at Dazzle Commerce</p>
-              <h1>Build eCommerce Careers, Not Just Campaigns</h1>
-              <p className="lead">
-                We are a remote-first eCommerce agency of specialists who would rather own an
-                outcome than fill a timesheet. If you want your work measured by what it earns
-                a client — and to be told honestly when it did not — you will fit here.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="#open-positions">
-                  See Open Positions
-                </Link>
-                <Link className="btn btn-outline" href="#talent-pool">
-                  Send a General Application
-                </Link>
-              </div>
-              <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-                Remote-first across five time zones. Three roles open right now.
-              </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/careers-hero.webp"
-                alt="Dazzle Commerce team collaborating around a table in a strategy workshop"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+          <p className="eyebrow">Careers at Dazzle Commerce</p>
+          <h1>Build eCommerce Careers, Not Just Campaigns</h1>
+          <p className="lead">
+            We are a remote-first eCommerce agency of specialists who would rather own an
+            outcome than fill a timesheet. If you want your work measured by what it earns
+            a client — and to be told honestly when it did not — you will fit here.
+          </p>
+          <div className="btn-row">
+            <Link className="btn" href="#open-positions">
+              See Open Positions
+            </Link>
+            <Link className="btn btn-outline" href="#talent-pool">
+              Send a General Application
+            </Link>
           </div>
+          <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
+            Remote-first across five time zones. Three roles open right now.
+          </p>
         </div>
       </section>
 
@@ -570,7 +557,7 @@ export default function CareersPage() {
                   noValidate
                   aria-label="General Application"
                 >
-                  <h2 style={{ fontSize: "1.5rem" }}>General application</h2>
+                  <h3 style={{ fontSize: "1.5rem" }}>General application</h3>
                   <p style={{ color: "var(--muted)" }}>Takes about three minutes.</p>
 
                   <div className="form-field">

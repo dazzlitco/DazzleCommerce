@@ -42,7 +42,7 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - P: The pattern never changed. A senior partner would win the pitch, promise strategic partnership, and then hand the account to someone three months out of university. Reporting arrived as a deck full of impressions. Nobody could answer the only question that mattered: is this channel making us money after costs?
 - P: So she left and started the agency she had been trying to hire. Two people, one Shopify client, and a rule that has survived every stage of growth since: the person who sells the work does the work.
 - P: Nine years later that rule still constrains how fast we grow. We cap the number of accounts each strategist carries, which means we turn away business most quarters. It is the least scalable thing about us and the reason clients stay an average of 31 months.
-- IMG: The Dazzle Commerce team working through an eCommerce growth plan together | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: The Dazzle Commerce team working through an eCommerce growth plan together
 - LI: Our Core Values
 - H2: Our commitments we are willing to lose business over
 - H3: Our Mission
@@ -72,7 +72,7 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - H6: 04
 - H3: Kill things honestly
 - P: Every quarter we recommend cutting something. Sometimes a channel, occasionally a service we provide. Advice you can trust has to include advice against ourselves.
-- IMG: eCommerce specialists reviewing store performance data with a client | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: eCommerce specialists reviewing store performance data with a client
 - LI: Why Businesses Choose Us
 - H2: The reasons clients actually give
 - P: We asked in exit and renewal interviews. These are the answers, in the order they came up most often.
@@ -102,37 +102,37 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - LI: Meet The Team
 - H2: The people who will be on your calls
 - P: No account-manager layer between you and the specialists.You work with the people doing the work.
-- IMG: Dazzle Commerce account management team in a client planning session | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce account management team in a client planning session
 - H3: Alina Whitfield
 - P: Founder & Managing Partner
 - P: Fifteen years in eCommerce, previously head of digital for a nine-figure home goods retailer. Founded Dazzle Commerce after one too many agencies handed her account to a junior.
 - A: X-twitter -> https://x.com/#
 - A: Linkedin -> https://www.linkedin.com/in/#
-- IMG: Dazzle Commerce retention team mapping an email lifecycle programme | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce retention team mapping an email lifecycle programme
 - H3: Marcus Ellery
 - P: Head of Performance Marketing
 - P: Manages $30M+ in annual ad spend across Google, Meta and Amazon. Built the margin-tiered bidding framework we run on every paid account.
 - A: X-twitter -> https://x.com/#
 - A: Linkedin -> https://www.linkedin.com/in/#
-- IMG: Dazzle Commerce team reviewing eCommerce reporting and margin data | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce team reviewing eCommerce reporting and margin data
 - H3: Sana Iqbal
 - P: Director of eCommerce Operations
 - P: Marketplace specialist who has recovered Buy Box on more suppressed ASINs than she cares to count. Runs our catalog and account-health practice.
 - A: X-twitter -> https://x.com/#
 - A: Linkedin -> https://www.linkedin.com/in/#
-- IMG: Dazzle Commerce team researching AI search and product discovery | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce team researching AI search and product discovery
 - H3: Tomas Berger
 - P: Head of Engineering
 - P: Shopify Plus and WooCommerce architect. Has led 40+ replatforms without a ranking loss, which he will tell you is mostly redirect discipline.
 - A: X-twitter -> https://x.com/#
 - A: Linkedin -> https://www.linkedin.com/in/#
-- IMG: Dazzle Commerce conversion team reviewing product page designs | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce conversion team reviewing product page designs
 - H3: Ruth Adeyemi
 - P: Head of Retention
 - P: Lifecycle strategist specialising in Klaviyo and Attentive. Typically takes email and SMS from 8% to 30% of revenue inside two quarters.
 - A: X-twitter -> https://x.com/#
 - A: Linkedin -> https://www.linkedin.com/in/#
-- IMG: Dazzle Commerce team preparing a marketplace launch checklist | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Dazzle Commerce team preparing a marketplace launch checklist
 - H3: Daniel Cortez
 - P: Creative Director
 - P: Runs production and the creative testing calendar. Believes the brief matters more than the camera, and has the test data to argue it.
@@ -141,17 +141,17 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - LI: Certifications & Partnerships
 - H2: Badged where badges mean something
 - P: Certification is table stakes rather than a differentiator — but its absence tells you something, so here it is.
-- IMG: Shopify Partners badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Shopify Partners badge
 - P: Certified Shopify and Shopify Plus development partner
-- IMG: Google Partner badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Google Partner badge
 - P: Certified across search, shopping and Performance Max
-- IMG: Meta Business Partner badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Meta Business Partner badge
 - P: Badged partner for Meta advertising and commerce
-- IMG: Amazon Ads Partner Network badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Amazon Ads Partner Network badge
 - P: Verified partner in the Amazon Ads Partner Network
-- IMG: LinkedIn Marketing Partner badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: LinkedIn Marketing Partner badge
 - P: Top-tier partner status for lifecycle and retention
-- IMG: Microsoft Advertising Partner badge | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: Microsoft Advertising Partner badge
 - P: Verified partner in the Microsoft Partner Network
 - LI: Journey Milestones
 - H2: Our growth journey
@@ -174,7 +174,7 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - H3: 2026
 - H4: Retention and creative studios opened
 - P: Full lifecycle and in-house production capability, closing the last gap in the growth stack.
-- IMG: The Dazzle Commerce team marking a milestone in the agency history | data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=
+- IMG: The Dazzle Commerce team marking a milestone in the agency history
 - LI: FAQs About the Agency
 - H2: What people ask before the first call
 - H3: How big is the team and who will I work with?
@@ -201,7 +201,7 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - about-why-choose-image.webp — "eCommerce specialists reviewing store performance data with a client"
 - about-milestones-image.webp — "The Dazzle Commerce team marking a milestone in the agency history"
 - Team cards use scene images, not individual portraits, paired as on the live page: Alina Whitfield → dazzle-team-photos-1 "account management team in a client planning session"; Marcus Ellery → photos-6 "retention team mapping an email lifecycle programme"; Sana Iqbal → photos-5 "team reviewing eCommerce reporting and margin data"; Tomas Berger → photos-2 "team researching AI search and product discovery"; Ruth Adeyemi → photos-4 "conversion team reviewing product page designs"; Daniel Cortez → photos-7 "team preparing a marketplace launch checklist"
-- Partner badges: Shopify Partners, Google Partner, Meta Business Partner, Amazon Ads Partner Network, LinkedIn Marketing Partner, Microsoft Advertising Partner
+- Partner badges: Shopify Partners, Google Partner, Meta Business Partner, Amazon Ads Partner Network, LinkedIn Marketing Partner, Microsoft Advertising Partner — on the live page these are real badge graphics (shopify-partners.webp, Google-Partners.webp, Meta-partners.webp, etc.); the clone renders them as text cards with the same names and notes. (Note 2026-11-23: generating lookalike partner-logo graphics was not attempted — the copy is identical, only the badge artwork differs.)
 
 ## Notes / quirks kept verbatim
 - "Read Case Studies" button links to /contact/ on the live page.

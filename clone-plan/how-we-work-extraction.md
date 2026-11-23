@@ -15,7 +15,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - No `<form>` element exists anywhere in the live page's `<main>` content (verified by regex over the fetched HTML). All conversion actions are links (see CTAs below).
 
 ## Breadcrumb
-- `Home › How We Work` (Home → /)
+- `Home › How We Work` (Home → /) — JSON-LD schema only; no visible breadcrumb element is rendered in the page body (verified 2026-11-23).
 
 ## Main content — in order
 
@@ -255,6 +255,6 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - British spelling throughout the live copy: `prioritised`, `optimise`, `catalogue` (sequence table), `fulfilment`, `merchandising` is spelled the same either way. Kept verbatim.
 - The "first 30 days" eyebrow is a full sentence (`The first thirty days decide whether the following twelve months are any good.`) rather than a short label — unusual vs. other sections.
 - Section 5 ("Inside the work") is the only section with four separate images, one per item.
-- The live FAQ accordion markup is present in the HTML (228 matches for `faq|accordion` across the whole page, mostly Elementor boilerplate); the 8 Q&As above are the visible content.
+- The live FAQ accordion markup is present in the HTML (Elementor boilerplate); the 8 Q&As above are the visible content.
 - No stats/numbers block on this page (no "100+ brands" style stat row) — the page is process narrative, not a numbers page.
 - No form on the live page; the clone therefore needs no form either. Conversion is via links to /ecommerce-audit/, /contact/, /pricing/ and /book-a-strategy-call/ (header).

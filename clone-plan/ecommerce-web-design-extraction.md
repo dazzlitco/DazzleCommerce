@@ -121,7 +121,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   11. `Landing page kit` — image `A flat screen monitor on a wooden desk` (electronics-insight-seo-1024x576.jpg, 800×450)
   12. `Developer handover pack` — image `A person working on a laptop computer` (dzph-af5oi0kobye-1024x683.jpg, 800×534)
 - Closing note: `Not every engagement needs all twelve. A template programme on an existing store is usually five or six of these; a replatform design is most of them.`
-- Quirk: several of these images are the same files the live site reuses on other pages (e.g. portfolio-hero, wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-retention / specification / insight-seo). The clone creates fresh matching images with the `ecommerce-web-design-` prefix for each deliverable instead of reusing the Batch 1 files.
+- Quirk: several of these images are the same files the live site reuses on other pages (e.g. portfolio-hero, wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-retention / specification / insight-seo). The clone creates fresh matching images with the `ecommerce-web-design-` prefix for each deliverable instead of reusing the Batch 1 files — except deliverable 3 (Information architecture map), which since the 2026-11-23 fidelity fix uses the clone's existing `portfolio-hero.webp` (the live file, same alt text). The other live reused files (wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-*) do not exist in the clone's public/images/, so those 11 deliverables keep their created images; count (12) and placement match live.
 
 ### 6. The Process
 - Eyebrow/label: `The Process`
@@ -203,6 +203,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   6. Q: `What do you hand over?` A: `Editable source files, a design system with tokens and components, documented states for every template including empty, loading and error, accessibility annotations, and the written rationale for the decisions we made. Not a PDF of screenshots. The test we hold ourselves to is whether a developer who has never spoken to us could build it correctly from what we handed over.`
   7. Q: `Is accessibility really necessary?` A: `Yes, for two reasons. It is a legal requirement in a growing number of markets, and the exposure sits with the retailer rather than the agency. Commercially it also overlaps almost entirely with good design: contrast, target sizes, focus order, clear labels and keyboard operation help every customer on a phone in bright sunlight, not only screen-reader users. We design to WCAG 2.2 AA because retrofitting it later costs several times more than building it in.`
   8. Q: `How is a redesign measured?` A: `Against the baseline agreed before we start: conversion rate and revenue per session per template and per device, funnel progression between steps, Core Web Vitals, and an accessibility pass. We report the templates that got worse as well as the ones that improved, because a redesign almost never moves everything in one direction and pretending otherwise makes the next decision worse.`
+
+- Fidelity fix 2026-11-23: FAQ 3 renders `our pricing page` as a link → /pricing/ and FAQ 5 renders `development team` as a link → /ecommerce-development/ (JSX answers in the shared FaqAccordion, which now accepts ReactNode).
 
 ### 11. Final CTA
 - H2: `Find out which templates are costing you`

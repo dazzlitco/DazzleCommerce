@@ -18,10 +18,10 @@ export const metadata: Metadata = {
       "Product photography for online retailers, shot to each channel specs, tested against conversion rate and priced per SKU. See scope, process and pricing.",
     images: [
       {
-        url: "/images/ecommerce-product-photography-hero.webp",
+        url: "/images/ecommerce-management-hero.webp",
         width: 1920,
         height: 1280,
-        alt: "Product photographer shooting a product on a white studio background with softbox lights",
+        alt: "Warehouse aisle stacked with boxes and pallets",
       },
     ],
   },
@@ -44,7 +44,15 @@ const faqs: Faq[] = [
   },
   {
     q: "How does product photography pricing work?",
-    a: "Per SKU, against a frame count agreed in the shot list, with the rate stepping down as volume rises. Product photography pricing quoted as a day rate hides the number that matters, which is cost per finished, channel-ready image. Send a SKU list and we will quote on that basis; our pricing page explains how engagements are structured more generally.",
+    a: (
+      <>
+        Per SKU, against a frame count agreed in the shot list, with the rate stepping down
+        as volume rises. Product photography pricing quoted as a day rate hides the number
+        that matters, which is cost per finished, channel-ready image. Send a SKU list and
+        we will quote on that basis; <Link href="/pricing/">our pricing page</Link>{" "}
+        explains how engagements are structured more generally.
+      </>
+    ),
   },
   {
     q: "Do we ship you product, or do you come to us?",
@@ -64,7 +72,14 @@ const faqs: Faq[] = [
   },
   {
     q: "Do you handle Amazon A+ and marketplace modules too?",
-    a: "Yes. A+ content, Walmart rich media and marketplace infographics come out of the same shoot rather than being commissioned separately, which is the main reason marketplace modules usually look like they belong to a different brand. Our Amazon team briefs them.",
+    a: (
+      <>
+        Yes. A+ content, Walmart rich media and marketplace infographics come out of the
+        same shoot rather than being commissioned separately, which is the main reason
+        marketplace modules usually look like they belong to a different brand. Our{" "}
+        <Link href="/amazon-agency/">Amazon team</Link> briefs them.
+      </>
+    ),
   },
 ];
 
@@ -291,8 +306,8 @@ const whyChoose = [
 
 const proof = [
   {
-    image: "/images/ecommerce-product-photography-cadence-audio.webp",
-    alt: "Premium wireless headphones hero product shot on a white background with travel case",
+    image: "/images/case-nutriblend.webp",
+    alt: "Dazzle Commerce SEO team working through category page structure",
     width: 1920,
     height: 1280,
     client: "Cadence Audio",
@@ -307,10 +322,10 @@ const proof = [
     ],
   },
   {
-    image: "/images/ecommerce-product-photography-aurelia-apparel.webp",
-    alt: "Model wearing a neutral linen garment in a bright studio, on-model fit photography",
-    width: 1120,
-    height: 2240,
+    image: "/images/case-vac-vacuums.webp",
+    alt: "Dazzle Commerce marketplace team reviewing Amazon account performance",
+    width: 1920,
+    height: 1280,
     client: "Aurelia Studio",
     meta: "Apparel · Shopify",
     challenge:
@@ -323,8 +338,8 @@ const proof = [
     ],
   },
   {
-    image: "/images/ecommerce-product-photography-nutriblend-lifestyle.webp",
-    alt: "Health supplement jars and a smoothie in a bright kitchen, lifestyle photography",
+    image: "/images/case-kitchenary.webp",
+    alt: "Dazzle Commerce paid media specialists reviewing campaign performance",
     width: 1920,
     height: 1280,
     client: "Nutriblend",
@@ -371,8 +386,8 @@ export default function EcommerceProductPhotographyPage() {
             </div>
             <div className="hero-img">
               <Image
-                src="/images/ecommerce-product-photography-hero.webp"
-                alt="Product photographer shooting a product on a white studio background with softbox lights"
+                src="/images/ecommerce-management-hero.webp"
+                alt="Warehouse aisle stacked with boxes and pallets"
                 width={1920}
                 height={1280}
                 priority

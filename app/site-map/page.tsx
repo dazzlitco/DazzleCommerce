@@ -1,15 +1,12 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 
-// NOTE: this file is a client component because the sitemap search filter
-// needs client-side state. (A client module cannot export `metadata`; the
-// page title/description from the extraction — "Site Map | Dazzle Commerce" /
-// "Every page, section and article on the Dazzle Commerce website: services,
-// industries, case studies, blog posts, locations and legal policies." —
-// should be added via a route-level metadata wrapper if the parent wants it.)
+export const metadata: Metadata = {
+  title: "Site Map | Dazzle Commerce",
+  description:
+    "Every page, section and article on the Dazzle Commerce website: services, industries, case studies, blog posts, locations and legal policies.",
+  alternates: { canonical: "https://dazzlecommerce.com/site-map/" },
+};
 
 type SitemapEntry = { title: string; href: string; desc: string };
 type SitemapGroup = { title: string; id: string; entries: SitemapEntry[] };
@@ -266,120 +263,35 @@ const groups: SitemapGroup[] = [
   },
 ];
 
-const totalEntries = groups.reduce((n, g) => n + g.entries.length, 0);
-
 export default function SiteMapPage() {
-  const [query, setQuery] = useState("");
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return groups;
-    return groups
-      .map((g) => ({
-        ...g,
-        entries: g.entries.filter(
-          (e) =>
-            e.title.toLowerCase().includes(q) ||
-            e.desc.toLowerCase().includes(q) ||
-            g.title.toLowerCase().includes(q),
-        ),
-      }))
-      .filter((g) => g.entries.length > 0);
-  }, [query]);
-
-  const shownEntries = filtered.reduce((n, g) => n + g.entries.length, 0);
-
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero — text-only on the live page: no hero image, no search box */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <p className="eyebrow">Site Map</p>
-              <h1>Site Map</h1>
-              <p className="lead">
-                Every page on this site, grouped and described. If you are
-                looking for something specific and cannot find it here,{" "}
-                <Link href="/contact/">tell us</Link> and we will point you at
-                it.
-              </p>
-              <p style={{ fontWeight: 700, color: "var(--navy)", marginTop: "1rem" }}>
-                All Pages
-              </p>
-              <h2 style={{ fontSize: "1.35rem", marginBottom: "0.5rem" }}>
-                137 destinations across nine groups
-              </h2>
-              <p style={{ color: "var(--muted)" }}>
-                Human-readable version. Search engines should use the{" "}
-                <Link href="/sitemap.xml">XML sitemap</Link>.
-              </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/site-map-hero.webp"
-                alt="Dazzle Commerce strategists planning the structure of the website at a desk with a sitemap diagram"
-                width={1200}
-                height={800}
-                priority
-              />
-            </div>
-          </div>
+          <h1>Site Map</h1>
+          <p className="lead">
+            Every page on this site, grouped and described. If you are looking
+            for something specific and cannot find it here,{" "}
+            <Link href="/contact/">tell us</Link> and we will point you at it.
+          </p>
+          <p style={{ fontWeight: 700, color: "var(--navy)", marginTop: "1rem" }}>
+            All Pages
+          </p>
+          <h2 style={{ fontSize: "1.35rem", marginBottom: "0.5rem" }}>
+            137 destinations across nine groups
+          </h2>
+          <p style={{ color: "var(--muted)" }}>
+            Human-readable version. Search engines should use the{" "}
+            <Link href="/sitemap.xml">XML sitemap</Link>.
+          </p>
         </div>
       </section>
 
       {/* 2. Sitemap index */}
       <section className="section" style={{ paddingTop: "32px" }}>
         <div className="container">
-          <label
-            htmlFor="sitemap-search"
-            style={{ fontWeight: 700, color: "var(--navy)", display: "block", marginBottom: "8px" }}
-          >
-            Search all {totalEntries} pages
-          </label>
-          <input
-            id="sitemap-search"
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Try “Shopify”, “checklist”, “calculator”, “London”…"
-            aria-label="Search the site map"
-            style={{
-              width: "100%",
-              maxWidth: "640px",
-              padding: "14px 18px",
-              font: "inherit",
-              border: "1px solid var(--line)",
-              borderRadius: "12px",
-              background: "#fff",
-              color: "var(--ink)",
-            }}
-          />
-          <p style={{ color: "var(--muted)", marginTop: "10px" }} aria-live="polite">
-            {query.trim()
-              ? `Showing ${shownEntries} of ${totalEntries} pages matching “${query.trim()}”.`
-              : `Showing all ${totalEntries} pages across ${groups.length} groups.`}
-          </p>
-
-          {!query.trim() && (
-            <div className="btn-row" style={{ marginTop: "0.5rem", marginBottom: "8px" }}>
-              {groups.map((g) => (
-                <a key={g.id} className="btn btn-outline" href={`#${g.id}`} style={{ padding: "8px 16px" }}>
-                  {g.title}
-                </a>
-              ))}
-            </div>
-          )}
-
-          {filtered.length === 0 && (
-            <p style={{ marginTop: "32px" }}>
-              Nothing matches “{query.trim()}”. Try a broader word — or{" "}
-              <Link href="/contact/">tell us what you are looking for</Link>{" "}
-              and we will point you at it.
-            </p>
-          )}
-
-          {filtered.map((g) => (
+          {groups.map((g) => (
             <div key={g.id} id={g.id} style={{ marginTop: "40px", scrollMarginTop: "96px" }}>
               <h2 style={{ marginBottom: "4px" }}>{g.title}</h2>
               <p style={{ color: "var(--muted)", marginBottom: "20px" }}>
@@ -403,7 +315,6 @@ export default function SiteMapPage() {
       {/* 3. How this site is structured */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Information Architecture</p>
           <h2>How this site is structured</h2>
           <p className="lead">
             The information architecture follows how eCommerce brands actually

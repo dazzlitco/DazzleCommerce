@@ -274,7 +274,6 @@ export default function LocationsPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Locations We Serve</p>
               <h1>eCommerce Growth, Wherever You Sell</h1>
               <p className="lead">
                 We serve eCommerce brands and marketplace sellers across the United States,
@@ -409,14 +408,6 @@ export default function LocationsPage() {
                 </Link>
               </div>
             </div>
-            <div className="split-img">
-              <Image
-                src="/images/locations-we-serve-capabilities.webp"
-                alt="Dazzle Commerce team working across time zones on international marketplace accounts"
-                width={1920}
-                height={1280}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -433,14 +424,6 @@ export default function LocationsPage() {
                 <p>{w.body}</p>
               </article>
             ))}
-          </div>
-          <div className="split-img" style={{ marginTop: "32px" }}>
-            <Image
-              src="/images/locations-we-serve-global-team.webp"
-              alt="Cross-border fulfilment: parcels prepared for international eCommerce delivery"
-              width={1920}
-              height={1280}
-            />
           </div>
         </div>
       </section>

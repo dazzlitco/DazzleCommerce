@@ -118,7 +118,7 @@ Copy below is word-for-word from the live HTML (main content region, `id="conten
 - Copyright: `© 2022-2026 Dazzle Commerce. All rights reserved.`
 
 ## Gaps / quirks noted
-- No images, no tables, no FAQ accordion, no TOC and no form in the main content — the live page is a plain legal text page (48 text nodes: 1 H1, 11 H2s, 15 paragraphs, 21 list items).
+- No images, no tables, no FAQ accordion, no TOC and no form in the main content — the live page is a plain legal text page (48 text nodes: 1 H1, 11 H2s, 15 paragraphs, 21 list items). Fix pass 2026-11-23: the clone's "On this page" anchor-nav card, its per-section eyebrow labels and the "Email the Data Protection Lead" button were all removed (none are on the live page). A fresh re-fetch attempt (browser.open, 16:16 UTC) failed with a network error, so verification used this same-day curl extraction (38/38 copy checks present after the fix pass).
 - Two of the four lists are `<ol>` (Lawful Bases, Breach steps) and two are `<ul>` (Controller/Processor, Rights) — reproduced as such in the clone.
 - "our Privacy Policy" (§3) and `privacy@dazzlecommerce.com` (§13) are plain text on live, not links; the clone keeps them as plain text.
 - Footer address says Suite 480; JSON-LD Organisation/Place schema says Suite 400. Both kept verbatim in their own places; the clone footer is shared via layout, so this note is for the record only.

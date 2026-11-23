@@ -104,7 +104,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ## Quirks / gaps noted
 - No cookie table exists on the live page: despite the subject, every cookie is given as a bullet list item (name — purpose, duration, party), not a `<table>`. Zero `<table>` elements in the fetched HTML.
-- No table of contents / anchor navigation on the live page, and no visible cookie-preference widget or consent-banner markup in the fetched HTML. The copy in "Your Choices" refers to "the consent banner" and to "the cookie settings link in the site footer", but no distinct cookie-settings control was found in the fetched footer HTML — only the Cookies Policy link itself. (A consent banner may be injected by a script at runtime; it was not present in the fetched static HTML.)
+- No table of contents / anchor navigation on the live page, and no visible cookie-preference widget or consent-banner markup in the fetched HTML. The copy in "Your Choices" refers to "the consent banner" and to "the cookie settings link in the site footer", but no distinct cookie-settings control was found in the fetched footer HTML — only the Cookies Policy link itself. (A consent banner may be injected by a script at runtime; it was not present in the fetched static HTML.) Fix pass 2026-11-23: the clone's "On this page" TOC, hero breadcrumb, "Manage Cookie Preferences" button and working cookie-preferences panel were all removed; the page now presents the policy text only, as live.
+- Re-verified 2026-11-23 16:16 UTC via browser.open — this extraction confirmed verbatim (38/38 copy checks present after the fix pass).
 - No images on the live page (no featured image, no og:image, no `<img>` in the main content).
 - The "Effective immediately upon posting" dateline gives no separate effective date.
 - Spelling is British throughout ("honour", "recognises", "organised" style) — kept verbatim.

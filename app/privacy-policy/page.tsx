@@ -29,7 +29,6 @@ export default function PrivacyPolicyPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Privacy Policy</p>
           <h1>Privacy Policy</h1>
           <p className="lead">
             How we collect, use, store and protect personal data — and the rights you have

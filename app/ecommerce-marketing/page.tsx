@@ -16,14 +16,6 @@ export const metadata: Metadata = {
     title: "eCommerce Marketing Agency Services | Dazzle Commerce",
     description:
       "Full-funnel eCommerce marketing: SEO, paid advertising, Google Shopping, paid social, email and retention, and CRO run as one plan measured on blended CAC.",
-    images: [
-      {
-        url: "/images/ecommerce-marketing-hero.webp",
-        width: 1920,
-        height: 1280,
-        alt: "Marketing team reviewing strategy at a whiteboard",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -40,7 +32,15 @@ const faqs: Faq[] = [
   },
   {
     q: "How is this different from your eCommerce management service?",
-    a: "eCommerce management covers running the store as a business — catalog, merchandising, operations and reporting — with marketing inside it. eCommerce marketing is the growth half on its own, for brands whose store operations are already handled internally. If you need both, management is the wider engagement.",
+    a: (
+      <>
+        <Link href="/ecommerce-management/">eCommerce management</Link> covers running the
+        store as a business — catalog, merchandising, operations and reporting — with
+        marketing inside it. eCommerce marketing is the growth half on its own, for brands
+        whose store operations are already handled internally. If you need both, management
+        is the wider engagement.
+      </>
+    ),
   },
   {
     q: "Which channels should we actually be on?",
@@ -52,7 +52,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What does eCommerce marketing cost?",
-    a: "Engagements typically run $3,500–$18,000/month depending on channels, scope and growth goals, separate from ad spend. Most marketing-only engagements sit between $5,000 and $12,000. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        Engagements typically run $3,500–$18,000/month depending on channels, scope and
+        growth goals, separate from ad spend. Most marketing-only engagements sit between
+        $5,000 and $12,000. Our <Link href="/pricing/">pricing page</Link> explains how we
+        scope it.
+      </>
+    ),
   },
   {
     q: "How long until we see results?",
@@ -532,12 +539,16 @@ export default function EcommerceMarketingPage() {
               <article className="case-card" key={c.name}>
                 <Image src={c.img} alt={c.imgAlt} width={1200} height={800} />
                 <div className="case-body">
-                  <p className="case-cat">{c.cat}</p>
+                  <p className="case-cat">Client</p>
                   <h3>
                     <Link href={c.href}>{c.name}</Link>
                   </h3>
+                  <p>{c.cat}</p>
+                  <p className="case-cat">Challenge</p>
                   <p style={{ color: "var(--muted)" }}>{c.challenge}</p>
+                  <p className="case-cat">Marketing strategy</p>
                   <p>{c.strategy}</p>
+                  <p className="case-cat">Result</p>
                   <div className="case-metrics">
                     {c.metrics.map((m) => (
                       <div key={m.label}>

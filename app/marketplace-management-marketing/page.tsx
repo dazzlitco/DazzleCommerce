@@ -45,11 +45,28 @@ const faqs: Faq[] = [
   },
   {
     q: "Do you provide marketplace SEO?",
-    a: "Yes, and it is a different discipline from web SEO. Marketplace search weighs relevance, information completeness, sales history, price competitiveness and seller performance together, and the keyword research has to come from how people search on that marketplace rather than on Google. Our web methodology is on the eCommerce SEO page; the marketplace application sits here and on each channel page.",
+    a: (
+      <>
+        Yes, and it is a different discipline from web SEO. Marketplace search weighs
+        relevance, information completeness, sales history, price competitiveness and seller
+        performance together, and the keyword research has to come from how people search on
+        that marketplace rather than on Google. Our web methodology is on the{" "}
+        <Link href="/ecommerce-seo/">eCommerce SEO page</Link>; the marketplace application
+        sits here and on each channel page.
+      </>
+    ),
   },
   {
     q: "Do you manage marketplace advertising?",
-    a: "Yes — sponsored products, sponsored brands, display and the regional equivalents, structured by product line, margin band and objective. We measure on contribution after commission, fulfilment and returns rather than on ROAS alone, because a campaign can look excellent on ROAS and still lose money once the channel costs are in. General paid media sits on our PPC page.",
+    a: (
+      <>
+        Yes — sponsored products, sponsored brands, display and the regional equivalents,
+        structured by product line, margin band and objective. We measure on contribution
+        after commission, fulfilment and returns rather than on ROAS alone, because a
+        campaign can look excellent on ROAS and still lose money once the channel costs are
+        in. General paid media sits on our <Link href="/ecommerce-ppc/">PPC page</Link>.
+      </>
+    ),
   },
   {
     q: "Can you optimize our product listings?",
@@ -61,7 +78,14 @@ const faqs: Faq[] = [
   },
   {
     q: "Do you provide marketplace creative?",
-    a: "Yes. Product imagery, specification graphics, lifestyle shots, scale references, video and enhanced content, built to each marketplace’s guidelines rather than reused from your own storefront. The full creative process and portfolio is on our creative & content page.",
+    a: (
+      <>
+        Yes. Product imagery, specification graphics, lifestyle shots, scale references,
+        video and enhanced content, built to each marketplace’s guidelines rather than
+        reused from your own storefront. The full creative process and portfolio is on our{" "}
+        <Link href="/ecommerce-creative-content/">creative &amp; content page</Link>.
+      </>
+    ),
   },
   {
     q: "Can you manage large catalogs?",
@@ -77,18 +101,9 @@ const stats = [
 ];
 
 const trustBadges = [
-  {
-    title: "Management and marketing under one team",
-    body: "because on marketplaces they are the same job",
-  },
-  {
-    title: "Twelve marketplaces",
-    body: "from North America to South Asia, the Gulf and Africa",
-  },
-  {
-    title: "Measured on contribution",
-    body: "after commission, fulfilment, ads and returns — not on GMV",
-  },
+  "Management and marketing under one team, because on marketplaces they are the same job",
+  "Twelve marketplaces from North America to South Asia, the Gulf and Africa",
+  "Measured on contribution after commission, fulfilment, ads and returns — not on GMV",
 ];
 
 const problems = [
@@ -721,9 +736,8 @@ export default function MarketplaceManagementMarketingPage() {
           </div>
           <div className="trust-badges">
             {trustBadges.map((b) => (
-              <div className="trust-badge" key={b.title}>
-                <h3>{b.title}</h3>
-                <p>{b.body}</p>
+              <div className="trust-badge" key={b}>
+                <p>{b}</p>
               </div>
             ))}
           </div>
@@ -1109,7 +1123,8 @@ export default function MarketplaceManagementMarketingPage() {
           <p className="lead" style={{ margin: "0 auto" }}>
             Eight questions that come up in most marketplace conversations, including the ones
             worth asking any marketplace marketing agency before you sign. More on{" "}
-            <Link href="/faqs/">our full FAQ page</Link>.
+            <Link href="/faqs/">our full FAQ page</Link>
+            {" ."}
           </p>
           <FaqAccordion faqs={faqs} />
           <p style={{ marginTop: "28px" }}>

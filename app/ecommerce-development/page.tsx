@@ -32,7 +32,15 @@ const faqs: Faq[] = [
   },
   {
     q: "What does eCommerce development cost?",
-    a: "Project builds typically start around $15,000 for a well-specified Shopify store and run to $60,000+ for replatforms with custom functionality and integrations. Ongoing maintenance and development retainers run $1,500–$6,000/month. We scope from requirements rather than quoting a package. Our pricing page explains the approach.",
+    a: (
+      <>
+        Project builds typically start around $15,000 for a well-specified Shopify store
+        and run to $60,000+ for replatforms with custom functionality and integrations.
+        Ongoing maintenance and development retainers run $1,500–$6,000/month. We scope
+        from requirements rather than quoting a package.{" "}
+        <Link href="/pricing/">Our pricing page</Link> explains the approach.
+      </>
+    ),
   },
   {
     q: "Which platform should we be on?",
@@ -637,11 +645,15 @@ export default function EcommerceDevelopmentPage() {
             The storefront sits at the centre. Everything below connects to it, and every
             connection is a place where data can silently stop matching.
           </p>
-          <div className="card-grid">
+          <div
+            style={{ maxWidth: "420px", margin: "0 auto 32px", textAlign: "center" }}
+          >
             <article className="card">
               <h3>Your Storefront</h3>
               <p>Connected to the nine systems below</p>
             </article>
+          </div>
+          <div className="card-grid">
             {ecosystem.map((e) => (
               <article className="card" key={e.title}>
                 <h3>{e.title}</h3>

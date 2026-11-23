@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,20 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-const contents = [
-  { id: "short-version", label: "The Short Version" },
-  { id: "ftc-disclosure", label: "Federal Trade Commission Disclosure" },
-  { id: "types-of-relationship", label: "Types of Commercial Relationship We Have" },
-  { id: "tools-we-may-earn-from", label: "Tools We May Earn Commission From" },
-  { id: "how-we-stay-independent", label: "How We Keep Recommendations Independent" },
-  { id: "what-this-costs-you", label: "What This Costs You" },
-  { id: "client-engagements", label: "Client Engagements" },
-  { id: "amazon-associates", label: "Amazon Associates" },
-  { id: "testimonials-and-results", label: "Testimonials and Results" },
-  { id: "no-professional-advice", label: "No Professional Advice" },
-  { id: "questions", label: "Questions" },
-];
-
 const listStyle: React.CSSProperties = {
   margin: "1rem 0",
   paddingLeft: "1.4rem",
@@ -50,67 +35,31 @@ const blockStyle: React.CSSProperties = { marginTop: "2.5rem" };
 export default function AffiliateDisclaimerPage() {
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero — text-only on the live page: no hero image, no anchor nav */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <h1>Affiliate Disclaimer</h1>
-              <p className="lead">
-                Where we earn commission, what commercial relationships we hold, and the rules
-                that keep our recommendations independent of who pays us.
-              </p>
-              <p style={{ color: "var(--muted)", marginTop: "1rem" }}>
-                Last updated: 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
-                posting
-              </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/affiliate-disclaimer-hero.webp"
-                alt="A laptop showing a product comparison beside a printed disclosure document on a bright office desk"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
-          </div>
+          <h1>Affiliate Disclaimer</h1>
+          <p className="lead">
+            Where we earn commission, what commercial relationships we hold, and the rules
+            that keep our recommendations independent of who pays us.
+          </p>
+          <p style={{ color: "var(--muted)", marginTop: "1rem" }}>
+            Last updated: 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
+            posting
+          </p>
         </div>
       </section>
 
-      {/* 2. On this page (clone addition — the live page has no table of contents) */}
-      <section className="section section-soft" style={{ padding: "40px 0" }}>
-        <div className="container">
-          <h2 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>On this page</h2>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "8px 24px",
-            }}
-          >
-            {contents.map((c) => (
-              <li key={c.id}>
-                <Link href={`#${c.id}`}>{c.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 3. Disclaimer body */}
+      {/* 2. Disclaimer body */}
       <section className="section">
         <div className="container" style={{ maxWidth: "860px" }}>
           <div id="short-version">
             <h2>The Short Version</h2>
             <p>
-              Some links on this site earn us a commission. None of them cost you anything
-              extra, none of them change what we recommend to clients, and we tell you when a
-              link is one of them. If a tool is wrong for your business we will say so whether
-              or not we are paid by its maker.
+              <strong>Some links on this site earn us a commission.</strong> None of them cost
+              you anything extra, none of them change what we recommend to clients, and we
+              tell you when a link is one of them. If a tool is wrong for your business we
+              will say so whether or not we are paid by its maker.
             </p>
             <p>
               The rest of this page explains the detail, because “we only recommend products
@@ -122,9 +71,9 @@ export default function AffiliateDisclaimerPage() {
             <h2>Federal Trade Commission Disclosure</h2>
             <p>
               In accordance with the United States Federal Trade Commission’s 16 CFR Part 255,
-              Guides Concerning the Use of Endorsements and Testimonials in Advertising, we
-              disclose that Dazzle Commerce has material connections with some of the products
-              and services mentioned on this website.
+              <em>Guides Concerning the Use of Endorsements and Testimonials in Advertising</em>,
+              we disclose that Dazzle Commerce has material connections with some of the
+              products and services mentioned on this website.
             </p>
             <p>
               A material connection means a relationship that might affect the weight or
@@ -145,22 +94,24 @@ export default function AffiliateDisclaimerPage() {
             <h2>Types of Commercial Relationship We Have</h2>
             <ul style={listStyle}>
               <li>
-                Affiliate links — we earn a commission if you sign up through our link. Marked
-                inline and listed on this page.
+                <strong>Affiliate links</strong> — we earn a commission if you sign up through
+                our link. Marked inline and listed on this page.
               </li>
               <li>
-                Platform partnerships — certified partner status with Shopify, Google, Meta,
-                Amazon Ads and Klaviyo. Stated on our About page.
+                <strong>Platform partnerships</strong> — certified partner status with Shopify,
+                Google, Meta, Amazon Ads and Klaviyo. Stated on our About page.
               </li>
               <li>
-                Referral agreements — a fee when we refer a client to a specialist outside our
-                scope. Disclosed to the client before any introduction.
+                <strong>Referral agreements</strong> — a fee when we refer a client to a
+                specialist outside our scope. Disclosed to the client before any introduction.
               </li>
               <li>
-                Review access — free or discounted product access for evaluation. Stated in the
-                article concerned.
+                <strong>Review access</strong> — free or discounted product access for
+                evaluation. Stated in the article concerned.
               </li>
-              <li>Sponsored content — we do not accept this. See below.</li>
+              <li>
+                <strong>Sponsored content</strong> — we do not accept this. See below.
+              </li>
             </ul>
           </div>
 
@@ -184,26 +135,26 @@ export default function AffiliateDisclaimerPage() {
 
           <div id="how-we-stay-independent" style={blockStyle}>
             <h2>How We Keep Recommendations Independent</h2>
-            <ul style={listStyle}>
+            <ol style={listStyle}>
               <li>
-                Commission never enters the selection process. Tools are chosen on fit, cost,
-                support quality and data portability. The commercial arrangement is checked
-                afterwards, purely for disclosure purposes.
+                <strong>Commission never enters the selection process.</strong> Tools are chosen
+                on fit, cost, support quality and data portability. The commercial arrangement
+                is checked afterwards, purely for disclosure purposes.
               </li>
               <li>
-                Client work overrides everything. If the best tool for a client pays us
-                nothing, that is the one we recommend. This happens routinely.
+                <strong>Client work overrides everything.</strong> If the best tool for a client
+                pays us nothing, that is the one we recommend. This happens routinely.
               </li>
               <li>
-                We publish negative assessments of partner products. Several tools we hold
-                affiliate arrangements with have been criticised in our own articles where the
-                criticism was warranted.
+                <strong>We publish negative assessments of partner products.</strong> Several
+                tools we hold affiliate arrangements with have been criticised in our own
+                articles where the criticism was warranted.
               </li>
               <li>
-                No paid placement, ever. We do not accept payment for inclusion in a
-                comparison, for a guest post, for a link, or for a favourable review.
+                <strong>No paid placement, ever.</strong> We do not accept payment for inclusion
+                in a comparison, for a guest post, for a link, or for a favourable review.
               </li>
-            </ul>
+            </ol>
           </div>
 
           <div id="what-this-costs-you" style={blockStyle}>
@@ -281,7 +232,7 @@ export default function AffiliateDisclaimerPage() {
         </div>
       </section>
 
-      {/* 4. Closing block — Questions about how we handle your data? */}
+      {/* 3. Closing block — Questions about how we handle your data? */}
       <section className="section section-soft">
         <div className="container" style={{ maxWidth: "860px" }}>
           <h2>Questions about how we handle your data?</h2>

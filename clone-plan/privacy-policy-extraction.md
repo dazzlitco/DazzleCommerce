@@ -1,6 +1,7 @@
 # Privacy Policy — full extraction
 
 Source: https://dazzlecommerce.com/privacy-policy/ — re-fetched fresh 2026-11-23 (browser.open crawl 2026-11-23 15:00 UTC; raw HTML via curl, 270,504 bytes)
+Fix pass 2026-11-23: a fresh re-fetch attempt (browser.open, 16:16 UTC) failed with a network error, so verification used this same-day curl extraction; no copy differences were found — the clone already matched word-for-word (36/36 copy checks present). Only change: the clone's hero eyebrow repeating the H1 was removed (no such label on the live page).
 Title: Privacy Policy | Dazzle Commerce
 Description: How Dazzle Commerce collects, uses, shares and protects personal data, and the privacy rights available to visitors, clients and subscribers.
 Canonical: https://dazzlecommerce.com/privacy-policy/ | og:type: article | og:locale: en_US | og:site_name: Dazzle Commerce | og:title: Privacy Policy | Dazzle Commerce | og:description: (same as meta description) | og:url: https://dazzlecommerce.com/privacy-policy/ | og:updated_time: 2026-08-26T01:56:44-05:00 | twitter:card: summary_large_image | twitter:title: Privacy Policy | Dazzle Commerce | article:published_time: 2026-07-01T05:50:31-05:00 | article:modified_time: 2026-08-26T01:56:44-05:00

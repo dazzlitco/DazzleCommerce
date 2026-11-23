@@ -1,21 +1,12 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
-// NOTE: this file is a client component because the partner application form
-// needs client-side validation and a confirmation state. (A client module
-// cannot export `metadata`; the page title/description from the extraction —
-// "eCommerce Agency Partner Program | Dazzle Commerce" — should be added via
-// a route-level metadata wrapper if the parent wants it.)
-//
 // Live-page note: the live /partners/ page has no in-page application form —
 // its CTAs are links to /contact/, /pricing/, #become-a-partner and
-// #partner-programs. The form below powers the "Become a Partner" anchor
-// (#become-a-partner) in this clone so the CTA does real work instead of
-// scrolling to links only. Its fields mirror the four live programs.
+// #partner-programs. The final CTA below is therefore links only, as live.
+// "Join the program" (Affiliate & Creator Partner) links to
+// /affiliate-disclaimer/ on live — reproduced verbatim, not "fixed".
 
 const faqs: Faq[] = [
   {
@@ -49,12 +40,12 @@ const faqs: Faq[] = [
 ];
 
 const badges = [
-  { name: "Shopify Partner", mark: "S", note: "Partner since 2018" },
-  { name: "Amazon Ads Partner", mark: "A", note: "Partner Network since 2021" },
-  { name: "Google Partner", mark: "G", note: "Partner since 2019" },
-  { name: "Meta Business Partner", mark: "M", note: "Verified annually" },
-  { name: "Microsoft Advertising Partner", mark: "Mi", note: "Verified annually" },
-  { name: "LinkedIn Marketing Partner", mark: "in", note: "Verified annually" },
+  { name: "Shopify Partner", mark: "S" },
+  { name: "Amazon Ads Partner", mark: "A" },
+  { name: "Google Partner", mark: "G" },
+  { name: "Meta Business Partner", mark: "M" },
+  { name: "Microsoft Advertising Partner", mark: "Mi" },
+  { name: "LinkedIn Marketing Partner", mark: "in" },
 ];
 
 const programs = [
@@ -207,77 +198,7 @@ const commitments = [
   "Your data stays yours. Client lists, pricing and scope documents are never used for our own outbound. Ever.",
 ];
 
-const programOptions = [
-  "Referral Partner",
-  "Agency & White-Label Partner",
-  "Technology & App Partner",
-  "Affiliate & Creator Partner",
-  "Not sure yet — help me choose",
-];
-
-type FormState = {
-  name: string;
-  company: string;
-  email: string;
-  program: string;
-  message: string;
-  consent: boolean;
-};
-
-const emptyForm: FormState = {
-  name: "",
-  company: "",
-  email: "",
-  program: programOptions[0],
-  message: "",
-  consent: false,
-};
-
 export default function PartnersPage() {
-  const [form, setForm] = useState<FormState>(emptyForm);
-  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState("");
-
-  function set<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setForm((f) => ({ ...f, [key]: value }));
-    setErrors((e) => ({ ...e, [key]: undefined }));
-  }
-
-  function validate(): boolean {
-    const next: Partial<Record<keyof FormState, string>> = {};
-    if (!form.name.trim()) next.name = "Please enter your full name.";
-    if (!form.company.trim()) next.company = "Please enter your company or brand.";
-    if (!form.email.trim()) {
-      next.email = "Please enter your work email.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      next.email = "That email address does not look right — please check it.";
-    }
-    if (!form.consent) next.consent = "Please agree to the Privacy Policy to continue.";
-    setErrors(next);
-    return Object.keys(next).length === 0;
-  }
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitError("");
-    if (!validate()) return;
-    try {
-      const existing = JSON.parse(localStorage.getItem("dazzle-partner-enquiry") || "[]");
-      existing.push({ ...form, submittedAt: new Date().toISOString() });
-      localStorage.setItem("dazzle-partner-enquiry", JSON.stringify(existing));
-      setSubmitted(true);
-    } catch {
-      setSubmitError("Something went wrong saving your request. Please try again.");
-    }
-  }
-
-  function resetForm() {
-    setForm(emptyForm);
-    setErrors({});
-    setSubmitted(false);
-  }
-
   return (
     <>
       {/* 1. Hero */}
@@ -365,7 +286,6 @@ export default function PartnersPage() {
                   {b.mark}
                 </span>
                 <h3 className="platform-name">{b.name}</h3>
-                <p>{b.note}</p>
               </div>
             ))}
           </div>
@@ -408,24 +328,12 @@ export default function PartnersPage() {
       {/* 4. Why Partner With Us */}
       <section className="section" id="why-partner">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Why Partner With Us</p>
-              <h2>What you get that a referral fee does not cover</h2>
-              <p>
-                Most partner programs are a commission rate and a contact form. These are the
-                six things partners tell us actually mattered once work started moving.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/partners-why.webp"
-                alt="Dazzle Commerce team and a partner reviewing client work together"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">Why Partner With Us</p>
+          <h2>What you get that a referral fee does not cover</h2>
+          <p>
+            Most partner programs are a commission rate and a contact form. These are the
+            six things partners tell us actually mattered once work started moving.
+          </p>
           <div className="card-grid">
             {whyPartner.map((w) => (
               <article className="card" key={w.title}>
@@ -474,33 +382,21 @@ export default function PartnersPage() {
       {/* 6. The Process */}
       <section className="section">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">The Process</p>
-              <h2>How a partnership actually starts</h2>
-              <p>
-                Five steps from first call to first statement. Most partners are enabled and
-                taking referrals inside three weeks.
+          <p className="eyebrow">The Process</p>
+          <h2>How a partnership actually starts</h2>
+          <p>
+            Five steps from first call to first statement. Most partners are enabled and
+            taking referrals inside three weeks.
+          </p>
+          {processSteps.map((s) => (
+            <div key={s.num} style={{ marginTop: "1.25rem" }}>
+              <p className="card-num" style={{ fontSize: "1.4rem" }}>
+                {s.num}
               </p>
-              {processSteps.map((s) => (
-                <div key={s.num} style={{ marginTop: "1.25rem" }}>
-                  <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                    {s.num}
-                  </p>
-                  <h3>{s.title}</h3>
-                  <p style={{ color: "var(--muted)" }}>{s.body}</p>
-                </div>
-              ))}
+              <h3>{s.title}</h3>
+              <p style={{ color: "var(--muted)" }}>{s.body}</p>
             </div>
-            <div className="split-img">
-              <Image
-                src="/images/partners-process.webp"
-                alt="A Dazzle Commerce strategist on a video call with a partner agency"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -540,213 +436,34 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* 9. Final CTA + Become a Partner form */}
+      {/* 9. Final CTA (links only on live — no in-page form) */}
       <section className="section section-blue final-cta" id="become-a-partner">
         <div className="container">
-          <div className="split" style={{ textAlign: "left", alignItems: "start" }}>
-            <div>
-              <h2>Let’s find out if this is worth both our time</h2>
-              <p style={{ color: "#c6d2e4", maxWidth: "560px" }}>
-                Thirty minutes, no deck. Tell us who your clients are and what they keep
-                asking for, and we will tell you honestly which of the four programs fits —
-                or that none of them do.
-              </p>
-              <div className="btn-row">
-                <Link className="btn btn-light" href="/contact/">
-                  Book a partner call
-                </Link>
-                <Link
-                  className="btn"
-                  href="/pricing/"
-                  style={{ background: "transparent", borderColor: "#fff" }}
-                >
-                  See our pricing
-                </Link>
-              </div>
-              <p style={{ color: "#c6d2e4", marginTop: "1.5rem" }}>
-                Prefer email?{" "}
-                <a href="mailto:partners@dazzlecommerce.com" style={{ color: "#fff" }}>
-                  partners@dazzlecommerce.com
-                </a>{" "}
-                — answered within one business day.
-              </p>
-              <ul className="final-checks" style={{ justifyContent: "flex-start" }}>
-                <li>22% referral share</li>
-                <li>No fee to join</li>
-                <li>30 days notice to cancel</li>
-              </ul>
-            </div>
-            <div>
-              {submitted ? (
-                <div
-                  className="card"
-                  role="status"
-                  style={{ background: "#fff", textAlign: "left" }}
-                >
-                  <p className="eyebrow">Request received</p>
-                  <h2 style={{ fontSize: "1.5rem" }}>
-                    Thank you, {form.name.split(" ")[0] || "there"} — your partner request is
-                    in.
-                  </h2>
-                  <p style={{ color: "var(--muted)" }}>
-                    We will reply to <strong>{form.email}</strong> within one business day
-                    to book your thirty-minute intro call about the {form.program} program.
-                    Your request has been saved.
-                  </p>
-                  <p style={{ color: "var(--muted)" }}>
-                    Prefer email? Write to{" "}
-                    <a href="mailto:partners@dazzlecommerce.com">
-                      partners@dazzlecommerce.com
-                    </a>
-                    .
-                  </p>
-                  <div className="btn-row">
-                    <button className="btn" type="button" onClick={resetForm}>
-                      Send another request
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form
-                  className="card"
-                  style={{ background: "#fff", textAlign: "left" }}
-                  onSubmit={handleSubmit}
-                  noValidate
-                  aria-label="Become a Partner"
-                >
-                  <h2 style={{ fontSize: "1.5rem" }}>Become a Partner</h2>
-                  <p style={{ color: "var(--muted)" }}>
-                    Tell us about your business and which program fits — we reply within one
-                    business day.
-                  </p>
-
-                  <div className="form-field">
-                    <label htmlFor="partner-name">
-                      Full name <span className="required">*</span>
-                    </label>
-                    <input
-                      id="partner-name"
-                      className="form-input"
-                      type="text"
-                      autoComplete="name"
-                      placeholder="Jordan Avery"
-                      value={form.name}
-                      onChange={(e) => set("name", e.target.value)}
-                      aria-invalid={Boolean(errors.name)}
-                    />
-                    {errors.name && (
-                      <p className="form-msg form-msg-dark err" role="alert">
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="form-field">
-                    <label htmlFor="partner-company">
-                      Company / brand <span className="required">*</span>
-                    </label>
-                    <input
-                      id="partner-company"
-                      className="form-input"
-                      type="text"
-                      autoComplete="organization"
-                      placeholder="Your agency or platform"
-                      value={form.company}
-                      onChange={(e) => set("company", e.target.value)}
-                      aria-invalid={Boolean(errors.company)}
-                    />
-                    {errors.company && (
-                      <p className="form-msg form-msg-dark err" role="alert">
-                        {errors.company}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="form-field">
-                    <label htmlFor="partner-email">
-                      Work email <span className="required">*</span>
-                    </label>
-                    <input
-                      id="partner-email"
-                      className="form-input"
-                      type="email"
-                      autoComplete="email"
-                      placeholder="you@company.com"
-                      value={form.email}
-                      onChange={(e) => set("email", e.target.value)}
-                      aria-invalid={Boolean(errors.email)}
-                    />
-                    {errors.email && (
-                      <p className="form-msg form-msg-dark err" role="alert">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="form-field">
-                    <label htmlFor="partner-program">Partner program</label>
-                    <select
-                      id="partner-program"
-                      className="form-select"
-                      value={form.program}
-                      onChange={(e) => set("program", e.target.value)}
-                    >
-                      {programOptions.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="form-field">
-                    <label htmlFor="partner-message">
-                      Who are your clients, and what do they keep asking for?
-                    </label>
-                    <textarea
-                      id="partner-message"
-                      className="form-input"
-                      rows={4}
-                      placeholder="e.g. We are a brand studio; our Shopify clients keep asking who can run their paid media."
-                      value={form.message}
-                      onChange={(e) => set("message", e.target.value)}
-                      style={{ resize: "vertical" }}
-                    />
-                  </div>
-
-                  <div className="form-field">
-                    <label className="form-check" htmlFor="partner-consent">
-                      <input
-                        id="partner-consent"
-                        type="checkbox"
-                        checked={form.consent}
-                        onChange={(e) => set("consent", e.target.checked)}
-                      />
-                      <span>
-                        I agree to the Privacy Policy and to receiving occasional emails.{" "}
-                        <span className="required">*</span>
-                      </span>
-                    </label>
-                    {errors.consent && (
-                      <p className="form-msg form-msg-dark err" role="alert">
-                        {errors.consent}
-                      </p>
-                    )}
-                  </div>
-
-                  {submitError && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {submitError}
-                    </p>
-                  )}
-
-                  <button className="btn" type="submit" style={{ width: "100%", justifyContent: "center" }}>
-                    Submit partner request
-                  </button>
-                </form>
-              )}
-            </div>
+          <h2>Let’s find out if this is worth both our time</h2>
+          <p className="lead">
+            Thirty minutes, no deck. Tell us who your clients are and what they keep
+            asking for, and we will tell you honestly which of the four programs fits —
+            or that none of them do.
+          </p>
+          <div className="btn-row">
+            <Link className="btn btn-light" href="/contact/">
+              Book a partner call
+            </Link>
+            <Link
+              className="btn"
+              href="/pricing/"
+              style={{ background: "transparent", borderColor: "#fff" }}
+            >
+              See our pricing
+            </Link>
           </div>
+          <p style={{ color: "#c6d2e4", marginTop: "1.5rem" }}>
+            Prefer email?{" "}
+            <a href="mailto:partners@dazzlecommerce.com" style={{ color: "#fff" }}>
+              partners@dazzlecommerce.com
+            </a>{" "}
+            — answered within one business day.
+          </p>
         </div>
       </section>
     </>

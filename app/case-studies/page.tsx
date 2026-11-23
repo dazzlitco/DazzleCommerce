@@ -1,9 +1,22 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+
+// Case Studies — /case-studies/
+// Live source: https://dazzlecommerce.com/case-studies/
+// Full word-for-word extraction: clone-plan/case-studies-extraction.md
+//
+// Fidelity notes (live is the authority):
+// - The live page has NO filter/search form elements in its main content
+//   (no form, select, input or button). "Filter by service, platform,
+//   industry and market" appears only in the meta description; the live
+//   filtering mechanism is the FILED UNDER chips, each linking to the page
+//   that owns that term. So this page renders the six cards statically with
+//   the chips as links — no client-side filter, no search box.
+// - Hero intro says "Three engagements" while the page lists six — the live
+//   quirk, kept verbatim.
+// - Metrics are THIS page's own live figures for each client, not the
+//   homepage's figures for the same clients.
 
 const faqs: Faq[] = [
   {
@@ -41,10 +54,6 @@ type CaseStudy = {
   imgAlt: string;
   body: string;
   metrics: { value: string; label: string }[];
-  service: string;
-  platform: string;
-  industry: string;
-  market: string;
   chips: Chip[];
 };
 
@@ -60,10 +69,6 @@ const cases: CaseStudy[] = [
       { value: "-21%", label: "blended CAC" },
       { value: "+12%", label: "repeat rate" },
     ],
-    service: "eCommerce Management",
-    platform: "Shopify",
-    industry: "Home & Furniture",
-    market: "USA",
     chips: [
       { label: "eCommerce Management", href: "/ecommerce-management/" },
       { label: "Shopify", href: "/shopify-agency/" },
@@ -82,10 +87,6 @@ const cases: CaseStudy[] = [
       { value: "+24%", label: "new customer revenue" },
       { value: "-9pt", label: "return rate" },
     ],
-    service: "eCommerce PPC",
-    platform: "Shopify",
-    industry: "Fashion & Apparel",
-    market: "USA",
     chips: [
       { label: "eCommerce PPC", href: "/ecommerce-ppc/" },
       { label: "Shopify", href: "/shopify-agency/" },
@@ -104,10 +105,6 @@ const cases: CaseStudy[] = [
       { value: "-17%", label: "return rate" },
       { value: "+26%", label: "marketplace revenue" },
     ],
-    service: "Marketplace Management",
-    platform: "Amazon",
-    industry: "Electronics",
-    market: "Europe",
     chips: [
       { label: "Marketplace Management", href: "/marketplace-management-marketing/" },
       { label: "Amazon", href: "/amazon-agency/" },
@@ -126,10 +123,6 @@ const cases: CaseStudy[] = [
       { value: "-34%", label: "month-three churn" },
       { value: "+18%", label: "revenue per email" },
     ],
-    service: "Email & Retention",
-    platform: "WooCommerce",
-    industry: "Health & Wellness",
-    market: "UK",
     chips: [
       { label: "Email & Retention", href: "/email-retention-marketing/" },
       { label: "WooCommerce", href: "/woocommerce-agency/" },
@@ -148,10 +141,6 @@ const cases: CaseStudy[] = [
       { value: "+38pt", label: "prepaid share" },
       { value: "-26%", label: "COD refusals" },
     ],
-    service: "eCommerce SEO",
-    platform: "Noon",
-    industry: "Beauty & Cosmetics",
-    market: "Gulf",
     chips: [
       { label: "eCommerce SEO", href: "/ecommerce-seo/" },
       { label: "Noon", href: "/noon-seller-management/" },
@@ -170,10 +159,6 @@ const cases: CaseStudy[] = [
       { value: "-23%", label: "delivery complaints" },
       { value: "+19%", label: "average order value" },
     ],
-    service: "CRO",
-    platform: "BigCommerce",
-    industry: "Food & Beverage",
-    market: "Australia",
     chips: [
       { label: "CRO", href: "/conversion-rate-optimization/" },
       { label: "BigCommerce", href: "/bigcommerce-agency/" },
@@ -266,30 +251,6 @@ const industries = [
   { name: "B2B eCommerce", note: "Quotes, tiered pricing, net terms" },
 ];
 
-const filterInputStyle: React.CSSProperties = {
-  flex: "1 1 220px",
-  minWidth: "200px",
-  padding: "0.7rem 0.9rem",
-  border: "1px solid var(--line)",
-  borderRadius: "8px",
-  font: "inherit",
-  fontSize: "0.95rem",
-  background: "#fff",
-  color: "var(--ink)",
-};
-
-const filterSelectStyle: React.CSSProperties = {
-  flex: "1 1 160px",
-  minWidth: "150px",
-  padding: "0.7rem 0.9rem",
-  border: "1px solid var(--line)",
-  borderRadius: "8px",
-  font: "inherit",
-  fontSize: "0.95rem",
-  background: "#fff",
-  color: "var(--ink)",
-};
-
 const chipStyle: React.CSSProperties = {
   display: "inline-block",
   padding: "0.3rem 0.7rem",
@@ -303,63 +264,6 @@ const chipStyle: React.CSSProperties = {
 };
 
 export default function CaseStudiesPage() {
-  const [query, setQuery] = useState("");
-  const [service, setService] = useState("All services");
-  const [platform, setPlatform] = useState("All platforms");
-  const [industry, setIndustry] = useState("All industries");
-  const [market, setMarket] = useState("All markets");
-
-  const options = useMemo(() => {
-    const unique = (key: keyof CaseStudy) =>
-      Array.from(new Set(cases.map((c) => c[key] as string))).sort();
-    return {
-      services: unique("service"),
-      platforms: unique("platform"),
-      industries: unique("industry"),
-      markets: unique("market"),
-    };
-  }, []);
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return cases.filter((c) => {
-      if (service !== "All services" && c.service !== service) return false;
-      if (platform !== "All platforms" && c.platform !== platform) return false;
-      if (industry !== "All industries" && c.industry !== industry) return false;
-      if (market !== "All markets" && c.market !== market) return false;
-      if (q) {
-        const haystack = [
-          c.name,
-          c.body,
-          c.service,
-          c.platform,
-          c.industry,
-          c.market,
-          ...c.metrics.map((m) => `${m.value} ${m.label}`),
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-      return true;
-    });
-  }, [query, service, platform, industry, market]);
-
-  const hasActiveFilter =
-    query.trim() !== "" ||
-    service !== "All services" ||
-    platform !== "All platforms" ||
-    industry !== "All industries" ||
-    market !== "All markets";
-
-  const clearFilters = () => {
-    setQuery("");
-    setService("All services");
-    setPlatform("All platforms");
-    setIndustry("All industries");
-    setMarket("All markets");
-  };
-
   return (
     <>
       {/* 1. Hero */}
@@ -424,7 +328,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* 3. The work — case study index with working filters */}
+      {/* 3. The work — six case-study cards, filed-under chips link out */}
       <section className="section section-soft">
         <div className="container">
           <p className="eyebrow">The work</p>
@@ -434,146 +338,50 @@ export default function CaseStudiesPage() {
             market — so you can find the one that matches your situation rather than the one
             we happened to feature. Each chip links to the page that owns that term.
           </p>
-
-          <div
-            role="search"
-            aria-label="Filter case studies"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "12px",
-              margin: "28px 0 8px",
-            }}
-          >
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search case studies…"
-              aria-label="Search case studies"
-              style={filterInputStyle}
-            />
-            <select
-              value={service}
-              onChange={(e) => setService(e.target.value)}
-              aria-label="Filter by service"
-              style={filterSelectStyle}
-            >
-              <option>All services</option>
-              {options.services.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
-            <select
-              value={platform}
-              onChange={(e) => setPlatform(e.target.value)}
-              aria-label="Filter by platform"
-              style={filterSelectStyle}
-            >
-              <option>All platforms</option>
-              {options.platforms.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
-            <select
-              value={industry}
-              onChange={(e) => setIndustry(e.target.value)}
-              aria-label="Filter by industry"
-              style={filterSelectStyle}
-            >
-              <option>All industries</option>
-              {options.industries.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
-            <select
-              value={market}
-              onChange={(e) => setMarket(e.target.value)}
-              aria-label="Filter by market"
-              style={filterSelectStyle}
-            >
-              <option>All markets</option>
-              {options.markets.map((o) => (
-                <option key={o}>{o}</option>
-              ))}
-            </select>
-            {hasActiveFilter && (
-              <button
-                type="button"
-                className="btn btn-outline"
-                onClick={clearFilters}
-                style={{ padding: "0.7rem 1.1rem" }}
-              >
-                Clear filters
-              </button>
-            )}
-          </div>
-          <p
-            aria-live="polite"
-            style={{ color: "var(--muted)", fontSize: "0.95rem", margin: "0.5rem 0 0" }}
-          >
-            Showing {filtered.length} of {cases.length} case{" "}
-            {cases.length === 1 ? "study" : "studies"}
-            {hasActiveFilter ? " matching your filters" : ""}.
-          </p>
-
-          {filtered.length === 0 ? (
-            <div className="card" style={{ marginTop: "24px" }}>
-              <h3>No case studies match those filters</h3>
-              <p>
-                Try a different search term or clear the filters to see all six engagements.
-              </p>
-              <button type="button" className="btn btn-outline" onClick={clearFilters}>
-                Clear filters
-              </button>
-            </div>
-          ) : (
-            <div className="card-grid" style={{ marginTop: "24px" }}>
-              {filtered.map((c) => (
-                <article className="case-card" key={c.name}>
-                  <Image src={c.img} alt={c.imgAlt} width={1200} height={800} />
-                  <div className="case-body">
-                    <p className="case-cat">{c.service}</p>
-                    <h3>
-                      <Link href={c.href}>{c.name}</Link>
-                    </h3>
-                    <p style={{ color: "var(--muted)" }}>{c.body}</p>
-                    <div className="case-metrics">
-                      {c.metrics.map((m) => (
-                        <div key={m.label}>
-                          <strong>{m.value}</strong>
-                          <span>{m.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p
-                      style={{
-                        fontSize: "0.8rem",
-                        fontWeight: 800,
-                        letterSpacing: "0.08em",
-                        color: "var(--muted)",
-                        margin: "0 0 0.5rem",
-                      }}
-                    >
-                      FILED UNDER
-                    </p>
-                    <div
-                      style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "1rem" }}
-                    >
-                      {c.chips.map((chip) => (
-                        <Link key={chip.label} href={chip.href} style={chipStyle}>
-                          {chip.label}
-                        </Link>
-                      ))}
-                    </div>
-                    <Link className="read-more" href={c.href}>
-                      Read the case study
-                    </Link>
+          <div className="card-grid" style={{ marginTop: "24px" }}>
+            {cases.map((c) => (
+              <article className="case-card" key={c.name}>
+                <Image src={c.img} alt={c.imgAlt} width={1200} height={800} />
+                <div className="case-body">
+                  <h3>
+                    <Link href={c.href}>{c.name}</Link>
+                  </h3>
+                  <p style={{ color: "var(--muted)" }}>{c.body}</p>
+                  <div className="case-metrics">
+                    {c.metrics.map((m) => (
+                      <div key={m.label}>
+                        <strong>{m.value}</strong>
+                        <span>{m.label}</span>
+                      </div>
+                    ))}
                   </div>
-                </article>
-              ))}
-            </div>
-          )}
+                  <p
+                    style={{
+                      fontSize: "0.8rem",
+                      fontWeight: 800,
+                      letterSpacing: "0.08em",
+                      color: "var(--muted)",
+                      margin: "0 0 0.5rem",
+                    }}
+                  >
+                    FILED UNDER
+                  </p>
+                  <div
+                    style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "1rem" }}
+                  >
+                    {c.chips.map((chip) => (
+                      <Link key={chip.label} href={chip.href} style={chipStyle}>
+                        {chip.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link className="read-more" href={c.href}>
+                    Read the case study
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginTop: "24px" }}>
             Client names are the ones we publish under. Figures are measured against the same
             period a year earlier, and count kept orders net of returns.

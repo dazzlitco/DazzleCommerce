@@ -244,35 +244,22 @@ export default function ServicesPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <h1>eCommerce Services That Move Revenue, Not Just Metrics</h1>
-              <p className="lead">
-                Management, marketing, development and creative under one roof — delivered by
-                one senior team accountable to a single number. Our eCommerce services run from
-                catalogue and order operations through to paid media, and the eCommerce agency
-                services listed below can be taken individually or as one programme. Engagements
-                run either ongoing or, where you only need the thinking, as an eCommerce
-                consulting agency arrangement scoped to a single decision.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="/book-a-strategy-call/">
-                  Get Free Strategy Call
-                </Link>
-                <Link className="btn btn-outline" href="/contact/">
-                  Talk to a Specialist
-                </Link>
-              </div>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/services-hero.webp"
-                alt="Dazzle Commerce eCommerce services team reviewing store performance"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+          <h1>eCommerce Services That Move Revenue, Not Just Metrics</h1>
+          <p className="lead">
+            Management, marketing, development and creative under one roof — delivered by
+            one senior team accountable to a single number. Our eCommerce services run from
+            catalogue and order operations through to paid media, and the eCommerce agency
+            services listed below can be taken individually or as one programme. Engagements
+            run either ongoing or, where you only need the thinking, as an eCommerce
+            consulting agency arrangement scoped to a single decision.
+          </p>
+          <div className="btn-row">
+            <Link className="btn" href="/book-a-strategy-call/">
+              Get Free Strategy Call
+            </Link>
+            <Link className="btn btn-outline" href="/contact/">
+              Talk to a Specialist
+            </Link>
           </div>
         </div>
       </section>
@@ -280,24 +267,12 @@ export default function ServicesPage() {
       {/* 2. eCommerce Management Services */}
       <section className="section" id="management">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">eCommerce Management Services</p>
-              <h2>Run the store properly, then grow it</h2>
-              <p className="lead">
-                The operational layer most agencies will not touch. Clean data, healthy accounts
-                and reliable fulfilment are what make marketing spend work at all.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/services-management.webp"
-                alt="eCommerce operations specialist checking product listings in a fulfilment warehouse"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">eCommerce Management Services</p>
+          <h2>Run the store properly, then grow it</h2>
+          <p className="lead">
+            The operational layer most agencies will not touch. Clean data, healthy accounts
+            and reliable fulfilment are what make marketing spend work at all.
+          </p>
           <div className="card-grid">
             {management.map((s) => (
               <article className="card" key={s.title}>
@@ -312,24 +287,12 @@ export default function ServicesPage() {
       {/* 3. eCommerce Marketing Services */}
       <section className="section section-soft" id="marketing">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">eCommerce Marketing Services</p>
-              <h2>Demand capture and demand creation, measured honestly</h2>
-              <p className="lead">
-                Six disciplines, one budget, one forecast. We move spend between channels based
-                on evidence rather than whichever team shouts loudest.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/services-marketing.webp"
-                alt="Paid media specialist reviewing advertising campaign dashboards"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">eCommerce Marketing Services</p>
+          <h2>Demand capture and demand creation, measured honestly</h2>
+          <p className="lead">
+            Six disciplines, one budget, one forecast. We move spend between channels based
+            on evidence rather than whichever team shouts loudest.
+          </p>
           <div className="card-grid">
             {marketing.map((s) => (
               <article className="card" key={s.title}>
@@ -344,24 +307,12 @@ export default function ServicesPage() {
       {/* 4. eCommerce Development & Technology */}
       <section className="section" id="development">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">eCommerce Development &amp; Technology</p>
-              <h2>A storefront that is fast, stable and easy to change</h2>
-              <p className="lead">
-                Development is not a separate department here. The people building your site sit
-                next to the people responsible for your conversion rate.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/services-development.webp"
-                alt="Developer building an online storefront with code and store preview on screen"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">eCommerce Development &amp; Technology</p>
+          <h2>A storefront that is fast, stable and easy to change</h2>
+          <p className="lead">
+            Development is not a separate department here. The people building your site sit
+            next to the people responsible for your conversion rate.
+          </p>
           <div className="card-grid">
             {development.map((s) => (
               <article className="card" key={s.title}>
@@ -384,24 +335,12 @@ export default function ServicesPage() {
       {/* 5. Creative & Content */}
       <section className="section section-soft" id="creative">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Creative &amp; Content</p>
-              <h2>Assets built for testing, not for the brand book</h2>
-              <p className="lead">
-                Creative is the biggest remaining lever in paid media. We produce at a cadence
-                that lets the algorithm actually learn.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/services-creative.webp"
-                alt="Product photography studio shoot for an eCommerce brand"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">Creative &amp; Content</p>
+          <h2>Assets built for testing, not for the brand book</h2>
+          <p className="lead">
+            Creative is the biggest remaining lever in paid media. We produce at a cadence
+            that lets the algorithm actually learn.
+          </p>
           <div className="card-grid card-grid-2">
             {creative.map((s) => (
               <article className="card" key={s.title}>
@@ -430,18 +369,6 @@ export default function ServicesPage() {
                 <p>{s.body}</p>
               </article>
             ))}
-          </div>
-          <div className="card-grid" style={{ marginTop: "20px" }}>
-            <article className="card">
-              <h3>Free growth audit</h3>
-              <p>
-                We audit your store, ad accounts and marketplace health, then rank every
-                opportunity by revenue impact. Yours to keep.
-              </p>
-              <p style={{ marginTop: "1rem" }}>
-                <Link href="/book-a-strategy-call/">Book a free call</Link>
-              </p>
-            </article>
           </div>
         </div>
       </section>

@@ -380,11 +380,6 @@ export default function PortfolioPage() {
     [filter],
   );
 
-  const countFor = (value: "All" | Discipline) =>
-    value === "All"
-      ? projects.length
-      : projects.filter((p) => p.tags.includes(value)).length;
-
   return (
     <>
       {/* 1. Hero */}
@@ -513,23 +508,10 @@ export default function PortfolioPage() {
                 onClick={() => setFilter(f.value)}
                 style={filterButtonStyle(filter === f.value)}
               >
-                {f.label} ({countFor(f.value)})
+                {f.label}
               </button>
             ))}
           </div>
-          <p
-            aria-live="polite"
-            style={{ color: "var(--muted)", marginTop: "20px", marginBottom: 0 }}
-          >
-            Showing {filtered.length} of {projects.length} engagements
-            {filter !== "All" && (
-              <>
-                {" "}
-                — {filters.find((f) => f.value === filter)?.label}
-              </>
-            )}
-            .
-          </p>
           <div className="card-grid">
             {filtered.map((p) => (
               <article className="card" key={p.name}>
@@ -564,11 +546,6 @@ export default function PortfolioPage() {
               </article>
             ))}
           </div>
-          {filtered.length === 0 && (
-            <p style={{ color: "var(--muted)", marginTop: "24px" }}>
-              No engagements match this discipline yet.
-            </p>
-          )}
         </div>
       </section>
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
@@ -16,14 +15,6 @@ export const metadata: Metadata = {
     title: "eCommerce Management Pricing & Packages | Dazzle Commerce",
     description:
       "Transparent eCommerce management pricing. Three packages from $3,500/month covering store management, SEO, PPC, CRO and reporting. Free scoping audit.",
-    images: [
-      {
-        url: "/images/pricing-hero.webp",
-        width: 1920,
-        height: 1280,
-        alt: "Dazzle Commerce team reviewing pricing and revenue charts for an eCommerce brand",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -87,7 +78,7 @@ const tiers = [
       "A named senior strategist and a monthly call",
     ],
     cta: "Start with a free audit",
-    ctaHref: "/book-a-strategy-call/",
+    ctaHref: "/ecommerce-audit/",
     featured: false,
   },
   {
@@ -131,7 +122,7 @@ const tiers = [
       "Custom dashboards and board-ready reporting",
     ],
     cta: "Request a custom scope",
-    ctaHref: "/request-a-proposal/",
+    ctaHref: "/contact/",
     featured: false,
   },
 ];
@@ -290,38 +281,25 @@ export default function PricingPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <p className="eyebrow">Pricing &amp; Packages</p>
-              <h1>eCommerce Management Pricing That Matches Your Stage</h1>
-              <p className="lead">
-                Three packages built around what actually drives cost — channel count, catalog
-                size and ad spend under management. Most engagements sit between $3,500 and
-                $18,000 per month, and we scope after a free audit so the number reflects real
-                work rather than a guess.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="/book-a-strategy-call/">
-                  Get Your Free Scoping Call
-                </Link>
-                <Link className="btn btn-outline" href="#compare">
-                  Compare Packages
-                </Link>
-              </div>
-              <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-                No setup fees. No long lock-in. Month-to-month after the first 90 days.
-              </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/pricing-hero.webp"
-                alt="Dazzle Commerce team reviewing pricing and revenue charts for an eCommerce brand"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+          <p className="eyebrow">Pricing &amp; Packages</p>
+          <h1>eCommerce Management Pricing That Matches Your Stage</h1>
+          <p className="lead">
+            Three packages built around what actually drives cost — channel count, catalog
+            size and ad spend under management. Most engagements sit between $3,500 and
+            $18,000 per month, and we scope after a free audit so the number reflects real
+            work rather than a guess.
+          </p>
+          <div className="btn-row">
+            <Link className="btn" href="/contact/">
+              Get Your Free Scoping Call
+            </Link>
+            <Link className="btn btn-outline" href="#packages">
+              Compare Packages
+            </Link>
           </div>
+          <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
+            No setup fees. No long lock-in. Month-to-month after the first 90 days.
+          </p>
         </div>
       </section>
 
@@ -397,14 +375,8 @@ export default function PricingPage() {
       </section>
 
       {/* 3. Package comparison table */}
-      <section className="section section-soft" id="compare">
+      <section className="section section-soft" id="packages">
         <div className="container">
-          <p className="eyebrow">Compare Packages</p>
-          <h2>Starter, Growth and Scale side by side</h2>
-          <p className="lead">
-            The same three packages, compared feature by feature — so you can see exactly what
-            changes as you move up a tier.
-          </p>
           <div style={{ overflowX: "auto", marginTop: "32px" }}>
             <table
               style={{
@@ -524,34 +496,22 @@ export default function PricingPage() {
       {/* 6. How Our Pricing Works */}
       <section className="section">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">How Our Pricing Works</p>
-              <h2>No two eCommerce brands cost the same to run</h2>
-              <p>
-                Business size + platforms and channels + scope of work + growth goals → your
-                investment. Four inputs, one number, and we show you the arithmetic rather than
-                asking you to trust a bracket.
+          <p className="eyebrow">How Our Pricing Works</p>
+          <h2>No two eCommerce brands cost the same to run</h2>
+          <p>
+            Business size + platforms and channels + scope of work + growth goals → your
+            investment. Four inputs, one number, and we show you the arithmetic rather than
+            asking you to trust a bracket.
+          </p>
+          {pricingSteps.map((s) => (
+            <div key={s.num} style={{ marginTop: "1.25rem" }}>
+              <p className="card-num" style={{ fontSize: "1.4rem" }}>
+                {s.num}
               </p>
-              {pricingSteps.map((s) => (
-                <div key={s.num} style={{ marginTop: "1.25rem" }}>
-                  <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                    {s.num}
-                  </p>
-                  <h3>{s.title}</h3>
-                  <p style={{ color: "var(--muted)" }}>{s.body}</p>
-                </div>
-              ))}
+              <h3>{s.title}</h3>
+              <p style={{ color: "var(--muted)" }}>{s.body}</p>
             </div>
-            <div className="split-img">
-              <Image
-                src="/images/pricing-how-it-works.webp"
-                alt="eCommerce specialists working through a store pricing and scoping worksheet"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          ))}
           <div className="card" style={{ marginTop: "40px", background: "var(--bg-soft)" }}>
             <h3>Your customised investment</h3>
             <p>
@@ -560,7 +520,7 @@ export default function PricingPage() {
               them to return — before you commit to anything.
             </p>
             <div className="btn-row">
-              <Link className="btn" href="/book-a-strategy-call/">
+              <Link className="btn" href="/contact/">
                 Get Your Free Scoping Call
               </Link>
             </div>
@@ -580,43 +540,23 @@ export default function PricingPage() {
       {/* 8. Final CTA */}
       <section className="section section-blue final-cta">
         <div className="container">
-          <div
-            className="split"
-            style={{ textAlign: "left", alignItems: "center", marginBottom: "8px" }}
-          >
-            <div>
-              <h2>Want the actual number for your business?</h2>
-              <p className="lead" style={{ color: "#c6d2e4" }}>
-                The free audit takes three to five days, produces a scoped monthly figure with
-                the reasoning attached, and is yours to keep whether or not you hire us.
-              </p>
-              <div className="btn-row">
-                <Link className="btn btn-light" href="/book-a-strategy-call/">
-                  Book Your Free Scoping Call
-                </Link>
-                <Link
-                  className="btn"
-                  href="/services/"
-                  style={{ background: "transparent", borderColor: "#fff" }}
-                >
-                  See Our Services
-                </Link>
-              </div>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/pricing-audit.webp"
-                alt="eCommerce strategist presenting a free audit and scoped monthly figure on a video call"
-                width={1920}
-                height={1280}
-              />
-            </div>
+          <h2>Want the actual number for your business?</h2>
+          <p className="lead">
+            The free audit takes three to five days, produces a scoped monthly figure with
+            the reasoning attached, and is yours to keep whether or not you hire us.
+          </p>
+          <div className="btn-row">
+            <Link className="btn btn-light" href="/contact/">
+              Book Your Free Scoping Call
+            </Link>
+            <Link
+              className="btn"
+              href="/services/"
+              style={{ background: "transparent", borderColor: "#fff" }}
+            >
+              See What We Deliver
+            </Link>
           </div>
-          <ul className="final-checks">
-            <li>Free 30-minute call</li>
-            <li>No long-term contracts</li>
-            <li>Actionable audit you keep</li>
-          </ul>
         </div>
       </section>
     </>

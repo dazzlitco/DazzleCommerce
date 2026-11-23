@@ -336,7 +336,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What does eCommerce SEO cost?",
-    a: "Standalone SEO engagements typically run $2,500–$8,000/month depending on catalog size, competitiveness and whether content production is in scope. Inside a full management engagement it is part of the wider fee. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        Standalone SEO engagements typically run $2,500–$8,000/month depending on catalog
+        size, competitiveness and whether content production is in scope. Inside a full{" "}
+        <Link href="/ecommerce-management/">management engagement</Link> it is part of the
+        wider fee. <Link href="/pricing/">Our pricing page</Link> explains how we scope it.
+      </>
+    ),
   },
   {
     q: "Can you handle a replatform without losing rankings?",

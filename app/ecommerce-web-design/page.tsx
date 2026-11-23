@@ -44,7 +44,16 @@ const faqs: Faq[] = [
   },
   {
     q: "What does eCommerce web design cost?",
-    a: "It depends on how many templates are in scope, whether a design system exists already, and whether research has to be done from scratch. A template programme on an existing store is the smallest piece of work here; a full replatform design is several times that; a design system on its own sits between them. We scope from the audit rather than quoting a package, and our pricing page explains the approach.",
+    a: (
+      <>
+        It depends on how many templates are in scope, whether a design system exists
+        already, and whether research has to be done from scratch. A template programme on
+        an existing store is the smallest piece of work here; a full replatform design is
+        several times that; a design system on its own sits between them. We scope from the
+        audit rather than quoting a package, and{" "}
+        <Link href="/pricing/">our pricing page</Link> explains the approach.
+      </>
+    ),
   },
   {
     q: "How is this different from hiring a design studio?",
@@ -52,7 +61,16 @@ const faqs: Faq[] = [
   },
   {
     q: "Do you build what you design?",
-    a: "We can, and often do, but it is a separate decision. Our development team works on Shopify, WooCommerce, BigCommerce and Adobe Commerce, and taking both halves means nobody argues about whether a handover was complete. If you have an in-house team or an existing agency, we hand over to them and we do not make that awkward — the design system is documented for exactly that case.",
+    a: (
+      <>
+        We can, and often do, but it is a separate decision. Our{" "}
+        <Link href="/ecommerce-development/">development team</Link> works on Shopify,
+        WooCommerce, BigCommerce and Adobe Commerce, and taking both halves means nobody
+        argues about whether a handover was complete. If you have an in-house team or an
+        existing agency, we hand over to them and we do not make that awkward — the design
+        system is documented for exactly that case.
+      </>
+    ),
   },
   {
     q: "What do you hand over?",
@@ -217,7 +235,7 @@ const deliverables = [
   },
   {
     title: "Information architecture map",
-    img: "/images/ecommerce-web-design-information-architecture.webp",
+    img: "/images/portfolio-hero.webp",
     alt: "Desk at night with a laptop and lamp overlooking city lights",
   },
   {

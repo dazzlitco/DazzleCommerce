@@ -212,6 +212,7 @@ Breadcrumb: Home › How We Work › Technology Stack (Home -> /, How We Work ->
 - The hero stat labels are CATEGORIES / ACCOUNT OWNERSHIP / PROPRIETARY PLATFORM / REVIEWED with values Nine / Always yours / None / Twice a year.
 - The eyebrow above the H1 reads "How we work" and the small label above it reads "Nine categories" — both kept.
 - The page deliberately names almost no tool brands; the FAQ "Why do you not name every tool you use?" explains why. Do not invent a brand list.
+- The FAQ "What if a tool reports a different number to my store?" contains an inline link — `growth assessment` → `/ecommerce-growth-assessment/` — which the clone renders as a real link (restored in the 2026-11-23 fidelity pass).
 - "A working stack is judged on what it lets you verify, not on how many logos it has in it." appears as a standalone line between the hero image and the "Why publish it" section.
 - og:image and the hero image are the same file (eu-channel-growth.jpg).
 - The "All guides" link (/guides/) sits under the three Related cards.

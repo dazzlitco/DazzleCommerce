@@ -40,6 +40,21 @@ export default function Header() {
             </Link>
             <div className="mega mega-wide">
               <MegaLinks links={servicesLinks} />
+              <div className="mega-foot">
+                <div className="mega-foot-links">
+                  <Link href="/services/">What we do</Link>
+                  <Link href="/how-we-work/">See how we work</Link>
+                  <Link href="/locations-we-serve/">Where we work</Link>
+                </div>
+                <div className="mega-card">
+                  <p className="mega-card-title">Free growth audit</p>
+                  <p>
+                    We audit your store, ad accounts and marketplace health, then rank every
+                    opportunity by revenue impact. Yours to keep.
+                  </p>
+                  <Link href="/book-a-strategy-call/">Book a free call</Link>
+                </div>
+              </div>
               <Link href="/contact/" className="mega-cta">
                 Book a free call
               </Link>

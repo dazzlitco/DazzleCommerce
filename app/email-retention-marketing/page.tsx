@@ -449,7 +449,15 @@ const faqs: Faq[] = [
   },
   {
     q: "What does email & retention cost?",
-    a: "Standalone retention engagements typically run $2,500–$7,000/month depending on list size, platform, campaign cadence and how much creative production is in scope, separate from your ESP subscription. Inside a full management engagement it is part of the wider fee. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        Standalone retention engagements typically run $2,500–$7,000/month depending on list
+        size, platform, campaign cadence and how much creative production is in scope,
+        separate from your ESP subscription. Inside a full management engagement it is part
+        of the wider fee. <Link href="/pricing/">Our pricing page</Link> explains how we
+        scope it.
+      </>
+    ),
   },
   {
     q: "Will you migrate us to Klaviyo?",

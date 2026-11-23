@@ -27,6 +27,14 @@ const resourcesLinks = [
   { label: "Tools & Calculators", href: "/tools/" },
   { label: "Case Studies", href: "/case-studies/" },
   { label: "Portfolio", href: "/portfolio/" },
+  { label: "Industries", href: "/industries/" },
+  { label: "Locations We Serve", href: "/locations-we-serve/" },
+  { label: "Pricing", href: "/pricing/" },
+  { label: "Careers", href: "/careers/" },
+  { label: "Testimonials", href: "/testimonials/" },
+  { label: "FAQs", href: "/faqs/" },
+  { label: "Partners", href: "/partners/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 const footerLocationsLinks = [

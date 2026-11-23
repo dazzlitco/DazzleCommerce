@@ -64,7 +64,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What if a tool reports a different number to my store?",
-    a: "Then the store is right and we investigate the tool. Reconciling analytics, ad platform and store revenue to within about 5% is the first check in our growth assessment, and nothing downstream is trustworthy until it clears.",
+    a: (
+      <>
+        Then the store is right and we investigate the tool. Reconciling analytics, ad
+        platform and store revenue to within about 5% is the first check in our{" "}
+        <a href="/ecommerce-growth-assessment/">growth assessment</a>, and nothing
+        downstream is trustworthy until it clears.
+      </>
+    ),
   },
 ];
 

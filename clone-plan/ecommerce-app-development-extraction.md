@@ -226,5 +226,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 7. Build type 3: apac-payments.jpg, alt `Digital wallet application open on a smartphone` — caption `Contract pricing`.
 - No other content images on the live page. The section labels (The Problem, What We Do, Stack, Scope, Ecosystem, The Process, By Need, Foundations, Why Us, Build types, FAQs) appear as list items in the live HTML; they are rendered as eyebrow labels in the clone, matching the Services page pattern.
 
+## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
+- Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
+- Ecosystem (§6): the `Your App` centre node is now rendered as a centred hub above the nine-system grid, not as a card inside the grid (live presentation).
+- FAQ 1 now renders `fixing the mobile experience` as a real link → /conversion-rate-optimization/ (space before the period kept); FAQ 3 now renders `our pricing page` as a real link → /pricing/ — both as JSX answers, now that the shared FaqAccordion accepts ReactNode.
+- No other differences found. Images remain created matching images (7, prefixed `ecommerce-app-development-`).
+
 ## Internal links in main content (all verified in the fetched HTML)
 - /ecommerce-audit/ (×2: hero CTA, final CTA), /pricing/ (×3: hero CTA, FAQ 3, final CTA), /ecommerce-development/ (×2: services closing line, after build types), /email-retention-marketing/ (services closing line), /conversion-rate-optimization/ (×2: services closing line, FAQ 1), /request-a-proposal/ (×3: one per build type), /portfolio/ (after build types), /faqs/ (FAQ intro), /privacy-policy/ (register popup consent link).

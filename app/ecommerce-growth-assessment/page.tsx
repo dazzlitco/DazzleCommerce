@@ -1,25 +1,14 @@
-"use client";
-
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
-// NOTE: this file is a client component because the assessment tool needs
-// client-side state (marks, ranking, result) and the follow-up form needs
-// client-side validation, localStorage persistence and a confirmation state.
-// (A client module cannot export `metadata`; the page title/description from
-// the extraction — "eCommerce Growth Assessment: The 12-Point Framework" —
-// should be added via a route-level metadata wrapper if the parent wants it.)
-//
 // NOTE: the live page has no interactive tool — its FAQ says "Not yet. This
 // page is the framework in full, designed to be worked through on paper or in
 // a spreadsheet. A scored interactive version is planned for our tools
-// section". The tool below is the clone brief's addition: it uses exactly the
-// live page's twelve points and thresholds, and its result copy is the live
-// page's own four outcomes ("What to do with the result you got"). The live
-// page deliberately has no score out of twelve, so the tool ranks flags
-// instead of totalling them.
+// section". This page therefore presents the framework exactly as live does:
+// the twelve points with their thresholds, as a list to work through on paper
+// or in a spreadsheet. There is deliberately no score out of twelve.
 
 const faqs: Faq[] = [
   {
@@ -56,7 +45,6 @@ const faqs: Faq[] = [
   },
 ];
 
-type Mark = "cleared" | "flagged" | "unknown" | "na";
 type Band = "high-low" | "high-high" | "low-low" | "low-high";
 
 const BAND_LABELS: Record<Band, string> = {
@@ -66,16 +54,12 @@ const BAND_LABELS: Record<Band, string> = {
   "low-high": "Low impact · high effort",
 };
 
-const BAND_ORDER: Band[] = ["high-low", "high-high", "low-low", "low-high"];
-
 type Check = {
   num: number;
   section: string;
   sectionId: string;
   title: string;
-  threshold: string;
-  link?: { href: string; label: string };
-  suggestedBand: Band;
+  threshold: ReactNode;
 };
 
 const CHECKS: Check[] = [
@@ -86,7 +70,6 @@ const CHECKS: Check[] = [
     title: "Largest Contentful Paint is under 2.5 seconds on your highest-traffic template",
     threshold:
       "Threshold: 2.5s or under, on mobile. This is Google’s published “good” boundary for the metric, not our opinion. Measure field data over the last 28 days rather than a lab score, and measure the template that receives the most sessions — usually a collection or product page. A homepage that loads in 1.4 seconds and a product page that loads in 5 tells you nothing useful as an average.",
-    suggestedBand: "high-high",
   },
   {
     num: 2,
@@ -95,17 +78,24 @@ const CHECKS: Check[] = [
     title: "Mobile converts at no less than two thirds of the desktop rate",
     threshold:
       "Threshold: mobile conversion rate at 0.66× desktop or better, on comparable traffic. Some gap is normal and expected; a gap wider than a third usually means a specific broken step rather than general mobile behaviour. This is our own operating threshold rather than a published benchmark, set from the accounts we run. Below it, check the basket and the first checkout step on a real handset before anything else.",
-    suggestedBand: "high-low",
   },
   {
     num: 3,
     section: "eCommerce SEO",
     sectionId: "ga-seo",
     title: "Seven in ten of your top fifty non-brand demand terms have a page built to rank for them",
-    threshold:
-      "Threshold: 70% coverage of your top fifty non-brand terms. Export your non-brand queries, group them into the fifty clusters that describe real buying demand, then check each one has a page whose main subject is that cluster. A product that happens to mention the phrase does not count. Most stores that fail this are organised around how their catalogue was built rather than how people shop it — the SEO checklist works through the fix.",
-    link: { href: "/resources/checklists/ecommerce-seo-checklist/", label: "SEO checklist" },
-    suggestedBand: "high-high",
+    threshold: (
+      <>
+        Threshold: 70% coverage of your top fifty non-brand terms. Export your
+        non-brand queries, group them into the fifty clusters that describe real
+        buying demand, then check each one has a page whose main subject is that
+        cluster. A product that happens to mention the phrase does not count. Most
+        stores that fail this are organised around how their catalogue was built
+        rather than how people shop it — the{" "}
+        <Link href="/resources/checklists/ecommerce-seo-checklist/">SEO checklist</Link>{" "}
+        works through the fix.
+      </>
+    ),
   },
   {
     num: 4,
@@ -114,7 +104,6 @@ const CHECKS: Check[] = [
     title: "Indexed URL count is within 20% of the number of pages you intend to rank",
     threshold:
       "Threshold: indexed pages no more than 1.2× intended pages. Compare Search Console’s indexed count against a list of the pages you actually want in search. A large gap almost always means crawlable filter and sort parameters have generated thousands of near-duplicates. This is our own threshold; the 20% allowance covers legitimate pagination.",
-    suggestedBand: "high-high",
   },
   {
     num: 5,
@@ -123,7 +112,6 @@ const CHECKS: Check[] = [
     title: "Bids are set against margin, not one blended return target across the whole catalogue",
     threshold:
       "Threshold: binary — either campaigns are segmented by margin tier or they are not. One return-on-spend target across a catalogue with a three-to-one margin spread guarantees you overpay for low-margin products and underspend on high. If a single target covers a $40 accessory and a $900 item, this point is flagged regardless of how good the blended number looks.",
-    suggestedBand: "high-low",
   },
   {
     num: 6,
@@ -132,27 +120,39 @@ const CHECKS: Check[] = [
     title: "Feed disapprovals are under 2% and matching attributes are populated on 95% of active SKUs",
     threshold:
       "Threshold: under 2% disapproved, 95%+ populated on GTIN, brand, condition and variant attributes. Read it from your Merchant Center diagnostics rather than your platform’s own report. Both numbers are our operating standard. Unpopulated attributes do not throw errors — they quietly remove you from the comparisons where the purchase decision happens.",
-    suggestedBand: "high-low",
   },
   {
     num: 7,
     section: "Conversion",
     sectionId: "ga-conversion",
     title: "Checkout abandonment is at or below 70.2%",
-    threshold:
-      "Threshold: 70.22%, the published average across 49 studies. Measure sessions that reach the first checkout step against completed orders — not basket additions, which produces a much worse number and a false alarm. The benchmark and its methodology are cited on our cart abandonment statistics page. Being at the average is a clear, not a triumph.",
-    link: { href: "/resources/statistics/cart-abandonment/", label: "cart abandonment statistics" },
-    suggestedBand: "high-low",
+    threshold: (
+      <>
+        Threshold: 70.22%, the published average across 49 studies. Measure
+        sessions that reach the first checkout step against completed orders — not
+        basket additions, which produces a much worse number and a false alarm. The
+        benchmark and its methodology are cited on our{" "}
+        <Link href="/resources/statistics/cart-abandonment/">cart abandonment statistics</Link>{" "}
+        page. Being at the average is a clear, not a triumph.
+      </>
+    ),
   },
   {
     num: 8,
     section: "Conversion",
     sectionId: "ga-conversion",
     title: "Total cost including delivery is visible before the final checkout step",
-    threshold:
-      "Threshold: binary — the full figure is shown early, or it is not. Unexpected extra cost at checkout is the most frequently stated reason people abandon, ahead of price itself. Showing it earlier feels like it should cost conversions and reliably does not: you lose the orders that were never going to complete and keep the ones that were. Verdano Foods is the worked example.",
-    link: { href: "/testimonials/verdano-foods-review/", label: "Verdano Foods" },
-    suggestedBand: "high-low",
+    threshold: (
+      <>
+        Threshold: binary — the full figure is shown early, or it is not.
+        Unexpected extra cost at checkout is the most frequently stated reason
+        people abandon, ahead of price itself. Showing it earlier feels like it
+        should cost conversions and reliably does not: you lose the orders that were
+        never going to complete and keep the ones that were.{" "}
+        <Link href="/testimonials/verdano-foods-review/">Verdano Foods</Link> is the
+        worked example.
+      </>
+    ),
   },
   {
     num: 9,
@@ -161,7 +161,6 @@ const CHECKS: Check[] = [
     title: "At least four of the five core lifecycle flows are live and sending",
     threshold:
       "Threshold: 4 of 5 — welcome, browse abandonment, cart abandonment, post-purchase and win-back or replenishment. Live means sending to the segment it was built for, not built and paused. Our threshold, not an industry one. Which of the five matters most depends entirely on whether you sell consumables or considered purchases.",
-    suggestedBand: "high-low",
   },
   {
     num: 10,
@@ -170,27 +169,39 @@ const CHECKS: Check[] = [
     title: "Recovery revenue is measured against a holdout, not attributed by last click",
     threshold:
       "Threshold: binary — a holdout group exists, or this is flagged. Hold back 5 to 10% of each flow’s audience and compare. Without it, every order a customer would have placed anyway gets credited to the email that happened to arrive first, and the flow looks two or three times more valuable than it is. Expect the honest number to be materially lower, and expect that to be uncomfortable.",
-    suggestedBand: "low-low",
   },
   {
     num: 11,
     section: "Marketplace & reporting",
     sectionId: "ga-marketplace",
     title: "You control your own listings, and variations reflect real product differences",
-    threshold:
-      "Threshold: binary — brand registry or equivalent control, a written pricing policy covering resellers, and no unattended repricer. Merged variations are the check most sellers assume they pass. Open your three best-selling parent listings and confirm every child is genuinely the same product in a different size or colour. Vac & Vacuums failed this for three years without knowing.",
-    link: { href: "/testimonials/vac-vacuums-review/", label: "Vac & Vacuums" },
-    suggestedBand: "high-high",
+    threshold: (
+      <>
+        Threshold: binary — brand registry or equivalent control, a written pricing
+        policy covering resellers, and no unattended repricer. Merged variations are
+        the check most sellers assume they pass. Open your three best-selling parent
+        listings and confirm every child is genuinely the same product in a different
+        size or colour.{" "}
+        <Link href="/testimonials/vac-vacuums-review/">Vac &amp; Vacuums</Link> failed
+        this for three years without knowing.
+      </>
+    ),
   },
   {
     num: 12,
     section: "Marketplace & reporting",
     sectionId: "ga-marketplace",
     title: "One report shows contribution margin per order, including carriage, returns and fees",
-    threshold:
-      "Threshold: binary — the view exists and somebody reads it monthly. Per order, not per channel. Carriage, packaging, returns, marketplace fees and marketing cost in one place. Stores that fail this point usually discover that their best campaigns on revenue are their worst on margin, which is what Kitchenary found. If you fail only one point in this framework, hope it is not this one.",
-    link: { href: "/testimonials/kitchenary-review/", label: "Kitchenary" },
-    suggestedBand: "high-high",
+    threshold: (
+      <>
+        Threshold: binary — the view exists and somebody reads it monthly. Per order,
+        not per channel. Carriage, packaging, returns, marketplace fees and marketing
+        cost in one place. Stores that fail this point usually discover that their
+        best campaigns on revenue are their worst on margin, which is what{" "}
+        <Link href="/testimonials/kitchenary-review/">Kitchenary</Link> found. If you
+        fail only one point in this framework, hope it is not this one.
+      </>
+    ),
   },
 ];
 
@@ -264,12 +275,18 @@ const LAYERS = [
   },
 ];
 
-const SOURCES: { threshold: string; source: string; link?: string }[] = [
+const SOURCES: { threshold: string; source: ReactNode }[] = [
   { threshold: "LCP under 2.5 seconds", source: "Google’s published boundary for a “good” Largest Contentful Paint. Not ours, not adjustable." },
   {
     threshold: "Checkout abandonment of 70.22%",
-    source: "Baymard Institute, averaged across 49 separate studies. Methodology and date are on our cart abandonment statistics page.",
-    link: "/resources/statistics/cart-abandonment/",
+    source: (
+      <>
+        Baymard Institute, averaged across 49 separate studies. Methodology and
+        date are on our{" "}
+        <Link href="/resources/statistics/cart-abandonment/">cart abandonment statistics</Link>{" "}
+        page.
+      </>
+    ),
   },
   { threshold: "Extra cost as the leading reason for abandonment", source: "Baymard, same source. The full stated-reason breakdown, with its sample, is published alongside it." },
   { threshold: "Mobile at 0.66× the desktop rate", source: "Ours. Taken from the accounts we run rather than from published research. Treat it as a trigger to investigate, not a law." },
@@ -379,16 +396,6 @@ const DATA_SOURCES = [
   "A gross margin figure per product category, however rough",
 ];
 
-const REVENUES = [
-  "Under $25K a month",
-  "$25K to $250K a month",
-  "$250K to $1M a month",
-  "Over $1M a month",
-  "Not selling online yet",
-];
-
-const STORAGE_KEY = "dazzle-growth-assessment";
-
 const tableStyle: React.CSSProperties = {
   width: "100%",
   borderCollapse: "collapse",
@@ -409,128 +416,22 @@ const tdStyle: React.CSSProperties = {
 };
 const tdStrongStyle: React.CSSProperties = { ...tdStyle, color: "var(--navy)", fontWeight: 700 };
 
-const markBtnBase: React.CSSProperties = {
-  border: "1px solid var(--line)",
-  background: "#fff",
-  borderRadius: "999px",
-  padding: "8px 14px",
-  font: "inherit",
-  fontSize: "0.9rem",
-  fontWeight: 700,
-  color: "var(--navy)",
-  cursor: "pointer",
-};
-
 export default function GrowthAssessmentPage() {
-  const [marks, setMarks] = useState<Partial<Record<number, Mark>>>({});
-  const [figures, setFigures] = useState<Partial<Record<number, string>>>({});
-  const [bands, setBands] = useState<Partial<Record<number, Band>>>({});
-  const [showResult, setShowResult] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", store: "", revenue: "" });
-  const [formErrors, setFormErrors] = useState<Partial<Record<string, string>>>({});
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formError, setFormError] = useState("");
-
-  // Restore saved marks on load; persist them as the user works.
-  useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      if (saved && typeof saved === "object") {
-        if (saved.marks) setMarks(saved.marks);
-        if (saved.figures) setFigures(saved.figures);
-        if (saved.bands) setBands(saved.bands);
-      }
-    } catch {
-      /* saved state is best-effort; a corrupt entry just starts fresh */
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ marks, figures, bands }));
-    } catch {
-      /* storage full or unavailable — the tool still works in memory */
-    }
-  }, [marks, figures, bands]);
-
-  const answered = Object.keys(marks).length;
-  const cleared = CHECKS.filter((c) => marks[c.num] === "cleared").length;
-  const flagged = CHECKS.filter((c) => marks[c.num] === "flagged" || marks[c.num] === "unknown");
-  const unknowns = CHECKS.filter((c) => marks[c.num] === "unknown").length;
-  const naCount = CHECKS.filter((c) => marks[c.num] === "na").length;
-
-  // The live framework ranks flags, it does not total them. Unknowns rank as
-  // flags, not as passes. The constraint is the highest-ranked flag: high
-  // impact and low effort first, then high impact and high effort, and so on.
-  const rankedFlags = useMemo(() => {
-    const bandOf = (c: Check) => bands[c.num] ?? c.suggestedBand;
-    return [...flagged].sort(
-      (a, b) => BAND_ORDER.indexOf(bandOf(a)) - BAND_ORDER.indexOf(bandOf(b)) || a.num - b.num,
-    );
-  }, [flagged, bands]);
-
-  const outcomeIndex = flagged.length === 0 ? 0 : flagged.length <= 2 ? 1 : flagged.length <= 5 ? 2 : 3;
-  const outcome = OUTCOMES[outcomeIndex];
-  const constraint = rankedFlags[0];
-
-  function setMark(num: number, mark: Mark) {
-    setMarks((prev) => ({ ...prev, [num]: mark }));
-    setShowResult(false);
-  }
-
-  function resetAssessment() {
-    setMarks({});
-    setFigures({});
-    setBands({});
-    setShowResult(false);
-    setFormSubmitted(false);
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
-  }
-
-  function handleResultSubmit(e: FormEvent) {
-    e.preventDefault();
-    const errors: Partial<Record<string, string>> = {};
-    if (!form.name.trim()) errors.name = "Please enter your name.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
-      errors.email = "Please enter a valid work email.";
-    if (!form.store.trim()) errors.store = "Please enter your store website.";
-    if (!form.revenue) errors.revenue = "Please choose your monthly revenue band.";
-    setFormErrors(errors);
-    if (Object.keys(errors).length > 0) return;
-    try {
-      const existing = JSON.parse(localStorage.getItem("dazzle-growth-assessment-requests") || "[]");
-      existing.push({
-        ...form,
-        flags: flagged.map((c) => c.num),
-        unknowns,
-        constraint: constraint ? constraint.num : null,
-        outcome: outcome.label,
-        submittedAt: new Date().toISOString(),
-      });
-      localStorage.setItem("dazzle-growth-assessment-requests", JSON.stringify(existing));
-      setFormSubmitted(true);
-      setFormError("");
-    } catch {
-      setFormError("Your result could not be saved in this browser. Please try again.");
-    }
-  }
-
   return (
     <>
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">
-            <Link href="/ecommerce-audit/">eCommerce Audit</Link>
-            {" › Growth Assessment"}
+          <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
+            <Link href="/">Home</Link> ›{" "}
+            <Link href="/ecommerce-audit/">eCommerce Audit</Link> › Growth Assessment
           </p>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Assessment framework · Free · nothing gated</p>
+              <p className="eyebrow">Assessment framework</p>
+              <p style={{ fontWeight: 700, color: "var(--blue)", marginBottom: "0.5rem" }}>
+                Free · nothing gated
+              </p>
               <h1>The eCommerce Growth Assessment, Published in Full</h1>
               <p className="lead">
                 Twelve checks across six disciplines, each with the threshold that decides
@@ -540,25 +441,25 @@ export default function GrowthAssessmentPage() {
               </p>
               <div className="stat-row" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
                 <div className="stat">
-                  <strong>12</strong>
+                  <strong>12 checks</strong>
                   <span>Checks</span>
                 </div>
                 <div className="stat">
-                  <strong>40 min</strong>
+                  <strong>About 40 minutes</strong>
                   <span>Time to run</span>
                 </div>
                 <div className="stat">
-                  <strong>Sep 2026</strong>
+                  <strong>September 2026</strong>
                   <span>Last updated</span>
                 </div>
                 <div className="stat">
-                  <strong>In-house</strong>
-                  <span>Level: in-house team</span>
+                  <strong>In-house team</strong>
+                  <span>Level</span>
                 </div>
               </div>
               <div className="btn-row">
-                <Link className="btn" href="#ga-tool">
-                  Run the assessment
+                <Link className="btn" href="#ga-list">
+                  Go to the twelve points
                 </Link>
                 <Link className="btn btn-outline" href="/ecommerce-audit/">
                   Have us run it instead
@@ -587,308 +488,7 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 2. Interactive assessment tool */}
-      <section className="section section-soft" id="ga-tool">
-        <div className="container">
-          <p className="eyebrow">Run it now</p>
-          <h2>Mark all twelve points against their thresholds</h2>
-          <p className="lead">
-            Each point gets one of three marks. There is deliberately no partial credit and no
-            weighting. Write down the actual figure next to a flag, not just the flag — a
-            near miss and a catastrophic miss look identical here, on purpose. Your marks are
-            saved in this browser, so you can run it across two sittings.
-          </p>
-          <p style={{ fontWeight: 700 }}>
-            {answered} of 12 marked · {cleared} cleared · {flagged.length} flagged
-            {unknowns > 0 ? ` (including ${unknowns} unknown${unknowns === 1 ? "" : "s"})` : ""}
-            {naCount > 0 ? ` · ${naCount} not applicable` : ""}
-          </p>
-
-          {SECTIONS.map((s) => (
-            <div key={s.id} style={{ marginTop: "40px" }}>
-              <p className="eyebrow">
-                Section {s.num} · 2 checks
-              </p>
-              <h3 style={{ fontSize: "1.5rem" }}>{s.title}</h3>
-              {CHECKS.filter((c) => c.sectionId === s.id).map((c) => (
-                <article className="card" key={c.num} style={{ marginTop: "16px" }}>
-                  <p className="card-num" style={{ fontSize: "1.2rem" }}>
-                    Point {c.num}
-                  </p>
-                  <h3>{c.title}</h3>
-                  <p>
-                    {c.threshold}
-                    {c.link ? (
-                      <>
-                        {" "}
-                        <Link href={c.link.href}>{c.link.label}</Link>
-                      </>
-                    ) : null}
-                  </p>
-                  <div
-                    role="group"
-                    aria-label={`Mark point ${c.num}`}
-                    style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "16px" }}
-                  >
-                    {(
-                      [
-                        ["cleared", "Cleared"],
-                        ["flagged", "Flagged"],
-                        ["unknown", "Unknown"],
-                        ["na", "Not applicable"],
-                      ] as [Mark, string][]
-                    ).map(([value, label]) => (
-                      <button
-                        key={value}
-                        type="button"
-                        aria-pressed={marks[c.num] === value}
-                        onClick={() => setMark(c.num, value)}
-                        style={{
-                          ...markBtnBase,
-                          background: marks[c.num] === value ? "var(--blue)" : "#fff",
-                          borderColor: marks[c.num] === value ? "var(--blue)" : "var(--line)",
-                          color: marks[c.num] === value ? "#fff" : "var(--navy)",
-                        }}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                  {(marks[c.num] === "flagged" || marks[c.num] === "unknown") && (
-                    <div style={{ marginTop: "16px" }}>
-                      <label
-                        htmlFor={`figure-${c.num}`}
-                        style={{ display: "block", fontWeight: 700, marginBottom: "6px", fontSize: "0.95rem" }}
-                      >
-                        Your actual figure for point {c.num} (optional — but the framework asks
-                        for it)
-                      </label>
-                      <input
-                        id={`figure-${c.num}`}
-                        className="form-input"
-                        style={{ width: "100%" }}
-                        value={figures[c.num] ?? ""}
-                        onChange={(e) => setFigures((prev) => ({ ...prev, [c.num]: e.target.value }))}
-                        placeholder="e.g. LCP 4.1s on mobile, or checkout abandonment 78%"
-                      />
-                      <label
-                        htmlFor={`band-${c.num}`}
-                        style={{ display: "block", fontWeight: 700, margin: "14px 0 6px", fontSize: "0.95rem" }}
-                      >
-                        Impact against effort — which band does this flag belong in?
-                      </label>
-                      <select
-                        id={`band-${c.num}`}
-                        className="form-select"
-                        style={{ width: "100%" }}
-                        value={bands[c.num] ?? c.suggestedBand}
-                        onChange={(e) => setBands((prev) => ({ ...prev, [c.num]: e.target.value as Band }))}
-                      >
-                        {BAND_ORDER.map((b) => (
-                          <option key={b} value={b}>
-                            {BAND_LABELS[b]}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
-                  {marks[c.num] === "unknown" && (
-                    <p style={{ marginTop: "12px", marginBottom: 0 }}>
-                      Count it as flagged when you rank, not as cleared. Three or more unknowns
-                      is itself the finding: you are flying blind.
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-          ))}
-
-          <div className="btn-row">
-            <button
-              type="button"
-              className="btn"
-              disabled={answered < 12}
-              onClick={() => setShowResult(true)}
-              style={answered < 12 ? { opacity: 0.55, cursor: "not-allowed" } : undefined}
-            >
-              See my result
-            </button>
-            <button type="button" className="btn btn-outline" onClick={resetAssessment}>
-              Start again
-            </button>
-          </div>
-          {answered < 12 && (
-            <p style={{ color: "var(--muted)", marginTop: "12px" }}>
-              Mark all twelve points to see your result — including points that do not apply,
-              which you can mark not applicable.
-            </p>
-          )}
-
-          {showResult && (
-            <div className="card" style={{ marginTop: "32px", borderColor: "var(--blue)" }}>
-              <p className="eyebrow">Your result — ranked, not totalled</p>
-              <h3>
-                {outcome.num} · {outcome.label}
-              </h3>
-              <p style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--navy)" }}>{outcome.title}</p>
-              <p>{outcome.body}</p>
-              <p>
-                {cleared} cleared · {flagged.length} flagged
-                {unknowns > 0 ? `, of which ${unknowns} unknown` : ""}
-                {naCount > 0 ? ` · ${naCount} not applicable` : ""}. A total out of twelve is
-                the one output that makes this worse. Ten out of twelve reads like a healthy
-                store, and a store failing badly on checkout is not healthy at any score.
-              </p>
-              {flagged.length === 0 && (
-                <p>
-                  If your assessment comes back with nothing flagged, it was marked too
-                  generously. We have never run this on a live store and found twelve clears.
-                </p>
-              )}
-              {constraint && (
-                <>
-                  <h3 style={{ marginTop: "24px" }}>Your constraint this quarter</h3>
-                  <p>
-                    <strong>
-                      Point {constraint.num} — {constraint.title}
-                    </strong>
-                    <br />
-                    Band: {BAND_LABELS[bands[constraint.num] ?? constraint.suggestedBand]}
-                    {figures[constraint.num] ? (
-                      <>
-                        <br />
-                        Your figure: {figures[constraint.num]}
-                      </>
-                    ) : null}
-                  </p>
-                  <p>
-                    One constraint at a time, held until it clears. Unknowns rank as flags, not
-                    as passes. A flag you cannot size is a flag you have not investigated yet.
-                  </p>
-                </>
-              )}
-              {rankedFlags.length > 1 && (
-                <>
-                  <h3 style={{ marginTop: "24px" }}>Your flags, ranked</h3>
-                  <ol style={{ paddingLeft: "1.25rem", color: "var(--muted)" }}>
-                    {rankedFlags.map((c) => (
-                      <li key={c.num} style={{ marginBottom: "0.5rem" }}>
-                        <strong style={{ color: "var(--navy)" }}>
-                          Point {c.num} — {c.title}
-                        </strong>{" "}
-                        ({BAND_LABELS[bands[c.num] ?? c.suggestedBand]}
-                        {marks[c.num] === "unknown" ? "; unknown" : ""}
-                        {figures[c.num] ? `; your figure: ${figures[c.num]}` : ""})
-                      </li>
-                    ))}
-                  </ol>
-                </>
-              )}
-              <div style={{ marginTop: "24px" }}>
-                <Link className="btn" href={outcome.href}>
-                  {outcome.cta}
-                </Link>
-              </div>
-
-              {/* Follow-up: send the result for a free audit walkthrough */}
-              <div style={{ marginTop: "32px", borderTop: "1px solid var(--line)", paddingTop: "24px" }}>
-                {formSubmitted ? (
-                  <>
-                    <h3>Thank you — your result is saved</h3>
-                    <p>
-                      We have your assessment
-                      {constraint
-                        ? `, with point ${constraint.num} as your constraint`
-                        : " with nothing flagged"}
-                      . A senior strategist will walk through it with you on the free audit call
-                      — five working days, a ranked constraint list and a ninety-day sequence,
-                      nothing owed afterwards.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <h3>Want the audit version of this result?</h3>
-                    <p>
-                      The free eCommerce audit covers the same twelve points with the specialist
-                      who runs each discipline, plus a ranked constraint list, a ninety-day
-                      sequence and a recorded walkthrough. Send us your result and we will bring
-                      it to the call.
-                    </p>
-                    <form onSubmit={handleResultSubmit} noValidate>
-                      <div className="form-field">
-                        <label htmlFor="ga-name">
-                          Full name <span className="required">*</span>
-                        </label>
-                        <input
-                          id="ga-name"
-                          className="form-input"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        />
-                        {formErrors.name && <p className="form-msg form-msg-dark err">{formErrors.name}</p>}
-                      </div>
-                      <div className="form-field">
-                        <label htmlFor="ga-email">
-                          Work email <span className="required">*</span>
-                        </label>
-                        <input
-                          id="ga-email"
-                          type="email"
-                          className="form-input"
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        />
-                        {formErrors.email && <p className="form-msg form-msg-dark err">{formErrors.email}</p>}
-                      </div>
-                      <div className="form-field">
-                        <label htmlFor="ga-store">
-                          Store website <span className="required">*</span>
-                        </label>
-                        <input
-                          id="ga-store"
-                          className="form-input"
-                          placeholder="https://yourstore.com"
-                          value={form.store}
-                          onChange={(e) => setForm({ ...form, store: e.target.value })}
-                        />
-                        {formErrors.store && <p className="form-msg form-msg-dark err">{formErrors.store}</p>}
-                      </div>
-                      <div className="form-field">
-                        <label htmlFor="ga-revenue">
-                          Monthly revenue <span className="required">*</span>
-                        </label>
-                        <select
-                          id="ga-revenue"
-                          className="form-select"
-                          value={form.revenue}
-                          onChange={(e) => setForm({ ...form, revenue: e.target.value })}
-                        >
-                          <option value="">Select a band</option>
-                          {REVENUES.map((r) => (
-                            <option key={r} value={r}>
-                              {r}
-                            </option>
-                          ))}
-                        </select>
-                        {formErrors.revenue && <p className="form-msg form-msg-dark err">{formErrors.revenue}</p>}
-                      </div>
-                      <button type="submit" className="btn">
-                        Send my result — request the free audit
-                      </button>
-                      {formError && <p className="form-msg form-msg-dark err">{formError}</p>}
-                      <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-                        Your result is saved in this browser only. We will never sell your data.
-                      </p>
-                    </form>
-                  </>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 3. Why publish it */}
+      {/* 2. Why publish it */}
       <section className="section">
         <div className="container">
           <div className="split">
@@ -1042,8 +642,7 @@ export default function GrowthAssessmentPage() {
       {/* 7. The checklist index + the twelve points */}
       <section className="section" id="ga-list">
         <div className="container">
-          <p className="eyebrow">The checklist</p>
-          <h2>Twelve checks across six disciplines</h2>
+          <p className="eyebrow">THE CHECKLIST</p>
           <div className="card-grid card-grid-2">
             {SECTIONS.map((s) => (
               <article className="card" key={s.id}>
@@ -1051,7 +650,6 @@ export default function GrowthAssessmentPage() {
                 <h3>
                   <Link href={`#${s.id}`}>{s.title}</Link>
                 </h3>
-                <p>{s.intro}</p>
               </article>
             ))}
           </div>
@@ -1077,15 +675,7 @@ export default function GrowthAssessmentPage() {
                     Point {c.num}
                   </p>
                   <h3>{c.title}</h3>
-                  <p style={{ marginBottom: 0 }}>
-                    {c.threshold}
-                    {c.link ? (
-                      <>
-                        {" "}
-                        <Link href={c.link.href}>{c.link.label}</Link>
-                      </>
-                    ) : null}
-                  </p>
+                  <p style={{ marginBottom: 0 }}>{c.threshold}</p>
                 </article>
               ))}
             </div>
@@ -1114,15 +704,7 @@ export default function GrowthAssessmentPage() {
               {SOURCES.map((row) => (
                 <tr key={row.threshold}>
                   <td style={tdStrongStyle}>{row.threshold}</td>
-                  <td style={tdStyle}>
-                    {row.source}
-                    {row.link ? (
-                      <>
-                        {" "}
-                        <Link href={row.link}>cart abandonment statistics</Link>
-                      </>
-                    ) : null}
-                  </td>
+                  <td style={tdStyle}>{row.source}</td>
                 </tr>
               ))}
             </tbody>
@@ -1432,11 +1014,6 @@ export default function GrowthAssessmentPage() {
               Talk It Through First
             </Link>
           </div>
-          <ul className="final-checks">
-            <li>Free 30-minute call</li>
-            <li>No long-term contracts</li>
-            <li>Actionable audit you keep</li>
-          </ul>
         </div>
       </section>
     </>

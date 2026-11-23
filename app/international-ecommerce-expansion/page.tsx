@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
@@ -48,7 +49,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What if the audit says we should not expand yet?",
-    a: "Then that is what the audit says. A store whose home market is unprofitable does not become profitable by adding a second country, and we would rather fix the first market with you. The free audit is where that conversation starts.",
+    a: (
+      <>
+        Then that is what the audit says. A store whose home market is unprofitable does
+        not become profitable by adding a second country, and we would rather fix the first
+        market with you. The <Link href="/ecommerce-audit/">free audit</Link> is where
+        that conversation starts.
+      </>
+    ),
   },
   {
     q: "Do you translate content, or do we?",
@@ -56,7 +64,14 @@ const faqs: Faq[] = [
   },
   {
     q: "How is this different from your location pages?",
-    a: "The location pages describe how we work in a market you are already in or committed to. This page is about the decision and the sequence — which market, in what order, through which channel, and what it will cost to serve.",
+    a: (
+      <>
+        The <Link href="/locations-we-serve/">location pages</Link> describe how we work in
+        a market you are already in or committed to. This page is about the decision and the
+        sequence — which market, in what order, through which channel, and what it will cost
+        to serve.
+      </>
+    ),
   },
 ];
 
@@ -66,49 +81,61 @@ const areas = [
     title: "Market research & selection",
     body: "Which market, in which order, and what it will cost to serve properly before you commit to it.",
     href: "#intl-research",
+    img: "/images/locations-we-serve-hero.webp",
+    alt: "World map illustrating international eCommerce markets served by Dazzle Commerce",
   },
   {
     num: "Area 02",
     title: "Localisation strategy",
     body: "Language, currency, sizing, payment methods and delivery promises rebuilt for the market rather than translated into it.",
     href: "#intl-localization",
+    img: "/images/international-ecommerce-expansion-area-arabic-content.webp",
+    alt: "Professional working on a laptop preparing Arabic language content",
   },
   {
     num: "Area 03",
     title: "Platforms & marketplaces",
     body: "Whether to lead with your own storefront or a regional marketplace, and how to run both without duplicating the catalogue.",
     href: "#intl-platforms",
+    img: "/images/international-ecommerce-expansion-area-warehouse.webp",
+    alt: "Warehouse operative arranging marketplace stock on shelving",
   },
   {
     num: "Area 04",
     title: "International customer acquisition",
     body: "Paid, organic and marketplace advertising planned per market against local cost and local competition.",
     href: "#intl-acquisition",
+    img: "/images/ecommerce-ppc-hero.webp",
+    alt: "Advertising performance dashboard on a laptop",
   },
   {
     num: "Area 05",
     title: "Customer experience & conversion",
     body: "The trust signals, payment options and delivery messaging that decide whether a foreign visitor completes a purchase.",
     href: "#intl-cx",
+    img: "/images/conversion-rate-optimization-hero.webp",
+    alt: "Online checkout screen showing payment details and cart",
   },
   {
     num: "Area 06",
     title: "Multi-market operations",
     body: "Catalogue, pricing, stock, returns and reporting kept coherent as the number of markets grows.",
     href: "#intl-ops",
+    img: "/images/international-ecommerce-expansion-operations.webp",
+    alt: "Aerial view of a logistics hub handling multi-market eCommerce fulfilment",
   },
 ];
 
 const marketplaces = [
-  { name: "Amazon", href: "/amazon-agency/", note: "North America, Europe, Japan, Australia and the Gulf" },
-  { name: "Walmart Marketplace", href: "/walmart-marketplace-management/", note: "United States, with Canada and Mexico expanding" },
-  { name: "Shopee", href: "/shopee-seller-management/", note: "Singapore, Malaysia, Philippines, Thailand, Vietnam" },
-  { name: "Lazada", href: "/lazada-seller-management/", note: "Southeast Asia, with strong brand-mall positioning" },
-  { name: "noon", href: "/noon-seller-management/", note: "UAE, Saudi Arabia and Egypt" },
-  { name: "Daraz", href: "/daraz-seller-management/", note: "Pakistan, Bangladesh, Sri Lanka and Nepal" },
-  { name: "Jumia", href: "/jumia-seller-management/", note: "Nigeria, Egypt, Morocco, Kenya and beyond" },
-  { name: "AliExpress", href: "/aliexpress-seller-management/", note: "Cross-border selling into Europe, LATAM and Asia" },
-  { name: "Alibaba.com", href: "/alibaba-b2b-agency/", note: "B2B and wholesale demand across every region" },
+  { name: "Amazon", href: "/amazon-agency/", note: "North America, Europe, Japan, Australia and the Gulf", img: "/images/international-ecommerce-expansion-marketplace-usa.webp", alt: "Warehouse worker moving pallets of marketplace orders with a pallet jack" },
+  { name: "Walmart Marketplace", href: "/walmart-marketplace-management/", note: "United States, with Canada and Mexico expanding", img: "/images/international-ecommerce-expansion-marketplace-eu-warehouse.webp", alt: "Interior of a large European fulfilment warehouse" },
+  { name: "Shopee", href: "/shopee-seller-management/", note: "Singapore, Malaysia, Philippines, Thailand, Vietnam", img: "/images/international-ecommerce-expansion-marketplace-apac-aisle.webp", alt: "Warehouse aisle with tall shelves of marketplace stock" },
+  { name: "Lazada", href: "/lazada-seller-management/", note: "Southeast Asia, with strong brand-mall positioning", img: "/images/international-ecommerce-expansion-marketplace-sea-walkway.webp", alt: "Walkway between shelves in a marketplace fulfilment warehouse" },
+  { name: "noon", href: "/noon-seller-management/", note: "UAE, Saudi Arabia and Egypt", img: "/images/international-ecommerce-expansion-marketplace-gcc-worker.webp", alt: "Warehouse worker organising marketplace stock on shelves" },
+  { name: "Daraz", href: "/daraz-seller-management/", note: "Pakistan, Bangladesh, Sri Lanka and Nepal", img: "/images/international-ecommerce-expansion-marketplace-bangkok-night-market.webp", alt: "Aerial view of a busy night market in Bangkok" },
+  { name: "Jumia", href: "/jumia-seller-management/", note: "Nigeria, Egypt, Morocco, Kenya and beyond", img: "/images/international-ecommerce-expansion-marketplace-cairo-bazaar.webp", alt: "Khan El-Khalili bazaar in Cairo" },
+  { name: "AliExpress", href: "/aliexpress-seller-management/", note: "Cross-border selling into Europe, LATAM and Asia", img: "/images/international-ecommerce-expansion-marketplace-sao-paulo-avenue.webp", alt: "Paulista Avenue in Sao Paulo" },
+  { name: "Alibaba.com", href: "/alibaba-b2b-agency/", note: "B2B and wholesale demand across every region", img: "/images/international-ecommerce-expansion-marketplace-europe-shop-night.webp", alt: "European city shop lit at night" },
 ];
 
 const acquisition = [
@@ -174,16 +201,16 @@ const opsRows = [
 ];
 
 const markets = [
-  { name: "United States", href: "/ecommerce-agency-usa/", note: "Scale, and the most crowded market to earn it in" },
-  { name: "United Kingdom", href: "/ecommerce-agency-uk/", note: "Next-day delivery as the baseline expectation" },
-  { name: "Canada", href: "/ecommerce-agency-canada/", note: "Concentrated demand and cross-border US selling" },
-  { name: "Australia", href: "/ecommerce-agency-australia/", note: "Distance, freight economics and delivery experience" },
-  { name: "Europe", href: null, note: "Many countries, many rules, one logistics problem" },
-  { name: "Dubai & the Gulf", href: "/ecommerce-agency-dubai/", note: "Amazon and noon, Arabic experiences, cash on delivery" },
-  { name: "MENA", href: null, note: "Localisation and payment trust across the region" },
-  { name: "Asia Pacific", href: null, note: "A fragmented region planned market by market" },
-  { name: "Southeast Asia", href: null, note: "Shopee, Lazada, TikTok Shop and live commerce" },
-  { name: "Latin America", href: null, note: "Marketplace-led growth and instalment payments" },
+  { name: "United States", href: "/ecommerce-agency-usa/", note: "Scale, and the most crowded market to earn it in", img: "/images/international-ecommerce-expansion-market-usa.webp", alt: "United States city skyline along the waterfront representing the national eCommerce market" },
+  { name: "United Kingdom", href: "/ecommerce-agency-uk/", note: "Next-day delivery as the baseline expectation", img: "/images/international-ecommerce-expansion-market-uk.webp", alt: "Aerial view of the City of London financial district" },
+  { name: "Canada", href: "/ecommerce-agency-canada/", note: "Concentrated demand and cross-border US selling", img: "/images/international-ecommerce-expansion-market-canada.webp", alt: "CN Tower and the Toronto skyline at sunset" },
+  { name: "Australia", href: "/ecommerce-agency-australia/", note: "Distance, freight economics and delivery experience", img: "/images/international-ecommerce-expansion-market-australia.webp", alt: "Sydney harbour and the Opera House representing the Australian market" },
+  { name: "Europe", href: null, note: "Many countries, many rules, one logistics problem", img: "/images/international-ecommerce-expansion-market-europe.webp", alt: "Canal houses in Amsterdam representing the European eCommerce market" },
+  { name: "Dubai & the Gulf", href: "/ecommerce-agency-dubai/", note: "Amazon and noon, Arabic experiences, cash on delivery", img: "/images/international-ecommerce-expansion-market-dubai.webp", alt: "Dubai skyline with high-rise towers beside the water" },
+  { name: "MENA", href: null, note: "Localisation and payment trust across the region", img: "/images/international-ecommerce-expansion-market-mena.webp", alt: "Aerial view of the historic Cairo skyline" },
+  { name: "Asia Pacific", href: null, note: "A fragmented region planned market by market", img: "/images/international-ecommerce-expansion-market-apac.webp", alt: "Aerial view of the Singapore skyline and Marina Bay" },
+  { name: "Southeast Asia", href: null, note: "Shopee, Lazada, TikTok Shop and live commerce", img: "/images/international-ecommerce-expansion-market-southeast-asia.webp", alt: "Busy night market street scene in Thailand" },
+  { name: "Latin America", href: null, note: "Marketplace-led growth and instalment payments", img: "/images/international-ecommerce-expansion-market-latam.webp", alt: "Aerial night view of the Sao Paulo skyline" },
 ];
 
 const processSteps = [
@@ -288,9 +315,92 @@ const cases = [
   },
 ];
 
+const tableStyle: CSSProperties = {
+  width: "100%",
+  borderCollapse: "collapse",
+  marginTop: "32px",
+  background: "#fff",
+  border: "1px solid var(--line)",
+  borderRadius: "var(--radius)",
+  overflow: "hidden",
+  fontSize: "0.98rem",
+};
+
+const thStyle: CSSProperties = {
+  textAlign: "left",
+  padding: "14px 18px",
+  background: "var(--bg-soft)",
+  color: "var(--navy)",
+  fontWeight: 800,
+  borderBottom: "1px solid var(--line)",
+};
+
+const tdStyle: CSSProperties = {
+  padding: "14px 18px",
+  color: "var(--muted)",
+  borderTop: "1px solid var(--line)",
+  verticalAlign: "top",
+};
+
 export default function InternationalEcommerceExpansionPage() {
   return (
     <>
+      <style>{`@media (max-width: 1280px){.intl-side-nav{display:none}}`}</style>
+      {/* Sticky side nav (live page: position fixed) */}
+      <aside
+        className="intl-side-nav"
+        aria-label="On this page"
+        style={{
+          position: "fixed",
+          right: "24px",
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 40,
+          width: "230px",
+          background: "#fff",
+          border: "1px solid var(--line)",
+          borderRadius: "var(--radius)",
+          padding: "18px",
+          boxShadow: "0 8px 30px rgba(9, 19, 37, 0.10)",
+        }}
+      >
+        <nav aria-label="Page sections">
+          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "10px" }}>
+            <li>
+              <Link href="#intl-services" style={{ fontWeight: 700, color: "var(--navy)" }}>
+                What we do
+              </Link>
+            </li>
+            <li>
+              <Link href="#intl-process" style={{ fontWeight: 700, color: "var(--navy)" }}>
+                See how we work
+              </Link>
+            </li>
+            <li>
+              <Link href="#intl-markets" style={{ fontWeight: 700, color: "var(--navy)" }}>
+                Where we work
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div
+          style={{
+            marginTop: "18px",
+            paddingTop: "18px",
+            borderTop: "1px solid var(--line)",
+          }}
+        >
+          <h3 style={{ margin: "0 0 8px", color: "var(--navy)" }}>Free growth audit</h3>
+          <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: "0.95rem" }}>
+            We audit your store, ad accounts and marketplace health, then rank every
+            opportunity by revenue impact. Yours to keep.
+          </p>
+          <Link className="btn" href="/book-a-strategy-call/">
+            Book a free call
+          </Link>
+        </div>
+      </aside>
+
       {/* 1. Hero */}
       <section className="hero" id="intl-hero">
         <div className="container">
@@ -405,6 +515,9 @@ export default function InternationalEcommerceExpansionPage() {
           <div className="card-grid">
             {areas.map((a) => (
               <article className="card" key={a.num}>
+                <div className="hero-img" style={{ marginBottom: "16px" }}>
+                  <Image src={a.img} alt={a.alt} width={1920} height={1280} />
+                </div>
                 <p className="card-num" style={{ fontSize: "1rem" }}>
                   {a.num}
                 </p>
@@ -518,6 +631,9 @@ export default function InternationalEcommerceExpansionPage() {
           <div className="card-grid">
             {marketplaces.map((m) => (
               <article className="card platform-card" key={m.name}>
+                <div className="hero-img" style={{ marginBottom: "16px" }}>
+                  <Image src={m.img} alt={m.alt} width={1920} height={1280} />
+                </div>
                 <h3 className="platform-name">
                   <Link href={m.href}>{m.name}</Link>
                 </h3>
@@ -537,27 +653,15 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 7. Area 04 — International customer acquisition */}
       <section className="section section-soft" id="intl-acquisition">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Area 04</p>
-              <h2>International customer acquisition</h2>
-              <p>
-                A campaign that works in your home market rarely transfers. Local competition,
-                local cost and local search behaviour all differ, and the budget has to be planned
-                against them. International eCommerce SEO is the slowest and cheapest half of
-                this: hreflang, market-specific category demand and local currency signals decide
-                whether the right country even sees you before a single ad runs.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/international-ecommerce-expansion-acquisition.webp"
-                alt="Advertising performance dashboard on a laptop"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">Area 04</p>
+          <h2>International customer acquisition</h2>
+          <p className="lead">
+            A campaign that works in your home market rarely transfers. Local competition,
+            local cost and local search behaviour all differ, and the budget has to be planned
+            against them. International eCommerce SEO is the slowest and cheapest half of
+            this: hreflang, market-specific category demand and local currency signals decide
+            whether the right country even sees you before a single ad runs.
+          </p>
           <div className="card-grid card-grid-4">
             {acquisition.map((c) => (
               <article className="card" key={c.title}>
@@ -644,17 +748,25 @@ export default function InternationalEcommerceExpansionPage() {
               />
             </div>
           </div>
-          <div className="card-grid card-grid-2" style={{ marginTop: "32px" }}>
-            <h3>What usually goes wrong</h3>
-            <h3>How we run it instead</h3>
-          </div>
-          <div className="card-grid card-grid-2">
-            {opsRows.map((r) => (
-              <article className="card" key={r.wrong}>
-                <h3>{r.wrong}</h3>
-                <p>{r.instead}</p>
-              </article>
-            ))}
+          <div style={{ overflowX: "auto" }}>
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={thStyle}>What usually goes wrong</th>
+                  <th style={thStyle}>How we run it instead</th>
+                </tr>
+              </thead>
+              <tbody>
+                {opsRows.map((r) => (
+                  <tr key={r.wrong}>
+                    <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
+                      {r.wrong}
+                    </td>
+                    <td style={tdStyle}>{r.instead}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -662,29 +774,20 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 10. Markets we support */}
       <section className="section" id="intl-markets">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Where we work</p>
-              <h2>Markets we support</h2>
-              <p className="lead">
-                Ten markets we run programmes in. The five that are linked have a dedicated page
-                covering the demand, the channels, the payment behaviour and the delivery
-                expectations that market actually has; the rest are covered inside an expansion
-                engagement.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/international-ecommerce-expansion-markets.webp"
-                alt="World map illustrating international eCommerce markets served by Dazzle Commerce"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
+          <p className="eyebrow">Where we work</p>
+          <h2>Markets we support</h2>
+          <p className="lead">
+            Ten markets we run programmes in. The five that are linked have a dedicated page
+            covering the demand, the channels, the payment behaviour and the delivery
+            expectations that market actually has; the rest are covered inside an expansion
+            engagement.
+          </p>
           <div className="card-grid">
             {markets.map((m) => (
               <article className="card platform-card" key={m.name}>
+                <div className="hero-img" style={{ marginBottom: "16px" }}>
+                  <Image src={m.img} alt={m.alt} width={1920} height={1280} />
+                </div>
                 <h3 className="platform-name">
                   {m.href ? <Link href={m.href}>{m.name}</Link> : m.name}
                 </h3>
@@ -732,25 +835,35 @@ export default function InternationalEcommerceExpansionPage() {
             The right first move depends on what you are actually trying to do, and the answers
             differ more than most plans allow for.
           </p>
-          <div className="card-grid card-grid-2" style={{ marginTop: "32px" }}>
-            <h3>Your goal</h3>
-            <h3>Where we would start</h3>
-          </div>
-          <div className="card-grid card-grid-2">
-            {goals.map((g) => (
-              <article className="card" key={g.goal}>
-                <h3>{g.goal}</h3>
-                <p>{g.start}</p>
-              </article>
-            ))}
-            <article className="card">
-              <h3>Enter B2B or wholesale abroad</h3>
-              <p>
-                A different motion entirely — see{" "}
-                <Link href="/b2b-wholesale-ecommerce-agency/">B2B and wholesale</Link> and{" "}
-                <Link href="/alibaba-b2b-agency/">Alibaba.com</Link> .
-              </p>
-            </article>
+          <div style={{ overflowX: "auto" }}>
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={thStyle}>Your goal</th>
+                  <th style={thStyle}>Where we would start</th>
+                </tr>
+              </thead>
+              <tbody>
+                {goals.map((g) => (
+                  <tr key={g.goal}>
+                    <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
+                      {g.goal}
+                    </td>
+                    <td style={tdStyle}>{g.start}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
+                    Enter B2B or wholesale abroad
+                  </td>
+                  <td style={tdStyle}>
+                    A different motion entirely — see{" "}
+                    <Link href="/b2b-wholesale-ecommerce-agency/">B2B and wholesale</Link>{" "}
+                    and <Link href="/alibaba-b2b-agency/">Alibaba.com</Link> .
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

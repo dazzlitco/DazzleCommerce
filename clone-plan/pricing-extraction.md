@@ -27,9 +27,9 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow: `Pricing & Packages`
 - H1: `eCommerce Management Pricing That Matches Your Stage`
 - Copy: `Three packages built around what actually drives cost — channel count, catalog size and ad spend under management. Most engagements sit between $3,500 and $18,000 per month, and we scope after a free audit so the number reflects real work rather than a guess.`
-- CTAs: `Get Your Free Scoping Call` → /book-a-strategy-call/ ; `Compare Packages` (anchor to the comparison table below)
+- CTAs: `Get Your Free Scoping Call` → /contact/ ; `Compare Packages` (anchor `#packages`, to the comparison table below)
 - Microcopy under CTAs: `No setup fees. No long lock-in. Month-to-month after the first 90 days.`
-- No hero image on the live page (text-only hero).
+- No hero image on the live page (text-only hero). (Corrected 2026-11-23: the hero CTA points to /contact/, not /book-a-strategy-call/ as an earlier extraction stated.)
 
 ### 2. Choose Your Growth Package (pricing cards)
 - Eyebrow/heading: `Choose Your Growth Package`
@@ -48,7 +48,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `One paid channel managed end to end`
   - `Monthly report with contribution margin, not just ROAS`
   - `A named senior strategist and a monthly call`
-- CTA: `Start with a free audit` → /book-a-strategy-call/
+- CTA: `Start with a free audit` → /ecommerce-audit/
 
 #### Growth — labelled `BEST FOR SCALING BRANDS`
 - Tagline: `For multi-channel brands doing $100K–$500K a month.`
@@ -78,10 +78,10 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `Creative and content production included`
   - `Weekly calls plus a monthly business review`
   - `Custom dashboards and board-ready reporting`
-- CTA: `Request a custom scope` → /request-a-proposal/
+- CTA: `Request a custom scope` → /contact/
 
 ### 3. Package comparison table
-- Columns: feature rows × Starter / Growth / Scale.
+- The table has no heading or intro copy on the live page — the tier cards run straight into the table (anchor id `packages`). Columns: feature rows × Starter / Growth / Scale.
 - Rows (verbatim):
   - `Best for` — Starter: `$25K–$100K / month` ; Growth: `$100K–$500K / month` ; Scale: `$500K+ / month or multi-market`
   - `Store Management` — Starter: `One platform` ; Growth: `Storefront + marketplace, two platforms` ; Scale: `All platforms and all markets`
@@ -131,7 +131,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Closing panel:
   - Heading: `Your customised investment`
   - Body: `One monthly figure, scoped after the free audit, with the working shown. You see which disciplines are in, how many hours sit behind each, and what we expect them to return — before you commit to anything.`
-  - CTA: `Get Your Free Scoping Call` → /book-a-strategy-call/
+  - CTA: `Get Your Free Scoping Call` → /contact/
 
 ### 7. Pricing FAQs
 - Eyebrow/heading: `Pricing FAQs`
@@ -149,7 +149,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 ### 8. Final CTA (pre-footer)
 - Heading: `Want the actual number for your business?`
 - Body: `The free audit takes three to five days, produces a scoped monthly figure with the reasoning attached, and is yours to keep whether or not you hire us.`
-- CTA: `Book Your Free Scoping Call` → /book-a-strategy-call/
+- CTAs: `Book Your Free Scoping Call` → /contact/ ; `See What We Deliver` → /services/
+- No checklist/trust line under the buttons on this page. (Corrected 2026-11-23: both CTAs point to /contact/ and /services/ respectively — not /book-a-strategy-call/ — and the second button reads `See What We Deliver`, not `See Our Services`.)
 
 ## Footer (site footer — same as homepage)
 - Tagline: `Scale. Optimize. Succeed.`
@@ -160,17 +161,19 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Free-account modal copy (same as homepage): `Get the eCommerce benchmarks other agencies charge for` etc.
 
 ## Links found on the page (internal, main content)
-- /book-a-strategy-call/ (hero, Starter, Growth, How Pricing Works, final CTA)
-- /request-a-proposal/ (Scale tier CTA)
+- /contact/ (hero, Scale tier, How Pricing Works closing panel, final CTA)
+- /ecommerce-audit/ (Starter tier CTA)
+- /book-a-strategy-call/ (Growth tier CTA only)
+- /services/ (final CTA second button)
 - /ecommerce-growth-assessment/ (Resources mega-menu)
 - /ecommerce-audit/ (header mega-menu “Free growth audit”)
 - /services/, /case-studies/, /contact/ (header/footer)
 
 ## Quirks / notes
-- No pricing calculator, monthly/annual toggle, or interactive pricing widget exists on the live page. The three tiers are static cards plus a comparison table. The clone therefore reproduces the static pricing faithfully; the working “estimate your investment” tool in the clone is an addition built from the live “How Our Pricing Works” four inputs (business size, platforms & channels, scope of work, growth goals) and the live $3,500–$18,000 range — it is labelled as an estimate, not live copy.
+- No pricing calculator, monthly/annual toggle, or interactive pricing widget exists on the live page. The three tiers are static cards plus a comparison table.
+- No images in the main content of the live page (text-only hero, cards and table), and no og:image in the live head. (Note 2026-11-23: illustrative clone images formerly used in the hero, “How Our Pricing Works” and final CTA were removed in the fidelity fix pass — the clone now has no images on this page either.)
 - Live copy mixes British spellings (optimisation, customised, prioritised, localisation) with US contact details — kept verbatim.
 - “Growth” tier carries the badge `BEST FOR SCALING BRANDS`; Starter and Scale carry no badge.
 - Starter price line reads `per month · 3-month initial term` while Growth reads `per month · month-to-month after 90 days` — both kept verbatim (they describe the same 90-day initial term in different words).
 - The comparison table on the live page repeats the tier names as row headers in its first column area (a responsive-table artefact); the clone renders it as a clean 4-column table with the same cell values.
-- No images in the main content of the live page (text-only hero, cards and table). Images in the clone are newly created matching photographs used illustratively in the hero and the “How Our Pricing Works” section; they are not copies of live assets.
 - The live page has no author/byline block and no “Time to read” body text beyond the Twitter meta label.

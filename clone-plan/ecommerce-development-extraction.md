@@ -237,6 +237,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ## Deviations (clone vs live)
 - Images are created matching images, not copies of the live files (per project rules). The 6 project images on the live page are generic stock laptop photos whose alts do not match their projects; the clone uses matching storefront imagery (furniture storefront + mobile configurator for Luxury Comforts; cookware store for Kitchenary; B2B warehouse portal for Northline Supply) with alts describing the matching image, and keeps the live `Desktop storefront` / `Mobile / feature detail` labels above each pair.
-- The `Our pricing page` link inside FAQ 2's answer is rendered as plain text in the clone because the shared FaqAccordion component renders FAQ answers as plain strings (same limitation as Batch 1). The words are verbatim; /pricing/ is linked from the hero (`See pricing`) and the final CTA (`See pricing and packages`).
+- The `Our pricing page` link inside FAQ 2's answer is now rendered as a real link → /pricing/ (JSX answer, now that the shared FaqAccordion accepts ReactNode).
 - The `our full FAQ page` link in the FAQ section intro is rendered as a link in the clone (intro paragraph, not inside the accordion).
 - The page is a server component with `metadata` (like the Services page) because it has no form or interactive tool in its main content; the FAQ accordion is the shared client component. No `use client` needed.
+
+## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
+- Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
+- Ecosystem (§6): the `Your Storefront` hub is now rendered as a centred node above the nine-system grid, not as a card inside the grid (live presentation).
+- FAQ 2's `Our pricing page` link (above) was the other fix in this pass. Project image placement/count verified: 2 images per project with the live `Desktop storefront` / `Mobile / feature detail` labels; live alts are generic laptop photos, clone uses matching storefront imagery with descriptive alts.

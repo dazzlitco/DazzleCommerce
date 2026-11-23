@@ -26,6 +26,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `Management and marketing under one team, because on marketplaces they are the same job`
   - `Twelve marketplaces from North America to South Asia, the Gulf and Africa`
   - `Measured on contribution after commission, fulfilment, ads and returns — not on GMV`
+- Fidelity fix 2026-11-23: the clone renders each badge as one verbatim sentence (previously title + body, which dropped the comma after "one team" in badge 1). The FAQ intro now also keeps the live space before the period (`More on our full FAQ page .`).
 - CTAs: `Discuss your marketplace strategy` → /contact/ ; `See pricing` → /pricing/
 - Hero image: marketplace-management-marketing-hero.jpg (1600×1100), alt: `Aerial view of colourful shipping containers at a busy port` (Quirk: British spelling `colourful` in the alt text, kept verbatim.)
 
@@ -271,7 +272,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   6. Q: `Can you help us expand internationally?` A: `Yes, and we will usually argue for fewer markets than you have in mind. Adding a marketplace has a real operating cost — catalog work, content, advertising management, operational monitoring — and three channels done properly beats six done thinly every time. We model landed cost, localise the listings for real, and sequence the launches.`
   7. Q: `Do you provide marketplace creative?` A: `Yes. Product imagery, specification graphics, lifestyle shots, scale references, video and enhanced content, built to each marketplace’s guidelines rather than reused from your own storefront. The full creative process and portfolio is on our creative & content page.`
   8. Q: `Can you manage large catalogs?` A: `Yes. Bulk upload and update workflows, feed hygiene, variation and attribute management, and listing-health monitoring so suppressed or out-of-stock items surface as an exception list rather than being discovered a month later. Catalogs in the thousands of SKUs are normal work for us rather than an exception.`
-- Note: in the live rendered FAQ accordion, the answers to Q3, Q4 and Q7 contain links (eCommerce SEO page → /ecommerce-seo/, PPC page → /ecommerce-ppc/, creative & content page → /ecommerce-creative-content/). The JSON-LD text is plain. The clone FAQ accordion renders plain text per the shared FaqAccordion component, matching Batch 1 practice; the same links exist elsewhere on the page.
+- Note: in the live rendered FAQ accordion, the answers to Q3, Q4 and Q7 contain links (eCommerce SEO page → /ecommerce-seo/, PPC page → /ecommerce-ppc/, creative & content page → /ecommerce-creative-content/). The JSON-LD text is plain. Fidelity fix 2026-11-23: the clone now renders those three links as real links (JSX answers in the shared FaqAccordion, which now accepts ReactNode).
 - Guide line after the FAQs: `Prefer to read before you talk to anyone? Our` `Marketplace Selling & Growth Guide` → /guides/marketplace-selling/ `is the eight-chapter version of how we think about this work, published in full.`
 
 ### 15. Final CTA

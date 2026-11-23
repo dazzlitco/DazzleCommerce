@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
-export type Faq = { q: string; a: string };
+export type Faq = { q: string; a: ReactNode };
 
 export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -20,7 +20,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
             <span aria-hidden="true">{openIndex === i ? "−" : "+"}</span>
           </button>
           <div className="faq-a" hidden={openIndex !== i}>
-            <p>{f.a}</p>
+            {f.a}
           </div>
         </div>
       ))}

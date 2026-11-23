@@ -163,9 +163,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Footer (same as homepage): standard Dazzle Commerce footer with newsletter form; not re-extracted here.
 - No og:image; Twitter card is summary_large_image but no image URL is supplied in the head.
 
-## Clone notes
+## Clone notes (updated 2026-11-23 fidelity fix pass)
 - Clone route: /faqs/ (Next.js app/faqs/page.tsx).
 - All 33 Q&As reproduced verbatim in 8 category accordion groups under the 3 group headings, with the same anchor ids.
-- The live page has no search box; the clone adds a client-side search filter over the 33 questions as a usability enhancement (clearly an addition — it filters the live copy, it does not change it). When a search term is entered, matching questions are shown across categories with non-matching ones hidden, and a "no results" state offers the contact link.
-- The live page has no form; the clone adds a small "Ask a question" form in the closing section (name, email, question — validated client-side with a confirmation message), as the task requires forms to actually work. This is an addition, not live copy.
-- Illustrative images added to the clone (live page has none): hero image and one image per group section, generated locally, prefixed faqs-.
+- The live page has no search box and no form; the clone previously added a client-side search filter and an "Ask a question" form. Both were removed in the 2026-11-23 fidelity fix pass — the clone now has category anchor navigation only, matching live.
+- The live page has NO images inside `<main>` at all. Illustrative images previously added to the clone (hero image and one image per group section: faqs-hero.webp, faqs-agency.webp, faqs-services.webp, faqs-pricing.webp) were removed in the 2026-11-23 fidelity fix pass; the files remain unused in public/images/.

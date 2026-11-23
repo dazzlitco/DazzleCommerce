@@ -150,4 +150,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Side-navigation labels preceding each section (same pattern as the services page): `The Problem`, `What We Do`, `The Process`, `Channels`, `By Goal`, `Why Us`, `Proof`, `FAQs` — rendered as the eyebrow/label of each section in the clone.
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No pricing table on this page (pricing is only mentioned in FAQ 5: $3,500–$18,000/month, typically $5,000–$12,000 for marketing-only).
 - Content images on the live page (4): ecommerce-marketing-hero.jpg (alt `Marketing team reviewing strategy at a whiteboard`), cases-Nutriblend.webp, cases-Kitchenary.webp, cases-VAC-Vacuums.webp. The three case images are the same files used on the case-studies pages, so the clone reuses the existing Batch 1 images case-nutriblend.webp, case-kitchenary.webp and case-vac-vacuums.webp.
+
+## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
+- Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
+- FAQ 2 now renders `eCommerce management` as a real link → /ecommerce-management/ and FAQ 5 now renders `pricing page` as a real link → /pricing/ (JSX answers, now that the shared FaqAccordion accepts ReactNode).
+- Case cards now carry the live labels `Client` / `Challenge` / `Marketing strategy` / `Result` (previously unlabeled); `Read case study` links to each client's individual case-study page, as on live.
+- Removed the openGraph `images` entry from the clone metadata: the live page sets no og:image / twitter:image.
+- FAQ intro quirk kept verbatim: says "Eight questions" but lists 9 FAQs.
 - Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3: hero, FAQ 5, final CTA), /ecommerce-seo/, /ecommerce-ppc/ (×2), /conversion-rate-optimization/, /nutriblend-supplements-retention-uk/, /kitchenary-home-kitchen-shopify-usa/, /vac-vacuums-amazon-marketplace-europe/, /case-studies/, /portfolio/, /faqs/, /ecommerce-management/ (FAQ 2), /guides/ecommerce-marketing/.

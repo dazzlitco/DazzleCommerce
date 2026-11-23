@@ -15,7 +15,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Robots: `index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large`
 - A second description also appears in the page (Yoast-style short description): `The twelve points we work through in an audit, published in full with their thresholds, so you can run the short version yourself.`
 - No `<form>` element exists anywhere in the live page's `<main>` content (verified by regex over the fetched HTML). All conversion actions are links (see CTAs below).
-- The live page has NO interactive assessment tool. Its FAQ (see below) says: `Not yet. This page is the framework in full, designed to be worked through on paper or in a spreadsheet. A scored interactive version is planned for our tools section; when it exists it will use exactly these twelve points and these thresholds.` The clone adds a working interactive version of the same twelve points per the clone brief; that is a deliberate addition, not live copy.
+- The live page has NO interactive assessment tool. Its FAQ (see below) says: `Not yet. This page is the framework in full, designed to be worked through on paper or in a spreadsheet. A scored interactive version is planned for our tools section; when it exists it will use exactly these twelve points and these thresholds.` The clone presents the framework exactly as live does — the twelve points as a list to work through, no scorer, no totals. (An interactive scorer built in the first build was removed in the 2026-11-23 fidelity pass.)
 
 ## Breadcrumb
 - `Home › eCommerce Audit › Growth Assessment` (Home → `/`, eCommerce Audit → `/ecommerce-audit/`)

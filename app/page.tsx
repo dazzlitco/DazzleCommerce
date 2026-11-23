@@ -497,6 +497,10 @@ export default function HomePage() {
           <div className="card-grid">
             {testimonials.map((t) => (
               <div className="quote-card" key={t.name}>
+                <p aria-label="Rated 5 out of 5" style={{ color: "var(--blue)", letterSpacing: "0.1em" }}>
+                  ★★★★★
+                </p>
+                <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>Rated 5 out of 5</p>
                 <blockquote>{t.quote}</blockquote>
                 <h3>{t.name}</h3>
                 <p>{t.role}</p>

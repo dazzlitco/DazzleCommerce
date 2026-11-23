@@ -187,20 +187,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - CTAs: `Read the audit guide` → `/ecommerce-growth-assessment/`; `See how we work` → `/ecommerce-management/`
 
 ## The twelve points (the framework the audit works from)
-The live audit page refers to the twelve-point framework published in full at `/ecommerce-growth-assessment/` (see `ecommerce-growth-assessment-extraction.md` for the verbatim twelve points and thresholds). Summary of the twelve, for the clone's interactive self-audit:
-1. Largest Contentful Paint under 2.5 seconds on your highest-traffic template (mobile, field data, last 28 days)
-2. Mobile converts at no less than two thirds of the desktop rate (0.66×)
-3. Seven in ten of your top fifty non-brand demand terms have a page built to rank for them (70%)
-4. Indexed URL count within 20% of the number of pages you intend to rank (1.2×)
-5. Bids set against margin, not one blended return target across the whole catalogue (binary)
-6. Feed disapprovals under 2% and matching attributes populated on 95% of active SKUs (binary)
-7. Checkout abandonment at or below 70.2% (70.22%, Baymard, 49 studies)
-8. Total cost including delivery visible before the final checkout step (binary)
-9. At least four of the five core lifecycle flows live and sending (4 of 5)
-10. Recovery revenue measured against a holdout, not attributed by last click (binary)
-11. You control your own listings, and variations reflect real product differences (binary; N/A if no marketplaces)
-12. One report shows contribution margin per order, including carriage, returns and fees (binary)
-Scoring rule (live, from the framework page): each point is Cleared / Flagged / Unknown — no partial credit, no weighting, no total out of twelve. Unknowns count as flagged when ranking. Rank flags by revenue impact against effort; the top item is the constraint. Outcomes: nothing flagged → mark again more strictly; one or two flags → fix in-house; three to five flags → sequence before spending; six or more, or mostly unknown → have somebody run it properly.
+The live audit page refers to the twelve-point framework published in full at `/ecommerce-growth-assessment/` (see `ecommerce-growth-assessment-extraction.md` for the verbatim twelve points and thresholds). The live audit page itself does not list the twelve points and has no interactive tool; the clone does not reproduce them here either. (A summary list and self-audit tool from the first build were removed in the 2026-11-23 fidelity pass.)
 
 ## All links in <main> (in order)
 - `#audit-request` — Request your free audit (hero CTA)
@@ -223,7 +210,8 @@ Scoring rule (live, from the framework page): each point is Cleared / Flagged / 
 Note: the discipline images (3–8) are reused from other live pages (category/SEO, Amazon ACoS, product page, checkout, marketplace). The clone creates new matching images instead of copying these.
 
 ## Quirks noted
-- The live page has NO interactive audit tool of its own. The interactive twelve-point self-audit in the clone is a deliberate addition per the clone brief, built from the live twelve-point framework published at `/ecommerce-growth-assessment/` — it uses exactly the live twelve points and thresholds and the live ranking rule (rank, do not total). The live audit page itself only presents the framework by reference and the request form.
+- The live page has NO interactive audit tool of its own. The clone has none either: it presents the six disciplines, the five-step process and the request form, and points to the twelve-point framework at `/ecommerce-growth-assessment/`. (An interactive twelve-point self-audit built in the first build was removed in the 2026-11-23 fidelity pass.)
+- The FAQ answer "Will you just recommend your own services?" contains an inline link — `when to outsource eCommerce management` → `/blog/when-to-outsource-ecommerce-management/` — which the clone renders as a real link.
 - The live hero stat `12` has the label `audit points` and `5 days` is labelled `typical turnaround`.
 - The live page uses British spelling `programme` in the marketplace FAQ answer alongside American copy elsewhere.
 - The exclusion block is headed in all caps: `NOT WRITTEN FOR`.

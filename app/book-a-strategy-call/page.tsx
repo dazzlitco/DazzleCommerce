@@ -1,13 +1,16 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 // NOTE: this file is a client component because the strategy-call booking form
-// needs client-side validation, a working date/time picker, localStorage
-// persistence and a confirmation state.
+// needs client-side validation, localStorage persistence and a confirmation
+// state. The live page has no calendar or date/time picker: times are arranged
+// by email after the form is submitted (see the "How soon can we speak?" FAQ),
+// so the form reproduces the live page's nine fields exactly and says so in
+// the confirmation.
 // (A client module cannot export `metadata`; the page title/description from
 // the extraction — "Book a Strategy Call | Dazzle Commerce" / "Thirty minutes
 // with an eCommerce strategist about your constraint. No deck, no discovery
@@ -83,48 +86,6 @@ const focuses = [
   "Choosing between agency and in-house",
 ];
 
-// Working date/time picker (clone addition: the live page has no calendar
-// embed — times are arranged by email after the form is submitted. The picker
-// below lets the visitor choose a preferred weekday slot client-side; the
-// chosen slot is saved with the booking and confirmed by email.)
-const timeSlots = [
-  "09:00",
-  "10:00",
-  "11:00",
-  "13:00",
-  "14:00",
-  "15:00",
-  "16:00",
-  "17:00",
-];
-
-function nextWeekdays(count: number): Date[] {
-  const days: Date[] = [];
-  const d = new Date();
-  d.setDate(d.getDate() + 1); // from tomorrow
-  while (days.length < count) {
-    const day = d.getDay();
-    if (day !== 0 && day !== 6) days.push(new Date(d));
-    d.setDate(d.getDate() + 1);
-  }
-  return days;
-}
-
-function isoDate(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
-}
-
-function prettyDate(d: Date): string {
-  return d.toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  });
-}
-
 const halfHourSteps = [
   {
     num: "01",
@@ -167,7 +128,13 @@ const commitments = [
   },
   {
     title: "Quote numbers we cannot stand behind",
-    body: "No promised percentages, no guaranteed rankings, no case study that happens to match your category exactly. Our case studies carry their methodology.",
+    body: (
+      <>
+        No promised percentages, no guaranteed rankings, no case study that happens
+        to match your category exactly. Our{" "}
+        <Link href="/case-studies/">case studies</Link> carry their methodology.
+      </>
+    ),
   },
   {
     title: "Put you into a nurture sequence",
@@ -268,8 +235,6 @@ type FormState = {
   focus: string;
   context: string;
   consent: boolean;
-  date: string;
-  time: string;
 };
 
 const emptyForm: FormState = {
@@ -282,8 +247,6 @@ const emptyForm: FormState = {
   focus: focuses[0],
   context: "",
   consent: false,
-  date: "",
-  time: "",
 };
 
 export default function BookStrategyCallPage() {
@@ -291,7 +254,6 @@ export default function BookStrategyCallPage() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const dates = useMemo(() => nextWeekdays(14), []);
 
   function set<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -320,8 +282,6 @@ export default function BookStrategyCallPage() {
     if (!form.context.trim()) {
       next.context = "One or two sentences is plenty — tell us what has been bothering you.";
     }
-    if (!form.date) next.date = "Please pick a preferred date for the call.";
-    if (!form.time) next.time = "Please pick a preferred time for the call.";
     if (!form.consent) {
       next.consent = "Please agree so we can use these details to arrange and prepare for the call.";
     }
@@ -350,7 +310,6 @@ export default function BookStrategyCallPage() {
     setSubmitted(false);
   }
 
-  const chosenDate = dates.find((d) => isoDate(d) === form.date);
   const err = (key: keyof FormState) =>
     errors[key] ? (
       <p className="form-msg form-msg-dark err" role="alert" style={{ margin: "6px 0 0" }}>
@@ -405,19 +364,19 @@ export default function BookStrategyCallPage() {
           </div>
           <div className="trust-badges">
             <div className="trust-badge">
-              <h3>Length</h3>
+              <h3>LENGTH</h3>
               <p>Thirty minutes</p>
             </div>
             <div className="trust-badge">
-              <h3>Who you meet</h3>
+              <h3>WHO YOU MEET</h3>
               <p>A senior strategist</p>
             </div>
             <div className="trust-badge">
-              <h3>Cost</h3>
+              <h3>COST</h3>
               <p>Free</p>
             </div>
             <div className="trust-badge">
-              <h3>Slides</h3>
+              <h3>SLIDES</h3>
               <p>None</p>
             </div>
           </div>
@@ -616,8 +575,7 @@ export default function BookStrategyCallPage() {
           </div>
           <p style={{ marginTop: "1.5rem", color: "var(--muted)" }}>
             If any of that happens on your call, reply to the summary email and tell us.
-            It would be a failure of ours, not a tactic.{" "}
-            <Link href="/case-studies/">Our case studies</Link> carry their methodology.
+            It would be a failure of ours, not a tactic.
           </p>
         </div>
       </section>
@@ -639,15 +597,11 @@ export default function BookStrategyCallPage() {
                 requested.
               </h2>
               <p style={{ color: "var(--muted)" }}>
-                We have saved your preferred slot —{" "}
-                <strong>
-                  {chosenDate ? prettyDate(chosenDate) : form.date} at {form.time} (
-                  {form.timezone})
-                </strong>{" "}
-                — and we will reply to <strong>{form.email}</strong> within one business
-                day to confirm a time that fits your timezone. Most calls happen within
-                the same week. Your written summary follows within one business day of
-                the call, whether or not anything follows.
+                We will reply to <strong>{form.email}</strong> within one business day
+                with two or three times that fit your timezone ({form.timezone}
+                {form.when ? `, ${form.when.toLowerCase()}` : ""}). Most calls happen
+                within the same week. Your written summary follows within one business day
+                of the call, whether or not anything follows.
               </p>
               <p style={{ color: "var(--muted)" }}>
                 Focus for the call: <strong>{form.focus}</strong>
@@ -789,95 +743,6 @@ export default function BookStrategyCallPage() {
                     onChange={(e) => set("context", e.target.value)}
                   />
                   {err("context")}
-                </div>
-                <div className="form-field" style={{ gridColumn: "1 / -1" }}>
-                  <span
-                    style={{ display: "block", fontWeight: 700, marginBottom: "6px", fontSize: "0.95rem" }}
-                  >
-                    Pick a preferred date <span className="required">*</span>
-                  </span>
-                  <div
-                    role="group"
-                    aria-label="Preferred date"
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))",
-                      gap: "8px",
-                    }}
-                  >
-                    {dates.map((d) => {
-                      const iso = isoDate(d);
-                      const selected = form.date === iso;
-                      return (
-                        <button
-                          key={iso}
-                          type="button"
-                          aria-pressed={selected}
-                          onClick={() => set("date", iso)}
-                          style={{
-                            padding: "10px 8px",
-                            borderRadius: "10px",
-                            border: selected ? "2px solid var(--blue)" : "1px solid var(--line)",
-                            background: selected ? "var(--bg-soft)" : "#fff",
-                            color: "var(--navy)",
-                            font: "inherit",
-                            fontSize: "0.92rem",
-                            fontWeight: selected ? 700 : 600,
-                            cursor: "pointer",
-                          }}
-                        >
-                          {prettyDate(d)}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  {err("date")}
-                </div>
-                <div className="form-field" style={{ gridColumn: "1 / -1" }}>
-                  <span
-                    style={{ display: "block", fontWeight: 700, marginBottom: "6px", fontSize: "0.95rem" }}
-                  >
-                    Pick a preferred time (Central Time) <span className="required">*</span>
-                  </span>
-                  <div
-                    role="group"
-                    aria-label="Preferred time"
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(auto-fill, minmax(88px, 1fr))",
-                      gap: "8px",
-                    }}
-                  >
-                    {timeSlots.map((t) => {
-                      const selected = form.time === t;
-                      return (
-                        <button
-                          key={t}
-                          type="button"
-                          aria-pressed={selected}
-                          onClick={() => set("time", t)}
-                          style={{
-                            padding: "10px 8px",
-                            borderRadius: "10px",
-                            border: selected ? "2px solid var(--blue)" : "1px solid var(--line)",
-                            background: selected ? "var(--bg-soft)" : "#fff",
-                            color: "var(--navy)",
-                            font: "inherit",
-                            fontSize: "0.95rem",
-                            fontWeight: selected ? 700 : 600,
-                            cursor: "pointer",
-                          }}
-                        >
-                          {t}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  {err("time")}
-                  <p style={{ color: "var(--muted)", fontSize: "0.92rem", margin: "10px 0 0" }}>
-                    Weekdays only, for the next two weeks. We confirm the time by email
-                    within one business day — most calls happen within the same week.
-                  </p>
                 </div>
                 <div className="form-field" style={{ gridColumn: "1 / -1" }}>
                   <label className="form-check" htmlFor="bc-consent">

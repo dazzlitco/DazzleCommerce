@@ -470,13 +470,6 @@ export default function TestimonialsPage() {
               );
             })}
           </div>
-          <p
-            style={{ color: "var(--muted)", marginTop: "1.25rem", marginBottom: 0 }}
-            aria-live="polite"
-          >
-            Showing {filtered.length} of {serviceQuotes.length} testimonials
-            {activeTab !== "All" ? ` in ${activeTab}` : ""}.
-          </p>
           <div className="card-grid">
             {filtered.map((q) => (
               <div className="quote-card" key={`${q.name}-${q.role}`}>
@@ -493,11 +486,6 @@ export default function TestimonialsPage() {
               </div>
             ))}
           </div>
-          {filtered.length === 0 && (
-            <p style={{ color: "var(--muted)", marginTop: "2rem" }}>
-              No testimonials in this category yet.
-            </p>
-          )}
         </div>
       </section>
 
@@ -581,7 +569,7 @@ export default function TestimonialsPage() {
         <div className="container">
           <h2>Want to be the next story on this page?</h2>
           <p className="lead">
-            Start with the free audit. We will show you where revenue is leaking, what
+            Start with the free audit. We will show you where your revenue is leaking, what
             it is worth to fix, and whether we are the right team to do it.
           </p>
           <div className="btn-row">

@@ -40,7 +40,15 @@ const faqs: Faq[] = [
   },
   {
     q: "What does eCommerce management cost?",
-    a: "Engagements run from $3,500/month for growing stores to $18,000/month for multi-channel and enterprise accounts, with most established brands between $7,500 and $12,000. The number is driven by business size, platforms and channels, scope of work and growth goals rather than by a fixed package. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        Engagements run from $3,500/month for growing stores to $18,000/month for
+        multi-channel and enterprise accounts, with most established brands between $7,500
+        and $12,000. The number is driven by business size, platforms and channels, scope
+        of work and growth goals rather than by a fixed package.{" "}
+        <Link href="/pricing/">Our pricing page</Link> explains how we scope it.
+      </>
+    ),
   },
   {
     q: "How long before we see results?",

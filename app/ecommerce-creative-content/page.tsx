@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
@@ -21,13 +21,13 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
  * - Section 5 intro: "Every tile below is a live image slot — the search terms are
  *   there so real work can replace them." (the live tiles are generic stock images).
  * - The live portfolio grid repeats the same 6 projects across 7 tab panels with a
- *   different stock image per panel; here one grid is filtered client-side instead,
- *   with one matching image per project.
+ *   different stock image per panel; here each tab panel holds its own copy of its
+ *   subset grid (same project card repeated across panels, as on the live page),
+ *   reusing each project's one matching image in every panel it appears in.
  * - Only Nutriblend and Kitchenary have links in the portfolio grid on the live page;
  *   the other four brand names are plain text.
- * - The "Our pricing page" link inside FAQ 4's answer is rendered as plain text
- *   because the shared FaqAccordion renders answers as plain strings; the words are
- *   verbatim and /pricing/ is linked from the hero and the final CTA.
+ * - FAQ answers that contain links are JSX now that the shared FaqAccordion accepts
+ *   ReactNode answers (see FAQ 4, "Our pricing page" → /pricing/).
  */
 
 const faqs: Faq[] = [
@@ -45,7 +45,15 @@ const faqs: Faq[] = [
   },
   {
     q: "What does creative & content cost?",
-    a: "Creative retainers typically run $2,500–$9,000/month depending on volume, whether photography and video are in scope, and how many channels you are feeding. Project work — a catalog content rewrite, a launch campaign, a marketplace listing set — is quoted separately. Our pricing page explains the approach.",
+    a: (
+      <>
+        Creative retainers typically run $2,500–$9,000/month depending on volume, whether
+        photography and video are in scope, and how many channels you are feeding. Project
+        work — a catalog content rewrite, a launch campaign, a marketplace listing set —
+        is quoted separately. <Link href="/pricing/">Our pricing page</Link> explains the
+        approach.
+      </>
+    ),
   },
   {
     q: "How is this different from hiring a design agency?",
@@ -423,6 +431,45 @@ const projects: Project[] = [
   },
 ];
 
+function ProjectCard({ p }: { p: Project }) {
+  return (
+    <article className="card">
+      <Image src={p.img} alt={p.imgAlt} width={1200} height={800} />
+      <h4 style={{ marginTop: "1rem" }}>
+        {p.name} — {p.project}
+      </h4>
+      <h3>{p.href ? <Link href={p.href}>{p.name}</Link> : p.name}</h3>
+      <p style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.5rem" }}>
+        {p.project}
+      </p>
+      <p>
+        <strong>Objective</strong> — {p.objective}
+      </p>
+      <p>
+        <strong>Deliverables</strong> — {p.deliverables}
+      </p>
+      <p>
+        <strong>Channels</strong> — {p.channels}
+      </p>
+      <p
+        style={{
+          fontSize: "1.35rem",
+          fontWeight: 800,
+          color: "var(--navy)",
+          marginBottom: "0.25rem",
+        }}
+      >
+        {p.result}
+      </p>
+    </article>
+  );
+}
+
+// Live tab membership (verified from the live tab panels): the same project
+// appears under several tabs, and each panel holds its own copy of its subset.
+const panelsFor = (value: AssetFilter): Project[] =>
+  value === "All" ? projects : projects.filter((p) => p.tags.includes(value));
+
 const filterButtonStyle = (active: boolean): React.CSSProperties => ({
   padding: "0.6rem 1.1rem",
   borderRadius: "999px",
@@ -436,15 +483,7 @@ const filterButtonStyle = (active: boolean): React.CSSProperties => ({
 });
 
 export default function EcommerceCreativeContentPage() {
-  const [filter, setFilter] = useState<AssetFilter>("All");
-
-  const filtered = useMemo(
-    () => (filter === "All" ? projects : projects.filter((p) => p.tags.includes(filter))),
-    [filter],
-  );
-
-  const countFor = (value: AssetFilter) =>
-    value === "All" ? projects.length : projects.filter((p) => p.tags.includes(value)).length;
+  const [activeTab, setActiveTab] = useState<AssetFilter>("All");
 
   return (
     <>
@@ -693,7 +732,7 @@ export default function EcommerceCreativeContentPage() {
         </div>
       </section>
 
-      {/* 9. Portfolio — working asset-type filter */}
+      {/* 9. Portfolio — live tab panels: each tab holds its own copy of its subset grid */}
       <section className="section section-soft" id="featured-creative-work">
         <div className="container">
           <p className="eyebrow">Portfolio</p>
@@ -712,61 +751,23 @@ export default function EcommerceCreativeContentPage() {
                 key={f}
                 type="button"
                 role="tab"
-                aria-selected={filter === f}
-                onClick={() => setFilter(f)}
-                style={filterButtonStyle(filter === f)}
+                aria-selected={activeTab === f}
+                onClick={() => setActiveTab(f)}
+                style={filterButtonStyle(activeTab === f)}
               >
-                {f} ({countFor(f)})
+                {f}
               </button>
             ))}
           </div>
-          <p
-            aria-live="polite"
-            style={{ color: "var(--muted)", marginTop: "20px", marginBottom: 0 }}
-          >
-            Showing {filtered.length} of {projects.length} projects
-            {filter !== "All" && <> — {filter}</>}.
-          </p>
-          <div className="card-grid">
-            {filtered.map((p) => (
-              <article className="card" key={p.name}>
-                <Image src={p.img} alt={p.imgAlt} width={1200} height={800} />
-                <h4 style={{ marginTop: "1rem" }}>
-                  {p.name} — {p.project}
-                </h4>
-                <h3>
-                  {p.href ? <Link href={p.href}>{p.name}</Link> : p.name}
-                </h3>
-                <p style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.5rem" }}>
-                  {p.project}
-                </p>
-                <p>
-                  <strong>Objective</strong> — {p.objective}
-                </p>
-                <p>
-                  <strong>Deliverables</strong> — {p.deliverables}
-                </p>
-                <p>
-                  <strong>Channels</strong> — {p.channels}
-                </p>
-                <p
-                  style={{
-                    fontSize: "1.35rem",
-                    fontWeight: 800,
-                    color: "var(--navy)",
-                    marginBottom: "0.25rem",
-                  }}
-                >
-                  {p.result}
-                </p>
-              </article>
-            ))}
-          </div>
-          {filtered.length === 0 && (
-            <p style={{ color: "var(--muted)", marginTop: "24px" }}>
-              No projects match this asset type yet.
-            </p>
-          )}
+          {filters.map((f) => (
+            <div key={f} role="tabpanel" hidden={activeTab !== f}>
+              <div className="card-grid" style={{ marginTop: "28px" }}>
+                {panelsFor(f).map((p) => (
+                  <ProjectCard key={`${f}-${p.name}`} p={p} />
+                ))}
+              </div>
+            </div>
+          ))}
           <div className="btn-row">
             <Link className="btn" href="/portfolio/">
               See the full portfolio

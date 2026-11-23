@@ -36,7 +36,17 @@ export const metadata: Metadata = {
 const faqs: Faq[] = [
   {
     q: "Do we actually need an app?",
-    a: "Probably not, and we would rather establish that before you spend anything. Apps earn their place when customers buy frequently and you have an owned channel capable of driving installs without paid spend. If purchases are occasional, or if the mobile site converts at half the desktop rate, the money goes further on fixing the mobile experience . We run that qualification first and we have talked brands out of app projects on the strength of it.",
+    a: (
+      <>
+        Probably not, and we would rather establish that before you spend anything. Apps
+        earn their place when customers buy frequently and you have an owned channel
+        capable of driving installs without paid spend. If purchases are occasional, or if
+        the mobile site converts at half the desktop rate, the money goes further on{" "}
+        <Link href="/conversion-rate-optimization/">fixing the mobile experience</Link> .
+        We run that qualification first and we have talked brands out of app projects on
+        the strength of it.
+      </>
+    ),
   },
   {
     q: "How long does eCommerce app development take?",
@@ -44,7 +54,18 @@ const faqs: Faq[] = [
   },
   {
     q: "What does an eCommerce app cost?",
-    a: "It depends on which of the three build types fits and how much of the commerce layer already exists as a usable API. A private platform app is the smallest piece of work here; a progressive web app sits in the middle because it shares code with the website; a full cross-platform shopping app is several times either. We scope from requirements rather than quoting a package, and our pricing page explains the approach. Budget for the maintenance retainer as well as the build — an app without one stops working within about a year.",
+    a: (
+      <>
+        It depends on which of the three build types fits and how much of the commerce
+        layer already exists as a usable API. A private platform app is the smallest piece
+        of work here; a progressive web app sits in the middle because it shares code with
+        the website; a full cross-platform shopping app is several times either. We scope
+        from requirements rather than quoting a package, and{" "}
+        <Link href="/pricing/">our pricing page</Link> explains the approach. Budget for
+        the maintenance retainer as well as the build — an app without one stops working
+        within about a year.
+      </>
+    ),
   },
   {
     q: "Native or cross-platform?",
@@ -624,11 +645,15 @@ export default function EcommerceAppDevelopmentPage() {
             exists for the website, and every one of these connections is a place where the
             app and the site can silently stop agreeing.
           </p>
-          <div className="card-grid">
+          <div
+            style={{ maxWidth: "420px", margin: "0 auto 32px", textAlign: "center" }}
+          >
             <article className="card">
               <h3>Your App</h3>
               <p>Connected to the nine systems below</p>
             </article>
+          </div>
+          <div className="card-grid">
             {ecosystem.map((e) => (
               <article className="card" key={e.title}>
                 <h3>{e.title}</h3>

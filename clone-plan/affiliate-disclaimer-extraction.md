@@ -27,19 +27,19 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 
 ### 2. The Short Version
 - H2: `The Short Version`
-- P1: `Some links on this site earn us a commission. None of them cost you anything extra, none of them change what we recommend to clients, and we tell you when a link is one of them. If a tool is wrong for your business we will say so whether or not we are paid by its maker.`
+- P1: `Some links on this site earn us a commission. None of them cost you anything extra, none of them change what we recommend to clients, and we tell you when a link is one of them. If a tool is wrong for your business we will say so whether or not we are paid by its maker.` — the first sentence ("Some links on this site earn us a commission.") is **bold** on the live page (confirmed in the 2026-11-23 re-fetch; restored in the clone in the fix pass).
 - P2: `The rest of this page explains the detail, because “we only recommend products we believe in” is what every affiliate site says and none of them define.`
 - Note the curly quotation marks around “we only recommend products we believe in” — kept verbatim.
 
 ### 3. Federal Trade Commission Disclosure
 - H2: `Federal Trade Commission Disclosure`
-- P1: `In accordance with the United States Federal Trade Commission’s 16 CFR Part 255, Guides Concerning the Use of Endorsements and Testimonials in Advertising, we disclose that Dazzle Commerce has material connections with some of the products and services mentioned on this website.`
+- P1: `In accordance with the United States Federal Trade Commission’s 16 CFR Part 255, Guides Concerning the Use of Endorsements and Testimonials in Advertising, we disclose that Dazzle Commerce has material connections with some of the products and services mentioned on this website.` — the guide title (*Guides Concerning the Use of Endorsements and Testimonials in Advertising*) is *italic* on the live page (confirmed in the 2026-11-23 re-fetch; restored in the clone in the fix pass).
 - P2: `A material connection means a relationship that might affect the weight or credibility you give our recommendation — typically a commission, a referral fee, a partner tier benefit or free access to a product. Where such a connection exists, it is disclosed at or near the point of the recommendation as well as on this page.`
 - P3: `We also comply with the UK Competition and Markets Authority guidance on hidden advertising and the Advertising Standards Authority CAP Code, and with the Australian Competition and Consumer Commission’s guidance on influencer and affiliate disclosure.`
 
 ### 4. Types of Commercial Relationship We Have
 - H2: `Types of Commercial Relationship We Have`
-- Bulleted list (5 items, no intro paragraph):
+- Bulleted list (5 items, no intro paragraph), each item with a **bold lead-in** before the em-dash (confirmed in the 2026-11-23 re-fetch; bold restored in the clone in the fix pass):
   - `Affiliate links — we earn a commission if you sign up through our link. Marked inline and listed on this page.`
   - `Platform partnerships — certified partner status with Shopify, Google, Meta, Amazon Ads and Klaviyo. Stated on our About page.`
   - `Referral agreements — a fee when we refer a client to a specialist outside our scope. Disclosed to the client before any introduction.`
@@ -56,7 +56,7 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 
 ### 6. How We Keep Recommendations Independent
 - H2: `How We Keep Recommendations Independent`
-- Bulleted list (4 items, no intro paragraph):
+- Numbered list (4 items, `<ol>` on live, no intro paragraph), each item with a **bold lead sentence** (corrected in the 2026-11-23 fix pass — the original extraction wrongly said bulleted; the fresh browser.open re-fetch shows `1.`–`4.` with bold lead-ins):
   - `Commission never enters the selection process. Tools are chosen on fit, cost, support quality and data portability. The commercial arrangement is checked afterwards, purely for disclosure purposes.`
   - `Client work overrides everything. If the best tool for a client pays us nothing, that is the one we recommend. This happens routinely.`
   - `We publish negative assessments of partner products. Several tools we hold affiliate arrangements with have been criticised in our own articles where the criticism was warranted.`
@@ -120,6 +120,7 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 ## Clone notes
 - Clone route: /affiliate-disclaimer/ (Next.js app/affiliate-disclaimer/page.tsx).
 - All 13 blocks above reproduced verbatim: H1 + intro + last-updated line, 10 H2 content sections, and the closing data-questions block with its two buttons.
-- Additions (not live copy, noted here): a compact “On this page” anchor list under the hero linking to each H2 by id (the live page has no TOC; ids are a clone addition for navigation); one illustrative hero image, generated locally and prefixed `affiliate-disclaimer-` (the live page has none).
+- Additions (not live copy, noted here): none remain. The clone previously had a compact “On this page” anchor list under the hero and one illustrative hero image, generated locally and prefixed `affiliate-disclaimer-` (the live page has neither); both were removed in the 2026-11-23 fix pass (the image file `public/images/affiliate-disclaimer-hero.webp` remains on disk, unused).
+- Re-verified 2026-11-23 16:16 UTC via browser.open — this extraction confirmed, with the corrections above (29/29 copy checks present after the fix pass).
 - `privacy@dazzlecommerce.com` is kept as plain text, matching the live HTML (not a mailto link).
 - Links to /privacy-policy/ and /cookies-policy/ point at the future clone routes, which do not exist yet in this repo.

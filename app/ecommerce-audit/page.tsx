@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
-// NOTE: this file is a client component because the self-audit tool needs
-// client-side state (marks, figures, ranking, result) and the audit request
-// form needs client-side validation, localStorage persistence and a
-// confirmation state.
+// NOTE: this file is a client component because the audit request form needs
+// client-side validation, localStorage persistence and a confirmation state.
 // (A client module cannot export `metadata`; the page title/description from
 // the extraction — "Free eCommerce Audit: Store, SEO, Ads & CRO | Dazzle" /
 // "A free eCommerce audit across store experience, SEO, paid media,
@@ -19,11 +17,7 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 // NOTE: the live audit page has no interactive tool of its own — it presents
 // the six disciplines, the five-step process and the request form, and points
 // to the twelve-point framework published at /ecommerce-growth-assessment/.
-// The self-audit tool below is the clone brief's addition: it uses exactly
-// the live framework's twelve points and thresholds, and its result copy is
-// the live framework page's own four outcomes ("What to do with the result
-// you got"). The live framework deliberately has no score out of twelve, so
-// the tool ranks flags instead of totalling them.
+// This page reproduces that: no self-audit scorer, no totals.
 
 const faqs: Faq[] = [
   {
@@ -44,7 +38,18 @@ const faqs: Faq[] = [
   },
   {
     q: "Will you just recommend your own services?",
-    a: "The ranked list frequently includes work we would not do — changing a pricing model, hiring a merchandiser, fixing a returns process. Where the answer is to build the capability in-house, that is what the document says.",
+    a: (
+      <>
+        The ranked list frequently includes work we would not do — changing a
+        pricing model, hiring a merchandiser, fixing a returns process. Where the
+        answer is to build the capability in-house, that is what the document says.
+        Read{" "}
+        <a href="/blog/when-to-outsource-ecommerce-management/">
+          when to outsource eCommerce management
+        </a>{" "}
+        for the version of that argument we published.
+      </>
+    ),
   },
   {
     q: "What happens after the walkthrough?",
@@ -74,6 +79,8 @@ const disciplines = [
     num: "01",
     title: "Store & UX",
     body: "The storefront experience end to end, on the devices your traffic actually uses.",
+    img: "/images/ecommerce-audit-ux.webp",
+    imgAlt: "Shopper using a store on a laptop while a merchandiser reviews the experience",
     checks: [
       "Navigation, search and category structure",
       "Product page standard on your top 20 SKUs",
@@ -84,6 +91,8 @@ const disciplines = [
     num: "02",
     title: "eCommerce SEO audit",
     body: "Whether your category layer is capturing the demand your catalogue can serve. The eCommerce SEO audit covers demand mapping, category architecture, indexation and the technical faults that cap organic revenue.",
+    img: "/images/ecommerce-audit-seo.webp",
+    imgAlt: "Laptop showing a search engine results page used to research category page demand",
     checks: [
       "Category and collection architecture",
       "Indexation, canonicals and crawl waste",
@@ -94,6 +103,8 @@ const disciplines = [
     num: "03",
     title: "Paid media",
     body: "Account structure, feed quality and whether spend is priced against margin.",
+    img: "/images/ecommerce-audit-paid.webp",
+    imgAlt: "Laptop showing an advertising analytics dashboard used to manage Amazon ACoS",
     checks: [
       "Campaign segmentation by intent and margin",
       "Product feed completeness and disapprovals",
@@ -104,6 +115,8 @@ const disciplines = [
     num: "04",
     title: "Conversion",
     body: "Where the funnel loses people, and which losses are worth the engineering.",
+    img: "/images/ecommerce-audit-conversion.webp",
+    imgAlt: "Shopper comparing product details on a laptop while browsing an online store",
     checks: [
       "Session-to-cart-to-order, tracked separately",
       "Delivery promise, returns and risk messaging",
@@ -114,6 +127,8 @@ const disciplines = [
     num: "05",
     title: "Email & retention",
     body: "Lifecycle coverage, and whether reported recovery survives a holdout.",
+    img: "/images/ecommerce-audit-email.webp",
+    imgAlt: "Laptop with glasses and payment cards representing an abandoned online checkout",
     checks: [
       "Flow coverage against stage of maturity",
       "Cart and browse sequences, timing and order",
@@ -124,6 +139,8 @@ const disciplines = [
     num: "06",
     title: "Marketplace & technology",
     body: "Account health, catalogue ownership, and the platform work underneath both.",
+    img: "/images/ecommerce-audit-marketplace.webp",
+    imgAlt: "Warehouse team preparing marketplace orders for dispatch",
     checks: [
       "Account health, buy box and suppression",
       "Catalogue completeness across every channel",
@@ -237,118 +254,6 @@ const nextSteps = [
   },
 ];
 
-// The twelve points, verbatim from the published framework at
-// /ecommerce-growth-assessment/ — the same framework the audit works from.
-type Mark = "cleared" | "flagged" | "unknown" | "na";
-type Band = "high-low" | "high-high" | "low-low" | "low-high";
-
-const auditPoints = [
-  {
-    num: 1,
-    discipline: "Store & experience",
-    title: "Largest Contentful Paint is under 2.5 seconds on your highest-traffic template",
-    threshold:
-      "Threshold: 2.5s or under, on mobile. This is Google’s published “good” boundary for the metric, not our opinion. Measure field data over the last 28 days rather than a lab score, and measure the template that receives the most sessions — usually a collection or product page.",
-    figureLabel: "Your LCP on that template (seconds)",
-  },
-  {
-    num: 2,
-    discipline: "Store & experience",
-    title: "Mobile converts at no less than two thirds of the desktop rate",
-    threshold:
-      "Threshold: mobile conversion rate at 0.66× desktop or better, on comparable traffic. Some gap is normal and expected; a gap wider than a third usually means a specific broken step rather than general mobile behaviour.",
-    figureLabel: "Mobile rate as a share of desktop (e.g. 0.52×)",
-  },
-  {
-    num: 3,
-    discipline: "eCommerce SEO",
-    title: "Seven in ten of your top fifty non-brand demand terms have a page built to rank for them",
-    threshold:
-      "Threshold: 70% coverage of your top fifty non-brand terms. Export your non-brand queries, group them into the fifty clusters that describe real buying demand, then check each one has a page whose main subject is that cluster. A product that happens to mention the phrase does not count.",
-    figureLabel: "Your coverage (e.g. 31 of 50)",
-  },
-  {
-    num: 4,
-    discipline: "eCommerce SEO",
-    title: "Indexed URL count is within 20% of the number of pages you intend to rank",
-    threshold:
-      "Threshold: indexed pages no more than 1.2× intended pages. Compare Search Console’s indexed count against a list of the pages you actually want in search. A large gap almost always means crawlable filter and sort parameters have generated thousands of near-duplicates.",
-    figureLabel: "Indexed pages vs intended pages",
-  },
-  {
-    num: 5,
-    discipline: "Paid media",
-    title: "Bids are set against margin, not one blended return target across the whole catalogue",
-    threshold:
-      "Threshold: binary — either campaigns are segmented by margin tier or they are not. One return-on-spend target across a catalogue with a three-to-one margin spread guarantees you overpay for low-margin products and underspend on high.",
-    figureLabel: "How many margin tiers do you bid against?",
-  },
-  {
-    num: 6,
-    discipline: "Paid media",
-    title: "Feed disapprovals are under 2% and matching attributes are populated on 95% of active SKUs",
-    threshold:
-      "Threshold: under 2% disapproved, 95%+ populated on GTIN, brand, condition and variant attributes. Read it from your Merchant Center diagnostics rather than your platform’s own report.",
-    figureLabel: "Disapproval % and populated %",
-  },
-  {
-    num: 7,
-    discipline: "Conversion",
-    title: "Checkout abandonment is at or below 70.2%",
-    threshold:
-      "Threshold: 70.22%, the published average across 49 studies. Measure sessions that reach the first checkout step against completed orders — not basket additions, which produces a much worse number and a false alarm. Being at the average is a clear, not a triumph.",
-    figureLabel: "Your checkout abandonment %",
-  },
-  {
-    num: 8,
-    discipline: "Conversion",
-    title: "Total cost including delivery is visible before the final checkout step",
-    threshold:
-      "Threshold: binary — the full figure is shown early, or it is not. Unexpected extra cost at checkout is the most frequently stated reason people abandon, ahead of price itself.",
-    figureLabel: "Where is the full cost first shown?",
-  },
-  {
-    num: 9,
-    discipline: "Email & retention",
-    title: "At least four of the five core lifecycle flows are live and sending",
-    threshold:
-      "Threshold: 4 of 5 — welcome, browse abandonment, cart abandonment, post-purchase and win-back or replenishment. Live means sending to the segment it was built for, not built and paused.",
-    figureLabel: "How many of the five are live?",
-  },
-  {
-    num: 10,
-    discipline: "Email & retention",
-    title: "Recovery revenue is measured against a holdout, not attributed by last click",
-    threshold:
-      "Threshold: binary — a holdout group exists, or this is flagged. Hold back 5 to 10% of each flow’s audience and compare. Without it, every order a customer would have placed anyway gets credited to the email that happened to arrive first.",
-    figureLabel: "Holdout size (e.g. 10% of each flow)",
-  },
-  {
-    num: 11,
-    discipline: "Marketplace & reporting",
-    title: "You control your own listings, and variations reflect real product differences",
-    threshold:
-      "Threshold: binary — brand registry or equivalent control, a written pricing policy covering resellers, and no unattended repricer. Open your three best-selling parent listings and confirm every child is genuinely the same product in a different size or colour.",
-    figureLabel: "Do you sell on marketplaces? (mark N/A if not)",
-  },
-  {
-    num: 12,
-    discipline: "Marketplace & reporting",
-    title: "One report shows contribution margin per order, including carriage, returns and fees",
-    threshold:
-      "Threshold: binary — the view exists and somebody reads it monthly. Per order, not per channel. Carriage, packaging, returns, marketplace fees and marketing cost in one place. If you fail only one point in this framework, hope it is not this one.",
-    figureLabel: "Does the view exist, and who reads it?",
-  },
-];
-
-const BAND_LABELS: Record<Band, string> = {
-  "high-low": "High impact · low effort",
-  "high-high": "High impact · high effort",
-  "low-low": "Low impact · low effort",
-  "low-high": "Low impact · high effort",
-};
-const BAND_ORDER: Band[] = ["high-low", "high-high", "low-low", "low-high"];
-
 const PLATFORMS = [
   "Shopify / Shopify Plus",
   "WooCommerce",
@@ -389,14 +294,9 @@ const SERVICES = [
   "Creative & Content Production",
 ];
 
-const TOOL_STORAGE_KEY = "dazzle-ecommerce-audit-self-audit";
 const FORM_STORAGE_KEY = "dazzle-ecommerce-audit-requests";
 
 export default function EcommerceAuditPage() {
-  const [marks, setMarks] = useState<Partial<Record<number, Mark>>>({});
-  const [figures, setFigures] = useState<Partial<Record<number, string>>>({});
-  const [bands, setBands] = useState<Partial<Record<number, Band>>>({});
-  const [showResult, setShowResult] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -412,72 +312,6 @@ export default function EcommerceAuditPage() {
   const [formErrors, setFormErrors] = useState<Partial<Record<string, string>>>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
-
-  useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(TOOL_STORAGE_KEY) || "null");
-      if (saved) {
-        if (saved.marks) setMarks(saved.marks);
-        if (saved.figures) setFigures(saved.figures);
-        if (saved.bands) setBands(saved.bands);
-      }
-    } catch {
-      // Saved self-audit could not be read; start blank.
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(
-        TOOL_STORAGE_KEY,
-        JSON.stringify({ marks, figures, bands })
-      );
-    } catch {
-      // Storage unavailable; the tool still works for this visit.
-    }
-  }, [marks, figures, bands]);
-
-  const answered = Object.keys(marks).length;
-  const flaggedNums = auditPoints
-    .filter((p) => marks[p.num] === "flagged" || marks[p.num] === "unknown")
-    .map((p) => p.num);
-  const unknownCount = auditPoints.filter((p) => marks[p.num] === "unknown").length;
-  const clearedCount = auditPoints.filter((p) => marks[p.num] === "cleared").length;
-
-  // The live framework ranks flags, it does not total them. Unknowns rank as
-  // flags, not as passes. Flags are ordered by their impact/effort band.
-  const ranked = useMemo(() => {
-    const flagged = auditPoints.filter((p) => flaggedNums.includes(p.num));
-    return [...flagged].sort((a, b) => {
-      const ba = bands[a.num] || "high-high";
-      const bb = bands[b.num] || "high-high";
-      return BAND_ORDER.indexOf(ba) - BAND_ORDER.indexOf(bb);
-    });
-  }, [flaggedNums, bands]);
-
-  const outcome = useMemo(() => {
-    if (flaggedNums.length === 0) return "none";
-    if (unknownCount >= 3 || flaggedNums.length >= 6) return "many";
-    if (flaggedNums.length >= 3) return "some";
-    return "few";
-  }, [flaggedNums, unknownCount]);
-
-  function setMark(num: number, value: Mark) {
-    setMarks((m) => ({ ...m, [num]: value }));
-    setShowResult(false);
-  }
-
-  function resetTool() {
-    setMarks({});
-    setFigures({});
-    setBands({});
-    setShowResult(false);
-    try {
-      localStorage.removeItem(TOOL_STORAGE_KEY);
-    } catch {
-      // Nothing to clear.
-    }
-  }
 
   function toggleService(service: string) {
     setForm((f) => ({
@@ -567,10 +401,6 @@ export default function EcommerceAuditPage() {
               <strong>0</strong>
               <span>cost or obligation</span>
             </div>
-            <div className="stat">
-              <strong>45 min</strong>
-              <span>recorded walkthrough</span>
-            </div>
           </div>
         </div>
       </section>
@@ -615,186 +445,7 @@ export default function EcommerceAuditPage() {
         </div>
       </section>
 
-      {/* 3. Run the twelve points yourself — interactive self-audit */}
-      <section className="section section-soft" id="self-audit">
-        <div className="container">
-          <p className="eyebrow">Run it yourself first</p>
-          <h2>Run the twelve points yourself</h2>
-          <p className="lead">
-            The framework is published in full, with every threshold. Mark each point
-            against its threshold — Cleared, Flagged or Unknown — and write down the actual
-            figure next to it, not just the flag. There is deliberately no partial credit
-            and no weighting, and we do not add the marks up into a score out of twelve.
-            Unknowns count as flagged when you rank, not as cleared.
-          </p>
-          <p style={{ color: "var(--muted)" }}>
-            {answered} of 12 points marked · {clearedCount} cleared · {flaggedNums.length}{" "}
-            flagged or unknown
-          </p>
-          <div style={{ display: "grid", gap: "16px", marginTop: "24px" }}>
-            {auditPoints.map((p) => (
-              <article className="card" key={p.num}>
-                <p className="eyebrow" style={{ marginBottom: "0.25rem" }}>
-                  Point {p.num} · {p.discipline}
-                </p>
-                <h3>{p.title}</h3>
-                <p>{p.threshold}</p>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "8px",
-                    margin: "12px 0",
-                  }}
-                >
-                  {(
-                    [
-                      ["cleared", "Cleared"],
-                      ["flagged", "Flagged"],
-                      ["unknown", "Unknown"],
-                      ["na", "Not applicable"],
-                    ] as [Mark, string][]
-                  ).map(([value, label]) => (
-                    <button
-                      key={value}
-                      type="button"
-                      className={marks[p.num] === value ? "btn" : "btn btn-outline"}
-                      style={{ padding: "0.5rem 1.1rem", fontSize: "0.95rem" }}
-                      aria-pressed={marks[p.num] === value}
-                      onClick={() => setMark(p.num, value)}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-                <div className="form-field">
-                  <label htmlFor={`figure-${p.num}`}>{p.figureLabel}</label>
-                  <input
-                    id={`figure-${p.num}`}
-                    className="form-input"
-                    type="text"
-                    value={figures[p.num] || ""}
-                    onChange={(e) =>
-                      setFigures((f) => ({ ...f, [p.num]: e.target.value }))
-                    }
-                    placeholder="Write down the actual figure"
-                  />
-                </div>
-                {(marks[p.num] === "flagged" || marks[p.num] === "unknown") && (
-                  <div className="form-field">
-                    <label htmlFor={`band-${p.num}`}>
-                      Rank this flag — impact against effort
-                    </label>
-                    <select
-                      id={`band-${p.num}`}
-                      className="form-select"
-                      value={bands[p.num] || ""}
-                      onChange={(e) =>
-                        setBands((b) => ({
-                          ...b,
-                          [p.num]: e.target.value as Band,
-                        }))
-                      }
-                    >
-                      <option value="">Choose a band…</option>
-                      {(Object.keys(BAND_LABELS) as Band[]).map((b) => (
-                        <option key={b} value={b}>
-                          {BAND_LABELS[b]}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
-          <div className="btn-row">
-            <button
-              type="button"
-              className="btn"
-              disabled={answered === 0}
-              onClick={() => setShowResult(true)}
-            >
-              Rank my flags
-            </button>
-            <button type="button" className="btn btn-outline" onClick={resetTool}>
-              Start again
-            </button>
-          </div>
-          {showResult && (
-            <div className="card" style={{ marginTop: "24px" }}>
-              <h3>Your ranked constraint list</h3>
-              {flaggedNums.length === 0 ? (
-                <>
-                  <p style={{ color: "var(--muted)" }}>
-                    Nothing flagged. Twelve clears means the thresholds were read generously.
-                    Go back to the points you cleared from memory and measure them properly.
-                  </p>
-                  <p style={{ color: "var(--muted)" }}>
-                    If your assessment comes back with nothing flagged, it was marked too
-                    generously. We have never run this on a live store and found twelve clears.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p style={{ color: "var(--muted)" }}>
-                    Do not add it up. Rank it. The output is not a score — it is an ordered
-                    list, and only the top item matters this quarter. Unknowns rank as flags,
-                    not as passes.
-                  </p>
-                  <ol>
-                    {ranked.map((p, i) => (
-                      <li key={p.num} style={{ marginBottom: "0.75rem" }}>
-                        <strong>
-                          {i + 1}. Point {p.num} — {p.title}
-                        </strong>
-                        <br />
-                        <span style={{ color: "var(--muted)" }}>
-                          {marks[p.num] === "unknown" ? "Unknown — counts as flagged" : "Flagged"}
-                          {bands[p.num] ? ` · ${BAND_LABELS[bands[p.num] as Band]}` : " · band not chosen yet"}
-                          {figures[p.num] ? ` · figure: ${figures[p.num]}` : ""}
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
-                  {outcome === "few" && (
-                    <p>
-                      <strong>One or two flags — fix it in-house and keep the money.</strong>{" "}
-                      A constraint you can name and size does not need an agency.
-                    </p>
-                  )}
-                  {outcome === "some" && (
-                    <p>
-                      <strong>Three to five flags — sequence it before you spend.</strong>{" "}
-                      Enough flags that order matters more than effort. Read how we sequence a
-                      quarter, then decide whether you want help running it or just the plan.{" "}
-                      <Link href="/how-we-work/">See how we work</Link>
-                    </p>
-                  )}
-                  {outcome === "many" && (
-                    <p>
-                      <strong>Six or more, or mostly unknown — have somebody run it properly.</strong>{" "}
-                      Six flags usually means the reporting underneath is not trustworthy rather
-                      than that six things are broken. That is what the free audit establishes
-                      first. <Link href="#audit-request">Request the free audit</Link>
-                    </p>
-                  )}
-                  <p style={{ color: "var(--muted)" }}>
-                    The full framework, with every threshold and the four impact-against-effort
-                    bands, is published at{" "}
-                    <Link href="/ecommerce-growth-assessment/">
-                      /ecommerce-growth-assessment/
-                    </Link>
-                    .
-                  </p>
-                </>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 4. What we audit */}
+      {/* 3. What we audit */}
       <section className="section">
         <div className="container">
           <p className="eyebrow">What we audit</p>
@@ -806,27 +457,12 @@ export default function EcommerceAuditPage() {
             than reported in six separate silos. That ranking is what makes an eCommerce
             website audit useful rather than merely long.
           </p>
-          <div className="split" style={{ marginTop: "32px" }}>
-            <div className="split-img">
-              <Image
-                src="/images/ecommerce-audit-ux.webp"
-                alt="Shopper using a store on a laptop while a merchandiser reviews the experience"
-                width={1920}
-                height={1280}
-              />
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/ecommerce-audit-report.webp"
-                alt="A printed audit report and scorecard with charts beside a laptop showing an eCommerce analytics dashboard"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
           <div className="card-grid">
             {disciplines.map((d) => (
               <article className="card" key={d.num}>
+                {d.img ? (
+                  <Image src={d.img} alt={d.imgAlt ?? ""} width={1200} height={800} />
+                ) : null}
                 <p className="card-num">Discipline {d.num}</p>
                 <h3>{d.title}</h3>
                 <p>{d.body}</p>
@@ -1094,43 +730,49 @@ export default function EcommerceAuditPage() {
                       <p className="form-msg form-msg-dark err">{formErrors.platform}</p>
                     )}
                   </fieldset>
-                  <div className="form-field">
-                    <label htmlFor="audit-revenue">
+                  <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
+                    <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
                       Monthly online revenue <span className="required">*</span>
-                    </label>
-                    <select
-                      id="audit-revenue"
-                      className="form-select"
-                      value={form.revenue}
-                      onChange={(e) => setForm((f) => ({ ...f, revenue: e.target.value }))}
-                    >
-                      <option value="">Choose…</option>
-                      {REVENUES.map((r) => (
-                        <option key={r} value={r}>
-                          {r}
-                        </option>
-                      ))}
-                    </select>
+                    </legend>
+                    {REVENUES.map((r) => (
+                      <label
+                        key={r}
+                        style={{ display: "block", fontWeight: 400, marginBottom: "4px" }}
+                      >
+                        <input
+                          type="radio"
+                          name="revenue"
+                          value={r}
+                          checked={form.revenue === r}
+                          onChange={() => setForm((f) => ({ ...f, revenue: r }))}
+                        />{" "}
+                        {r}
+                      </label>
+                    ))}
                     {formErrors.revenue && (
                       <p className="form-msg form-msg-dark err">{formErrors.revenue}</p>
                     )}
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="audit-budget">Monthly budget for growth</label>
-                    <select
-                      id="audit-budget"
-                      className="form-select"
-                      value={form.budget}
-                      onChange={(e) => setForm((f) => ({ ...f, budget: e.target.value }))}
-                    >
-                      <option value="">Choose…</option>
-                      {BUDGETS.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  </fieldset>
+                  <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
+                    <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
+                      Monthly budget for growth
+                    </legend>
+                    {BUDGETS.map((b) => (
+                      <label
+                        key={b}
+                        style={{ display: "block", fontWeight: 400, marginBottom: "4px" }}
+                      >
+                        <input
+                          type="radio"
+                          name="budget"
+                          value={b}
+                          checked={form.budget === b}
+                          onChange={() => setForm((f) => ({ ...f, budget: b }))}
+                        />{" "}
+                        {b}
+                      </label>
+                    ))}
+                  </fieldset>
                   <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
                     <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
                       Which services are you interested in?
@@ -1209,11 +851,6 @@ export default function EcommerceAuditPage() {
               See how we work
             </Link>
           </div>
-          <ul className="final-checks">
-            <li>Free 30-minute call</li>
-            <li>No long-term contracts</li>
-            <li>Actionable audit you keep</li>
-          </ul>
         </div>
       </section>
     </>

@@ -32,7 +32,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What is your management fee?",
-    a: "PPC management typically runs $2,000–$7,000/month depending on channels, spend level and complexity, separate from your ad spend. We do not work on percentage-of-spend, because it rewards us for spending more rather than earning more. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        PPC management typically runs $2,000–$7,000/month depending on channels, spend
+        level and complexity, separate from your ad spend. We do not work on
+        percentage-of-spend, because it rewards us for spending more rather than earning
+        more. <Link href="/pricing/">Our pricing page</Link> explains how we scope it.
+      </>
+    ),
   },
   {
     q: "Who owns the ad accounts?",

@@ -5,7 +5,7 @@
 - **Live page platform:** WordPress + Elementor Pro (form name "Growth Audit Request", form id `ec974e3`, post id 23)
 - **Published:** 2026-08-15T07:14:04-05:00 — **Modified:** 2026-08-26T00:53:14-05:00 (Rank Math / JSON-LD)
 - **Twitter "Time to read":** 4 minutes
-- **Breadcrumb:** Home › Contact
+- **Breadcrumb:** Home › Contact — JSON-LD schema only; no visible breadcrumb element is rendered in the page body (verified 2026-11-23).
 
 ## Meta
 
@@ -172,7 +172,7 @@ Link: `Visit our page` → https://www.linkedin.com/company/dazzlecommerce
 2. **Phone number mismatch:** the visible phone is **+1 (555) 010-2400**, while the JSON-LD schema telephone is **+1 (555) 012-3456**. The clone uses the visible number.
 3. **Hours mismatch:** the visible phone hours are **Mon–Fri, 9:00–18:00 CT**, while the schema openingHours are `Mo,Tu,We,Th,Fr,Sa,Su 09:00-17:00`. The clone uses the visible hours.
 4. **"Choose a time" goes nowhere:** the calendar button links to `#form` — it scrolls back to the form; there is no calendar widget/embed in the page. The clone keeps the anchor behaviour.
-5. **No images in the main content:** the live contact page has zero `<img>` tags inside `<main>`; the map is the only visual. Clone images are locally generated supporting visuals only, not copies of live assets.
+5. **No images in the main content:** the live contact page has zero `<img>` tags inside `<main>`; the map is the only visual. (Note 2026-11-23: illustrative clone images formerly used in the hero, "What Happens Next" and "Find Us" sections were removed in the fidelity fix pass — the clone now has no images on this page either.)
 6. **Author slug quirk:** the JSON-LD author URL is `https://dazzlecommerce.com/author/shaheensagar2000yahoo-com/` — reproduced here for the record only; not used in the clone.
 7. **Spelling:** the live page uses British spelling in places (`prioritised`, `enquiry`, `organisation` in schema context) alongside US copy — kept as-is in quoted copy.
 8. **Phone tel: links use two different spellings** (`tel:+1 (555) 010-2400` in the contact block, `tel:+15550102400` in the "Call us" card) — both preserved above.

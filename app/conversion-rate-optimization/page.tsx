@@ -32,7 +32,19 @@ const faqs: Faq[] = [
   },
   {
     q: "What conversion rate should we be aiming for?",
-    a: "It depends far more on category and price point than on any benchmark. Consumables and low-AOV goods often run 3–5%; considered purchases like furniture or high-end electronics can be healthy at 0.8%. Our conversion rate benchmarks by industry page sets out the published figures with their sources, but the useful comparison is against your own baseline and your own margin, not an industry average that averages across both.",
+    a: (
+      <>
+        It depends far more on category and price point than on any benchmark. Consumables
+        and low-AOV goods often run 3–5%; considered purchases like furniture or high-end
+        electronics can be healthy at 0.8%. Our{" "}
+        <Link href="/resources/statistics/ecommerce-conversion-rate/">
+          conversion rate benchmarks by industry
+        </Link>{" "}
+        page sets out the published figures with their sources, but the useful comparison is
+        against your own baseline and your own margin, not an industry average that averages
+        across both.
+      </>
+    ),
   },
   {
     q: "How long before we see results?",
@@ -44,7 +56,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What does CRO cost?",
-    a: "Standalone CRO engagements typically run $3,000–$8,000/month depending on traffic volume, testing cadence and how much implementation is in scope. Inside a full management engagement it is part of the wider fee. Our pricing page explains how we scope it.",
+    a: (
+      <>
+        Standalone CRO engagements typically run $3,000–$8,000/month depending on traffic
+        volume, testing cadence and how much implementation is in scope. Inside a full{" "}
+        <Link href="/ecommerce-management/">management engagement</Link> it is part of the
+        wider fee. <Link href="/pricing/">Our pricing page</Link> explains how we scope it.
+      </>
+    ),
   },
   {
     q: "Will you redesign our whole site?",
