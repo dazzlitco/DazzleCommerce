@@ -19,16 +19,16 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch | Pages | Done | Pushed |
 |---|---:|---:|---:|
 | Batch 1 — Core | 23 | 23 | 23 |
-| Batch 2 — Services | 13 | 13 | 0 |
+| Batch 2 — Services | 13 | 13 | 13 |
 | Batch 3 — Platforms + Marketplaces | 22 | 0 | 0 |
 | Batch 4 — Locations | 10 | 0 | 0 |
 | Batch 5 — Industries | 11 | 0 | 0 |
 | Batch 6 — Case Studies + Testimonials | 12 | 0 | 0 |
 | Batch 7 — Tools / Guides / Resources / Careers | 75 | 0 | 0 |
 | Batch 8 — Blogs | 11 | 0 | 0 |
-| **Total** | **177** | **36** | **23** |
+| **Total** | **177** | **36** | **36** |
 
-Last updated: 2026-11-23 — Batch 2 complete locally: all 13 service pages built and verified (`npm run build` passes, all 13 routes return HTTP 200). 36 of 177 pages built, 23 pushed. NOT pushed to GitHub yet — parent to push the whole batch. Next: Batch 3 (Platforms + Marketplaces) after the Batch 2 push.
+Last updated: 2026-11-23 — Batch 2 complete: all 13 service pages pushed to GitHub (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`). 36 of 177 pages built, 36 pushed. Next: Batch 3 — Platforms + Marketplaces.
 
 ## Batch 1 — Core — 23 pages
 
@@ -62,19 +62,19 @@ Last updated: 2026-11-23 — Batch 2 complete locally: all 13 service pages buil
 
 | # | Source URL | Clone route | Category | Status | Pushed |
 |---:|---|---|---|---|---|
-| 24 | https://dazzlecommerce.com/conversion-rate-optimization/ | `app/conversion-rate-optimization/page.tsx` | Services | Built — awaiting review | — |
-| 25 | https://dazzlecommerce.com/ecommerce-app-development/ | `app/ecommerce-app-development/page.tsx` | Services | Built — awaiting review | — |
-| 26 | https://dazzlecommerce.com/ecommerce-creative-content/ | `app/ecommerce-creative-content/page.tsx` | Services | Built — awaiting review | — |
-| 27 | https://dazzlecommerce.com/ecommerce-development/ | `app/ecommerce-development/page.tsx` | Services | Built — awaiting review | — |
-| 28 | https://dazzlecommerce.com/ecommerce-management/ | `app/ecommerce-management/page.tsx` | Services | Built — awaiting review | — |
-| 29 | https://dazzlecommerce.com/ecommerce-marketing/ | `app/ecommerce-marketing/page.tsx` | Services | Built — awaiting review | — |
-| 30 | https://dazzlecommerce.com/ecommerce-ppc/ | `app/ecommerce-ppc/page.tsx` | Services | Built — awaiting review | — |
-| 31 | https://dazzlecommerce.com/ecommerce-product-photography/ | `app/ecommerce-product-photography/page.tsx` | Services | Built — awaiting review | — |
-| 32 | https://dazzlecommerce.com/ecommerce-seo/ | `app/ecommerce-seo/page.tsx` | Services | Built — awaiting review | — |
-| 33 | https://dazzlecommerce.com/ecommerce-web-design/ | `app/ecommerce-web-design/page.tsx` | Services | Built — awaiting review | — |
-| 34 | https://dazzlecommerce.com/email-retention-marketing/ | `app/email-retention-marketing/page.tsx` | Services | Built — awaiting review | — |
-| 35 | https://dazzlecommerce.com/international-ecommerce-expansion/ | `app/international-ecommerce-expansion/page.tsx` | Services | Built — awaiting review | — |
-| 36 | https://dazzlecommerce.com/marketplace-management-marketing/ | `app/marketplace-management-marketing/page.tsx` | Services | Built — awaiting review | — |
+| 24 | https://dazzlecommerce.com/conversion-rate-optimization/ | `app/conversion-rate-optimization/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 25 | https://dazzlecommerce.com/ecommerce-app-development/ | `app/ecommerce-app-development/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 26 | https://dazzlecommerce.com/ecommerce-creative-content/ | `app/ecommerce-creative-content/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 27 | https://dazzlecommerce.com/ecommerce-development/ | `app/ecommerce-development/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 28 | https://dazzlecommerce.com/ecommerce-management/ | `app/ecommerce-management/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 29 | https://dazzlecommerce.com/ecommerce-marketing/ | `app/ecommerce-marketing/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 30 | https://dazzlecommerce.com/ecommerce-ppc/ | `app/ecommerce-ppc/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 31 | https://dazzlecommerce.com/ecommerce-product-photography/ | `app/ecommerce-product-photography/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 32 | https://dazzlecommerce.com/ecommerce-seo/ | `app/ecommerce-seo/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 33 | https://dazzlecommerce.com/ecommerce-web-design/ | `app/ecommerce-web-design/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 34 | https://dazzlecommerce.com/email-retention-marketing/ | `app/email-retention-marketing/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 35 | https://dazzlecommerce.com/international-ecommerce-expansion/ | `app/international-ecommerce-expansion/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
+| 36 | https://dazzlecommerce.com/marketplace-management-marketing/ | `app/marketplace-management-marketing/page.tsx` | Services | Pushed | `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1` (2026-11-23); photos `4321f96` / `7e7b3fe` / `3c6701a` |
 
 ## Batch 3 — Platforms + Marketplaces — 22 pages
 
@@ -266,3 +266,5 @@ Last updated: 2026-11-23 — Batch 2 complete locally: all 13 service pages buil
 | 2026-11-23 | Batch 1 photos uploaded, commits `39d7f0c`, `7dd7095`, `bb226b6` — all 83 new .webp files now in `public/images/` on GitHub. Batch 1 complete. |
 | 2026-11-23 | Record update pushed, commit `ed06dbd` — STATUS.md and RECORD_REGISTER.md on GitHub now mark all 23 Batch 1 pages pushed. Batch 1 complete on GitHub; 23/177 built, 23/177 pushed. Next: Batch 2 — Services. |
 | 2026-11-23 | Batch 2, #24–#36 built and verified locally, marked Built — awaiting review: Conversion Rate Optimization, eCommerce App Development, eCommerce Creative Content, eCommerce Development, eCommerce Management, eCommerce Marketing, eCommerce PPC, eCommerce Product Photography, eCommerce SEO, eCommerce Web Design, Email & Retention Marketing, International eCommerce Expansion, Marketplace Management & Marketing. 36/177 built, 23 pushed. `npm run build` passes; all 13 Batch 2 routes return HTTP 200. 81 new .webp images created (178 .webp in public/images/ total). Not pushed to GitHub. |
+| 2026-11-23 | Batch 2 pushed, code commit `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1`. 36/177 built, 36 pushed. |
+| 2026-11-23 | Batch 2 photos uploaded, commits `4321f96`, `7e7b3fe`, `3c6701a` — all 81 new .webp files now in `public/images/` on GitHub. Batch 2 complete. |

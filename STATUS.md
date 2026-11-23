@@ -2,7 +2,7 @@
 
 **Last updated: 2026-11-23**
 
-**Overall: 36 of 177 pages built · 23 of 177 pushed · 0 of 177 reviewed/done**
+**Overall: 36 of 177 pages built · 36 of 177 pushed · 0 of 177 reviewed/done**
 
 ## What this is
 
@@ -30,14 +30,14 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 | Batch | Scope | Pages | Built | Pushed | Done | Status |
 |---|---|---:|---:|---:|---:|---|
 | 1 | Core | 23 | 23 | 23 | 0 | **Complete — Batch 1 pushed** |
-| 2 | Services | 13 | 13 | 0 | 0 | **Current — Batch 2 built locally, awaiting push** |
+| 2 | Services | 13 | 13 | 13 | 0 | **Complete — Batch 2 pushed** |
 | 3 | Platforms + Marketplaces | 22 | 0 | 0 | 0 | Not started |
 | 4 | Locations | 10 | 0 | 0 | 0 | Not started |
 | 5 | Industries | 11 | 0 | 0 | 0 | Not started |
 | 6 | Case Studies + Testimonials | 12 | 0 | 0 | 0 | Not started |
 | 7 | Tools / Guides / Resources / Careers | 75 | 0 | 0 | 0 | Not started |
 | 8 | Blogs | 11 | 0 | 0 | 0 | Not started |
-| **Total** | | **177** | **36** | **23** | **0** | |
+| **Total** | | **177** | **36** | **36** | **0** | |
 
 Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog index + 10 posts.
 
@@ -69,19 +69,19 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 ## Batch 2 — Services (13 pages, in order)
 
-24. `/conversion-rate-optimization/` — **Built — awaiting review** (not pushed)
-25. `/ecommerce-app-development/` — **Built — awaiting review** (not pushed)
-26. `/ecommerce-creative-content/` — **Built — awaiting review** (not pushed)
-27. `/ecommerce-development/` — **Built — awaiting review** (not pushed)
-28. `/ecommerce-management/` — **Built — awaiting review** (not pushed)
-29. `/ecommerce-marketing/` — **Built — awaiting review** (not pushed)
-30. `/ecommerce-ppc/` — **Built — awaiting review** (not pushed)
-31. `/ecommerce-product-photography/` — **Built — awaiting review** (not pushed)
-32. `/ecommerce-seo/` — **Built — awaiting review** (not pushed)
-33. `/ecommerce-web-design/` — **Built — awaiting review** (not pushed)
-34. `/email-retention-marketing/` — **Built — awaiting review** (not pushed)
-35. `/international-ecommerce-expansion/` — **Built — awaiting review** (not pushed)
-36. `/marketplace-management-marketing/` — **Built — awaiting review** (not pushed)
+24. `/conversion-rate-optimization/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+25. `/ecommerce-app-development/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+26. `/ecommerce-creative-content/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+27. `/ecommerce-development/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+28. `/ecommerce-management/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+29. `/ecommerce-marketing/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+30. `/ecommerce-ppc/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+31. `/ecommerce-product-photography/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+32. `/ecommerce-seo/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+33. `/ecommerce-web-design/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+34. `/email-retention-marketing/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+35. `/international-ecommerce-expansion/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
+36. `/marketplace-management-marketing/` — **Pushed** (code `b0b7d3a`, photos `4321f96` / `7e7b3fe` / `3c6701a`)
 
 
 ## Current step
@@ -89,8 +89,8 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 - **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Homepage (`/`) built in Next.js/React with matching created images, verified against the live page, `npm run build` passes, and pushed to GitHub (commit `e0c3a5587f1e597ff1318082f12b90c579f97891`, 2026-11-23). That push contained the 19 text files (code, STATUS.md, RECORD_REGISTER.md, logos as SVG). The 5 photographic .webp images were uploaded separately via the GitHub website in commit `c49cdf8` (2026-11-23) — all 7 files are now in `public/images/` on GitHub.
 - **Done (new):** Batch 1, Page 2 — About Us (`/about-us/`) built in Next.js/React with matching created images, verified against the live page (81/81 copy checks in rendered HTML), `npm run build` passes, and pushed to GitHub (commit `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1`, 2026-11-23). The 9 photographic .webp images were uploaded separately via the GitHub website in commit `163521c` (2026-11-23) — all 9 files are now in `public/images/` on GitHub. 2/177 built, 2 pushed. About Us on GitHub is now complete.
 - **Done (new):** Batch 1 complete on GitHub — all 23 pages built in Next.js/React with matching created images, verified against the live pages, `npm run build` passes, all 23 routes return HTTP 200 from a production server. Pushed: code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`, record update `ed06dbd`. 23/177 built, 23 pushed. `public/images/` on GitHub holds 99 files (97 photos + 2 logos).
-- **Done (new):** Batch 2 complete locally — all 13 service pages built in Next.js/React with matching created images, verified against the live pages, `npm run build` passes, all 13 routes return HTTP 200 from a production server. 36/177 built, 23 pushed. Not pushed to GitHub — whole batch ready for push.
-- **Next:** Batch 3 — Platforms + Marketplaces (22 pages). Only after the Batch 2 push and Alif's go-ahead.
+- **Done (new):** Batch 2 complete — all 13 service pages built in Next.js/React with matching created images, verified against the live pages, `npm run build` passes, all 13 routes return HTTP 200, and pushed to GitHub (code commit `b0b7d3aeecb4c035d7ef4eae96b446ce6e819ca1`, 2026-11-23). The 81 new .webp images were uploaded via the GitHub website in commits `4321f96`, `7e7b3fe`, `3c6701a` (2026-11-23) — all 178 .webp files are now in `public/images/` on GitHub. 36/177 built, 36 pushed. Batch 2 on GitHub is now complete.
+- **Next:** Batch 3 — Platforms + Marketplaces (22 pages). Only after Alif's go-ahead.
 
 ## Per-page workflow (applies to every page)
 
@@ -125,3 +125,5 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-23 | Batch 1 photos uploaded to GitHub via the website, commits `39d7f0c`, `7dd7095`, `bb226b6` — all 83 new .webp files now in `public/images/`. Batch 1 on GitHub is now complete. |
 | 2026-11-23 | Record update pushed, commit `ed06dbd` — STATUS.md and RECORD_REGISTER.md on GitHub now mark all 23 Batch 1 pages pushed. Batch 1 complete on GitHub; 23/177 built, 23/177 pushed. |
 | 2026-11-23 | Batch 2 complete locally: pages #24–#36 built and verified (`npm run build` passes, all 13 routes HTTP 200). 36/177 built, 23 pushed. Not pushed to GitHub — whole batch ready for push. |
+| 2026-11-23 | Batch 2 pushed to GitHub, code commit `b0b7d3a`. 36/177 built, 36/177 pushed. Text files only; 81 .webp images still to upload. |
+| 2026-11-23 | Batch 2 photos uploaded to GitHub via the website, commits `4321f96`, `7e7b3fe`, `3c6701a` — all 81 new .webp files now in `public/images/`. Batch 2 on GitHub is now complete. |
