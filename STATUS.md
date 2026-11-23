@@ -2,7 +2,7 @@
 
 **Last updated: 2026-11-23**
 
-**Overall: 23 of 177 pages built · 2 of 177 pushed · 0 of 177 reviewed/done**
+**Overall: 23 of 177 pages built · 23 of 177 pushed · 0 of 177 reviewed/done**
 
 ## What this is
 
@@ -29,7 +29,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 
 | Batch | Scope | Pages | Built | Pushed | Done | Status |
 |---|---|---:|---:|---:|---:|---|
-| 1 | Core | 23 | 23 | 2 | 0 | **Current — Batch 1 built locally, awaiting push** |
+| 1 | Core | 23 | 23 | 23 | 0 | **Complete — Batch 1 pushed** |
 | 2 | Services | 13 | 0 | 0 | 0 | Not started |
 | 3 | Platforms + Marketplaces | 22 | 0 | 0 | 0 | Not started |
 | 4 | Locations | 10 | 0 | 0 | 0 | Not started |
@@ -37,7 +37,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 | 6 | Case Studies + Testimonials | 12 | 0 | 0 | 0 | Not started |
 | 7 | Tools / Guides / Resources / Careers | 75 | 0 | 0 | 0 | Not started |
 | 8 | Blogs | 11 | 0 | 0 | 0 | Not started |
-| **Total** | | **177** | **23** | **2** | **0** | |
+| **Total** | | **177** | **23** | **23** | **0** | |
 
 Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog index + 10 posts.
 
@@ -45,27 +45,27 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`)
 2. `/about-us/` — **Pushed** (commits `22e4760`, photos `163521c`)
-3. `/services/` — **Built — awaiting review** (not pushed)
-4. `/contact/` — **Built — awaiting review** (not pushed)
-5. `/pricing/` — **Built — awaiting review** (not pushed)
-6. `/how-we-work/` — **Built — awaiting review** (not pushed)
-7. `/case-studies/` — **Built — awaiting review** (not pushed)
-8. `/portfolio/` — **Built — awaiting review** (not pushed)
-9. `/testimonials/` — **Built — awaiting review** (not pushed)
-10. `/faqs/` — **Built — awaiting review** (not pushed)
-11. `/careers/` — **Built — awaiting review** (not pushed)
-12. `/partners/` — **Built — awaiting review** (not pushed)
-13. `/our-technology-stack/` — **Built — awaiting review** (not pushed)
-14. `/locations-we-serve/` — **Built — awaiting review** (not pushed)
-15. `/book-a-strategy-call/` — **Built — awaiting review** (not pushed)
-16. `/request-a-proposal/` — **Built — awaiting review** (not pushed)
-17. `/ecommerce-growth-assessment/` — **Built — awaiting review** (not pushed)
-18. `/ecommerce-audit/` — **Built — awaiting review** (not pushed)
-19. `/site-map/` — **Built — awaiting review** (not pushed)
-20. `/privacy-policy/` — **Built — awaiting review** (not pushed)
-21. `/cookies-policy/` — **Built — awaiting review** (not pushed)
-22. `/gdpr-compliance/` — **Built — awaiting review** (not pushed)
-23. `/affiliate-disclaimer/` — **Built — awaiting review** (not pushed)
+3. `/services/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+4. `/contact/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+5. `/pricing/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+6. `/how-we-work/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+7. `/case-studies/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+8. `/portfolio/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+9. `/testimonials/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+10. `/faqs/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+11. `/careers/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+12. `/partners/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+13. `/our-technology-stack/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+14. `/locations-we-serve/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+15. `/book-a-strategy-call/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+16. `/request-a-proposal/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+17. `/ecommerce-growth-assessment/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+18. `/ecommerce-audit/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+19. `/site-map/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+20. `/privacy-policy/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+21. `/cookies-policy/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+22. `/gdpr-compliance/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
+23. `/affiliate-disclaimer/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
 
 ## Current step
 
@@ -103,3 +103,5 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-23 | About Us pushed to GitHub, commit `22e4760`. 2/177 built, 2/177 pushed. Text files only; 9 .webp images still to upload. |
 | 2026-11-23 | About Us photos uploaded to GitHub via the website, commit `163521c` — all 9 .webp files now in `public/images/`. About Us on GitHub is now complete. |
 | 2026-11-23 | Batch 1 complete locally: pages 3–23 built and verified (`npm run build` passes, all 23 routes HTTP 200). 23/177 built, 2 pushed. Not pushed to GitHub — whole batch ready for push. |
+| 2026-11-23 | Batch 1, Pages 3–23 pushed to GitHub, code commit `44f5336`. 23/177 built, 23/177 pushed. Text files only; 83 .webp images still to upload. |
+| 2026-11-23 | Batch 1 photos uploaded to GitHub via the website, commits `39d7f0c`, `7dd7095`, `bb226b6` — all 83 new .webp files now in `public/images/`. Batch 1 on GitHub is now complete. |
