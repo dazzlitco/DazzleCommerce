@@ -127,3 +127,4 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-23 | Batch 2 complete locally: pages #24–#36 built and verified (`npm run build` passes, all 13 routes HTTP 200). 36/177 built, 23 pushed. Not pushed to GitHub — whole batch ready for push. |
 | 2026-11-23 | Batch 2 pushed to GitHub, code commit `b0b7d3a`. 36/177 built, 36/177 pushed. Text files only; 81 .webp images still to upload. |
 | 2026-11-23 | Batch 2 photos uploaded to GitHub via the website, commits `4321f96`, `7e7b3fe`, `3c6701a` — all 81 new .webp files now in `public/images/`. Batch 2 on GitHub is now complete. |
+| 2026-11-23 | Deployment-ready: `next.config.ts` now uses static export (`output: "export"`, `trailingSlash: true`, images unoptimized) — `npm run build` produces a plain static `out/` folder (37 HTML files, 180 images, 73 MB) verified serving locally. Ready for Cloudflare Pages. |
