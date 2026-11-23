@@ -2,7 +2,7 @@
 
 **Last updated: 2026-11-23**
 
-**Overall: 2 of 177 pages built · 1 of 177 pushed · 0 of 177 reviewed/done**
+**Overall: 2 of 177 pages built · 2 of 177 pushed · 0 of 177 reviewed/done**
 
 ## What this is
 
@@ -29,7 +29,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 
 | Batch | Scope | Pages | Built | Pushed | Done | Status |
 |---|---|---:|---:|---:|---:|---|
-| 1 | Core | 23 | 2 | 1 | 0 | **Current — About Us built, awaiting review** |
+| 1 | Core | 23 | 2 | 2 | 0 | **Current — About Us pushed, complete on GitHub** |
 | 2 | Services | 13 | 0 | 0 | 0 | Not started |
 | 3 | Platforms + Marketplaces | 22 | 0 | 0 | 0 | Not started |
 | 4 | Locations | 10 | 0 | 0 | 0 | Not started |
@@ -37,14 +37,14 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 | 6 | Case Studies + Testimonials | 12 | 0 | 0 | 0 | Not started |
 | 7 | Tools / Guides / Resources / Careers | 75 | 0 | 0 | 0 | Not started |
 | 8 | Blogs | 11 | 0 | 0 | 0 | Not started |
-| **Total** | | **177** | **2** | **1** | **0** | |
+| **Total** | | **177** | **2** | **2** | **0** | |
 
 Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog index + 10 posts.
 
 ## Batch 1 — Core (23 pages, in order)
 
 1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`)
-2. `/about-us/` — **Built — awaiting review** (not pushed)
+2. `/about-us/` — **Pushed** (commits `22e4760`, photos `163521c`)
 3. `/services/`
 4. `/contact/`
 5. `/pricing/`
@@ -70,7 +70,7 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 ## Current step
 
 - **Done:** Sitemap parsed (177 URLs). Repo checked (empty). Source stack checked. Record Register + this STATUS.md built. Homepage (`/`) built in Next.js/React with matching created images, verified against the live page, `npm run build` passes, and pushed to GitHub (commit `e0c3a5587f1e597ff1318082f12b90c579f97891`, 2026-11-23). That push contained the 19 text files (code, STATUS.md, RECORD_REGISTER.md, logos as SVG). The 5 photographic .webp images were uploaded separately via the GitHub website in commit `c49cdf8` (2026-11-23) — all 7 files are now in `public/images/` on GitHub.
-- **Done (new):** Batch 1, Page 2 — About Us (`/about-us/`) built in Next.js/React with matching created images, verified against the live page (81/81 copy checks in rendered HTML), `npm run build` passes. Marked Built — awaiting review. 2/177 built, 1 pushed. Not pushed to GitHub.
+- **Done (new):** Batch 1, Page 2 — About Us (`/about-us/`) built in Next.js/React with matching created images, verified against the live page (81/81 copy checks in rendered HTML), `npm run build` passes, and pushed to GitHub (commit `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1`, 2026-11-23). The 9 photographic .webp images were uploaded separately via the GitHub website in commit `163521c` (2026-11-23) — all 9 files are now in `public/images/` on GitHub. 2/177 built, 2 pushed. About Us on GitHub is now complete.
 - **Next:** Batch 1, Page 3 — Services (`/services/`). Only after Alif's go-ahead.
 - Nothing else from Batch 1 has been started. No other page is built.
 
@@ -100,3 +100,5 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-23 | Homepage photos uploaded to GitHub via the website, commit `c49cdf8` — all 5 .webp files now in `public/images/`. Homepage on GitHub is now complete. |
 | 2026-11-23 | Batch 1, Page 1 — Homepage (`/`) built in Next.js/React, verified locally, marked Built — awaiting review. 1/177 built, 0 pushed. Not pushed to GitHub. |
 | 2026-11-23 | Batch 1, Page 2 — About Us (`/about-us/`) built in Next.js/React, verified locally, marked Built — awaiting review. 2/177 built, 1 pushed. Not pushed to GitHub. |
+| 2026-11-23 | About Us pushed to GitHub, commit `22e4760`. 2/177 built, 2/177 pushed. Text files only; 9 .webp images still to upload. |
+| 2026-11-23 | About Us photos uploaded to GitHub via the website, commit `163521c` — all 9 .webp files now in `public/images/`. About Us on GitHub is now complete. |
