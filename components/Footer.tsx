@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link href="/" aria-label="Dazzle Commerce — home">
-              <Image src="/images/logo-footer.svg" alt="Dazzle Commerce" width={220} height={48} />
+              <Image src="/images/logo-footer.svg" alt="Dazzle Commerce" width={140} height={48} />
             </Link>
             <p className="footer-tagline" style={{ marginTop: "18px" }}>
               Scale. Optimize. Succeed.

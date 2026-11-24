@@ -34,26 +34,38 @@ const problems = [
   {
     title: "Traffic that never converts",
     body: "You are paying for clicks that bounce. Slow product pages, weak merchandising and a leaky checkout quietly cap your conversion rate below what your category supports.",
+    icon: "fa-solid fa-arrow-trend-up",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Ad spend outrunning profit",
     body: "ROAS looks fine on the surface, but blended margins are shrinking. Without proper attribution and contribution-margin tracking you scale the wrong campaigns.",
+    icon: "fa-solid fa-dollar-sign",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "Marketplace chaos",
     body: "Amazon, Walmart and eBay each demand different listings, feeds and ad structures. Managing them in spreadsheets costs you the Buy Box and burns your team out.",
+    icon: "fa-solid fa-cube",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Invisible in organic search",
     body: "Thin collection pages, duplicate product copy and crawl-budget waste keep you off page one for the commercial keywords that actually drive revenue.",
+    icon: "fa-solid fa-magnifying-glass",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "One-and-done customers",
     body: "You acquire well but retain poorly. No lifecycle flows, no post-purchase journey and no reason for a second order means CAC keeps climbing.",
+    icon: "fa-solid fa-arrows-rotate",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Agencies that vanish after onboarding",
     body: "You were sold by a senior partner and handed to a junior. Reporting is opaque, strategy is recycled and nobody owns the number that matters.",
+    icon: "fa-solid fa-users",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
 ];
 
@@ -62,31 +74,77 @@ const services = [
     title: "eCommerce Management",
     href: "/services/#management",
     body: "Day-to-day store and marketplace operations: product listing management, catalog and inventory hygiene, order and returns workflows, and dedicated account management.",
+    icon: "fa-solid fa-table-cells-large",
   },
   {
     title: "eCommerce Marketing",
     href: "/services/#marketing",
     body: "eCommerce SEO, Google Shopping, Amazon PPC, Meta and TikTok paid social, email and SMS retention, plus conversion rate optimization that compounds every channel.",
+    icon: "fa-solid fa-chart-column",
   },
   {
     title: "Development & Technology",
     href: "/services/#development",
     body: "Shopify and WooCommerce development, headless builds, replatforming and migrations, custom apps, integrations and Core Web Vitals performance work.",
+    icon: "fa-solid fa-code",
   },
   {
     title: "Creative & Content",
     href: "/services/#creative",
     body: "Product photography and video, A+ / Enhanced Brand Content, landing pages, lifecycle creative and conversion copywriting built for testing at volume.",
+    icon: "fa-solid fa-camera",
   },
 ];
 
 const platforms = [
-  { name: "Shopify", note: "Plus & standard" },
-  { name: "Amazon", note: "Seller & Vendor" },
-  { name: "WooCommerce", note: "WordPress" },
-  { name: "Walmart", note: "Marketplace" },
-  { name: "eBay", note: "Stores & listings" },
-  { name: "Etsy", note: "Handmade & craft" },
+  {
+    name: "Shopify",
+    note: "Plus & standard",
+    mark: <i className="fa-brands fa-shopify" style={{ color: "#95bf47" }} aria-hidden="true" />,
+  },
+  {
+    name: "Amazon",
+    note: "Seller & Vendor",
+    mark: (
+      <svg viewBox="0 0 32 24" width="34" height="26" aria-hidden="true">
+        <text x="4" y="15" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="700" fill="#111827">
+          a
+        </text>
+        <path d="M5 18 Q16 25 27 16" stroke="#ff9900" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: "WooCommerce",
+    note: "WordPress",
+    mark: <span style={{ color: "#96588a", fontWeight: 800, fontSize: "1.6rem" }}>W</span>,
+  },
+  {
+    name: "Walmart",
+    note: "Marketplace",
+    mark: <i className="fa-solid fa-asterisk" style={{ color: "#0071ce" }} aria-hidden="true" />,
+  },
+  {
+    name: "eBay",
+    note: "Stores & listings",
+    mark: (
+      <span className="ebay-mark" aria-hidden="true">
+        <span style={{ color: "#e53238" }}>e</span>
+        <span style={{ color: "#0064d2" }}>b</span>
+        <span style={{ color: "#f5af02" }}>a</span>
+        <span style={{ color: "#86b817" }}>y</span>
+      </span>
+    ),
+  },
+  {
+    name: "Etsy",
+    note: "Handmade & craft",
+    mark: (
+      <span style={{ color: "#f1641e", fontWeight: 800, fontFamily: "Georgia, serif", fontSize: "1.5rem" }}>
+        Etsy
+      </span>
+    ),
+  },
 ];
 
 const processSteps = [
@@ -160,18 +218,24 @@ const testimonials = [
       "“They were the first agency that talked to us about contribution margin instead of vanity ROAS. Six months in, we are spending more and keeping more of it.”",
     name: "Marisa Chen",
     role: "VP Growth, Nutriblend",
+    img: "/images/testimonial-marisa.webp",
+    ring: "#0B5BF4",
   },
   {
     quote:
       "“Our Amazon catalog was a mess after three years of quick fixes. Dazzle Commerce rebuilt it properly, and we recovered the Buy Box on our top sellers within a quarter.”",
     name: "Devin Okafor",
     role: "Founder, VAC Vacuums",
+    img: "/images/testimonial-devin.webp",
+    ring: "#7c3aed",
   },
   {
     quote:
       "“The replatform was the smoothest project our team has run. No traffic dip, no ranking loss, and the site is three times faster.”",
     name: "Priya Raghavan",
     role: "eCommerce Director, Kitchenary",
+    img: "/images/testimonial-priya.webp",
+    ring: "#16a34a",
   },
 ];
 
@@ -185,7 +249,8 @@ export default function HomePage() {
             <div>
               <Pill icon="fa-solid fa-wand-magic-sparkles">eCommerce Management &amp; Marketing Agency</Pill>
               <h1>
-                Scale Your eCommerce Business With Proven Growth Strategies
+                Scale Your eCommerce Business With Proven{" "}
+                <span style={{ color: "#0B5BF4" }}>Growth</span> Strategies
               </h1>
               <p className="lead">
                 From marketplace management to performance marketing, we are the eCommerce agency
@@ -195,10 +260,10 @@ export default function HomePage() {
               </p>
               <div className="btn-row">
                 <Link className="btn" href="/book-a-strategy-call/">
-                  Get Free Strategy Call
+                  <i className="fa-solid fa-calendar-days" aria-hidden="true" /> Get Free Strategy Call
                 </Link>
                 <Link className="btn btn-outline" href="/services/">
-                  View Our Services
+                  <i className="fa-solid fa-play" aria-hidden="true" /> View Our Services
                 </Link>
               </div>
             </div>
@@ -214,16 +279,31 @@ export default function HomePage() {
           </div>
           <div className="trust-badges">
             <div className="trust-badge">
-              <h3>100% Transparency</h3>
-              <p>Clear reports and open communication</p>
+              <span className="tb-icon" style={{ background: "#dbeafe", color: "#0B5BF4" }}>
+                <i className="fa-solid fa-shield-halved" aria-hidden="true" />
+              </span>
+              <div>
+                <h3>100% Transparency</h3>
+                <p>Clear reports and open communication</p>
+              </div>
             </div>
             <div className="trust-badge">
-              <h3>No Long-Term Contracts</h3>
-              <p>Flexibility you deserve. Results that matter.</p>
+              <span className="tb-icon" style={{ background: "#dcfce7", color: "#16a34a" }}>
+                <i className="fa-solid fa-circle-check" aria-hidden="true" />
+              </span>
+              <div>
+                <h3>No Long-Term Contracts</h3>
+                <p>Flexibility you deserve. Results that matter.</p>
+              </div>
             </div>
             <div className="trust-badge">
-              <h3>Free Growth Audit</h3>
-              <p>In-depth analysis and an actionable plan</p>
+              <span className="tb-icon" style={{ background: "#fef3c7", color: "#d97706" }}>
+                <i className="fa-solid fa-star" aria-hidden="true" />
+              </span>
+              <div>
+                <h3>Free Growth Audit</h3>
+                <p>In-depth analysis and an actionable plan</p>
+              </div>
             </div>
           </div>
         </div>
@@ -234,7 +314,9 @@ export default function HomePage() {
         <div className="container">
           <h2>Trusted by 100+ eCommerce brands worldwide</h2>
           <div className="brand-row">
-            <span className="brand-word">nutriblend</span>
+            <span className="brand-word" style={{ color: "#14532d" }}>
+              nutriblend
+            </span>
             <Link className="brand-word" href="/vac-vacuums-amazon-marketplace-europe/">
               VAC Vacuums
             </Link>
@@ -250,14 +332,17 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-bullseye" center>Problems We Solve</Pill>
-          <h2>The six things quietly capping your revenue</h2>
-          <p className="lead">
+          <h2 className="center">The six things quietly capping your revenue</h2>
+          <p className="lead center">
             Every store we audit has at least three of these. Most owners can feel them but
             cannot name them. Here is what we find — and fix — most often.
           </p>
           <div className="card-grid">
             {problems.map((p) => (
               <article className="card" key={p.title}>
+                <span className="card-icon" style={p.tint}>
+                  <i className={p.icon} aria-hidden="true" />
+                </span>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
               </article>
@@ -270,8 +355,8 @@ export default function HomePage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Our Services</Pill>
-          <h2>One eCommerce agency for every part of growth</h2>
-          <p className="lead">
+          <h2 className="center">One eCommerce agency for every part of growth</h2>
+          <p className="lead center">
             Most brands stitch together a marketplace VA, an SEO freelancer and a paid media
             agency who never speak to each other. Most eCommerce agencies deepen the problem
             rather than solving it, covering one lane properly and subcontracting the rest. We
@@ -280,17 +365,21 @@ export default function HomePage() {
           </p>
           <div className="card-grid card-grid-2">
             {services.map((s) => (
-              <article className="card" key={s.title}>
-                <h3>
-                  <Link href={s.href}>{s.title}</Link>
-                </h3>
+              <Link className="card service-card" href={s.href} key={s.title}>
+                <span className="card-icon" style={{ background: "#dbeafe", color: "#0B5BF4" }}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
+                <h3>{s.title}</h3>
                 <p>{s.body}</p>
-              </article>
+                <span className="card-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
             ))}
           </div>
-          <div className="mt">
-            <Link className="btn btn-outline" href="/services/">
-              See all eCommerce services
+          <div className="mt center">
+            <Link className="text-link" href="/services/">
+              See all eCommerce services <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
@@ -300,14 +389,15 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-globe" center>Platforms We Work With</Pill>
-          <h2>Certified where it counts</h2>
-          <p className="lead">
+          <h2 className="center">Certified where it counts</h2>
+          <p className="lead center">
             We are platform-agnostic by principle and deeply specialized in practice. Your
             channel mix should follow your margins, not an agency’s comfort zone.
           </p>
-          <div className="card-grid card-grid-4">
+          <div className="card-grid card-grid-6">
             {platforms.map((p) => (
               <div className="card platform-card" key={p.name}>
+                <div className="platform-mark">{p.mark}</div>
                 <h3 className="platform-name">{p.name}</h3>
                 <p>{p.note}</p>
               </div>
@@ -351,31 +441,33 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="split-img">
-              <Image
-                src="/images/home-choose.webp"
-                alt="eCommerce specialists planning a growth programme for an online store"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          </div>
-          <div className="stat-row">
-            <div className="stat">
-              <strong>+142%</strong>
-              <span>Revenue growth</span>
-            </div>
-            <div className="stat">
-              <strong>6.7x</strong>
-              <span>Blended ROAS</span>
-            </div>
-            <div className="stat">
-              <strong>+38%</strong>
-              <span>Conversion lift</span>
-            </div>
-            <div className="stat">
-              <strong>$48M+</strong>
-              <span>GMV managed</span>
+            <div>
+              <div className="split-img">
+                <Image
+                  src="/images/home-choose.webp"
+                  alt="eCommerce specialists planning a growth programme for an online store"
+                  width={1920}
+                  height={1280}
+                />
+              </div>
+              <div className="stat-row stat-grid-2">
+                <div className="stat">
+                  <strong>+142%</strong>
+                  <span>Revenue growth</span>
+                </div>
+                <div className="stat">
+                  <strong>6.7x</strong>
+                  <span>Blended ROAS</span>
+                </div>
+                <div className="stat">
+                  <strong>+38%</strong>
+                  <span>Conversion lift</span>
+                </div>
+                <div className="stat">
+                  <strong>$48M+</strong>
+                  <span>GMV managed</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -385,8 +477,8 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-gear" center>Our Process</Pill>
-          <h2>How a Dazzle Commerce engagement runs</h2>
-          <p className="lead">
+          <h2 className="center">How a Dazzle Commerce engagement runs</h2>
+          <p className="lead center">
             Four phases, repeated quarterly. Transparent enough that you always know what is
             happening this week and why it matters to the forecast.
           </p>
@@ -405,9 +497,9 @@ export default function HomePage() {
       {/* 8. Results & Success Metrics */}
       <section className="section section-blue">
         <div className="container">
-          <Pill icon="fa-solid fa-chart-column" center>Results &amp; Success Metrics</Pill>
-          <h2>Numbers our clients took to their board</h2>
-          <p style={{ color: "#c6d2e4", maxWidth: "760px" }}>
+          <Pill icon="fa-solid fa-chart-column" center tone="dark">Results &amp; Success Metrics</Pill>
+          <h2 className="center">Numbers our clients took to their board</h2>
+          <p style={{ color: "#c6d2e4", maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
             Aggregated across managed accounts. Individual results vary by category, margin
             structure and starting position — we will give you an honest range on the call.
           </p>
@@ -448,8 +540,8 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-briefcase" center>Case Studies</Pill>
-          <h2>Success stories with the receipts</h2>
-          <p className="lead">
+          <h2 className="center">Success stories with the receipts</h2>
+          <p className="lead center">
             Three engagements, three very different problems. Same operating system underneath.
           </p>
           <div className="card-grid">
@@ -489,20 +581,28 @@ export default function HomePage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-comment-dots" center>Testimonials</Pill>
-          <h2>What it is like to work with us</h2>
-          <p className="lead">
+          <h2 className="center">What it is like to work with us</h2>
+          <p className="lead center">
             We asked clients to be specific rather than generous. These are the answers we got.
           </p>
           <div className="card-grid">
             {testimonials.map((t) => (
-              <div className="quote-card" key={t.name}>
-                <p aria-label="Rated 5 out of 5" style={{ color: "var(--blue)", letterSpacing: "0.1em" }}>
-                  ★★★★★
-                </p>
-                <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>Rated 5 out of 5</p>
+              <div className="quote-card" key={t.name} aria-label="Rated 5 out of 5">
                 <blockquote>{t.quote}</blockquote>
-                <h3>{t.name}</h3>
-                <p>{t.role}</p>
+                <hr />
+                <div className="quote-person">
+                  <Image
+                    src={t.img}
+                    alt={`${t.name}, ${t.role}`}
+                    width={112}
+                    height={112}
+                    style={{ borderColor: t.ring }}
+                  />
+                  <div>
+                    <h3>{t.name}</h3>
+                    <p>{t.role}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

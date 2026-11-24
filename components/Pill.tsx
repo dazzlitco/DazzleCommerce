@@ -7,6 +7,8 @@ type PillProps = {
   icon?: string;
   /** True when the live page centers this pill. */
   center?: boolean;
+  /** "dark" for pills on the live site's dark navy bands (Results & Success Metrics). */
+  tone?: "dark";
   children: ReactNode;
 };
 
@@ -16,9 +18,9 @@ type PillProps = {
  * lives in `.eyebrow` / `.eyebrow-center` in app/globals.css.
  * Replaces the old text-only uppercase `<p className="eyebrow">`.
  */
-export function Pill({ icon, center, children }: PillProps) {
+export function Pill({ icon, center, tone, children }: PillProps) {
   return (
-    <p className={`eyebrow${center ? " eyebrow-center" : ""}`}>
+    <p className={`eyebrow${center ? " eyebrow-center" : ""}${tone === "dark" ? " eyebrow-dark" : ""}`}>
       {icon ? <i className={icon} aria-hidden="true" /> : null}
       <span>{children}</span>
     </p>

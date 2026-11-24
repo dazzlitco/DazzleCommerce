@@ -27,23 +27,11 @@ export default function RegisterModal() {
   useEffect(() => {
     const onOpen = () => setOpen(true);
     window.addEventListener("open-register", onOpen);
-    // Live site carries this as an Elementor popup (template 44); its trigger
-    // could not be verified from HTML alone, so it opens once per session
-    // after a short delay and can be closed or reopened from the footer.
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    try {
-      if (!sessionStorage.getItem("dazzle-register-seen")) {
-        timer = setTimeout(() => {
-          setOpen(true);
-          sessionStorage.setItem("dazzle-register-seen", "1");
-        }, 12000);
-      }
-    } catch {
-      // sessionStorage unavailable — do not auto-open
-    }
+    // No auto-open: the live homepage shows no popup on load (verified
+    // 2026-11-24 rendered walkthrough). The modal opens only from the
+    // footer "Get the eCommerce benchmarks" trigger.
     return () => {
       window.removeEventListener("open-register", onOpen);
-      if (timer) clearTimeout(timer);
     };
   }, []);
 

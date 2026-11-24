@@ -5,7 +5,7 @@ import { useState, type ReactNode } from "react";
 export type Faq = { q: string; a: ReactNode };
 
 export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <div className="faq-list">
       {faqs.map((f, i) => (
@@ -17,7 +17,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
             <span>{f.q}</span>
-            <span aria-hidden="true">{openIndex === i ? "−" : "+"}</span>
+            <span aria-hidden="true">{openIndex === i ? "×" : "+"}</span>
           </button>
           <div className="faq-a" hidden={openIndex !== i}>
             {f.a}

@@ -67,12 +67,14 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-bar">
-        <Link href="/" className="header-logo" aria-label="Dazzle Commerce — home">
-          <Image src="/images/logo.svg" alt="Dazzle Commerce" width={220} height={48} priority />
-        </Link>
-        <p className="header-tagline">
-          <strong>Scale. Optimize. Succeed.</strong>
-        </p>
+        <div className="header-brand">
+          <Link href="/" className="header-logo" aria-label="Dazzle Commerce — home">
+            <Image src="/images/logo.svg" alt="Dazzle Commerce" width={140} height={48} priority />
+          </Link>
+          <p className="header-tagline">
+            <strong>Scale. Optimize. Succeed.</strong>
+          </p>
+        </div>
 
         <nav className="main-nav" aria-label="Main navigation">
           <div className="nav-item">
@@ -156,7 +158,7 @@ export default function Header() {
 
         <div className="header-actions">
           <a className="header-phone" href="tel:+15550102400">
-            +1 (555) 010-2400
+            <i className="fa-solid fa-phone" aria-hidden="true" /> +1 (555) 010-2400
           </a>
           <a className="btn" href="https://calendly.com/dazzlecommerce/30min">
             Get Free Strategy Call
