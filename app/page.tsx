@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Pill } from "@/components/Pill";
 import Link from "next/link";
+import HeroDashboard from "../components/HeroDashboard";
 import FaqAccordion, { type Faq } from "../components/FaqAccordion";
 
 const faqs: Faq[] = [
@@ -267,15 +268,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="hero-img">
-              <Image
-                src="/images/home-hero.webp"
-                alt="Dazzle Commerce eCommerce management and marketing team reviewing store performance"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+            <HeroDashboard />
           </div>
           <div className="trust-badges">
             <div className="trust-badge">
