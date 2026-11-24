@@ -28,7 +28,7 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch 8 — Blogs | 11 | 0 | 0 |
 | **Total** | **177** | **36** | **36** |
 
-Last updated: 2026-11-23 — Approved fix pass applied locally (not pushed yet): pill fix, RP/Growth/Audit/Site Map/Tech Stack/Locations fixes, 17 new photos (13 Creative Content + 4 Request a Proposal), partner badges as code badges. 36 of 177 pages built, 36 pushed. Next: push approval, then Batch 3 — Platforms + Marketplaces, awaiting Alif's go-ahead.
+Last updated: 2026-11-23 — Approved fix pass pushed to GitHub (code `bbf2084`, photos `e35f91f`). 36 of 177 pages built, 36 pushed. Next: Batch 3 — Platforms + Marketplaces, awaiting Alif's go-ahead.
 
 ## Batch 1 — Core — 23 pages
 
@@ -272,3 +272,4 @@ Last updated: 2026-11-23 — Approved fix pass applied locally (not pushed yet):
 | 2026-11-23 | Fidelity fix pass: all 36 pages re-audited vs live and corrected; code commit `17cda2a`; 26 new photos `7b2fa86`; 31 orphaned images deleted (last `e89a75c`). |
 | 2026-11-23 | Post-fix-pass correction (local, not pushed yet): removed invented fixed side nav from International Expansion page; corrected shared header Services mega-menu to live (removed invented footer links + duplicate CTA, card link fixed to /contact/, column headings added). Verified by live desktop browser checks of dazzlecommerce.com/ecommerce-seo/ and /international-ecommerce-expansion/ 2026-11-23 11:23–11:28 AM PST. `npm run build` passes. |
 | 2026-11-23 | Approved fix pass applied locally (NOT pushed yet): all 36 pages fixed per the audit-only re-audit — pill chip fix, RP 7 images + links + hero order, Growth Assessment sticky checklist sidebar, Audit select-dropdown form, Site Map/Tech Stack/Locations fixes, header tagline + skip link, icon-only footer socials, 13 new Creative Content photos, 4 new RP photos, partner badges as code badges. `npm run build` passes, all 36 routes static, 192 image refs, 0 missing. |
+| 2026-11-23 | Approved fix pass pushed: code `bbf2084` (87 files), photos `e35f91f` (17 new .webp). 36/177 built, 36 pushed. |
