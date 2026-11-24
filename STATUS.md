@@ -1,6 +1,6 @@
 # STATUS — DazzleCommerce Clone
 
-**Last updated: 2026-11-23**
+**Last updated: 2026-11-24**
 
 **Overall: 36 of 177 pages built · 36 of 177 pushed · 0 of 177 reviewed/done**
 
@@ -18,6 +18,7 @@ The full page-by-page record is in `RECORD_REGISTER.md`. This file is the one-pa
 - **Push cadence:** push to GitHub after each batch (changed 2026-11-23 by Alif: "Clone a full batch first, push and report. Do not stop at after each page.").
 - **Batch 1:** confirmed.
 - **Pace:** one batch at a time, one page at once. No rushing, no mess.
+- **Method (2026-11-24, Alif):** one page at a time, cloned 100%, verified against the live RENDERED page before moving on. Alif checks each page himself before the next page starts. This supersedes the full-batch rule for the redo — Homepage is page 1 of the redo.
 
 ## Source (checked 2026-11-23)
 
@@ -43,7 +44,7 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 ## Batch 1 — Core (23 pages, in order)
 
-1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`)
+1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`) — **REDONE 2026-11-24 vs live rendered page, pushed code `5f3001e`, photos `076211a`; awaiting Alif's check before page 2**
 2. `/about-us/` — **Pushed** (commits `22e4760`, photos `163521c`)
 3. `/services/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
 4. `/contact/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
@@ -137,3 +138,6 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-23 | Mega-menu descriptions restored (local, not pushed yet — joins the correction push above): live desktop check ~2:25 PM PST transcribed all 13 one-line descriptions under the Services mega-menu links verbatim; added to `components/nav.ts` and rendered by `components/Header.tsx` with a `.mega-link-desc` style. `npm run build` passes, all 13 descriptions present in built `out/index.html`. This closes the last known visible difference named in the correction. |
 | 2026-11-23 | Approved fix pass applied locally (NOT pushed yet): shared pill fix (chip + icons + centering, 290 Pill usages, Font Awesome installed); RP restored to 7 images + 5 links + live hero order; Growth Assessment sticky "THE CHECKLIST" sidebar; Audit form now live's select dropdowns; Site Map counts removed + final CTA checklist restored; Tech Stack breadcrumb + image move; Locations map move + globe icons; header tagline + skip link; footer socials icon-only; 13 new Creative Content photos; 4 new RP photos; partner badges as uniform code badges (image tool declined Google/Amazon badge generations). `npm run build` passes, all 36 routes static, 192 image refs, 0 missing, 0 hotlinks. `public/images/` now holds 192 files (190 .webp + 2 logos). |
 | 2026-11-23 | Approved fix pass pushed: code `bbf2084` (87 files), photos `e35f91f` (17 new .webp). 36/177 built, 36 pushed. `public/images/` now holds 192 files (190 .webp + 2 logos). |
+| 2026-11-24 | Homepage REDO (page 1, one-page-at-a-time method): verified against the live rendered homepage via cloud-browser walkthrough (desktop 1919×998, 07:42–07:52 PST) + Playwright screenshots of the local build. 19 fixes applied: blue "Growth" in H1; stacked logo lockup + tagline under logo; header CTA button collapse fixed (was a 119×134 blue circle, now 222×57); phone pill with icon; hero CTA calendar icon + "View Our Services" play icon; trust-badge icon chips; brand row near-black; section headers centered (hero + Why Choose Us left); Problems card icon chips; Services cards as whole-card links with arrow + "See all eCommerce services" as text link; Platforms 6-in-a-row with brand marks; Why Choose Us stats as 2×2 grid under image + green circle checks; Process numbers blue; Results dark pill; 3 case photos regenerated to match live scenes; testimonial stars removed (aria-label kept) + 3 new portrait photos with colored rings; FAQ all-collapsed on load, "×" icon, 600px column; final CTA as rounded navy panel; signup popup auto-open timer removed (opens only via footer button). `npm run build` passes; 296-link audit clean. Remaining honest gaps: created images/logos are matching stand-ins (except user-supplied hero); VAC brand has no tiny vacuum icon; platform marks and pill icons are close equivalents, not live's exact graphics. |
+| 2026-11-24 | Homepage redo pushed: code `5f3001e` (9 files: app/page.tsx, app/globals.css, Header, Footer, Pill, FaqAccordion, RegisterModal, logo.svg, logo-footer.svg). |
+| 2026-11-24 | Homepage redo photos uploaded via the website, commit `076211a` — 3 case photos replaced, 3 testimonial portraits added. `public/images/` on GitHub now holds 195 files (193 .webp + 2 logos). Homepage on GitHub is now the redone version. Awaiting Alif's check before About Us (page 2). |
