@@ -4,12 +4,13 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 // NOTE: this file is a client component because the proposal form needs
 // client-side validation, localStorage persistence and a confirmation state.
 // (A client module cannot export `metadata`; the page title/description from
-// the extraction — "Request a Proposal | Dazzle Commerce" — should be added
-// via a route-level metadata wrapper if the parent wants it.)
+// the extraction — "Request a Proposal | Dazzle Commerce" — are exported by
+// the route-level metadata wrapper in app/request-a-proposal/layout.tsx.)
 
 const faqs: Faq[] = [
   {
@@ -22,7 +23,13 @@ const faqs: Faq[] = [
   },
   {
     q: "Do I need to give you analytics access?",
-    a: "No. A proposal is written from what is publicly visible plus what you tell us. Access only comes up later, if you go ahead or if you take the free audit .",
+    a: (
+      <>
+        No. A proposal is written from what is publicly visible plus what you tell
+        us. Access only comes up later, if you go ahead or if you take the{" "}
+        <Link href="/ecommerce-audit/">free audit</Link> .
+      </>
+    ),
   },
   {
     q: "Will the price be a range or a number?",
@@ -42,7 +49,14 @@ const faqs: Faq[] = [
   },
   {
     q: "What if I would rather just talk first?",
-    a: "Then do that. A thirty-minute strategy call costs you less time than this form and often makes the proposal unnecessary, or much more specific if you still want one.",
+    a: (
+      <>
+        Then do that. A{" "}
+        <Link href="/book-a-strategy-call/">thirty-minute strategy call</Link>{" "}
+        costs you less time than this form and often makes the proposal unnecessary,
+        or much more specific if you still want one.
+      </>
+    ),
   },
 ];
 
@@ -136,7 +150,14 @@ const premature = [
   },
   {
     title: "You do not know what is wrong yet",
-    body: "If the brief is “grow revenue”, a proposal has to guess at the constraint. The growth assessment takes forty minutes and costs nothing, and makes the proposal far more specific.",
+    body: (
+      <>
+        If the brief is “grow revenue”, a proposal has to guess at the constraint.
+        The{" "}
+        <Link href="/ecommerce-growth-assessment/">growth assessment</Link> takes
+        forty minutes and costs nothing, and makes the proposal far more specific.
+      </>
+    ),
   },
   {
     title: "The decision-maker is not involved",
@@ -391,10 +412,8 @@ export default function RequestProposalPage() {
           </p>
           <div>
             <div>
-              <p className="eyebrow">Proposal request</p>
-              <p className="eyebrow" style={{ display: "block", color: "var(--muted)" }}>
-                Five working days
-              </p>
+              <Pill>Proposal request</Pill>
+              <Pill>Five working days</Pill>
               <h1>Request a Proposal for Your Store</h1>
               <p className="lead">
                 A written proposal with the scope, the sequence, the price and the named people
@@ -402,6 +421,24 @@ export default function RequestProposalPage() {
                 This page tells you exactly what arrives, what we need to write it, and when
                 asking for one is premature.
               </p>
+              <div className="stat-row">
+                <div className="stat">
+                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>TURNAROUND</span>
+                  <strong>Five working days</strong>
+                </div>
+                <div className="stat">
+                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>TYPICAL LENGTH</span>
+                  <strong>Eight to twelve pages</strong>
+                </div>
+                <div className="stat">
+                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>COST</span>
+                  <strong>Free</strong>
+                </div>
+                <div className="stat">
+                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>OBLIGATION</span>
+                  <strong>None</strong>
+                </div>
+              </div>
               <div className="btn-row">
                 <Link className="btn" href="#rp-form">
                   Go to the request form
@@ -410,28 +447,18 @@ export default function RequestProposalPage() {
                   Book a call instead
                 </Link>
               </div>
+              <div className="hero-img" style={{ marginTop: "32px" }}>
+                <Image
+                  src="/images/request-a-proposal-buyers-coffee.webp"
+                  alt="Two business buyers discussing documents over coffee"
+                  width={2048}
+                  height={1152}
+                />
+              </div>
               <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
                 Every proposal is written against your numbers, not assembled from a template
                 with your logo dropped on it.
               </p>
-            </div>
-          </div>
-          <div className="stat-row">
-            <div className="stat">
-              <span style={{ fontWeight: 800, color: "var(--navy)" }}>TURNAROUND</span>
-              <strong>Five working days</strong>
-            </div>
-            <div className="stat">
-              <span style={{ fontWeight: 800, color: "var(--navy)" }}>TYPICAL LENGTH</span>
-              <strong>Eight to twelve pages</strong>
-            </div>
-            <div className="stat">
-              <span style={{ fontWeight: 800, color: "var(--navy)" }}>COST</span>
-              <strong>Free</strong>
-            </div>
-            <div className="stat">
-              <span style={{ fontWeight: 800, color: "var(--navy)" }}>OBLIGATION</span>
-              <strong>None</strong>
             </div>
           </div>
         </div>
@@ -440,7 +467,7 @@ export default function RequestProposalPage() {
       {/* 2. What arrives */}
       <section className="section" id="rp-what">
         <div className="container">
-          <p className="eyebrow">What arrives</p>
+          <Pill icon="fa-solid fa-layer-group" center>What arrives</Pill>
           <h2>Six things, every time</h2>
           <p className="lead">
             A proposal that leaves any of these out is a brochure. Ours is structured the same
@@ -470,7 +497,7 @@ export default function RequestProposalPage() {
       {/* 3. The shape of it */}
       <section className="section section-soft" id="rp-anatomy">
         <div className="container">
-          <p className="eyebrow">The shape of it</p>
+          <Pill icon="fa-solid fa-layer-group" center>The shape of it</Pill>
           <h2>Front-loaded, deliberately</h2>
           <p>The first page is the argument. The scope and the price follow from it rather than leading it.</p>
           <p>
@@ -491,18 +518,34 @@ export default function RequestProposalPage() {
             <li>Every number in it traceable to something you sent us</li>
             <li>Written to be forwarded internally without a covering explanation</li>
           </ul>
+          <div className="split-img" style={{ marginTop: "24px" }}>
+            <Image
+              src="/images/request-a-proposal-compliance-documents.webp"
+              alt="Reviewing compliance documents with a pen and notepad"
+              width={1920}
+              height={1280}
+            />
+          </div>
         </div>
       </section>
 
       {/* 4. From your side */}
       <section className="section" id="rp-need">
         <div className="container">
-          <p className="eyebrow">From your side</p>
+          <Pill icon="fa-solid fa-layer-group" center>From your side</Pill>
           <h2>What we need to write it</h2>
           <p className="lead">
             The form below asks for most of this. The more of it you can give, the more specific
             the proposal — and the less of it reads as assumption.
           </p>
+          <div className="split-img" style={{ margin: "24px 0" }}>
+            <Image
+              src="/images/request-a-proposal-compliance-manager.webp"
+              alt="Compliance manager holding a folder of market documentation"
+              width={1920}
+              height={1280}
+            />
+          </div>
           <p className="lead">
             None of this is a prerequisite. We will write a proposal from the store URL alone
             if that is all you want to share, it will simply carry more caveats and a wider
@@ -515,7 +558,8 @@ export default function RequestProposalPage() {
           </ul>
           <p style={{ color: "var(--muted)" }}>
             We do not ask for analytics access to write a proposal. That comes later, and only
-            if you decide to go ahead or to take the free audit .
+            if you decide to go ahead or to take the{" "}
+            <Link href="/ecommerce-audit/">free audit</Link> .
           </p>
         </div>
       </section>
@@ -523,7 +567,7 @@ export default function RequestProposalPage() {
       {/* 5. The timeline */}
       <section className="section section-soft" id="rp-timeline">
         <div className="container">
-          <p className="eyebrow">The timeline</p>
+          <Pill icon="fa-solid fa-calendar-days" center>The timeline</Pill>
           <h2>Request to proposal in five working days</h2>
           <p className="lead">
             No discovery workshop, no mutual NDA before anyone has said anything, no
@@ -548,15 +592,16 @@ export default function RequestProposalPage() {
       {/* 6. On price */}
       <section className="section" id="rp-pricing">
         <div className="container">
-          <p className="eyebrow">On price</p>
+          <Pill icon="fa-solid fa-layer-group" center>On price</Pill>
           <h2>Why the number is in the proposal and not on the call</h2>
           <p className="lead">
             We publish packages. What we cannot publish is which one your catalogue actually
             needs.
           </p>
           <p>
-            Our pricing page carries three packages and what drives the cost of each. For most
-            brands one of those is the answer and the proposal simply confirms which. For the
+            Our <Link href="/pricing/">pricing page</Link> carries three packages and what
+            drives the cost of each. For most brands one of those is the answer and the
+            proposal simply confirms which. For the
             rest — multi-marketplace sellers, large catalogues, brands mid-replatform — the
             honest number sits outside a package, and quoting one on a first call would be a
             guess dressed as an answer.
@@ -571,13 +616,21 @@ export default function RequestProposalPage() {
               See published pricing
             </Link>
           </div>
+          <div className="split-img" style={{ marginTop: "24px" }}>
+            <Image
+              src="/images/request-a-proposal-banknote-pricing.webp"
+              alt="Local banknote held beside pricing documents"
+              width={1920}
+              height={1280}
+            />
+          </div>
         </div>
       </section>
 
       {/* 7. Before you ask */}
       <section className="section section-soft" id="rp-premature">
         <div className="container">
-          <p className="eyebrow">Before you ask</p>
+          <Pill icon="fa-solid fa-circle-question" center>Before you ask</Pill>
           <h2>Five times a proposal is the wrong request</h2>
           <p className="lead">
             We would rather tell you this here than write you a document that cannot be acted
@@ -601,7 +654,7 @@ export default function RequestProposalPage() {
       {/* 8. Fit */}
       <section className="section" id="rp-fit">
         <div className="container">
-          <p className="eyebrow">Fit</p>
+          <Pill icon="fa-solid fa-layer-group" center>Fit</Pill>
           <h2>Who this works for, and who it does not</h2>
           <p className="lead">
             Stated before you spend ten minutes on a form rather than after we have both spent
@@ -618,31 +671,9 @@ export default function RequestProposalPage() {
             </article>
             <article className="card">
               <h3>We are usually the wrong choice when</h3>
-              <ul style={{ listStyle: "none", padding: 0, margin: "1.25rem 0" }}>
+              <ul className="check-list">
                 {wrongFit.map((item) => (
-                  <li key={item} style={{ padding: "0.45rem 0 0.45rem 2rem", position: "relative" }}>
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        position: "absolute",
-                        left: 0,
-                        top: "0.45rem",
-                        width: "1.4rem",
-                        height: "1.4rem",
-                        borderRadius: "50%",
-                        background: "#fee2e2",
-                        color: "#dc2626",
-                        fontWeight: 800,
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "0.85rem",
-                      }}
-                    >
-                      ✕
-                    </span>
-                    {item}
-                  </li>
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </article>
@@ -657,7 +688,7 @@ export default function RequestProposalPage() {
       {/* 9. The request — proposal form */}
       <section className="section section-soft" id="rp-form">
         <div className="container">
-          <p className="eyebrow">The request</p>
+          <Pill icon="fa-solid fa-layer-group" center>The request</Pill>
           <h2>Tell us enough to write something useful</h2>
           <p className="lead">
             Six required fields, consent included. Everything else sharpens the proposal rather
@@ -939,7 +970,7 @@ export default function RequestProposalPage() {
       {/* 10. Afterwards */}
       <section className="section" id="rp-after">
         <div className="container">
-          <p className="eyebrow">Afterwards</p>
+          <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
           <h2>What happens once you send it</h2>
           <p className="lead">Four steps, and a firm limit on how often we contact you.</p>
           <div className="card-grid card-grid-4">
@@ -949,7 +980,9 @@ export default function RequestProposalPage() {
                 <p style={{ fontWeight: 800, color: "var(--blue)", fontSize: "0.85rem", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
                   {s.label}
                 </p>
-                <h3>{s.title}</h3>
+                <h3>
+                  <Link href={s.href}>{s.title}</Link>
+                </h3>
                 <p>{s.body}</p>
                 <p style={{ marginTop: "1rem", marginBottom: 0 }}>
                   <Link href={s.href} style={{ fontWeight: 700 }}>
@@ -965,7 +998,7 @@ export default function RequestProposalPage() {
       {/* 11. Questions — Proposal FAQs */}
       <section className="section section-soft" id="rp-faqs">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>Proposal FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             The things people ask before filling in the form.
@@ -977,7 +1010,7 @@ export default function RequestProposalPage() {
       {/* 12. Other routes in */}
       <section className="section" id="rp-more">
         <div className="container">
-          <p className="eyebrow">Other routes in</p>
+          <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
           <h2>Three ways to start that are not this one</h2>
           <p className="lead">
             A proposal is the most committed of the four. These are the lighter options.
@@ -995,6 +1028,11 @@ export default function RequestProposalPage() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="center mt">
+            <Link className="btn btn-outline" href="/guides/">
+              All guides
+            </Link>
           </div>
         </div>
       </section>

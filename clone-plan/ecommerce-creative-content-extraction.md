@@ -71,11 +71,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow/label: `Coverage`
 - H2: `eCommerce content strategy across the customer journey`
 - Intro: `What the customer needs to see at each stage, and what each channel actually wants that asset to look like. Most of it doubles as SEO content for eCommerce, because the category and buying-guide pages that earn organic demand are the same pages a considering customer reads before deciding. If you are wondering how to start content for eCommerce at all, start there rather than with a blog: eCommerce SEO content that sits on a commercial template earns twice.`
-- 4 journey stages:
-  1. `Discover` — `Social creative` / `Display ads` / `Video` / `Awareness content`
-  2. `Consider` — `Product imagery` / `Buying guides` / `Category content` / `Product education`
-  3. `Convert` — `Product page creative` / `Landing pages` / `Ad creative` / `Promotional content`
-  4. `Retain` — `Email creative` / `Loyalty campaigns` / `Product launches` / `Cross-sell content`
+- 4 journey stages (each stage carries a number `01`–`04` in the live HTML, above an icon — CORRECTION 2026-11-23: the numbers were omitted from this extraction and from the clone; they are live text and are now rendered in the clone as `card-num` above each stage name):
+  1. `01` — `Discover` — `Social creative` / `Display ads` / `Video` / `Awareness content`
+  2. `02` — `Consider` — `Product imagery` / `Buying guides` / `Category content` / `Product education`
+  3. `03` — `Convert` — `Product page creative` / `Landing pages` / `Ad creative` / `Promotional content`
+  4. `04` — `Retain` — `Email creative` / `Loyalty campaigns` / `Product launches` / `Cross-sell content`
 - Sub-heading: `Creative by channel`
 - 7 channel cards:
   1. `eCommerce Store` — `Product imagery, copy, banners, landing pages`
@@ -108,13 +108,13 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow/label: `The Process`
 - H2: `Our eCommerce content and creative process`
 - Intro: `Six stages that loop. Stage six is what makes stage three better next month.`
-- 6 steps:
-  1. `Discover` — `Brand, product, margin structure and the audience you are actually selling to. Plus what has already been tried and what the previous creative failed to say.`
-  2. `Research` — `Competitor creative, review mining for the language customers use themselves, and the objections that show up in support tickets.`
-  3. `Concept` — `Distinct angles rather than variations on one idea — different hooks, different value propositions, different formats.`
-  4. `Create` — `Production at volume, built per placement rather than resized. Copy, design, photography and motion in one workflow.`
-  5. `Review` — `One consolidated review round against brand rules and platform specs, so feedback arrives together rather than in fragments.`
-  6. `Test & Optimize` — `Live testing with a documented result either way, and the winning angles fed back into the next concept round.`
+- 6 steps (each step carries a number `01`–`06` as an h6 in the live HTML — CORRECTION 2026-11-23: the numbers were omitted from this extraction and from the clone; they are live text and are now rendered in the clone as `card-num` above each step title):
+  1. `01` — `Discover` — `Brand, product, margin structure and the audience you are actually selling to. Plus what has already been tried and what the previous creative failed to say.`
+  2. `02` — `Research` — `Competitor creative, review mining for the language customers use themselves, and the objections that show up in support tickets.`
+  3. `03` — `Concept` — `Distinct angles rather than variations on one idea — different hooks, different value propositions, different formats.`
+  4. `04` — `Create` — `Production at volume, built per placement rather than resized. Copy, design, photography and motion in one workflow.`
+  5. `05` — `Review` — `One consolidated review round against brand rules and platform specs, so feedback arrives together rather than in fragments.`
+  6. `06` — `Test & Optimize` — `Live testing with a documented result either way, and the winning angles fed back into the next concept round.`
 
 ### 7. Performance (anchor id: `performance-creative`)
 - Eyebrow/label: `Performance`
@@ -196,7 +196,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned).
 - No pricing table on this page; the only pricing figures are the $2,500–$9,000/month retainer range in FAQ 4 and the $20k/month Meta spend example in FAQ 2.
 - No testimonials or case-study cards on this page beyond the portfolio grid in section 9 (which links to the Nutriblend and Kitchenary case studies).
-- The live portfolio grid repeats the same 6 projects across 7 tab panels with different stock images per panel (19 portfolio image slots in the HTML, 6 unique projects). The clone uses one image per project and filters one grid client-side, as the Batch 1 portfolio page does.
+- The live portfolio grid repeats the same 6 projects across 7 tab panels with different stock images per panel (19 portfolio image slots in the HTML, 6 unique projects). CORRECTION 2026-11-23: the clone now also has 7 tab panels, each holding its own copy of its subset grid (19 card slots), with 19 distinct matching images — the 6 base project images plus 13 new per-panel images created 2026-11-23 (see "Pill fix pass" below for the full list).
 - Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3), /ecommerce-product-photography/, /ecommerce-ppc/, /conversion-rate-optimization/, /email-retention-marketing/, /ecommerce-web-design/, /nutriblend-supplements-retention-uk/, /kitchenary-home-kitchen-shopify-usa/, /portfolio/, /case-studies/, /faqs/.
 - Section anchor ids on the live page: `creative-hero`, `creative-challenge`, `creative-services`, `creative-journey-channels`, `what-we-create`, `creative-process`, `performance-creative`, `why-choose-creative`, `featured-creative-work`, `creative-faqs`.
 
@@ -210,12 +210,31 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - No og:image / twitter:image is set on this live page.
 
 ## Deviations (clone vs live)
-- Images are created matching images, not copies of the live files (per project rules). All 19 clone images are prefixed `ecommerce-creative-content-` (1 hero, 12 asset tiles, 6 portfolio projects), all 1920×1280 .webp.
-- The live portfolio grid repeats the same 6 projects across 7 tab panels with a different stock image per panel (19 portfolio image slots in the HTML). The clone now restores that structure: 7 tab panels (All / Product / Ads / Social / Email / Marketplace / Video), each panel holding its own copy of its subset grid (19 card slots in the DOM, projects repeated per panel exactly as live, filter membership per §9). Each project reuses its one matching image in every panel it appears in — live uses a different stock photo per panel for the same project, which created matching images cannot reproduce.
+- Images are created matching images, not copies of the live files (per project rules). CORRECTION 2026-11-23: the clone now has 32 images prefixed `ecommerce-creative-content-` (1 hero, 12 asset tiles, 6 portfolio projects, 13 per-panel portfolio images), all 1920×1280 .webp.
+- The live portfolio grid repeats the same 6 projects across 7 tab panels with a different stock image per panel (19 portfolio image slots in the HTML). The clone now restores that structure: 7 tab panels (All / Product / Ads / Social / Email / Marketplace / Video), each panel holding its own copy of its subset grid (19 card slots in the DOM, projects repeated per panel exactly as live, filter membership per §9). CORRECTION 2026-11-23: the earlier line claiming each project reuses its one matching image in every panel is superseded — 13 new matching images were created 2026-11-23 so every panel uses its own image, matching live's per-panel photos (subjects and alts recorded in the "Pill fix pass" section below).
 - FAQ 4's answer now renders `Our pricing page` as a real link → /pricing/ (JSX answer, now that the shared FaqAccordion accepts ReactNode).
 - The `our full FAQ page` link in the FAQ section intro is rendered as a link in the clone (intro paragraph, not inside the accordion).
 - The page is a client component (`"use client"`) because the portfolio tab panels are interactive (same approach as app/portfolio/page.tsx), so it exports no per-page metadata; the live title/description are recorded at the top of this file (Batch 1 pattern for client pages).
 - No form in the main content on the live page, so there is none in the clone; the only forms are the shared footer newsletter form and Register modal.
 
+## Fidelity audit corrections — 2026-11-23 (fresh live fetch, word-level diff vs rendered clone)
+- Coverage (§4): live journey stages carry numbers `01`–`04`; the extraction and the clone omitted them. Numbers restored in the clone.
+- The Process (§6): live steps carry numbers `01`–`06` (h6); the extraction and the clone omitted them. Numbers restored in the clone.
+- No other differences found on this page: copy, links (19/19) and section order otherwise match live. No fixed/sticky side nav exists on the live page — the only sticky element in the live DOM is the shared site header `#dz-header`; the clone has no side nav, which is correct. The live FAQPage JSON-LD script sits inside `<main>` on the live page, so a naive word count shows the FAQ answers twice on live; that is not visible content and the clone does not duplicate it.
+- CORRECTION 2026-11-23: the portfolio-image deviation above is now closed (see "Pill fix pass" below) — all 19 tab-panel slots use distinct matching images; the 6 base project images match the "All" tab and 13 new images cover the other panels.
+
 ## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
 - Fresh live fetch agrees with this extraction throughout; no copy corrections needed. The tab-panel restore and FAQ 4 link above were the fixes made in this pass.
+
+## Pill fix pass — 2026-11-23 (fresh live fetch; section pills verified as Elementor icon-list widgets)
+- All 10 section pills now render via the shared `<Pill>` component (icon + rounded pale-blue chip; `center` where the live widget carries `elementor-align-center`). Icons read directly from the live HTML (`fas fa-*` → `fa-solid fa-*`); hero pill is left-aligned on live, all section pills centered.
+  - Hero `Creative & Content` — `fa-solid fa-camera`, left.
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, center. `What We Do` — `fa-solid fa-layer-group`, center. `Coverage` — `fa-solid fa-arrow-trend-up`, center. `The Work` — `fa-solid fa-compass`, center. `The Process` — `fa-solid fa-diagram-project`, center. `Performance` — `fa-solid fa-chart-line`, center. `Why Us` — `fa-solid fa-award`, center. `Portfolio` — `fa-solid fa-star`, center. `FAQs` — `fa-solid fa-circle-question`, center.
+- Portfolio per-panel images (live tab panels re-fetched 2026-11-23; 19 slots, 19 distinct live stock photos). The 6 base project images match the "All" tab; 13 new matching images created 2026-11-23 so every slot is distinct, with live alt text kept verbatim:
+  - Product tab: Nutriblend `A powder jar photographed with its scoop` → `ecommerce-creative-content-nutriblend-product.webp`; Cadence Audio `Wireless earphones photographed as a product shot` → `ecommerce-creative-content-cadence-audio-product.webp`; Kitchenary `Kitchen products arranged on a wooden shelf` → `ecommerce-creative-content-kitchenary-product.webp`; Aurelia Studio `A seated studio fashion shot` → `ecommerce-creative-content-aurelia-studio-product.webp`.
+  - Ads tab: Nutriblend `A cylindrical supplement container` → `ecommerce-creative-content-nutriblend-ads.webp`; Men's grooming brand `Labelled grooming containers` → `ecommerce-creative-content-grooming-brand-ads.webp`.
+  - Social tab: Men's grooming brand `A grooming bottle beside a brush` → `ecommerce-creative-content-grooming-brand-social.webp`; Harvest Table `A packaging box on a textured surface` → `ecommerce-creative-content-harvest-table-social.webp`.
+  - Email tab: Nutriblend `Holding a glass supplement jar` → `ecommerce-creative-content-nutriblend-email.webp`; Harvest Table `A branded product box on a white table` → `ecommerce-creative-content-harvest-table-email.webp`.
+  - Marketplace tab: Cadence Audio `Corded headphones on a plain background` → `ecommerce-creative-content-cadence-audio-marketplace.webp`.
+  - Video tab: Men's grooming brand `Grooming products arranged on wood` → `ecommerce-creative-content-grooming-brand-video.webp`; Harvest Table `A labelled product vial beside its packaging` → `ecommerce-creative-content-harvest-table-video.webp`.
+- No side nav on live or in the clone. Centering/icon readings are fetch-inferred from live HTML, not render-proven.

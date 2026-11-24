@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 // FAQs — /faqs/
@@ -23,6 +24,7 @@ type Category = {
 
 type FaqGroup = {
   label: string;
+  icon: string;
   heading: string;
   intro: string;
   categories: Category[];
@@ -31,6 +33,7 @@ type FaqGroup = {
 const groups: FaqGroup[] = [
   {
     label: "General & Agency",
+    icon: "fa-solid fa-diagram-project",
     heading: "How we work, and who does the work",
     intro: "Questions about the agency itself — scope, people and process.",
     categories: [
@@ -86,6 +89,7 @@ const groups: FaqGroup[] = [
   },
   {
     label: "Services & Platforms",
+    icon: "fa-solid fa-screwdriver-wrench",
     heading: "What we actually do, discipline by discipline",
     intro: "Management, marketing, SEO and the platforms and marketplaces we run.",
     categories: [
@@ -181,6 +185,7 @@ const groups: FaqGroup[] = [
   },
   {
     label: "Pricing, Reporting & Results",
+    icon: "fa-solid fa-tags",
     heading: "What it costs and how you will know it worked",
     intro: "The commercial questions, answered without hedging.",
     categories: [
@@ -240,7 +245,9 @@ export default function FaqsPage() {
       {/* 1. Hero (text-only on live — no hero image) */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Frequently Asked Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>
+            Frequently Asked Questions
+          </Pill>
           <h1>eCommerce Agency Questions, Answered Properly</h1>
           <p className="lead">
             Thirty-three questions we are actually asked, grouped by topic. Where the
@@ -261,7 +268,9 @@ export default function FaqsPage() {
       {/* 2. Browse FAQs by Category */}
       <section className="section" id="categories" style={{ paddingTop: "32px" }}>
         <div className="container">
-          <p className="eyebrow">Browse FAQs by Category</p>
+          <Pill icon="fa-solid fa-store" center>
+            Browse FAQs by Category
+          </Pill>
           <h2>Eight topics, thirty-three answers</h2>
           <p className="lead">Jump straight to what you came for.</p>
           <div className="card-grid card-grid-4">
@@ -285,7 +294,9 @@ export default function FaqsPage() {
           {/* Group intro */}
           <section className={gi % 2 === 0 ? "section section-soft" : "section"}>
             <div className="container">
-              <p className="eyebrow">{g.label}</p>
+              <Pill icon={g.icon} center>
+                {g.label}
+              </Pill>
               <h2>{g.heading}</h2>
               <p className="lead">{g.intro}</p>
             </div>

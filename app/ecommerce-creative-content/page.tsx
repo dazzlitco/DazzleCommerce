@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 /*
  * eCommerce Creative Content — /ecommerce-creative-content/
@@ -21,9 +22,11 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
  * - Section 5 intro: "Every tile below is a live image slot — the search terms are
  *   there so real work can replace them." (the live tiles are generic stock images).
  * - The live portfolio grid repeats the same 6 projects across 7 tab panels with a
- *   different stock image per panel; here each tab panel holds its own copy of its
- *   subset grid (same project card repeated across panels, as on the live page),
- *   reusing each project's one matching image in every panel it appears in.
+ *   different stock image per panel (19 distinct live photos across 19 slots); each
+ *   tab panel here holds its own copy of its subset grid (same project card repeated
+ *   across panels, as on the live page), and each panel uses its own matching image
+ *   via panelImages below — the 6 base images match the "All" tab, and 13 further
+ *   matching images cover the other panels (verified against live 2026-11-23).
  * - Only Nutriblend and Kitchenary have links in the portfolio grid on the live page;
  *   the other four brand names are plain text.
  * - FAQ answers that contain links are JSX now that the shared FaqAccordion accepts
@@ -159,18 +162,22 @@ const services = [
 
 const journey = [
   {
+    num: "01",
     stage: "Discover",
     items: ["Social creative", "Display ads", "Video", "Awareness content"],
   },
   {
+    num: "02",
     stage: "Consider",
     items: ["Product imagery", "Buying guides", "Category content", "Product education"],
   },
   {
+    num: "03",
     stage: "Convert",
     items: ["Product page creative", "Landing pages", "Ad creative", "Promotional content"],
   },
   {
+    num: "04",
     stage: "Retain",
     items: ["Email creative", "Loyalty campaigns", "Product launches", "Cross-sell content"],
   },
@@ -251,26 +258,32 @@ const assetTiles = [
 
 const processSteps = [
   {
+    num: "01",
     title: "Discover",
     body: "Brand, product, margin structure and the audience you are actually selling to. Plus what has already been tried and what the previous creative failed to say.",
   },
   {
+    num: "02",
     title: "Research",
     body: "Competitor creative, review mining for the language customers use themselves, and the objections that show up in support tickets.",
   },
   {
+    num: "03",
     title: "Concept",
     body: "Distinct angles rather than variations on one idea — different hooks, different value propositions, different formats.",
   },
   {
+    num: "04",
     title: "Create",
     body: "Production at volume, built per placement rather than resized. Copy, design, photography and motion in one workflow.",
   },
   {
+    num: "05",
     title: "Review",
     body: "One consolidated review round against brand rules and platform specs, so feedback arrives together rather than in fragments.",
   },
   {
+    num: "06",
     title: "Test & Optimize",
     body: "Live testing with a documented result either way, and the winning angles fed back into the next concept round.",
   },
@@ -465,10 +478,75 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
+// Live per-panel photos (verified from the live tab panels 2026-11-23): each
+// project appears under several tabs with a different stock photo per panel.
+// Key: "<Tab>-<project name>". The "All" tab uses each project's base img/imgAlt.
+const panelImages: Record<string, { img: string; imgAlt: string }> = {
+  "Product-Nutriblend": {
+    img: "/images/ecommerce-creative-content-nutriblend-product.webp",
+    imgAlt: "A powder jar photographed with its scoop",
+  },
+  "Product-Cadence Audio": {
+    img: "/images/ecommerce-creative-content-cadence-audio-product.webp",
+    imgAlt: "Wireless earphones photographed as a product shot",
+  },
+  "Product-Kitchenary": {
+    img: "/images/ecommerce-creative-content-kitchenary-product.webp",
+    imgAlt: "Kitchen products arranged on a wooden shelf",
+  },
+  "Product-Aurelia Studio": {
+    img: "/images/ecommerce-creative-content-aurelia-studio-product.webp",
+    imgAlt: "A seated studio fashion shot",
+  },
+  "Ads-Nutriblend": {
+    img: "/images/ecommerce-creative-content-nutriblend-ads.webp",
+    imgAlt: "A cylindrical supplement container",
+  },
+  "Ads-Men’s grooming brand": {
+    img: "/images/ecommerce-creative-content-grooming-brand-ads.webp",
+    imgAlt: "Labelled grooming containers",
+  },
+  "Social-Men’s grooming brand": {
+    img: "/images/ecommerce-creative-content-grooming-brand-social.webp",
+    imgAlt: "A grooming bottle beside a brush",
+  },
+  "Social-Harvest Table": {
+    img: "/images/ecommerce-creative-content-harvest-table-social.webp",
+    imgAlt: "A packaging box on a textured surface",
+  },
+  "Email-Nutriblend": {
+    img: "/images/ecommerce-creative-content-nutriblend-email.webp",
+    imgAlt: "Holding a glass supplement jar",
+  },
+  "Email-Harvest Table": {
+    img: "/images/ecommerce-creative-content-harvest-table-email.webp",
+    imgAlt: "A branded product box on a white table",
+  },
+  "Marketplace-Cadence Audio": {
+    img: "/images/ecommerce-creative-content-cadence-audio-marketplace.webp",
+    imgAlt: "Corded headphones on a plain background",
+  },
+  "Video-Men’s grooming brand": {
+    img: "/images/ecommerce-creative-content-grooming-brand-video.webp",
+    imgAlt: "Grooming products arranged on wood",
+  },
+  "Video-Harvest Table": {
+    img: "/images/ecommerce-creative-content-harvest-table-video.webp",
+    imgAlt: "A labelled product vial beside its packaging",
+  },
+};
+
 // Live tab membership (verified from the live tab panels): the same project
 // appears under several tabs, and each panel holds its own copy of its subset.
 const panelsFor = (value: AssetFilter): Project[] =>
-  value === "All" ? projects : projects.filter((p) => p.tags.includes(value));
+  value === "All"
+    ? projects
+    : projects
+        .filter((p) => p.tags.includes(value))
+        .map((p) => {
+          const override = panelImages[`${value}-${p.name}`];
+          return override ? { ...p, img: override.img, imgAlt: override.imgAlt } : p;
+        });
 
 const filterButtonStyle = (active: boolean): React.CSSProperties => ({
   padding: "0.6rem 1.1rem",
@@ -492,7 +570,7 @@ export default function EcommerceCreativeContentPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Creative &amp; Content</p>
+              <Pill icon="fa-solid fa-camera">Creative &amp; Content</Pill>
               <h1>Creative Built to Perform, Not Just to Look Right</h1>
               <p className="lead">
                 Product content, ad creative, photography, video and copy for online retailers
@@ -537,7 +615,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 2. The Problem */}
       <section className="section" id="creative-challenge">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The eCommerce creative challenge</h2>
           <p className="lead">
             Eight reasons creative stops working. Most of them are production and testing
@@ -558,7 +636,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 3. What We Do */}
       <section className="section section-soft" id="creative-services">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce content marketing, creative &amp; content services</h2>
           <p className="lead">
             Eight services covering the assets an online retailer actually burns through in
@@ -601,7 +679,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 4. Coverage */}
       <section className="section" id="creative-journey-channels">
         <div className="container">
-          <p className="eyebrow">Coverage</p>
+          <Pill icon="fa-solid fa-arrow-trend-up" center>Coverage</Pill>
           <h2>eCommerce content strategy across the customer journey</h2>
           <p className="lead">
             What the customer needs to see at each stage, and what each channel actually
@@ -615,6 +693,7 @@ export default function EcommerceCreativeContentPage() {
           <div className="card-grid card-grid-4">
             {journey.map((j) => (
               <article className="card" key={j.stage}>
+                <p className="card-num">{j.num}</p>
                 <h3>{j.stage}</h3>
                 <ul className="check-list">
                   {j.items.map((item) => (
@@ -639,7 +718,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 5. The Work */}
       <section className="section section-soft" id="what-we-create">
         <div className="container">
-          <p className="eyebrow">The Work</p>
+          <Pill icon="fa-solid fa-compass" center>The Work</Pill>
           <h2>What we create as an eCommerce content agency</h2>
           <p className="lead">
             Twelve asset types we produce regularly. Every tile below is a live image slot
@@ -659,7 +738,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 6. The Process */}
       <section className="section" id="creative-process">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our eCommerce content and creative process</h2>
           <p className="lead">
             Six stages that loop. Stage six is what makes stage three better next month.
@@ -667,6 +746,7 @@ export default function EcommerceCreativeContentPage() {
           <div className="card-grid">
             {processSteps.map((s) => (
               <article className="card" key={s.title}>
+                <p className="card-num">{s.num}</p>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -678,7 +758,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 7. Performance */}
       <section className="section section-soft" id="performance-creative">
         <div className="container">
-          <p className="eyebrow">Performance</p>
+          <Pill icon="fa-solid fa-chart-line" center>Performance</Pill>
           <h2>Performance creative, testing &amp; business goals</h2>
           <p className="lead">
             This is where we differ from a conventional design studio: creative is a
@@ -715,7 +795,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 8. Why Us */}
       <section className="section" id="why-choose-creative">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award" center>Why Us</Pill>
           <h2>Why choose our eCommerce creative agency</h2>
           <p className="lead">
             Eight things that separate performance creative from a design retainer, and what
@@ -735,7 +815,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 9. Portfolio — live tab panels: each tab holds its own copy of its subset grid */}
       <section className="section section-soft" id="featured-creative-work">
         <div className="container">
-          <p className="eyebrow">Portfolio</p>
+          <Pill icon="fa-solid fa-star" center>Portfolio</Pill>
           <h2>Featured creative work</h2>
           <p className="lead">
             Brand, objective, deliverables and channels for each project, with performance
@@ -782,7 +862,7 @@ export default function EcommerceCreativeContentPage() {
       {/* 10. FAQs */}
       <section className="section" id="creative-faqs">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>Creative &amp; content FAQs</h2>
           <p className="lead">
             Eight questions that come up before most creative engagements. More on{" "}

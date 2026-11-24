@@ -1,11 +1,15 @@
 # Case Studies — full extraction
 
+> Audit note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): copy, headings, order, all links (including every FILED UNDER chip target), images and FAQs verified against the fresh live fetch — no differences found, no extraction corrections needed. One clone gap found and fixed in this audit: the clone page had no metadata export at all (no title/description/canonical/og:image), so it would have served the root layout metadata; a metadata export matching the live title, description, canonical and og:image (local /images/case-nutriblend.webp, 800×534) has been added.
+
 Source: https://dazzlecommerce.com/case-studies/ — re-fetched fresh 2026-11-23 (browser.open crawl 2026-11-23 14:48 UTC + curl, 439,836 bytes)
 Title: eCommerce Case Studies & Results | Dazzle Commerce
 Description: Six eCommerce case studies with the constraint we found, the work we did and the numbers that moved. Filter by service, platform, industry and market.
 Canonical: https://dazzlecommerce.com/case-studies/ | og:type: article | og:locale: en_US | og:site_name: Dazzle Commerce | og:updated_time: 2026-08-26T01:30:45-05:00
 og:image: https://dazzlecommerce.com/wp-content/uploads/2026/08/cases-Nutriblend.webp (800x534, alt: "Dazzle Commerce SEO team working through category page structure") | twitter:card: summary_large_image | twitter "Time to read": 8 minutes
 Published: 2026-08-15T07:14:04-05:00 | Updated: 2026-08-26T01:30:45-05:00
+
+> Pill fix — 2026-11-23 (live page re-fetched fresh the same day): every section pill on live is an Elementor icon-list item with a leading icon, and every pill widget carries `elementor-align-center` — all 7 clone pills now use the shared Pill component, centered. Live icons: Results at a Glance custom bars SVG → fa-solid fa-chart-simple; The work `fas fa-diagram-project` → fa-solid fa-diagram-project; Our Methodology custom gear SVG → fa-solid fa-gear; Results by Service custom layers SVG → fa-solid fa-layer-group; Client Testimonials custom comment-bubble SVG → fa-solid fa-comment-dots; Industries & Business Types We Help custom briefcase SVG → fa-solid fa-briefcase; Case Study FAQs custom bubble-with-"?" SVG → fa-solid fa-circle-question (no free FA bubble-with-question icon exists; closest available). Icons read from custom inline SVGs are closest equivalents, verified visually from the rendered SVG shapes; centering is fetch-inferred, not render-proven.
 
 ## Sections in order (from the live page body, header/footer excluded)
 1. Hero — H1 "eCommerce Case Studies With the Working Shown", intro, Get Free Strategy Call (/book-a-strategy-call/), Talk to a Specialist (/contact/). No hero image on the live page.

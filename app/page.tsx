@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Pill } from "@/components/Pill";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../components/FaqAccordion";
 
@@ -182,7 +183,7 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">eCommerce Management &amp; Marketing Agency</p>
+              <Pill icon="fa-solid fa-wand-magic-sparkles">eCommerce Management &amp; Marketing Agency</Pill>
               <h1>
                 Scale Your eCommerce Business With Proven Growth Strategies
               </h1>
@@ -248,7 +249,7 @@ export default function HomePage() {
       {/* 3. Problems We Solve */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Problems We Solve</p>
+          <Pill icon="fa-solid fa-bullseye" center>Problems We Solve</Pill>
           <h2>The six things quietly capping your revenue</h2>
           <p className="lead">
             Every store we audit has at least three of these. Most owners can feel them but
@@ -268,7 +269,7 @@ export default function HomePage() {
       {/* 4. Our Services */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Our Services</p>
+          <Pill icon="fa-solid fa-layer-group" center>Our Services</Pill>
           <h2>One eCommerce agency for every part of growth</h2>
           <p className="lead">
             Most brands stitch together a marketplace VA, an SEO freelancer and a paid media
@@ -298,7 +299,7 @@ export default function HomePage() {
       {/* 5. Platforms We Work With */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Platforms We Work With</p>
+          <Pill icon="fa-solid fa-globe" center>Platforms We Work With</Pill>
           <h2>Certified where it counts</h2>
           <p className="lead">
             We are platform-agnostic by principle and deeply specialized in practice. Your
@@ -320,7 +321,7 @@ export default function HomePage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Why Choose Us</p>
+              <Pill icon="fa-solid fa-award">Why Choose Us</Pill>
               <h2>An eCommerce growth partner, not another vendor</h2>
               <p>
                 We built Dazzle Commerce after watching too many good brands get handed to
@@ -383,7 +384,7 @@ export default function HomePage() {
       {/* 7. Our Process */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our Process</p>
+          <Pill icon="fa-solid fa-gear" center>Our Process</Pill>
           <h2>How a Dazzle Commerce engagement runs</h2>
           <p className="lead">
             Four phases, repeated quarterly. Transparent enough that you always know what is
@@ -404,9 +405,7 @@ export default function HomePage() {
       {/* 8. Results & Success Metrics */}
       <section className="section section-blue">
         <div className="container">
-          <p className="eyebrow" style={{ color: "#7dd3fc" }}>
-            Results &amp; Success Metrics
-          </p>
+          <Pill icon="fa-solid fa-chart-column" center>Results &amp; Success Metrics</Pill>
           <h2>Numbers our clients took to their board</h2>
           <p style={{ color: "#c6d2e4", maxWidth: "760px" }}>
             Aggregated across managed accounts. Individual results vary by category, margin
@@ -448,7 +447,7 @@ export default function HomePage() {
       {/* 9. Case Studies */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Case Studies</p>
+          <Pill icon="fa-solid fa-briefcase" center>Case Studies</Pill>
           <h2>Success stories with the receipts</h2>
           <p className="lead">
             Three engagements, three very different problems. Same operating system underneath.
@@ -489,7 +488,7 @@ export default function HomePage() {
       {/* 10. Testimonials */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Testimonials</p>
+          <Pill icon="fa-solid fa-comment-dots" center>Testimonials</Pill>
           <h2>What it is like to work with us</h2>
           <p className="lead">
             We asked clients to be specific rather than generous. These are the answers we got.
@@ -513,7 +512,7 @@ export default function HomePage() {
       {/* 11. Frequently Asked Questions */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Frequently Asked Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Frequently Asked Questions</Pill>
           <h2>Questions we get on almost every call</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Still unsure? The strategy call is free and genuinely useful even if you never hire

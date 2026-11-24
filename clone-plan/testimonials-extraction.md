@@ -1,11 +1,15 @@
 # Testimonials — full extraction
 
+> Correction note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): the Final CTA body copy was recorded wrong. Live reads "Start with the free audit. We will show you where revenue is leaking, what it is worth to fix, and whether we are the right team to do it." — no "your" before "revenue". (The Case Studies page's equivalent line DOES say "where your revenue is leaking"; the two pages differ, and each keeps its own wording.) The clone wrongly had "where your revenue is leaking" on this page; fixed in this audit. Everything else in this extraction was verified against the fresh live fetch with no further differences found.
+
 Source: https://dazzlecommerce.com/testimonials/ — re-fetched fresh 2026-11-23 (curl, 482,709 bytes)
 Title: eCommerce Agency Testimonials & Reviews | Dazzle
 Description: What it is like to work with our eCommerce management and marketing agency. Client testimonials by service, results snapshot and full case studies.
 Canonical: https://dazzlecommerce.com/testimonials/ | og:type: article | og:locale: en_US | og:site_name: Dazzle Commerce | twitter:card: summary_large_image | twitter "Time to read": Less than a minute
 Published: 2026-08-27T12:38:30-05:00 | Updated: (no article:modified_time on the live page)
 og:image: none on the live page | No JSON-LD on the live page.
+
+> Pill fix — 2026-11-23 (live page re-fetched fresh the same day): every section pill on live is an Elementor icon-list item with a leading icon, and every pill widget carries `elementor-align-center` — all 6 clone pills now use the shared Pill component, centered. Live pill icons and their Font Awesome classes read from the live markup: Client Testimonials & Reviews `e-fas-users`; Results Snapshot `e-fas-chart-line`; Featured Client Stories `e-fas-star`; Testimonials by Service `e-fas-quote-left`; Client reviews `e-fas-users`; Client Stories `e-fas-layer-group`. No other differences found in this pass; centering is fetch-inferred, not render-proven. (Final CTA wording unchanged: live Testimonials reads "where revenue is leaking" with no "your", unlike Case Studies — the clone already matched live.)
 
 ## Sections in order (from the live page body, header/footer excluded)
 1. Hero — eyebrow "Client Testimonials & Reviews", H1 "What It Is Actually Like to Work With Us", intro, Get Your Free Strategy Call (/book-a-strategy-call/), Read the Full Case Studies (/case-studies/). No hero image on the live page.
@@ -160,7 +164,7 @@ og:image: none on the live page | No JSON-LD on the live page.
 
 - P (note under the story grid): Filmed testimonials are not published yet. Rather than mock them up, each story above links to the written case study, which carries the full methodology, the pre-engagement baseline and what we would do differently.
 - H2: Want to be the next story on this page?
-- P: Start with the free audit. We will show you where your revenue is leaking, what it is worth to fix, and whether we are the right team to do it.
+- P: Start with the free audit. We will show you where revenue is leaking, what it is worth to fix, and whether we are the right team to do it. (Correction 2026-11-23: no "your" before "revenue" on this page — see the correction note at the top of this file.)
 - A: Book Your Free Strategy Call -> /book-a-strategy-call/
 - A: See Pricing & Packages -> /pricing/
 

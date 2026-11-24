@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "International eCommerce Expansion | Dazzle Commerce",
@@ -267,6 +268,16 @@ const goals = [
     goal: "Follow demand you can already see",
     start: "Traffic and orders from a country you do not serve properly is the cheapest signal in eCommerce. Serve it before it cools.",
   },
+  {
+    goal: "Enter B2B or wholesale abroad",
+    start: (
+      <>
+        A different motion entirely — see{" "}
+        <Link href="/b2b-wholesale-ecommerce-agency/">B2B and wholesale</Link> and{" "}
+        <Link href="/alibaba-b2b-agency/">Alibaba.com</Link>.
+      </>
+    ),
+  },
 ];
 
 const whyChoose = [
@@ -315,9 +326,7 @@ const cases = [
   },
 ];
 
-const tableStyle: CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
+const compareStyle: CSSProperties = {
   marginTop: "32px",
   background: "#fff",
   border: "1px solid var(--line)",
@@ -326,87 +335,40 @@ const tableStyle: CSSProperties = {
   fontSize: "0.98rem",
 };
 
-const thStyle: CSSProperties = {
-  textAlign: "left",
-  padding: "14px 18px",
+const compareHeadStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
   background: "var(--bg-soft)",
-  color: "var(--navy)",
-  fontWeight: 800,
   borderBottom: "1px solid var(--line)",
 };
 
-const tdStyle: CSSProperties = {
+const compareRowStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  borderTop: "1px solid var(--line)",
+};
+
+const compareHStyle: CSSProperties = {
+  margin: 0,
+  padding: "14px 18px",
+  color: "var(--navy)",
+};
+
+const comparePStyle: CSSProperties = {
+  margin: 0,
   padding: "14px 18px",
   color: "var(--muted)",
-  borderTop: "1px solid var(--line)",
-  verticalAlign: "top",
 };
 
 export default function InternationalEcommerceExpansionPage() {
   return (
     <>
-      <style>{`@media (max-width: 1280px){.intl-side-nav{display:none}}`}</style>
-      {/* Sticky side nav (live page: position fixed) */}
-      <aside
-        className="intl-side-nav"
-        aria-label="On this page"
-        style={{
-          position: "fixed",
-          right: "24px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 40,
-          width: "230px",
-          background: "#fff",
-          border: "1px solid var(--line)",
-          borderRadius: "var(--radius)",
-          padding: "18px",
-          boxShadow: "0 8px 30px rgba(9, 19, 37, 0.10)",
-        }}
-      >
-        <nav aria-label="Page sections">
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "10px" }}>
-            <li>
-              <Link href="#intl-services" style={{ fontWeight: 700, color: "var(--navy)" }}>
-                What we do
-              </Link>
-            </li>
-            <li>
-              <Link href="#intl-process" style={{ fontWeight: 700, color: "var(--navy)" }}>
-                See how we work
-              </Link>
-            </li>
-            <li>
-              <Link href="#intl-markets" style={{ fontWeight: 700, color: "var(--navy)" }}>
-                Where we work
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div
-          style={{
-            marginTop: "18px",
-            paddingTop: "18px",
-            borderTop: "1px solid var(--line)",
-          }}
-        >
-          <h3 style={{ margin: "0 0 8px", color: "var(--navy)" }}>Free growth audit</h3>
-          <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: "0.95rem" }}>
-            We audit your store, ad accounts and marketplace health, then rank every
-            opportunity by revenue impact. Yours to keep.
-          </p>
-          <Link className="btn" href="/book-a-strategy-call/">
-            Book a free call
-          </Link>
-        </div>
-      </aside>
-
       {/* 1. Hero */}
       <section className="hero" id="intl-hero">
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Strategic service</p>
+              <Pill icon="fa-solid fa-earth-americas">Strategic service</Pill>
               <h1>International eCommerce Expansion &amp; Cross-Border Growth</h1>
               <p className="lead">
                 Entering a market is a fulfilment, tax and localisation decision before it is a
@@ -460,7 +422,7 @@ export default function InternationalEcommerceExpansionPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">The challenge</p>
+              <Pill icon="fa-solid fa-triangle-exclamation" center>The challenge</Pill>
               <h2>The cross-border growth challenge</h2>
               <p>
                 Most international launches do not fail on demand. They fail on the things nobody
@@ -506,7 +468,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 3. Our international eCommerce strategy & expansion services */}
       <section className="section section-soft" id="intl-services">
         <div className="container">
-          <p className="eyebrow">What we do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What we do</Pill>
           <h2>Our international eCommerce strategy &amp; expansion services</h2>
           <p className="lead">
             Six areas, run as one programme rather than six workstreams that meet at a monthly
@@ -540,7 +502,7 @@ export default function InternationalEcommerceExpansionPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Area 01</p>
+              <Pill icon="fa-solid fa-layer-group" center>Area 01</Pill>
               <h2>Market research &amp; market selection</h2>
               <p>
                 The cheapest decision in an expansion, and the one most often made on instinct.
@@ -579,7 +541,7 @@ export default function InternationalEcommerceExpansionPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Area 02</p>
+              <Pill icon="fa-solid fa-layer-group" center>Area 02</Pill>
               <h2>Localisation strategy</h2>
               <p>
                 Translation is the smallest part of localisation and the part most often mistaken
@@ -622,7 +584,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 6. Area 03 — Platforms & marketplace expansion */}
       <section className="section" id="intl-platforms">
         <div className="container">
-          <p className="eyebrow">Area 03</p>
+          <Pill icon="fa-solid fa-layer-group" center>Area 03</Pill>
           <h2>Platforms &amp; marketplace expansion</h2>
           <p className="lead">
             In most markets the fastest route in is a marketplace and the most profitable route is
@@ -643,7 +605,7 @@ export default function InternationalEcommerceExpansionPage() {
           </div>
           <p className="lead" style={{ marginTop: "2rem" }}>
             Storefront platforms are covered separately — see{" "}
-            <Link href="/platforms/">every platform we support</Link> , or the{" "}
+            <Link href="/platforms/">every platform we support</Link>, or the{" "}
             <Link href="/marketplace-management-marketing/">marketplace management</Link> service
             if marketplaces are the whole programme.
           </p>
@@ -653,7 +615,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 7. Area 04 — International customer acquisition */}
       <section className="section section-soft" id="intl-acquisition">
         <div className="container">
-          <p className="eyebrow">Area 04</p>
+          <Pill icon="fa-solid fa-layer-group" center>Area 04</Pill>
           <h2>International customer acquisition</h2>
           <p className="lead">
             A campaign that works in your home market rarely transfers. Local competition,
@@ -686,7 +648,7 @@ export default function InternationalEcommerceExpansionPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Area 05</p>
+              <Pill icon="fa-solid fa-layer-group" center>Area 05</Pill>
               <h2>Customer experience &amp; conversion</h2>
               <p>
                 A foreign visitor abandons for reasons a domestic visitor never encounters. Most
@@ -726,47 +688,29 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 9. Area 06 — Multi-market operations */}
       <section className="section section-soft" id="intl-ops">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Area 06</p>
-              <h2>Multi-market operations</h2>
-              <p>
-                The work that decides whether market three is easier than market two or harder.
-                Duty, returns and international shipping for eCommerce orders sit here, because
-                the landed cost and the return path are what make a second market profitable
-                rather than merely live. The international eCommerce shipping model you pick —
-                local carrier, consolidator or third-party logistics — also decides what you can
-                honestly promise at checkout.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/international-ecommerce-expansion-operations.webp"
-                alt="Aerial view of a logistics hub handling multi-market eCommerce fulfilment"
-                width={1920}
-                height={1280}
-              />
-            </div>
+          <div>
+            <Pill icon="fa-solid fa-layer-group" center>Area 06</Pill>
+            <h2>Multi-market operations</h2>
+            <p>
+              The work that decides whether market three is easier than market two or harder.
+              Duty, returns and international shipping for eCommerce orders sit here, because
+              the landed cost and the return path are what make a second market profitable
+              rather than merely live. The international eCommerce shipping model you pick —
+              local carrier, consolidator or third-party logistics — also decides what you can
+              honestly promise at checkout.
+            </p>
           </div>
-          <div style={{ overflowX: "auto" }}>
-            <table style={tableStyle}>
-              <thead>
-                <tr>
-                  <th style={thStyle}>What usually goes wrong</th>
-                  <th style={thStyle}>How we run it instead</th>
-                </tr>
-              </thead>
-              <tbody>
-                {opsRows.map((r) => (
-                  <tr key={r.wrong}>
-                    <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
-                      {r.wrong}
-                    </td>
-                    <td style={tdStyle}>{r.instead}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div style={compareStyle}>
+            <div style={compareHeadStyle}>
+              <h4 style={compareHStyle}>What usually goes wrong</h4>
+              <h4 style={compareHStyle}>How we run it instead</h4>
+            </div>
+            {opsRows.map((r) => (
+              <div key={r.wrong} style={compareRowStyle}>
+                <h4 style={compareHStyle}>{r.wrong}</h4>
+                <p style={comparePStyle}>{r.instead}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -774,7 +718,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 10. Markets we support */}
       <section className="section" id="intl-markets">
         <div className="container">
-          <p className="eyebrow">Where we work</p>
+          <Pill icon="fa-solid fa-globe" center>Where we work</Pill>
           <h2>Markets we support</h2>
           <p className="lead">
             Ten markets we run programmes in. The five that are linked have a dedicated page
@@ -804,7 +748,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 11. Our international expansion process */}
       <section className="section section-soft" id="intl-process">
         <div className="container">
-          <p className="eyebrow">How it works</p>
+          <Pill icon="fa-solid fa-layer-group" center>How it works</Pill>
           <h2>Our international expansion process</h2>
           <p className="lead">
             Six steps. The first three happen before anything is committed, which is the point of
@@ -829,41 +773,23 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 12. Expansion by business goal */}
       <section className="section" id="intl-goals">
         <div className="container">
-          <p className="eyebrow">Fit</p>
+          <Pill icon="fa-solid fa-layer-group" center>Fit</Pill>
           <h2>Expansion by business goal</h2>
           <p className="lead">
             The right first move depends on what you are actually trying to do, and the answers
             differ more than most plans allow for.
           </p>
-          <div style={{ overflowX: "auto" }}>
-            <table style={tableStyle}>
-              <thead>
-                <tr>
-                  <th style={thStyle}>Your goal</th>
-                  <th style={thStyle}>Where we would start</th>
-                </tr>
-              </thead>
-              <tbody>
-                {goals.map((g) => (
-                  <tr key={g.goal}>
-                    <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
-                      {g.goal}
-                    </td>
-                    <td style={tdStyle}>{g.start}</td>
-                  </tr>
-                ))}
-                <tr>
-                  <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
-                    Enter B2B or wholesale abroad
-                  </td>
-                  <td style={tdStyle}>
-                    A different motion entirely — see{" "}
-                    <Link href="/b2b-wholesale-ecommerce-agency/">B2B and wholesale</Link>{" "}
-                    and <Link href="/alibaba-b2b-agency/">Alibaba.com</Link> .
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div style={compareStyle}>
+            <div style={compareHeadStyle}>
+              <h4 style={compareHStyle}>Your goal</h4>
+              <h4 style={compareHStyle}>Where we would start</h4>
+            </div>
+            {goals.map((g) => (
+              <div key={g.goal} style={compareRowStyle}>
+                <h4 style={compareHStyle}>{g.goal}</h4>
+                <p style={comparePStyle}>{g.start}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -871,7 +797,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 13. Why choose us for international expansion */}
       <section className="section section-soft" id="intl-why">
         <div className="container">
-          <p className="eyebrow">Why us</p>
+          <Pill icon="fa-solid fa-award">Why us</Pill>
           <h2>Why choose us for international expansion</h2>
           <p className="lead">
             Four things that are unusual about how this is staffed and reported.
@@ -890,7 +816,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 14. Cross-border case studies */}
       <section className="section" id="intl-cases">
         <div className="container">
-          <p className="eyebrow">Evidence</p>
+          <Pill icon="fa-solid fa-chart-line" center>Evidence</Pill>
           <h2>Cross-border case studies</h2>
           <p className="lead">
             Three engagements where the market, not the channel, was the deciding variable.
@@ -918,7 +844,7 @@ export default function InternationalEcommerceExpansionPage() {
       {/* 15. International expansion FAQs */}
       <section className="section section-soft" id="intl-faqs">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>International expansion FAQs</h2>
           <p className="lead" style={{ margin: "0 auto 2rem" }}>
             Sequencing, cost, tax and what we will not do.

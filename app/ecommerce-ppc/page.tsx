@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce PPC Agency & Paid Advertising | Dazzle Commerce",
@@ -348,7 +349,7 @@ export default function EcommercePpcPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">PPC &amp; Paid Advertising</p>
+              <Pill icon="fa-solid fa-bullseye">PPC &amp; Paid Advertising</Pill>
               <h1>eCommerce PPC Managed on Profit, Not Platform ROAS</h1>
               <p className="lead">
                 Google, Shopping, Performance Max, Meta and marketplace advertising, structured
@@ -393,7 +394,7 @@ export default function EcommercePpcPage() {
       {/* 2. The Problem */}
       <section className="section" id="ppc-challenge">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The paid advertising challenge</h2>
           <p className="lead">
             Eight reasons paid accounts stop working. Most audits we run find four or five of
@@ -413,7 +414,7 @@ export default function EcommercePpcPage() {
       {/* 3. What We Do */}
       <section className="section section-soft" id="ppc-services">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce PPC services &amp; paid advertising</h2>
           <p className="lead">
             Eight services covering paid acquisition end to end. This page is the full
@@ -440,7 +441,7 @@ export default function EcommercePpcPage() {
       {/* 4. Platforms */}
       <section className="section" id="ppc-platforms">
         <div className="container">
-          <p className="eyebrow">Platforms</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Platforms</Pill>
           <h2>Advertising platforms we manage</h2>
           <p className="lead">
             Storefront and marketplace advertising planned together, so they stop bidding
@@ -464,7 +465,7 @@ export default function EcommercePpcPage() {
       {/* 5. The Process */}
       <section className="section section-soft" id="ppc-process">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our eCommerce PPC management process</h2>
           <p className="lead">
             Six stages. Stages five and six run continuously; the first four repeat when the
@@ -485,7 +486,7 @@ export default function EcommercePpcPage() {
       {/* 6. Scope */}
       <section className="section" id="ppc-what-we-optimize">
         <div className="container">
-          <p className="eyebrow">Scope</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope</Pill>
           <h2>What we optimize in PPC for eCommerce</h2>
           <p className="lead">
             Four layers. Most agencies only touch the first two, which is why performance
@@ -510,7 +511,7 @@ export default function EcommercePpcPage() {
       {/* 7. PPC by Business Goal */}
       <section className="section section-soft" id="ppc-by-goal">
         <div className="container">
-          <p className="eyebrow">By Goal</p>
+          <Pill icon="fa-solid fa-compass" center>By Goal</Pill>
           <h2>PPC by business goal</h2>
           <p className="lead">
             Tell us the outcome you are measured on and we will tell you the approach that
@@ -531,7 +532,7 @@ export default function EcommercePpcPage() {
       {/* 8. Why Us */}
       <section className="section" id="why-choose-ppc">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce PPC agency</h2>
           <p className="lead">
             Eight things that separate eCommerce paid media from the generic kind, and what to
@@ -552,7 +553,7 @@ export default function EcommercePpcPage() {
       {/* 9. Proof — PPC results */}
       <section className="section section-soft" id="ppc-results">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>PPC results</h2>
           <p className="lead">
             Three paid engagements, measured against the twelve months before we took the
@@ -607,7 +608,7 @@ export default function EcommercePpcPage() {
       {/* 10. FAQs */}
       <section className="section" id="ppc-faqs">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>PPC &amp; paid advertising FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Eight questions that come up before most paid engagements. More on{" "}

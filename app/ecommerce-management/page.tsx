@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Store Management Services | Dazzle Commerce",
@@ -351,7 +352,7 @@ export default function EcommerceManagementPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">eCommerce Management</p>
+              <Pill icon="fa-solid fa-users">eCommerce Management</Pill>
               <h1>eCommerce Store Management, Run by People Who Own the Number</h1>
               <p className="lead">
                 We take over the day-to-day running of your online store — catalog,
@@ -398,7 +399,7 @@ export default function EcommerceManagementPage() {
       {/* 2. The Problem */}
       <section className="section" id="management-challenge">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The eCommerce management challenge</h2>
           <p className="lead">
             Most stores do not stall because the strategy was wrong. They stall because nobody
@@ -427,7 +428,7 @@ export default function EcommerceManagementPage() {
       {/* 3. Scope of Work */}
       <section className="section section-soft" id="what-we-manage">
         <div className="container">
-          <p className="eyebrow">Scope of Work</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope of Work</Pill>
           <h2>What we manage: eCommerce management services in full</h2>
           <p className="lead">
             Six disciplines, one accountable team. Every engagement covers all six — the
@@ -454,7 +455,7 @@ export default function EcommerceManagementPage() {
       {/* 4. Platforms */}
       <section className="section" id="platforms-we-manage">
         <div className="container">
-          <p className="eyebrow">Platforms</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Platforms</Pill>
           <h2>Platforms we manage for online store management</h2>
           <p className="lead">
             Storefront and marketplace under one team, with pricing, stock and reporting that
@@ -479,7 +480,7 @@ export default function EcommerceManagementPage() {
       {/* 5. The Process */}
       <section className="section section-soft" id="how-it-works">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>How our eCommerce management works</h2>
           <p className="lead">
             Six stages, then the last three repeat every quarter. Most accounts are through
@@ -500,7 +501,7 @@ export default function EcommerceManagementPage() {
       {/* 6. By Stage */}
       <section className="section" id="by-business-stage">
         <div className="container">
-          <p className="eyebrow">By Stage</p>
+          <Pill icon="fa-solid fa-layer-group" center>By Stage</Pill>
           <h2>Management by business stage</h2>
           <p className="lead">
             The same six disciplines, weighted differently. What changes with size is depth,
@@ -510,12 +511,7 @@ export default function EcommerceManagementPage() {
             {tiers.map((t) => (
               <article className="card" key={t.title}>
                 {t.badge ? (
-                  <p
-                    className="eyebrow"
-                    style={{ marginBottom: "0.5rem", color: "var(--blue)" }}
-                  >
-                    {t.badge}
-                  </p>
+                  <h6 className="label-plain">{t.badge}</h6>
                 ) : null}
                 <h3>{t.title}</h3>
                 <p>
@@ -547,7 +543,7 @@ export default function EcommerceManagementPage() {
       {/* 7. Why Us */}
       <section className="section section-soft" id="why-choose">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce management</h2>
           <p className="lead">
             Six things clients say actually mattered once the work started — not the six things
@@ -567,7 +563,7 @@ export default function EcommerceManagementPage() {
       {/* 8. Proof */}
       <section className="section" id="management-results">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>Results from managed accounts</h2>
           <p className="lead">
             Three engagements where we ran the store rather than advised on it. Figures are
@@ -579,16 +575,16 @@ export default function EcommerceManagementPage() {
                 <div className="split-img" style={{ marginBottom: "1rem" }}>
                   <Image src={c.img} alt={c.imgAlt} width={1920} height={1280} />
                 </div>
-                <p className="eyebrow">Client</p>
+                <h6 className="label-plain">Client</h6>
                 <h3>
                   <Link href={c.href}>{c.name}</Link>
                 </h3>
                 <p>{c.meta}</p>
-                <p className="eyebrow">Challenge</p>
+                <h6 className="label-plain">Challenge</h6>
                 <p>{c.challenge}</p>
-                <p className="eyebrow">What we did</p>
+                <h6 className="label-plain">What we did</h6>
                 <p>{c.did}</p>
-                <p className="eyebrow">Result</p>
+                <h6 className="label-plain">Result</h6>
                 <div className="stat-row" style={{ marginTop: "12px" }}>
                   {c.results.map((r) => (
                     <div className="stat" key={r.label}>
@@ -622,7 +618,7 @@ export default function EcommerceManagementPage() {
       {/* 9. FAQs */}
       <section className="section section-soft" id="management-faqs">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce management FAQs</h2>
           <p className="lead">
             The eight questions that come up before almost every engagement. There are more on{" "}

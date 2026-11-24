@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Product Photography Services | Dazzle Commerce",
@@ -16,14 +17,6 @@ export const metadata: Metadata = {
     title: "eCommerce Product Photography Services | Dazzle Commerce",
     description:
       "Product photography for online retailers, shot to each channel specs, tested against conversion rate and priced per SKU. See scope, process and pricing.",
-    images: [
-      {
-        url: "/images/ecommerce-management-hero.webp",
-        width: 1920,
-        height: 1280,
-        alt: "Warehouse aisle stacked with boxes and pallets",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -363,7 +356,7 @@ export default function EcommerceProductPhotographyPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">eCommerce Management</p>
+              <Pill icon="fa-solid fa-users">eCommerce Management</Pill>
               <h1>Product Photography That Sells the Product, Not the Studio</h1>
               <p className="lead">
                 eCommerce product photography produced at catalogue scale — hero frames,
@@ -408,7 +401,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 2. The Problem */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The product imagery problem</h2>
           <p className="lead">
             Most catalogues do not fail on photographic quality. They fail because the images
@@ -439,7 +432,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 3. Scope of Work */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Scope of Work</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope of Work</Pill>
           <h2>eCommerce product photography: what we shoot</h2>
           <p className="lead">
             Six production lines, one brief. Most catalogues need three of them, and we scope
@@ -464,7 +457,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 4. Channel specs */}
       <section className="section" id="platforms">
         <div className="container">
-          <p className="eyebrow">Platforms</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Platforms</Pill>
           <h2>Channel specs we shoot to</h2>
           <p className="lead">
             Every channel enforces different image rules, and the cheapest moment to satisfy
@@ -495,7 +488,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 5. The Process */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>How our product photography services run</h2>
           <p className="lead">
             Six stages. Stage one is a gallery audit rather than a studio booking, because the
@@ -516,7 +509,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 6. Pricing */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">By Stage</p>
+          <Pill icon="fa-solid fa-layer-group" center>By Stage</Pill>
           <h2>How product photography pricing works</h2>
           <p className="lead">
             Product photography pricing is driven by SKU count and by how many frames each SKU
@@ -526,7 +519,7 @@ export default function EcommerceProductPhotographyPage() {
           <div className="card-grid">
             {tiers.map((t) => (
               <article className="card" key={t.name}>
-                {t.badge ? <p className="eyebrow">{t.badge}</p> : null}
+                {t.badge ? <h6 className="label-plain">{t.badge}</h6> : null}
                 <h3>{t.name}</h3>
                 <p>
                   <strong>{t.size}</strong>
@@ -559,7 +552,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 7. Why Us */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our product photography</h2>
           <p className="lead">
             Six things that separate production built for a catalogue from a studio booking.
@@ -578,7 +571,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 8. Proof */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>Imagery work and what it moved</h2>
           <p className="lead">
             Three engagements where the imagery was the variable being changed. Headline
@@ -590,20 +583,14 @@ export default function EcommerceProductPhotographyPage() {
                 <div className="hero-img" style={{ marginBottom: "16px" }}>
                   <Image src={c.image} alt={c.alt} width={c.width} height={c.height} />
                 </div>
-                <p className="eyebrow">Client</p>
+                <h6 className="label-plain">Client</h6>
                 <h3>{c.client}</h3>
                 <p>{c.meta}</p>
-                <p>
-                  <strong>Challenge</strong>
-                </p>
+                <p className="case-cat">Challenge</p>
                 <p>{c.challenge}</p>
-                <p>
-                  <strong>What we did</strong>
-                </p>
+                <p className="case-cat">What we did</p>
                 <p>{c.did}</p>
-                <p>
-                  <strong>Result</strong>
-                </p>
+                <p className="case-cat">Result</p>
                 {c.results.map((r) => (
                   <p key={r.label}>
                     <strong style={{ fontSize: "1.25rem", color: "var(--navy)" }}>
@@ -639,7 +626,7 @@ export default function EcommerceProductPhotographyPage() {
       {/* 9. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>Product photography FAQs</h2>
           <p className="lead">
             Eight questions that come up before most photography engagements. More on{" "}

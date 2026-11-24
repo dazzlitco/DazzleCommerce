@@ -1,10 +1,14 @@
 # Portfolio — Extraction (https://dazzlecommerce.com/portfolio/)
 
+> Audit note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): copy, headings, order, all links (including browse-grid names — only the first three linked on live), filter tabs and counts, capability counts, spotlight steps, images and final CTA verified against the fresh live fetch — no differences found, no extraction corrections needed. Note: the portfolio and testimonials pages are client components, so they cannot export metadata; their live titles/descriptions are recorded here but the pages currently serve the root layout metadata (pre-existing limitation, not changed in this audit).
+
 Fetched fresh 2026-11-23 via curl (HTTP 200, 558,266 bytes; `browser.open` failed with a
 network/DNS error in this session, so the curl HTML is the source of record).
 Live page is WordPress + Elementor. Meta `dateModified` 2026-09-03T12:04:02-05:00,
 `datePublished` 2026-08-27T13:10:00-05:00. No `og:image` meta tag is present on the live page.
 Canonical: https://dazzlecommerce.com/portfolio/
+
+> Pill fix — 2026-11-23 (live page re-fetched fresh the same day): every section pill on live is an Elementor icon-list item with a leading icon, and every pill widget carries `elementor-align-center` — all 5 clone pills now use the shared Pill component, centered. Live pill icons and their Font Awesome classes read from the live markup: Our Work `fas fa-chart-simple`; Featured Work `e-fas-star`; Browse Our Work `fas fa-diagram-project`; Work by Capability `e-fas-sitemap`; Project Spotlight `e-fas-layer-group`. No other differences found in this pass; centering is fetch-inferred, not render-proven.
 
 ## Meta
 

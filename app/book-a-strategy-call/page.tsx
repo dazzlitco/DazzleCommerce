@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 // NOTE: this file is a client component because the strategy-call booking form
 // needs client-side validation, localStorage persistence and a confirmation
@@ -328,7 +329,7 @@ export default function BookStrategyCallPage() {
           </p>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Strategy call</p>
+              <Pill>Strategy call</Pill>
               <p style={{ fontWeight: 700, color: "var(--blue)", marginBottom: "0.5rem" }}>
                 Thirty minutes · free
               </p>
@@ -364,19 +365,19 @@ export default function BookStrategyCallPage() {
           </div>
           <div className="trust-badges">
             <div className="trust-badge">
-              <h3>LENGTH</h3>
+              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>LENGTH</p>
               <p>Thirty minutes</p>
             </div>
             <div className="trust-badge">
-              <h3>WHO YOU MEET</h3>
+              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>WHO YOU MEET</p>
               <p>A senior strategist</p>
             </div>
             <div className="trust-badge">
-              <h3>COST</h3>
+              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>COST</p>
               <p>Free</p>
             </div>
             <div className="trust-badge">
-              <h3>SLIDES</h3>
+              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>SLIDES</p>
               <p>None</p>
             </div>
           </div>
@@ -386,7 +387,7 @@ export default function BookStrategyCallPage() {
       {/* 2. What it is, and what it is not */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The call</p>
+          <Pill icon="fa-solid fa-headset" center>The call</Pill>
           <h2>What it is, and what it is not</h2>
           <p className="lead">
             Most agency “discovery calls” are qualification interviews with a demo at the
@@ -448,7 +449,7 @@ export default function BookStrategyCallPage() {
       {/* 3. How the thirty minutes is actually spent */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The half hour</p>
+          <Pill icon="fa-solid fa-layer-group" center>The half hour</Pill>
           <h2>How the thirty minutes is actually spent</h2>
           <p className="lead">
             Roughly this shape, though we will follow whatever turns out to matter.
@@ -474,7 +475,7 @@ export default function BookStrategyCallPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">The other side</p>
+              <Pill icon="fa-solid fa-layer-group" center>The other side</Pill>
               <h2>Which eCommerce consultant you will actually be speaking to</h2>
               <p>
                 The eCommerce consultant on the call is the person who would run the work.
@@ -525,7 +526,7 @@ export default function BookStrategyCallPage() {
               />
             </div>
             <div>
-              <p className="eyebrow">Preparation</p>
+              <Pill icon="fa-solid fa-layer-group" center>Preparation</Pill>
               <h2>What to have open, and what not to bother with</h2>
               <p>
                 Thirty minutes goes quickly. Five minutes of preparation roughly doubles
@@ -559,7 +560,7 @@ export default function BookStrategyCallPage() {
       {/* 6. Six things we will not do on this call */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our commitments</p>
+          <Pill icon="fa-solid fa-layer-group" center>Our commitments</Pill>
           <h2>Six things we will not do on this call</h2>
           <p className="lead">
             Each of these costs us conversions. They are on the page because the
@@ -583,7 +584,7 @@ export default function BookStrategyCallPage() {
       {/* 7. Booking form */}
       <section className="section section-soft" id="bc-form">
         <div className="container">
-          <p className="eyebrow">Book it</p>
+          <Pill icon="fa-solid fa-layer-group" center>Book it</Pill>
           <h2>Nine fields, five of them required</h2>
           <p className="lead">
             We use the answers to pick which strategist you speak to and to prepare, so
@@ -591,7 +592,7 @@ export default function BookStrategyCallPage() {
           </p>
           {submitted ? (
             <div className="card" role="status" style={{ background: "#fff", marginTop: "32px" }}>
-              <p className="eyebrow">Call booked</p>
+              <Pill icon="fa-solid fa-circle-check">Call booked</Pill>
               <h2 style={{ fontSize: "1.5rem" }}>
                 Thank you, {form.name.split(" ")[0] || "there"} — your strategy call is
                 requested.
@@ -780,7 +781,7 @@ export default function BookStrategyCallPage() {
       {/* 8. What you get, whether or not you hire us */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Afterwards</p>
+          <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
           <h2>What you get, whether or not you hire us</h2>
           <p className="lead">The summary is the deliverable. Everything else is optional.</p>
           <div className="card-grid card-grid-4">
@@ -814,7 +815,7 @@ export default function BookStrategyCallPage() {
       {/* 9. Three times a call is the wrong first step */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Timing</p>
+          <Pill icon="fa-solid fa-layer-group" center>Timing</Pill>
           <h2>Three times a call is the wrong first step</h2>
           <p className="lead">Not a refusal — just a better use of your half hour.</p>
           <div className="card-grid">
@@ -858,7 +859,7 @@ export default function BookStrategyCallPage() {
       {/* 10. Strategy call FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>Strategy call FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             What people ask before booking.
@@ -870,7 +871,7 @@ export default function BookStrategyCallPage() {
       {/* 11. Three alternatives to a call */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Other routes in</p>
+          <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
           <h2>Three alternatives to a call</h2>
           <p className="lead">All free, all ungated, none of them requiring this one.</p>
           <div className="card-grid">

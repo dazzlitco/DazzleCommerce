@@ -23,12 +23,21 @@ export const metadata: Metadata = {
   },
 };
 
-const controllerRoles = [
-  "Website visitors and enquiries — we are controller. Governed by this page and our Privacy Policy.",
-  "Newsletter subscribers — controller.",
-  "Managing a client’s ad accounts and analytics — processor, under a Data Processing Agreement.",
-  "Handling a client’s customer lists for email or SMS — processor, under a DPA.",
-  "Our own staff and supplier records — controller.",
+const controllerRoles: { label: string; rest: string }[] = [
+  {
+    label: "Website visitors and enquiries",
+    rest: " — we are controller. Governed by this page and our Privacy Policy.",
+  },
+  { label: "Newsletter subscribers", rest: " — controller." },
+  {
+    label: "Managing a client’s ad accounts and analytics",
+    rest: " — processor, under a Data Processing Agreement.",
+  },
+  {
+    label: "Handling a client’s customer lists for email or SMS",
+    rest: " — processor, under a DPA.",
+  },
+  { label: "Our own staff and supplier records", rest: " — controller." },
 ];
 
 const lawfulBases: { label: string; rest: string }[] = [
@@ -101,7 +110,7 @@ export default function GdprCompliancePage() {
             measures we take as both a data controller and a processor for our clients.
           </p>
           <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginTop: "1rem" }}>
-            Last updated: 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
+            <strong>Last updated:</strong> 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
             posting
           </p>
         </div>
@@ -131,7 +140,10 @@ export default function GdprCompliancePage() {
             <h2>Controller or Processor?</h2>
             <ul className="check-list">
               {controllerRoles.map((r) => (
-                <li key={r}>{r}</li>
+                <li key={r.label}>
+                  <strong>{r.label}</strong>
+                  {r.rest}
+                </li>
               ))}
             </ul>
             <p>

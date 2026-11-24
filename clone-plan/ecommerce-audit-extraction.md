@@ -2,6 +2,8 @@
 Fetched fresh 2026-11-23 via curl (390,977 bytes, HTTP 200). Source: WordPress / Hello Elementor / Elementor Pro.
 Copy below is word-for-word from the live HTML. Nothing invented. Where the live copy has a typo or quirk, it is kept and noted.
 
+> **Correction note — 2026-11-23 (fresh re-fetch):** the original extraction wrongly said the form's platform / revenue / budget fields were radio options. They are `<select>` dropdowns and are NOT required on live; the message textarea IS required, with the placeholder quoted below. The form-field lines have been corrected accordingly; the wrong claims are struck through, not deleted, so the mistake stays visible.
+
 ## Meta
 - Title: `Free eCommerce Audit: Store, SEO, Ads & CRO | Dazzle`
 - Description: `A free eCommerce audit across store experience, SEO, paid media, conversion, retention and marketplaces, with a ranked list of what to fix first.`
@@ -158,15 +160,15 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - H2: `Request your free audit`
 - Copy: `Ten questions, about three minutes. A senior strategist replies within one business day with either a scoping call or an honest reason the audit is not right for you.`
 - Form fields (in live order):
-  1. `Full name` (text)
-  2. `Work email` (email)
-  3. `Phone` (tel)
-  4. `Store website` (url/text)
-  5. `Primary platform` — radio options: `Shopify / Shopify Plus` · `WooCommerce` · `Amazon Seller Central` · `Amazon Vendor Central` · `Walmart Marketplace` · `eBay` · `Etsy` · `BigCommerce` · `Magento / Adobe Commerce` · `Custom / Headless` · `Thinking to sell online`
-  6. `Monthly online revenue` — radio options: `Pre-launch` · `Under $25K / month` · `$25K - $100K / month` · `$100K - $500K / month` · `$500K - $2M / month` · `$2M+ / month`
-  7. `Monthly budget for growth` — radio options: `Under $2,500 / month` · `$2,500 - $5,000 / month` · `$5,000 - $10,000 / month` · `$10,000 - $25,000 / month` · `$25,000+ / month` · `Not sure yet`
+  1. `Full name` (text) — REQUIRED — placeholder `Jordan Avery`
+  2. `Work email` (email) — REQUIRED — placeholder `jordan@yourbrand.com`
+  3. `Phone` (tel) — optional — placeholder `+1 (555) 000-0000`
+  4. `Store website` (url) — REQUIRED — placeholder `https://yourbrand.com`
+  5. `Primary platform` — select dropdown, NOT required: `Shopify / Shopify Plus` · `WooCommerce` · `Amazon Seller Central` · `Amazon Vendor Central` · `Walmart Marketplace` · `eBay` · `Etsy` · `BigCommerce` · `Magento / Adobe Commerce` · `Custom / Headless` · `Thinking to sell online` (~~radio options~~ — wrong, corrected 2026-11-23)
+  6. `Monthly online revenue` — select dropdown, NOT required: `Pre-launch` · `Under $25K / month` · `$25K - $100K / month` · `$100K - $500K / month` · `$500K - $2M / month` · `$2M+ / month` (~~radio options~~ — wrong, corrected 2026-11-23)
+  7. `Monthly budget for growth` — select dropdown, NOT required: `Under $2,500 / month` · `$2,500 - $5,000 / month` · `$5,000 - $10,000 / month` · `$10,000 - $25,000 / month` · `$25,000+ / month` · `Not sure yet` (~~radio options~~ — wrong, corrected 2026-11-23)
   8. `Which services are you interested in?` — checkboxes: `eCommerce Store Management` · `eCommerce SEO` · `PPC & Google Shopping` · `Amazon PPC & Marketplace` · `Conversion Rate Optimization` · `Email & SMS Retention` · `Shopify / WooCommerce Development` · `Creative & Content Production`
-  9. `What is the main thing you want to fix?` (textarea)
+  9. `What is the main thing you want to fix?` (textarea) — REQUIRED — placeholder: `e.g. Our Amazon sales dropped 30% after a listing suppression and we have not recovered. Shopify is flat and paid social CAC is up 40% year on year.`
   10. `Consent` — checkbox: `I agree to the` (link: `Privacy Policy` → `/privacy-policy/`) `. We will never sell your data.`
 - Submit button: `Request my free audit`
 - Note: the live form is an Elementor form; no `action` URL or field names were exposed in the fetched HTML. The clone reproduces the fields with client-side validation and localStorage confirmation (see page notes).

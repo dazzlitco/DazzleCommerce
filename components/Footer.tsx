@@ -98,29 +98,33 @@ export default function Footer() {
               TikTok Shop, eBay and Etsy.
             </p>
             <div className="social-row">
-              <a href="https://www.linkedin.com/company/dazzlecommerce">LinkedIn</a>
-              <a href="https://www.facebook.com/dazzlecommerce">Facebook</a>
-              <a href="https://x.com/dazzlecommerce">X</a>
-              <a href="https://www.instagram.com/dazzlecommerce">Instagram</a>
-              <a href="https://www.youtube.com/@dazzlecommerce">YouTube</a>
+              <a href="https://www.linkedin.com/company/dazzlecommerce" target="_blank" rel="noreferrer">
+                <span className="screen-reader-text">Linkedin-in</span>
+                <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
+              </a>
+              <a href="https://www.facebook.com/dazzlecommerce" target="_blank" rel="noreferrer">
+                <span className="screen-reader-text">Facebook</span>
+                <i className="fa-brands fa-facebook-f" aria-hidden="true" />
+              </a>
+              <a href="https://x.com/dazzlecommerce" target="_blank" rel="noreferrer">
+                <span className="screen-reader-text">X-twitter</span>
+                <i className="fa-brands fa-x-twitter" aria-hidden="true" />
+              </a>
+              <a href="https://www.instagram.com/dazzlecommerce" target="_blank" rel="noreferrer">
+                <span className="screen-reader-text">Instagram</span>
+                <i className="fa-brands fa-instagram" aria-hidden="true" />
+              </a>
+              <a href="https://www.youtube.com/@dazzlecommerce" target="_blank" rel="noreferrer">
+                <span className="screen-reader-text">Youtube</span>
+                <i className="fa-brands fa-youtube" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
           <div>
             <h2>Company</h2>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {companyLinks.map((l) => (
-                <li key={l.href + l.label} style={{ marginBottom: "0.45rem" }}>
-                  <Link href={l.href}>{l.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2>Resources</h2>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {resourcesLinks.map((l) => (
+              {[...companyLinks, ...resourcesLinks].map((l) => (
                 <li key={l.href + l.label} style={{ marginBottom: "0.45rem" }}>
                   <Link href={l.href}>{l.label}</Link>
                 </li>
@@ -148,7 +152,11 @@ export default function Footer() {
             <ul>
               {servicesLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href}>{l.label}</Link>
+                  {/* Live footer shortens this one label to "Development & Tech";
+                      the header mega-menu keeps the full "Development & Technology". */}
+                  <Link href={l.href}>
+                    {l.label === "Development & Technology" ? "Development & Tech" : l.label}
+                  </Link>
                 </li>
               ))}
               <li>

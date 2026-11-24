@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce CRO Agency | Conversion Optimization",
@@ -426,6 +427,7 @@ export default function ConversionRateOptimizationPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
+              <Pill icon="fa-solid fa-arrow-trend-up">Conversion Rate Optimization</Pill>
               <h1>Get More Revenue From the Traffic You Already Pay For</h1>
               <p className="lead">
                 Structured eCommerce CRO across product pages, category pages, cart and
@@ -470,7 +472,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 2. The Problem */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>Why you need an eCommerce CRO agency, not a testing tool</h2>
           <p className="lead">
             Nine reasons stores leak revenue. Most audits find five or six at once — and
@@ -492,7 +494,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 3. What We Do */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce conversion rate optimization services</h2>
           <p className="lead">
             Ten workstreams. The audit decides which two or three are worth starting with
@@ -519,7 +521,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 4. Research — What we analyze */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Research</p>
+          <Pill icon="fa-solid fa-magnifying-glass" center>Research</Pill>
           <h2>What we analyze</h2>
           <p className="lead">
             Four inputs. Testing without all four is guessing with extra steps. Where the
@@ -544,7 +546,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 5. The Process */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our CRO process</h2>
           <p className="lead">
             Six stages, then it loops. Each cycle typically runs four to six weeks
@@ -565,7 +567,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 6. The Journey */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Journey</p>
+          <Pill icon="fa-solid fa-globe" center>The Journey</Pill>
           <h2>Where eCommerce conversion optimization actually moves revenue</h2>
           <p className="lead">
             Homepage → category → product → cart → checkout → purchase. eCommerce
@@ -587,7 +589,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 7. By Goal */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">By Goal</p>
+          <Pill icon="fa-solid fa-bullseye" center>By Goal</Pill>
           <h2>CRO by business goal</h2>
           <p className="lead">
             Seven outcomes and the approach each one needs. Average order value, repeat
@@ -611,7 +613,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 8. Why Us */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award" center>Why Us</Pill>
           <h2>Why choose our CRO services</h2>
           <p className="lead">
             Eight things that separate eCommerce CRO from generic conversion advice.
@@ -630,7 +632,7 @@ export default function ConversionRateOptimizationPage() {
       {/* 9. Proof — CRO results */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>CRO results</h2>
           <p className="lead">
             Three engagements, measured against the twelve months before we started.
@@ -641,16 +643,16 @@ export default function ConversionRateOptimizationPage() {
                 <div className="split-img" style={{ marginBottom: "20px" }}>
                   <Image src={c.img} alt={c.imgAlt} width={1920} height={1280} />
                 </div>
-                <p className="eyebrow">Client</p>
+                <h6 className="label-plain">CLIENT</h6>
                 <h3>
                   {c.href ? <Link href={c.href}>{c.name}</Link> : c.name}
                 </h3>
                 <p>{c.industry}</p>
-                <p className="eyebrow">Challenge</p>
+                <h6 className="label-plain">CHALLENGE</h6>
                 <p>{c.challenge}</p>
-                <p className="eyebrow">CRO Strategy</p>
+                <h6 className="label-plain">CRO STRATEGY</h6>
                 <p>{c.strategy}</p>
-                <p className="eyebrow">Result</p>
+                <h6 className="label-plain">RESULT</h6>
                 <div className="stat-row" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
                   {c.results.map((r) => (
                     <div className="stat" key={r.label}>
@@ -665,11 +667,6 @@ export default function ConversionRateOptimizationPage() {
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "32px" }}>
-            Conversion outcomes vary considerably by category, price point and starting
-            position. A store already converting at 4% has less headroom than one at
-            1.2%, and we will say so on the call.
-          </p>
           <div className="btn-row">
             <Link className="btn" href="/case-studies/">
               See all case studies
@@ -678,13 +675,18 @@ export default function ConversionRateOptimizationPage() {
               Browse the portfolio
             </Link>
           </div>
+          <p style={{ marginTop: "32px" }}>
+            Conversion outcomes vary considerably by category, price point and starting
+            position. A store already converting at 4% has less headroom than one at
+            1.2%, and we will say so on the call.
+          </p>
         </div>
       </section>
 
       {/* 10. FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>CRO FAQs</h2>
           <p className="lead">
             Eight questions that come up before most CRO engagements. More on{" "}

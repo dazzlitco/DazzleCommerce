@@ -22,7 +22,7 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 ### 1. Hero
 - H1: `Affiliate Disclaimer`
 - Copy: `Where we earn commission, what commercial relationships we hold, and the rules that keep our recommendations independent of who pays us.`
-- Meta line (plain text, with a calendar-days icon in the live markup): `Last updated: 1 August 2026  ·  Effective immediately upon posting`
+- Meta line (plain text, with a calendar-days icon in the live markup): `Last updated: 1 August 2026  ·  Effective immediately upon posting` — “Last updated:” is **bold** on live.
 - No hero image on the live page (text-only hero). No eyebrow label above the H1 on the live page.
 
 ### 2. The Short Version
@@ -95,6 +95,7 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 - H2: `Questions about how we handle your data?`
 - P1: `Our privacy team answers within one business day. Email privacy@dazzlecommerce.com or use the contact form — no ticket queue, no chatbot.`
 - Quirk: `privacy@dazzlecommerce.com` is plain text in the live HTML, NOT a mailto link. Kept as plain text in the clone (rendered as a mailto would change the live behaviour; see Clone notes).
+- The closing block is the **blue gradient block** (same as the other policy pages), not a soft section.
 - Buttons:
   - `Contact Us` → `/contact/` (with a calendar-days icon in the live markup)
   - `Back to Home` → `/` (with an arrow-right icon in the live markup)
@@ -124,3 +125,4 @@ Copy below is word-for-word from the live HTML (`<main>` / `.page-content`, Elem
 - Re-verified 2026-11-23 16:16 UTC via browser.open — this extraction confirmed, with the corrections above (29/29 copy checks present after the fix pass).
 - `privacy@dazzlecommerce.com` is kept as plain text, matching the live HTML (not a mailto link).
 - Links to /privacy-policy/ and /cookies-policy/ point at the future clone routes, which do not exist yet in this repo.
+- **Correction 2026-11-23 (fresh curl fetch):** “Last updated:” is bold on live (the clone had it unbolded — restored), and the closing block is the blue gradient block like the other policy pages (the clone had it as a soft section with `btn`/`btn-outline` — changed to `section-blue final-cta` with `btn-light` + transparent buttons). FTC italics already matched and were left alone.

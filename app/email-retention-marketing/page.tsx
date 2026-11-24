@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Email & Retention Agency | Dazzle Commerce",
@@ -453,9 +454,9 @@ const faqs: Faq[] = [
       <>
         Standalone retention engagements typically run $2,500–$7,000/month depending on list
         size, platform, campaign cadence and how much creative production is in scope,
-        separate from your ESP subscription. Inside a full management engagement it is part
-        of the wider fee. <Link href="/pricing/">Our pricing page</Link> explains how we
-        scope it.
+        separate from your ESP subscription. Inside a full{" "}
+        <Link href="/ecommerce-management/">management engagement</Link> it is part of the
+        wider fee. <Link href="/pricing/">Our pricing page</Link> explains how we scope it.
       </>
     ),
   },
@@ -481,7 +482,7 @@ export default function EmailRetentionMarketingPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Email &amp; Retention</p>
+              <Pill icon="fa-solid fa-envelope-open-text">Email &amp; Retention</Pill>
               <h1>Turn First-Time Buyers Into Repeat Revenue</h1>
               <p className="lead">
                 Lifecycle email and SMS built on how your customers actually buy — replenishment
@@ -526,7 +527,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 2. The customer retention challenge */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The customer retention challenge</h2>
           <p className="lead">
             Nine reasons owned revenue stays flat. Most stores have six or seven of them, and
@@ -546,7 +547,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 3. Our email & retention services */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our email &amp; retention services</h2>
           <p className="lead">
             Ten workstreams. Flows and segmentation come first — campaigns sent into an
@@ -563,7 +564,7 @@ export default function EmailRetentionMarketingPage() {
           <p style={{ marginTop: "24px" }}>
             Retention compounds fastest alongside{" "}
             <Link href="/conversion-rate-optimization/">conversion optimization</Link> and{" "}
-            <Link href="/ecommerce-ppc/">paid advertising</Link> , or inside a full{" "}
+            <Link href="/ecommerce-ppc/">paid advertising</Link>, or inside a full{" "}
             <Link href="/ecommerce-management/">eCommerce management</Link> engagement.
           </p>
         </div>
@@ -572,7 +573,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 4. Email automations & lifecycle flows */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Lifecycle</p>
+          <Pill icon="fa-solid fa-compass" center>Lifecycle</Pill>
           <h2>Email automations &amp; lifecycle flows</h2>
           <p className="lead">
             One journey from first subscribe to win-back. Every stage has a trigger, a message
@@ -602,7 +603,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 5. Our email & retention process */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our email &amp; retention process</h2>
           <p className="lead">
             Six stages. The last two run continuously once the programme is live.
@@ -628,7 +629,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 6. How we grow customer lifetime value */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Lifetime Value</p>
+          <Pill icon="fa-solid fa-user-group" center>Lifetime Value</Pill>
           <h2>How we grow customer lifetime value</h2>
           <p className="lead">
             Four stages, in order. Skipping to “grow” before “retain” works is how brands end
@@ -654,7 +655,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 7. Retention marketing by business goal */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">By Goal</p>
+          <Pill icon="fa-solid fa-bullseye" center>By Goal</Pill>
           <h2>Retention marketing by business goal</h2>
           <p className="lead">Seven outcomes and the retention strategy each one needs.</p>
           <div className="card-grid">
@@ -674,7 +675,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 8. Platforms & technology we work with */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Platforms</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Platforms</Pill>
           <h2>Platforms &amp; technology we work with</h2>
           <p className="lead">
             We work in whatever you already have where it is capable. Migration is a
@@ -694,7 +695,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 9. Why choose our eCommerce email marketing agency */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce email marketing agency</h2>
           <p className="lead">
             Eight things that separate lifecycle retention from sending more newsletters, and
@@ -714,7 +715,7 @@ export default function EmailRetentionMarketingPage() {
       {/* 10. Retention results */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>Retention results</h2>
           <p className="lead">
             Three engagements: challenge, retention strategy, implementation, result. Measured
@@ -785,11 +786,11 @@ export default function EmailRetentionMarketingPage() {
       {/* 11. Email & retention FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>Email &amp; retention FAQs</h2>
           <p className="lead">
             Eight questions that come up before most retention engagements. More on{" "}
-            <Link href="/faqs/">our full FAQ page</Link> .
+            <Link href="/faqs/">our full FAQ page</Link>.
           </p>
           <FaqAccordion faqs={faqs} />
           <p style={{ marginTop: "24px" }}>

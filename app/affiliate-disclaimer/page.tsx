@@ -44,7 +44,7 @@ export default function AffiliateDisclaimerPage() {
             that keep our recommendations independent of who pays us.
           </p>
           <p style={{ color: "var(--muted)", marginTop: "1rem" }}>
-            Last updated: 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
+            <strong>Last updated:</strong> 1 August 2026&nbsp;&nbsp;·&nbsp;&nbsp;Effective immediately upon
             posting
           </p>
         </div>
@@ -232,8 +232,8 @@ export default function AffiliateDisclaimerPage() {
         </div>
       </section>
 
-      {/* 3. Closing block — Questions about how we handle your data? */}
-      <section className="section section-soft">
+      {/* 3. Closing block — blue gradient block like the other policy pages */}
+      <section className="section section-blue final-cta">
         <div className="container" style={{ maxWidth: "860px" }}>
           <h2>Questions about how we handle your data?</h2>
           <p>
@@ -241,10 +241,14 @@ export default function AffiliateDisclaimerPage() {
             or use the contact form — no ticket queue, no chatbot.
           </p>
           <div className="btn-row">
-            <Link className="btn" href="/contact/">
+            <Link className="btn btn-light" href="/contact/">
               Contact Us
             </Link>
-            <Link className="btn btn-outline" href="/">
+            <Link
+              className="btn"
+              href="/"
+              style={{ background: "transparent", borderColor: "#fff" }}
+            >
               Back to Home
             </Link>
           </div>

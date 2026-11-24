@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 // NOTE: this file is a client component because the audit request form needs
 // client-side validation, localStorage persistence and a confirmation state.
@@ -11,8 +12,8 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 // the extraction — "Free eCommerce Audit: Store, SEO, Ads & CRO | Dazzle" /
 // "A free eCommerce audit across store experience, SEO, paid media,
 // conversion, retention and marketplaces, with a ranked list of what to fix
-// first." — should be added via a route-level metadata wrapper if the parent
-// wants it.)
+// first." — are exported by the route-level metadata wrapper in
+// app/ecommerce-audit/layout.tsx.)
 //
 // NOTE: the live audit page has no interactive tool of its own — it presents
 // the six disciplines, the five-step process and the request form, and points
@@ -233,22 +234,18 @@ const differences = [
 
 const nextSteps = [
   {
-    num: "1",
     title: "Within one business day",
     body: "a senior strategist replies — not an SDR, and not an automated sequence.",
   },
   {
-    num: "2",
     title: "A 30-minute scoping call",
     body: "establishes what is in scope. If the audit is not right for you, we say so here.",
   },
   {
-    num: "3",
     title: "Read-only access",
     body: "is granted through each platform’s own permissions. We never ask for a password.",
   },
   {
-    num: "4",
     title: "About a week later",
     body: "you get the document, the ranked list and a recorded walkthrough.",
   },
@@ -302,9 +299,9 @@ export default function EcommerceAuditPage() {
     email: "",
     phone: "",
     store: "",
-    platform: "",
-    revenue: "",
-    budget: "",
+    platform: PLATFORMS[0],
+    revenue: REVENUES[0],
+    budget: BUDGETS[0],
     services: [] as string[],
     fix: "",
     consent: false,
@@ -329,8 +326,8 @@ export default function EcommerceAuditPage() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
       errors.email = "Please enter a valid work email.";
     if (!form.store.trim()) errors.store = "Please enter your store website.";
-    if (!form.platform) errors.platform = "Please choose your primary platform.";
-    if (!form.revenue) errors.revenue = "Please choose your monthly online revenue.";
+    if (!form.fix.trim())
+      errors.fix = "Please tell us the main thing you want to fix.";
     if (!form.consent) errors.consent = "Please agree to the Privacy Policy to continue.";
     setFormErrors(errors);
     if (Object.keys(errors).length > 0) {
@@ -356,7 +353,7 @@ export default function EcommerceAuditPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Free eCommerce audit</p>
+              <Pill icon="fa-solid fa-clipboard-check">Free eCommerce audit</Pill>
               <h1>Get a Free eCommerce Audit That Names Your Constraint</h1>
               <p className="lead">
                 A week of senior attention across store experience, SEO, paid media, conversion,
@@ -390,16 +387,16 @@ export default function EcommerceAuditPage() {
           </div>
           <div className="stat-row">
             <div className="stat">
-              <strong>12</strong>
-              <span>audit points</span>
+              <h3 style={{ display: "block", fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800, marginBottom: "0.25rem" }}>12</h3>
+              <p style={{ color: "var(--muted)", fontSize: "0.95rem", margin: 0 }}>audit points</p>
             </div>
             <div className="stat">
-              <strong>5 days</strong>
-              <span>typical turnaround</span>
+              <h3 style={{ display: "block", fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800, marginBottom: "0.25rem" }}>5 days</h3>
+              <p style={{ color: "var(--muted)", fontSize: "0.95rem", margin: 0 }}>typical turnaround</p>
             </div>
             <div className="stat">
-              <strong>0</strong>
-              <span>cost or obligation</span>
+              <h3 style={{ display: "block", fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800, marginBottom: "0.25rem" }}>0</h3>
+              <p style={{ color: "var(--muted)", fontSize: "0.95rem", margin: 0 }}>cost or obligation</p>
             </div>
           </div>
         </div>
@@ -410,7 +407,7 @@ export default function EcommerceAuditPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">The symptom</p>
+              <Pill icon="fa-solid fa-triangle-exclamation" center>The symptom</Pill>
               <h2>Is your store leaving growth on the table?</h2>
               <p>
                 Most stores do not stall because the strategy was wrong. They stall because
@@ -448,7 +445,7 @@ export default function EcommerceAuditPage() {
       {/* 3. What we audit */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">What we audit</p>
+          <Pill icon="fa-solid fa-magnifying-glass" center>What we audit</Pill>
           <h2>Six disciplines, one ranked answer</h2>
           <p className="lead">
             Each area is reviewed by the specialist who runs it day to day — the eCommerce
@@ -463,7 +460,7 @@ export default function EcommerceAuditPage() {
                 {d.img ? (
                   <Image src={d.img} alt={d.imgAlt ?? ""} width={1200} height={800} />
                 ) : null}
-                <p className="card-num">Discipline {d.num}</p>
+                <h4 className="card-num">Discipline {d.num}</h4>
                 <h3>{d.title}</h3>
                 <p>{d.body}</p>
                 <ul className="check-list" style={{ marginBottom: 0 }}>
@@ -485,7 +482,7 @@ export default function EcommerceAuditPage() {
       {/* 5. What you receive */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What you receive</p>
+          <Pill icon="fa-solid fa-layer-group" center>What you receive</Pill>
           <h2>Four things, all of them yours</h2>
           <p className="lead">
             A written document you keep, not a slide deck we present and take away with us.
@@ -504,7 +501,7 @@ export default function EcommerceAuditPage() {
       {/* 6. How it works */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">How it works</p>
+          <Pill icon="fa-solid fa-layer-group" center>How it works</Pill>
           <h2>Our audit process</h2>
           <p className="lead">
             Five steps, about a week from the day access is granted. Most of the elapsed time
@@ -513,14 +510,14 @@ export default function EcommerceAuditPage() {
           <div className="card-grid">
             {processSteps.map((s) => (
               <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
+                <h6 className="card-num">{s.num}</h6>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
             ))}
           </div>
           <p style={{ marginTop: "24px" }}>
-            <strong>No payment, no contract and no commitment at any point in this sequence.</strong>
+            No payment, no contract and no commitment at any point in this sequence.
           </p>
         </div>
       </section>
@@ -528,7 +525,7 @@ export default function EcommerceAuditPage() {
       {/* 7. Fit */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Fit</p>
+          <Pill icon="fa-solid fa-layer-group" center>Fit</Pill>
           <h2>Who this audit is for</h2>
           <p className="lead">
             The audit is most useful when there is enough data to read and a real decision
@@ -543,7 +540,7 @@ export default function EcommerceAuditPage() {
             ))}
           </div>
           <div className="card" style={{ marginTop: "20px" }}>
-            <h3>NOT WRITTEN FOR</h3>
+            <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1.2rem", marginBottom: "0.6rem" }}>NOT WRITTEN FOR</p>
             <p>
               Pre-launch stores with no data to read, and businesses whose unit economics do
               not work. If contribution margin after returns, carriage and fees is negative,
@@ -557,7 +554,7 @@ export default function EcommerceAuditPage() {
       {/* 8. Why us */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why us</p>
+          <Pill icon="fa-solid fa-award" center>Why us</Pill>
           <h2>Why our audit is different</h2>
           <p className="lead">Four things that are unusual, and one of them costs us work.</p>
           <div className="card-grid card-grid-2">
@@ -584,7 +581,7 @@ export default function EcommerceAuditPage() {
       {/* 9. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>Audit FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             What it costs, what we need, and what happens afterwards.
@@ -598,24 +595,20 @@ export default function EcommerceAuditPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Start here</p>
+              <Pill icon="fa-solid fa-flag-checkered" center>Start here</Pill>
               <h2>Request your free audit</h2>
               <p className="lead">
                 Ten questions, about three minutes. A senior strategist replies within one
                 business day with either a scoping call or an honest reason the audit is not
                 right for you.
               </p>
-              <h3 style={{ marginTop: "2rem" }}>WHAT HAPPENS NEXT</h3>
+              <p style={{ marginTop: "2rem", fontWeight: 800, color: "var(--navy)", fontSize: "1.2rem", marginBottom: "0.6rem" }}>WHAT HAPPENS NEXT</p>
               {nextSteps.map((s) => (
-                <div key={s.num} style={{ marginTop: "1rem" }}>
-                  <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                    {s.num}
-                  </p>
-                  <h3>{s.title}</h3>
-                  <p style={{ color: "var(--muted)" }}>{s.body}</p>
-                </div>
+                <p key={s.title} style={{ marginTop: "1rem" }}>
+                  <strong>{s.title}</strong> {s.body}
+                </p>
               ))}
-              <h3 style={{ marginTop: "2rem" }}>PREFER TO TALK FIRST?</h3>
+              <p style={{ marginTop: "2rem", fontWeight: 800, color: "var(--navy)", fontSize: "1.2rem", marginBottom: "0.6rem" }}>PREFER TO TALK FIRST?</p>
               <p style={{ color: "var(--muted)" }}>
                 If you would rather ask questions before requesting anything, the{" "}
                 <Link href="/contact/">contact page</Link> has our direct details and the same
@@ -659,6 +652,7 @@ export default function EcommerceAuditPage() {
                       id="audit-name"
                       className="form-input"
                       type="text"
+                      placeholder="Jordan Avery"
                       value={form.name}
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                     />
@@ -674,6 +668,7 @@ export default function EcommerceAuditPage() {
                       id="audit-email"
                       className="form-input"
                       type="email"
+                      placeholder="jordan@yourbrand.com"
                       value={form.email}
                       onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                     />
@@ -687,6 +682,7 @@ export default function EcommerceAuditPage() {
                       id="audit-phone"
                       className="form-input"
                       type="tel"
+                      placeholder="+1 (555) 000-0000"
                       value={form.phone}
                       onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
                     />
@@ -699,7 +695,7 @@ export default function EcommerceAuditPage() {
                       id="audit-store"
                       className="form-input"
                       type="text"
-                      placeholder="https://yourstore.com"
+                      placeholder="https://yourbrand.com"
                       value={form.store}
                       onChange={(e) => setForm((f) => ({ ...f, store: e.target.value }))}
                     />
@@ -707,72 +703,51 @@ export default function EcommerceAuditPage() {
                       <p className="form-msg form-msg-dark err">{formErrors.store}</p>
                     )}
                   </div>
-                  <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
-                    <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
-                      Primary platform <span className="required">*</span>
-                    </legend>
-                    {PLATFORMS.map((p) => (
-                      <label
-                        key={p}
-                        style={{ display: "block", fontWeight: 400, marginBottom: "4px" }}
-                      >
-                        <input
-                          type="radio"
-                          name="platform"
-                          value={p}
-                          checked={form.platform === p}
-                          onChange={() => setForm((f) => ({ ...f, platform: p }))}
-                        />{" "}
-                        {p}
-                      </label>
-                    ))}
-                    {formErrors.platform && (
-                      <p className="form-msg form-msg-dark err">{formErrors.platform}</p>
-                    )}
-                  </fieldset>
-                  <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
-                    <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
-                      Monthly online revenue <span className="required">*</span>
-                    </legend>
-                    {REVENUES.map((r) => (
-                      <label
-                        key={r}
-                        style={{ display: "block", fontWeight: 400, marginBottom: "4px" }}
-                      >
-                        <input
-                          type="radio"
-                          name="revenue"
-                          value={r}
-                          checked={form.revenue === r}
-                          onChange={() => setForm((f) => ({ ...f, revenue: r }))}
-                        />{" "}
-                        {r}
-                      </label>
-                    ))}
-                    {formErrors.revenue && (
-                      <p className="form-msg form-msg-dark err">{formErrors.revenue}</p>
-                    )}
-                  </fieldset>
-                  <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
-                    <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
-                      Monthly budget for growth
-                    </legend>
-                    {BUDGETS.map((b) => (
-                      <label
-                        key={b}
-                        style={{ display: "block", fontWeight: 400, marginBottom: "4px" }}
-                      >
-                        <input
-                          type="radio"
-                          name="budget"
-                          value={b}
-                          checked={form.budget === b}
-                          onChange={() => setForm((f) => ({ ...f, budget: b }))}
-                        />{" "}
-                        {b}
-                      </label>
-                    ))}
-                  </fieldset>
+                  <div className="form-field">
+                    <label htmlFor="audit-platform">Primary platform</label>
+                    <select
+                      id="audit-platform"
+                      className="form-select"
+                      value={form.platform}
+                      onChange={(e) => setForm((f) => ({ ...f, platform: e.target.value }))}
+                    >
+                      {PLATFORMS.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="audit-revenue">Monthly online revenue</label>
+                    <select
+                      id="audit-revenue"
+                      className="form-select"
+                      value={form.revenue}
+                      onChange={(e) => setForm((f) => ({ ...f, revenue: e.target.value }))}
+                    >
+                      {REVENUES.map((r) => (
+                        <option key={r} value={r}>
+                          {r}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="audit-budget">Monthly budget for growth</label>
+                    <select
+                      id="audit-budget"
+                      className="form-select"
+                      value={form.budget}
+                      onChange={(e) => setForm((f) => ({ ...f, budget: e.target.value }))}
+                    >
+                      {BUDGETS.map((b) => (
+                        <option key={b} value={b}>
+                          {b}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                   <fieldset className="form-field" style={{ border: 0, padding: 0 }}>
                     <legend style={{ fontWeight: 700, marginBottom: "6px" }}>
                       Which services are you interested in?
@@ -792,14 +767,21 @@ export default function EcommerceAuditPage() {
                     ))}
                   </fieldset>
                   <div className="form-field">
-                    <label htmlFor="audit-fix">What is the main thing you want to fix?</label>
+                    <label htmlFor="audit-fix">
+                      What is the main thing you want to fix?{" "}
+                      <span className="required">*</span>
+                    </label>
                     <textarea
                       id="audit-fix"
                       className="form-input"
                       rows={4}
+                      placeholder="e.g. Our Amazon sales dropped 30% after a listing suppression and we have not recovered. Shopify is flat and paid social CAC is up 40% year on year."
                       value={form.fix}
                       onChange={(e) => setForm((f) => ({ ...f, fix: e.target.value }))}
                     />
+                    {formErrors.fix && (
+                      <p className="form-msg form-msg-dark err">{formErrors.fix}</p>
+                    )}
                   </div>
                   <div className="form-field">
                     <label className="form-check" style={{ fontWeight: 400 }}>

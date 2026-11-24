@@ -140,7 +140,10 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - No form inside the main content. The only two forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No interactive tool/calculator on this page.
 - No og:image / twitter:image. No stats/numbers section beyond the hero stat row and the Proof result figures.
 - No testimonials section on this page. No pricing numbers are published — all three tiers are quoted (see section 6).
-- Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/, /pricing/ (×3), /contact/ (×4), /ecommerce-creative-content/ (×2), /ecommerce-ppc/, /conversion-rate-optimization/, /marketplace-management-marketing/, /book-a-strategy-call/, /case-studies/ (×4), /portfolio/, /faqs/, /amazon-agency/.
+- Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/, /pricing/ (×4: hero `See pricing`, `See how our pricing works`, FAQ 3 `our pricing page`, final CTA `See pricing and packages`), /contact/ (×4), /ecommerce-creative-content/ (×2), /ecommerce-ppc/, /conversion-rate-optimization/, /marketplace-management-marketing/, /book-a-strategy-call/, /case-studies/ (×4), /portfolio/, /faqs/, /amazon-agency/.
+- Correction 2026-11-23: the /pricing/ count is ×4, not ×3 as an earlier version of this file stated.
+- Correction 2026-11-23: the live page has NO fixed/sticky side navigation — no aside/nav/sticky element in the live main content. The section labels (`The Problem`, `Scope of Work`, etc.) are plain eyebrow text, not nav links. Do not add a side nav.
+- Correction 2026-11-23: the live proof-card labels render in uppercase (`CLIENT` / `CHALLENGE` / `WHAT WE DID` / `RESULT`). The clone previously rendered `Challenge` / `What we did` / `Result` as plain sentence-case `<strong>` text; they now use the shared `case-cat` class, which uppercases them like live.
 
 ## Deviations (clone vs live)
 - Hero image: live uses the warehouse-aisle `ecommerce-management-hero.jpg` (a management-page image). Fidelity fix 2026-11-23: the clone now uses the same image already in the clone, `ecommerce-management-hero.webp` (alt `Warehouse aisle stacked with boxes and pallets`), matching the live hero file and subject.
@@ -148,3 +151,21 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Proof card images: live cards show mismatched reused case-study images (Nutriblend image on the Cadence Audio card, VAC image on Aurelia, Kitchenary image on Nutriblend). Fidelity fix 2026-11-23: the clone now reproduces that exact placement using the clone's existing case files — `case-nutriblend.webp` on Cadence, `case-vac-vacuums.webp` on Aurelia, `case-kitchenary.webp` on Nutriblend — with the live alt texts verbatim (`Dazzle Commerce SEO team working through category page structure` / `Dazzle Commerce marketplace team reviewing Amazon account performance` / `Dazzle Commerce paid media specialists reviewing campaign performance`). The clone's case files are product photos, not the live team photos, so the depicted subject still differs from the live pixels; the file placement and alt text now match live.
 - FAQ answers with links (fixed 2026-11-23): FAQ 3 renders `our pricing page` as a link → /pricing/ and FAQ 8 renders `Amazon team` as a link → /amazon-agency/, via JSX answers in the shared FaqAccordion (now accepts ReactNode).
 - Page metadata: title/description recorded here (Batch 1 pattern — this page has no form/tool, so it is a server component with `metadata` export like the Services page).
+- Correction 2026-11-23: the clone metadata wrongly included an `openGraph.images` entry (`/images/ecommerce-management-hero.webp`). The live page sets no og:image / twitter:image, so the entry was removed from the clone.
+
+## Pill fix — 2026-11-23 (fresh live fetch; supersedes "plain eyebrow text")
+- Correction 2026-11-23: the section labels are NOT plain text. Each is an Elementor icon-list pill: a leading Font Awesome icon, Title Case blue text, inside a rounded pale-blue chip. The clone now renders them with the shared `Pill` component (`components/Pill.tsx`, `.eyebrow` chip in `app/globals.css`). Any earlier line calling these labels "plain eyebrow text" is superseded by this note (the no-side-nav conclusion stands).
+- Pills, verified against the fresh live fetch (icon + centering). Live reuses the management-page pill set verbatim on this page (the hero label/image mismatch quirk — kept verbatim):
+  - Hero `eCommerce Management` — icon `fa-solid fa-users`, left-aligned (no center).
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, centered.
+  - `Scope of Work` — `fa-solid fa-list-check`, centered.
+  - `Platforms` — `fa-solid fa-screwdriver-wrench`, centered.
+  - `The Process` — `fa-solid fa-diagram-project`, centered.
+  - `By Stage` — `fa-solid fa-layer-group`, centered.
+  - `Why Us` — `fa-solid fa-award`, left-aligned (no center).
+  - `Proof` — `fa-solid fa-chart-line`, centered.
+  - `FAQs` — `fa-solid fa-circle-question`, centered.
+- Icon source note: live renders some pill icons as `<i class="fas fa-*">` and others as Elementor inline SVG (`e-fas-*` class); both map 1:1 to Font Awesome solid (`fa-solid fa-*`). No icon was invented.
+- Centering note: hero and Why Us left-alignment rests on the rendered desktop check of 2026-11-23 22:05 PST; the fetched widget markup carries `elementor-align-center` on every pill widget (the widgets are width-initial inside left-aligned flex columns, so the class centers content inside the shrink-wrapped chip, not the chip on the page). Centered pills are fetch-inferred from that class, not render-proven in this pass.
+- NOT pills (left as plain eyebrow `<p>` in the clone, no icon added): the `MOST COMMON` tier badge and the case-card `Client` label — on live these are plain `<h6>` headings with no icon and no chip. Flagged: the shared `.eyebrow` chip styling now also wraps these labels in the clone, which differs from live (plain heading) — a shared-component question for the coordinator, not changed here.
+- Pre-stop edits kept: no `openGraph.images` in the clone metadata (live sets none); the 3 case labels use the uppercase `case-cat` class like live. Live quirks (hero label/image mismatch, stray template check-lists, mismatched reused case images) kept verbatim. Known gap unchanged: the 6 platform SVG logos are text-only in the clone.

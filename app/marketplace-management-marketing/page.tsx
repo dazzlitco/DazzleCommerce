@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "Marketplace Management & Marketing Agency | Dazzle",
@@ -211,6 +212,7 @@ const pillars: Pillar[] = [
 type Marketplace = {
   region: string;
   name: string;
+  icon: string;
   href: string;
   body: ReactNode;
   explore: string;
@@ -220,6 +222,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "North America / Global",
     name: "Amazon",
+    icon: "fa-solid fa-box",
     href: "/amazon-agency/",
     body: "Account and catalog management, Amazon SEO, Sponsored Products, Brands and Display, A+ content and Brand Store.",
     explore: "Explore Amazon services →",
@@ -227,6 +230,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "North America",
     name: "Walmart",
+    icon: "fa-solid fa-basket-shopping",
     href: "/walmart-marketplace-management/",
     body: "Seller Center operations, listing quality, Walmart Connect advertising and Pro Seller performance.",
     explore: "Explore Walmart services →",
@@ -234,6 +238,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "North America / Global",
     name: "eBay",
+    icon: "fa-solid fa-gavel",
     href: "/ebay-store-management/",
     body: "Listing management at scale, item specifics, Promoted Listings, pricing strategy and seller performance.",
     explore: "Explore eBay services →",
@@ -241,6 +246,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "North America / Global",
     name: "Etsy",
+    icon: "fa-solid fa-palette",
     href: "/etsy-shop-management/",
     body: (
       <>
@@ -254,6 +260,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "North America / Global",
     name: "TikTok Shop",
+    icon: "fa-solid fa-video",
     href: "/tiktok-shop-agency/",
     body: "Creator and affiliate programmes, shoppable video, LIVE commerce, product listings and Shop Ads.",
     explore: "Explore TikTok Shop services →",
@@ -261,6 +268,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "South Asia",
     name: "Daraz",
+    icon: "fa-solid fa-store",
     href: "/daraz-seller-management/",
     body: "Pakistan, Sri Lanka, Bangladesh, Nepal and Myanmar — store operations, campaigns and sponsored ads.",
     explore: "Explore Daraz services →",
@@ -268,6 +276,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "Southeast Asia",
     name: "Shopee",
+    icon: "fa-solid fa-bag-shopping",
     href: "/shopee-seller-management/",
     body: "Shop operations, campaigns and vouchers, Shopee Ads, Shopee Live and listing optimization.",
     explore: "Explore Shopee services →",
@@ -275,6 +284,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "Southeast Asia",
     name: "Lazada",
+    icon: "fa-solid fa-cart-flatbed",
     href: "/lazada-seller-management/",
     body: "Seller Center operations, Sponsored Solutions, campaigns and vouchers, LazLive and catalog quality.",
     explore: "Explore Lazada services →",
@@ -282,6 +292,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "Middle East",
     name: "noon",
+    icon: "fa-solid fa-sun",
     href: "/noon-seller-management/",
     body: "Saudi Arabia, the UAE and Egypt — Seller Lab operations, bilingual listings and Sponsored Products.",
     explore: "Explore noon services →",
@@ -289,6 +300,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "Africa",
     name: "Jumia",
+    icon: "fa-solid fa-earth-africa",
     href: "/jumia-seller-management/",
     body: "Nigeria, Kenya, Egypt, Morocco and West Africa — Seller Score, catalog, advertising and campaigns.",
     explore: "Explore Jumia services →",
@@ -296,6 +308,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "Cross-Border",
     name: "AliExpress",
+    icon: "fa-solid fa-globe",
     href: "/aliexpress-seller-management/",
     body: "Market localisation, landed-cost pricing, international catalog strategy, ads and promotions.",
     explore: "Explore AliExpress services →",
@@ -303,6 +316,7 @@ const marketplaces: Marketplace[] = [
   {
     region: "B2B / Wholesale",
     name: "Alibaba.com",
+    icon: "fa-solid fa-industry",
     href: "/alibaba-b2b-agency/",
     body: "Supplier profile, wholesale catalog, search visibility, RFQ handling and buyer acquisition.",
     explore: "Explore Alibaba.com services →",
@@ -632,9 +646,7 @@ const cases: CaseStudy[] = [
   },
 ];
 
-const tableStyle: CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
+const compareStyle: CSSProperties = {
   marginTop: "32px",
   background: "#fff",
   border: "1px solid var(--line)",
@@ -643,20 +655,29 @@ const tableStyle: CSSProperties = {
   fontSize: "0.98rem",
 };
 
-const thStyle: CSSProperties = {
-  textAlign: "left",
-  padding: "14px 18px",
+const compareHeadStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
   background: "var(--bg-soft)",
-  color: "var(--navy)",
-  fontWeight: 800,
   borderBottom: "1px solid var(--line)",
 };
 
-const tdStyle: CSSProperties = {
+const compareRowStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  borderTop: "1px solid var(--line)",
+};
+
+const compareHStyle: CSSProperties = {
+  margin: 0,
+  padding: "14px 18px",
+  color: "var(--navy)",
+};
+
+const comparePStyle: CSSProperties = {
+  margin: 0,
   padding: "14px 18px",
   color: "var(--muted)",
-  borderTop: "1px solid var(--line)",
-  verticalAlign: "top",
 };
 
 const flowStyle: CSSProperties = {
@@ -703,7 +724,7 @@ export default function MarketplaceManagementMarketingPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Marketplace Management &amp; Marketing</p>
+              <Pill icon="fa-solid fa-store">Marketplace Management &amp; Marketing</Pill>
               <h1>
                 Marketplace Management &amp; Marketing Built to Grow Your Brand Across Leading
                 Marketplaces
@@ -715,6 +736,11 @@ export default function MarketplaceManagementMarketingPage() {
                 management services, not a listings contractor: the same team owns the catalog,
                 the advertising and the margin behind both.
               </p>
+              <ul className="check-list">
+                {trustBadges.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
               <div className="btn-row">
                 <Link className="btn" href="/contact/">
                   Discuss your marketplace strategy
@@ -734,13 +760,6 @@ export default function MarketplaceManagementMarketingPage() {
               />
             </div>
           </div>
-          <div className="trust-badges">
-            {trustBadges.map((b) => (
-              <div className="trust-badge" key={b}>
-                <p>{b}</p>
-              </div>
-            ))}
-          </div>
           <div className="stat-row">
             {stats.map((s) => (
               <div className="stat" key={s.label}>
@@ -755,7 +774,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 2. The Problem */}
       <section className="section" id="problem">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The marketplace growth challenge</h2>
           <p className="lead">
             Selling on one marketplace is difficult. Managing growth across several is a
@@ -778,7 +797,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 3. What We Do */}
       <section className="section section-soft" id="services">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-globe" center>What We Do</Pill>
           <h2>Our marketplace management services &amp; marketing</h2>
           <p className="lead">
             Eight pillars covering the whole channel. Each links through to the specialist
@@ -810,7 +829,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 4. Where We Work */}
       <section className="section" id="marketplaces">
         <div className="container">
-          <p className="eyebrow">Where We Work</p>
+          <Pill icon="fa-solid fa-layer-group" center>Where We Work</Pill>
           <h2>Marketplaces we manage</h2>
           <p className="lead">
             Twelve marketplaces, each with a dedicated team and its own page explaining exactly
@@ -820,9 +839,10 @@ export default function MarketplaceManagementMarketingPage() {
           <div className="card-grid">
             {marketplaces.map((m) => (
               <article className="card" key={m.name}>
-                <p className="eyebrow" style={{ marginBottom: "0.25rem" }}>
-                  {m.region}
-                </p>
+                <h6 className="card-region">{m.region}</h6>
+                <div className="card-icon" aria-hidden="true">
+                  <i className={m.icon} aria-hidden="true" />
+                </div>
                 <h3>
                   <Link href={m.href}>{m.name}</Link>
                 </h3>
@@ -847,7 +867,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 5. Operations */}
       <section className="section section-soft" id="operations">
         <div className="container">
-          <p className="eyebrow">Operations</p>
+          <Pill icon="fa-solid fa-compass" center>Operations</Pill>
           <h2>Marketplace account &amp; store management</h2>
           <p className="lead">
             The weekly operational work that most agencies leave to you. On marketplaces,
@@ -870,7 +890,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 6. Visibility */}
       <section className="section" id="visibility">
         <div className="container">
-          <p className="eyebrow">Visibility</p>
+          <Pill icon="fa-solid fa-box-open" center>Visibility</Pill>
           <h2>Marketplace listings, SEO &amp; content</h2>
           <p className="lead">
             These three are one workflow, not three services. Research feeds the listing, the
@@ -901,7 +921,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 7. Paid */}
       <section className="section section-soft" id="advertising">
         <div className="container">
-          <p className="eyebrow">Paid</p>
+          <Pill icon="fa-solid fa-bullseye" center>Paid</Pill>
           <h2>Marketplace advertising &amp; growth</h2>
           <p className="lead">
             Marketplace advertising buys placement next to purchase intent, which makes it
@@ -934,7 +954,7 @@ export default function MarketplaceManagementMarketingPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Expansion</p>
+              <Pill icon="fa-solid fa-map-location-dot" center>Expansion</Pill>
               <h2>Multi-marketplace management &amp; international expansion</h2>
               <p className="lead">
                 This is the part most marketplace agencies do not do. Adding a marketplace is
@@ -976,7 +996,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 9. How It Works */}
       <section className="section section-soft" id="process">
         <div className="container">
-          <p className="eyebrow">How It Works</p>
+          <Pill icon="fa-solid fa-arrow-trend-up" center>How It Works</Pill>
           <h2>Our online marketplace management services process</h2>
           <p className="lead">
             Six steps, applied the same way on every marketplace we run. The audit is the part
@@ -1002,31 +1022,23 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 10. Fit */}
       <section className="section" id="goals">
         <div className="container">
-          <p className="eyebrow">Fit</p>
+          <Pill icon="fa-solid fa-cubes-stacked" center>Fit</Pill>
           <h2>Marketplace solutions by business goal</h2>
           <p className="lead">
             Start from the outcome you need this quarter. Most sellers need two of these, not
             nine.
           </p>
-          <div style={{ overflowX: "auto" }}>
-            <table style={tableStyle}>
-              <thead>
-                <tr>
-                  <th style={thStyle}>Business goal</th>
-                  <th style={thStyle}>How we help</th>
-                </tr>
-              </thead>
-              <tbody>
-                {goalRows.map((row) => (
-                  <tr key={row.goal}>
-                    <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
-                      {row.goal}
-                    </td>
-                    <td style={tdStyle}>{row.help}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div style={compareStyle}>
+            <div style={compareHeadStyle}>
+              <h4 style={compareHStyle}>Business goal</h4>
+              <h4 style={compareHStyle}>How we help</h4>
+            </div>
+            {goalRows.map((row) => (
+              <div key={row.goal} style={compareRowStyle}>
+                <h4 style={compareHStyle}>{row.goal}</h4>
+                <p style={comparePStyle}>{row.help}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1034,7 +1046,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 11. Why Us */}
       <section className="section section-soft" id="why-us">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our marketplace management agency</h2>
           <p className="lead">
             One partner for marketplace management, marketing and expansion. Eight reasons you
@@ -1054,7 +1066,7 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 12. Proof */}
       <section className="section" id="results">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>Marketplace results &amp; case studies</h2>
           <p className="lead">
             Three sellers in three different marketplace situations — a single-channel brand,
@@ -1118,13 +1130,12 @@ export default function MarketplaceManagementMarketingPage() {
       {/* 13. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>Marketplace FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Eight questions that come up in most marketplace conversations, including the ones
             worth asking any marketplace marketing agency before you sign. More on{" "}
-            <Link href="/faqs/">our full FAQ page</Link>
-            {" ."}
+            <Link href="/faqs/">our full FAQ page</Link>.
           </p>
           <FaqAccordion faqs={faqs} />
           <p style={{ marginTop: "28px" }}>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -264,9 +265,16 @@ export default function TechnologyStackPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
+          <p>
+            <Link href="/">Home</Link> &nbsp;›&nbsp;{" "}
+            <Link href="/how-we-work/">How We Work</Link> &nbsp;›&nbsp;{" "}
+            <span>Technology Stack</span>
+          </p>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">How we work</p>
+              <p>
+                <Link href="/how-we-work/">How we work</Link>
+              </p>
               <p>
                 <strong>Nine categories</strong>
               </p>
@@ -326,7 +334,9 @@ export default function TechnologyStackPage() {
           </p>
           <div className="split">
             <div>
-              <p className="eyebrow">Why publish it</p>
+              <Pill icon="fa-solid fa-award" center>
+                Why publish it
+              </Pill>
               <h2>The stack is not the differentiator</h2>
               <p>
                 Agencies sell tooling because it is easy to show. What actually matters is
@@ -366,7 +376,9 @@ export default function TechnologyStackPage() {
       {/* 3. The test — Four rules */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The test</p>
+          <Pill icon="fa-solid fa-layer-group" center>
+            The test
+          </Pill>
           <h2>Four rules any tool has to pass</h2>
           <p className="lead">
             Applied before anything is added, and again at the twice-yearly review. Tools
@@ -394,7 +406,9 @@ export default function TechnologyStackPage() {
       {/* 4. The stack — Nine categories */}
       <section className="section" id="ts-stack">
         <div className="container">
-          <p className="eyebrow">The stack</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>
+            The stack
+          </Pill>
           <h2>Nine categories, and what each has to do</h2>
           <p className="lead">
             Named tools appear only where they are effectively universal — the platform
@@ -434,7 +448,9 @@ export default function TechnologyStackPage() {
               />
             </div>
             <div>
-              <p className="eyebrow">Ownership</p>
+              <Pill icon="fa-solid fa-layer-group" center>
+                Ownership
+              </Pill>
               <h2>Who owns the Google Ads account, and every other one</h2>
               <p>
                 The question worth asking any agency before you sign, and the one most
@@ -473,7 +489,9 @@ export default function TechnologyStackPage() {
       {/* 6. Limits — Five things we will not do */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Limits</p>
+          <Pill icon="fa-solid fa-layer-group" center>
+            Limits
+          </Pill>
           <h2>Five things we will not do with tooling</h2>
           <p className="lead">
             Each of these is normal in this industry. That is why they are listed.
@@ -498,7 +516,9 @@ export default function TechnologyStackPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">The output</p>
+              <Pill icon="fa-solid fa-layer-group" center>
+                The output
+              </Pill>
               <h2>What the stack actually produces</h2>
               <p>
                 Nine categories of tool exist to generate about five things. If a tool is
@@ -535,7 +555,9 @@ export default function TechnologyStackPage() {
       {/* 8. Maintenance */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Maintenance</p>
+          <Pill icon="fa-solid fa-layer-group" center>
+            Maintenance
+          </Pill>
           <h2>How the stack changes, and how often</h2>
           <p className="lead">
             Twice a year, in March and September, against the same four rules. A tool that
@@ -590,7 +612,9 @@ export default function TechnologyStackPage() {
       {/* 9. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>
+            Questions
+          </Pill>
           <h2>Technology stack FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             What people ask about tooling before they sign anything.
@@ -602,7 +626,9 @@ export default function TechnologyStackPage() {
       {/* 10. Related */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Related</p>
+          <Pill icon="fa-solid fa-signs-post" center>
+            Related
+          </Pill>
           <h2>How this connects to the work</h2>
           <p className="lead">The stack exists to serve these three things.</p>
           <div className="card-grid">

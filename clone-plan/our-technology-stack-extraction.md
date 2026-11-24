@@ -217,3 +217,9 @@ Breadcrumb: Home › How We Work › Technology Stack (Home -> /, How We Work ->
 - og:image and the hero image are the same file (eu-channel-growth.jpg).
 - The "All guides" link (/guides/) sits under the three Related cards.
 - Spelling: "catalogue" (British) in the final CTA paragraph; "standardising" in the Maintenance table; "labelled" in the Limits section — kept as written.
+
+## Correction 2026-11-23
+- Breadcrumb (line 8: Home › How We Work › Technology Stack) was missing from the clone hero; added 2026-11-23 at the top of the hero, matching live order and targets (Home -> /, How We Work -> /how-we-work/).
+- Hero "How we work" is a plain link on live (`<p><a href="/how-we-work/">How we work</a></p>`), not a pill. The clone had it pill-styled; restyled as a plain link 2026-11-23. It is the only non-pill item on the page.
+- Team image: the fix brief said to move the team image ("Colleagues cooperating in an office reviewing performance data") from "The stack" section to "Ownership". Verified 2026-11-23 against both the clone and a fresh live fetch: the clone already had the image in the Ownership section, and live places it in Ownership too (it precedes the "Who owns the Google Ads account" heading). No move was needed and none was made.
+- Section pills verified against a fresh live fetch 2026-11-23 (all centered icon-list pills): Why publish it (award), The test (layer-group), The stack (screwdriver-wrench), Ownership (layer-group), Limits (layer-group), The output (layer-group), Maintenance (layer-group), Questions (circle-question), Related (signs-post). The clone now uses the shared Pill component with these Font Awesome icons.

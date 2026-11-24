@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Development Agency & Technology | Dazzle Commerce",
@@ -491,7 +492,7 @@ export default function EcommerceDevelopmentPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Development &amp; Technology</p>
+              <Pill icon="fa-solid fa-code">Development &amp; Technology</Pill>
               <h1>eCommerce Development That Holds Up After Launch</h1>
               <p className="lead">
                 Shopify, WooCommerce and custom builds designed around conversion and speed,
@@ -536,7 +537,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 2. The eCommerce technology challenge */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The eCommerce technology challenge</h2>
           <p className="lead">
             Twelve things that turn a store into a constraint. The audit usually finds the real
@@ -556,7 +557,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 3. Our eCommerce development services */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce development services</h2>
           <p className="lead">
             Eight services covering build, migration, integration and maintenance. Each will get
@@ -594,7 +595,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 4. Platforms & technologies we work with */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Stack</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Stack</Pill>
           <h2>Platforms &amp; technologies we work with</h2>
           <p className="lead">
             We recommend the platform that fits the business, not the one we would rather build
@@ -618,7 +619,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 5. What our eCommerce web development covers */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Scope</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope</Pill>
           <h2>What our eCommerce web development covers</h2>
           <p className="lead">
             Ten things we ship regularly. If what you need is not on the list, it is worth a
@@ -639,7 +640,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 6. Integrations & eCommerce technology ecosystem */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Ecosystem</p>
+          <Pill icon="fa-solid fa-diagram-project" center>Ecosystem</Pill>
           <h2>Integrations &amp; eCommerce technology ecosystem</h2>
           <p className="lead">
             The storefront sits at the centre. Everything below connects to it, and every
@@ -667,7 +668,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 7. Our eCommerce development process */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-compass" center>The Process</Pill>
           <h2>Our eCommerce development process</h2>
           <p className="lead">
             Seven stages. The last one is not an afterthought — it is where most of the value of
@@ -688,7 +689,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 8. Development by business need */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">By Need</p>
+          <Pill icon="fa-solid fa-map-location-dot" center>By Need</Pill>
           <h2>Development by business need</h2>
           <p className="lead">Eight needs and the solution each one calls for.</p>
           <div className="card-grid card-grid-2">
@@ -706,7 +707,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 9. Performance, security & scalability */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Foundations</p>
+          <Pill icon="fa-solid fa-chart-line" center>Foundations</Pill>
           <h2>Performance, security &amp; scalability</h2>
           <p className="lead">
             Four non-negotiables. They are cheap to build in and expensive to add later, which is
@@ -730,7 +731,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 10. Why choose our eCommerce development company */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award" center>Why Us</Pill>
           <h2>Why choose our eCommerce development company</h2>
           <p className="lead">
             Eight things that separate an eCommerce build from a general web project, and what to
@@ -750,7 +751,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 11. Development projects */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-cubes-stacked" center>Proof</Pill>
           <h2>Development projects</h2>
           <p className="lead">
             Three builds: requirement, technology, what we built and the business outcome.
@@ -828,7 +829,7 @@ export default function EcommerceDevelopmentPage() {
       {/* 12. eCommerce development FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce development FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Eight questions that come up before most builds. More on{" "}

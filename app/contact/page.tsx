@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Pill } from "@/components/Pill";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 import ContactForm from "./ContactForm";
@@ -107,7 +108,7 @@ export default function ContactPage() {
       {/* 2. Contact Information */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Contact Information</p>
+          <Pill icon="fa-solid fa-comment" center>Contact Information</Pill>
           <h2>Talk to a human, quickly</h2>
           <p className="lead">
             No gatekeeping, no qualification quiz before you are allowed to speak to someone
@@ -161,7 +162,7 @@ export default function ContactPage() {
       {/* 3. What Happens Next */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What Happens Next</p>
+          <Pill icon="fa-regular fa-clock" center>What Happens Next</Pill>
           <h2>From enquiry to answers in about a week</h2>
           <p className="lead">
             No mystery, no chasing. Here is exactly what follows after you hit submit.
@@ -183,7 +184,7 @@ export default function ContactPage() {
       {/* 4. Alternative Ways to Connect */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Alternative Ways to Connect</p>
+          <Pill icon="fa-solid fa-headphones" center>Alternative Ways to Connect</Pill>
           <h2>Forms are not for everyone</h2>
           <p className="lead">
             Pick whichever is least annoying. They all reach the same team.
@@ -250,7 +251,7 @@ export default function ContactPage() {
       {/* 5. Find Us */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Find Us</p>
+          <Pill icon="fa-solid fa-location-dot" center>Find Us</Pill>
           <h2>Head office in Austin, Texas</h2>
           <p>
             Visits are by appointment — most of our work happens remotely, so let us know
@@ -278,7 +279,7 @@ export default function ContactPage() {
       {/* 6. Contact FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Contact FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>Contact FAQs</Pill>
           <h2>Before you get in touch</h2>
           <FaqAccordion faqs={faqs} />
         </div>

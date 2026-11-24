@@ -20,7 +20,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 ## Main content — in order
 
 ### 1. Hero
-- Breadcrumb (above H1, not rendered as a visible breadcrumb in the Batch 1 clone pattern): `Conversion Rate Optimization`
+- Breadcrumb (above H1): `Conversion Rate Optimization` — rendered on the live page as visible text (icon-list item with a trend-up icon) directly above the H1. The clone renders it as the hero eyebrow, matching the other Batch 2 service pages.
+- CORRECTION 2026-11-23: an earlier note on this line claimed the label was "not rendered as a visible breadcrumb in the Batch 1 clone pattern". That was wrong — the label IS visible live text above the H1, and the other Batch 2 service pages all render their equivalent labels as eyebrows. Restored in the clone 2026-11-23.
 - H1: `Get More Revenue From the Traffic You Already Pay For`
 - Copy: `Structured eCommerce CRO across product pages, category pages, cart and checkout. Research first, prioritised testing second, and a documented hypothesis behind every change we ship.`
 - Hero checklist (3):
@@ -159,8 +160,9 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - Label: `RESULT` — `+61%` `Mobile revenue` / `+44%` `Checkout completion` / `+28%` `Revenue per visitor`
   - CTA: `Read case study` → /case-studies/
   - Image: home-retention-1024x640.jpg (800×500), alt: `A living room arranged around a large green sofa`
-- Disclaimer below the cases: `Conversion outcomes vary considerably by category, price point and starting position. A store already converting at 4% has less headroom than one at 1.2%, and we will say so on the call.`
 - CTAs: `See all case studies` → /case-studies/ ; `Browse the portfolio` → /portfolio/
+- Disclaimer below the CTAs: `Conversion outcomes vary considerably by category, price point and starting position. A store already converting at 4% has less headroom than one at 1.2%, and we will say so on the call.`
+- CORRECTION 2026-11-23: the live order in this section is cases → CTAs → disclaimer. An earlier version of this file listed the disclaimer before the CTAs, and the clone had them in that wrong order. Fixed in the clone 2026-11-23 (buttons moved above the disclaimer).
 
 ### 10. FAQs — CRO FAQs
 - Eyebrow/label: `FAQs`
@@ -182,9 +184,20 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Copy: `Get a free CRO audit. We will walk your funnel mobile-first, review your behaviour data and come back with the three highest-value fixes — whether or not you hire us.`
 - CTAs: `Get a free CRO audit` → /ecommerce-audit/ ; `See pricing and packages` → /pricing/
 
+## Fidelity audit corrections — 2026-11-23 (fresh live fetch, word-level diff vs rendered clone)
+- Hero label restored (see §1): live renders `Conversion Rate Optimization` as visible text above the H1; the clone now renders it as the hero eyebrow.
+- Proof section order fixed (see §9): live order is cases → CTAs → disclaimer; the clone had disclaimer → CTAs.
+- No other differences found on this page: copy, links (19/19), images (4/4, alts verbatim) and section order otherwise match live. No fixed/sticky side nav exists on the live page — the only sticky element in the live DOM is the shared site header `#dz-header` (sticky top, all devices); the clone has no side nav, which is correct. The live FAQPage JSON-LD script sits inside `<main>` on the live page, so a naive word count shows the FAQ answers twice on live; that is not visible content and the clone does not duplicate it.
+
 ## Other live-page elements (not main content)
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No pricing table on this page (pricing is only mentioned in FAQ 5: $3,000–$8,000/month).
 - No stats/numbers section beyond the hero stat row and the case-study result figures.
 - No testimonials section on this page.
 - Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3), /ecommerce-ppc/, /ecommerce-seo/, /ecommerce-management/ (×2), /ecommerce-web-design/, /kitchenary-home-kitchen-shopify-usa/, /case-studies/ (×4), /portfolio/, /faqs/, /resources/statistics/ecommerce-conversion-rate/, /guides/ecommerce-cro/.
 - Live images (all in wp-content, NOT copied — clone uses newly created matching images): conversion-rate-optimization-hero.jpg (1600×1100), cases-Kitchenary.webp (800×533), fashion-retention-1024x682.jpg (800×533), home-retention-1024x640.jpg (800×500). Note the two retention images and the Kitchenary image are reused from other live pages (retention / case-study imagery); the clone creates fresh matching images with the `conversion-rate-optimization-` prefix instead of reusing Batch 1 files, since the subjects differ from the Batch 1 images of the same names.
+
+## Pill fix pass — 2026-11-23 (fresh live fetch; section pills verified as Elementor icon-list widgets)
+- All 10 section pills now render via the shared `<Pill>` component (icon + rounded pale-blue chip; `center` where the live widget carries `elementor-align-center`). Icons read directly from the live HTML (`fas fa-*` → `fa-solid fa-*`); hero pill is left-aligned on live, all section pills centered.
+  - Hero `Conversion Rate Optimization` — `fa-solid fa-arrow-trend-up`, left.
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, center. `What We Do` — `fa-solid fa-layer-group`, center (live uses an inline SVG with class `e-fas-layer-group`, i.e. the FA layer-group icon). `Research` — `fa-solid fa-magnifying-glass`, center. `The Process` — `fa-solid fa-diagram-project`, center. `The Journey` — `fa-solid fa-globe`, center. `By Goal` — `fa-solid fa-bullseye`, center. `Why Us` — `fa-solid fa-award`, center. `Proof` — `fa-solid fa-chart-line`, center. `FAQs` — `fa-solid fa-circle-question`, center.
+- CORRECTION 2026-11-23: the Proof case-card sub-labels (`CLIENT` / `CHALLENGE` / `CRO STRATEGY` / `RESULT`) are `<h6>` headings on live, NOT icon-list pills — the clone now renders them as `<h6>` (live uppercase text) instead of eyebrow pills. No side nav on live or in the clone. Centering/icon readings are fetch-inferred from live HTML, not render-proven.

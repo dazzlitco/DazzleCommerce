@@ -2,6 +2,8 @@
 Fetched fresh 2026-11-23 via curl (402,335 bytes, HTTP 200). Source: WordPress / Hello Elementor / Elementor Pro. Font: Plus Jakarta Sans. Brand blue in inline CSS: #0B5BF4 / #0340FB, dark navy #091325, light blue #EFF4FD / #E6EBF3.
 Copy below is word-for-word from the live HTML. Nothing invented. Where the live copy has a typo or quirk, it is kept and noted.
 
+> **Correction note — 2026-11-23 (fresh re-fetch):** the original extraction wrongly claimed there was no hero image and no section images on this page, and that the clone's three "Other routes" photos were the only live images. That was wrong: the live page has 7 images in the main content (hero + one each in sections 3, 4 and 6 + the three "Other routes" cards). The lines below have been corrected accordingly; the wrong claims are struck through, not deleted, so the mistake stays visible.
+
 ## Meta
 - Title: `Request a Proposal | Dazzle Commerce`
 - Description: `Ask for a scoped eCommerce proposal: what it contains, what we need from you, how long it takes, and when requesting one is premature.`
@@ -38,8 +40,9 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
   - `COST` — `Free`
   - `OBLIGATION` — `None`
 - CTAs: `Go to the request form` → #rp-form ; `Book a call instead` → /book-a-strategy-call/
-- Closing line under CTAs: `Every proposal is written against your numbers, not assembled from a template with your logo dropped on it.`
-- No hero image in the main content (the og:image above is the page's social image only).
+- Hero image below the CTAs (large, full-width): alt `Two business buyers discussing documents over coffee` (live file `b2b-lead-generation-1024x576.jpg`; the same file is the og:image above).
+- Closing line under the hero image: `Every proposal is written against your numbers, not assembled from a template with your logo dropped on it.`
+- ~~No hero image in the main content (the og:image above is the page's social image only).~~ — wrong, corrected 2026-11-23: the hero image is rendered in the main content, below the CTAs.
 
 ### 2. What arrives (`#rp-what`)
 - Eyebrow: `What arrives`
@@ -82,13 +85,15 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
   - `No logo wall, no methodology diagram, no filler case studies`
   - `Every number in it traceable to something you sent us`
   - `Written to be forwarded internally without a covering explanation`
-- No image in this section on the live page.
+- Image after the checklist, end of section: alt `Reviewing compliance documents with a pen and notepad` (live file `eu-regulatory-1024x684.jpg`).
+- ~~No image in this section on the live page.~~ — wrong, corrected 2026-11-23.
 
 ### 4. From your side (`#rp-need`)
 - Eyebrow: `From your side`
 - H2: `What we need to write it`
 - Copy: `The form below asks for most of this. The more of it you can give, the more specific the proposal — and the less of it reads as assumption.`
 - Copy: `None of this is a prerequisite. We will write a proposal from the store URL alone if that is all you want to share, it will simply carry more caveats and a wider price range.`
+- Image after the first paragraph, before the "None of this is a prerequisite" paragraph: alt `Compliance manager holding a folder of market documentation` (live file `apac-regulation-1024x682.jpg`).
 - Six items (verbatim):
   - `Your store URL, and any marketplace storefronts`
   - `Roughly what you turn over online each month`
@@ -96,7 +101,7 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
   - `What you are spending on marketing now, and where`
   - `What you have already tried that did not work`
   - `Whether there is a deadline or event driving this`
-- Closing line: `We do not ask for analytics access to write a proposal. That comes later, and only if you decide to go ahead or to take the free audit .` (note the space before the final full stop — live quirk, kept verbatim)
+- Closing line: `We do not ask for analytics access to write a proposal. That comes later, and only if you decide to go ahead or to take the free audit .` (note the space before the final full stop — live quirk, kept verbatim) — inline link: `free audit` → /ecommerce-audit/
 
 ### 5. The timeline (`#rp-timeline`)
 - Eyebrow: `The timeline`
@@ -113,17 +118,17 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
 - Eyebrow: `On price`
 - H2: `Why the number is in the proposal and not on the call`
 - Copy: `We publish packages. What we cannot publish is which one your catalogue actually needs.`
-- Copy: `Our pricing page carries three packages and what drives the cost of each. For most brands one of those is the answer and the proposal simply confirms which. For the rest — multi-marketplace sellers, large catalogues, brands mid-replatform — the honest number sits outside a package, and quoting one on a first call would be a guess dressed as an answer.`
-- Copy: `Either way the proposal states a figure rather than a range, along with what would move it. If the figure is higher than the band you gave us, it says so on page one instead of at the end.`
+- Copy: `Our pricing page carries three packages and what drives the cost of each. For most brands one of those is the answer and the proposal simply confirms which. For the rest — multi-marketplace sellers, large catalogues, brands mid-replatform — the honest number sits outside a package, and quoting one on a first call would be a guess dressed as an answer.` — inline link: `pricing page` → /pricing/
 - CTA: `See published pricing` → /pricing/
-
+- Image after the CTA, end of section: alt `Local banknote held beside pricing documents` (live file `latam-currency-1024x683.jpg`).
+- Copy: `Either way the proposal states a figure rather than a range, along with what would move it. If the figure is higher than the band you gave us, it says so on page one instead of at the end.`
 ### 7. Before you ask (`#rp-premature`)
 - Eyebrow: `Before you ask`
 - H2: `Five times a proposal is the wrong request`
 - Intro: `We would rather tell you this here than write you a document that cannot be acted on.`
 - Five cards (title — body, verbatim):
   1. `You are collecting three quotes to compare` — `Proposals from different agencies are not comparable — the scopes differ, so the prices measure different things. Compare the reasoning on page one instead, or ask all three what they would not do.`
-  2. `You do not know what is wrong yet` — `If the brief is “grow revenue”, a proposal has to guess at the constraint. The growth assessment takes forty minutes and costs nothing, and makes the proposal far more specific.`
+  2. `You do not know what is wrong yet` — `If the brief is “grow revenue”, a proposal has to guess at the constraint. The growth assessment takes forty minutes and costs nothing, and makes the proposal far more specific.` — inline link: `growth assessment` → /ecommerce-growth-assessment/
   3. `The decision-maker is not involved` — `A proposal that cannot reach the person who signs is a document that gets forwarded, skimmed and forgotten. Bring them to a call first.`
   4. `The budget is not agreed internally` — `We will quote the number the work costs. If no number has been agreed on your side, that quote lands as a shock rather than a decision.`
   5. `You need a document to satisfy procurement` — `Tell us that in the form. It is a legitimate reason and it changes what we write — but a proposal written for procurement is a different document to one written to make a decision.`
@@ -173,7 +178,7 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
 - Eyebrow: `Afterwards`
 - H2: `What happens once you send it`
 - Intro: `Four steps, and a firm limit on how often we contact you.`
-- Four cards (number — label — title — body — link, verbatim):
+- Four cards (number — label — title — body — link, verbatim). The step titles are themselves links, to the same targets as the links below them: `You get a reply from a person` → #rp-form, `The proposal arrives` → /pricing/, `A walkthrough, if you want one` → /book-a-strategy-call/, `One follow-up, then silence` → /contact/.
   1. `01` — `DAY ZERO` — `You get a reply from a person` — `Not an autoresponder sequence. A strategist confirms receipt, and asks one follow-up question only if something material is missing.` — `Back to the form →` → #rp-form
   2. `02` — `DAY FIVE` — `The proposal arrives` — `A document you keep, with the price stated rather than ranged. Read it against our published packages if you want the comparison.` — `See published pricing →` → /pricing/
   3. `03` — `YOUR CALL` — `A walkthrough, if you want one` — `Forty-five minutes with the strategist who wrote it, to argue with the reasoning rather than to be sold the scope.` — `Book the call →` → /book-a-strategy-call/
@@ -186,12 +191,12 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
 - 8 Q&As (verbatim):
   1. Q: `Is the proposal really free?` — A: `Yes, and there is no obligation attached to it. It takes a strategist the better part of two days to write, which is why we ask for enough detail to make it worth doing — but nothing is invoiced and nothing is owed if you decide against us.`
   2. Q: `How long does it take?` — A: `Five working days from the form to the document. If you need it sooner, say so in the form and we will tell you honestly whether a faster version would still be worth reading.`
-  3. Q: `Do I need to give you analytics access?` — A: `No. A proposal is written from what is publicly visible plus what you tell us. Access only comes up later, if you go ahead or if you take the free audit .` (space before the final full stop is a live quirk, kept verbatim)
+  3. Q: `Do I need to give you analytics access?` — A: `No. A proposal is written from what is publicly visible plus what you tell us. Access only comes up later, if you go ahead or if you take the free audit .` (space before the final full stop is a live quirk, kept verbatim) — inline link: `free audit` → /ecommerce-audit/
   4. Q: `Will the price be a range or a number?` — A: `A number, with a note on what would move it. Ranges exist to protect the agency from being wrong, and a proposal that will not commit to a figure has not done the thinking.`
   5. Q: `What if my budget is lower than your quote?` — A: `Tell us the budget in the form. If the work cannot be done properly at that level we will say so and suggest what could be done instead, including doing it in-house. We would rather lose the engagement than scope something that fails.`
   6. Q: `Can I get a proposal for one service only?` — A: `Yes. Tick the single service in the form. Be aware that for a single channel a specialist agency will usually beat us on both price and depth, and the proposal will say so if that is the case for you.`
   7. Q: `Do you sign NDAs before a proposal?` — A: `We do not need one to write a proposal, because we do not need confidential material to write it. If your procurement process requires one, note it in the form and we will handle it before anything is exchanged.`
-  8. Q: `What if I would rather just talk first?` — A: `Then do that. A thirty-minute strategy call costs you less time than this form and often makes the proposal unnecessary, or much more specific if you still want one.`
+  8. Q: `What if I would rather just talk first?` — A: `Then do that. A thirty-minute strategy call costs you less time than this form and often makes the proposal unnecessary, or much more specific if you still want one.` — inline link: `thirty-minute strategy call` → /book-a-strategy-call/
 
 ### 12. Other routes in (`#rp-more`)
 - Eyebrow: `Other routes in`
@@ -202,6 +207,7 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
   2. `FIVE DAYS` — `Take the free audit` — `A ranked constraint list, a twelve-point scorecard and a ninety-day sequence. Yours to keep either way.` — → /ecommerce-audit/ — live image alt: `Senior strategists reviewing eCommerce performance charts during an audit session`
   3. `FORTY MINUTES` — `Run the assessment yourself` — `The same twelve points, published in full with every threshold, so you can find your constraint without us.` — → /ecommerce-growth-assessment/ — live image alt: `Comparing a printed report against a laptop`
 - Quirk: the intro says “the most committed of the four” while only three lighter options are listed — kept verbatim.
+- Button after the card grid: `All guides` → /guides/
 
 ### 13. Final CTA (pre-footer)
 - H2: `Not sure a proposal is the right next step?`
@@ -231,5 +237,5 @@ Live section anchors (Elementor container ids): `rp-hero`, `rp-what`, `rp-anatom
 - “A proposal is the most committed of the four” (Other routes intro) though only three lighter options follow — kept verbatim.
 - Space before the final full stop in “take the free audit .” appears twice (sections 4 and 11) — live quirk, kept verbatim.
 - The live page has no author/byline block and no “Time to read” body text beyond the Twitter meta label.
-- Live images in the main content: none in sections 1–11; the three “Other routes” cards each carry a photo (alts listed in section 12) and the og:image is a separate social image. The clone likewise has no hero or section image on this page; its three “Other routes” cards carry newly created matching photographs. Images are not copies of live assets and nothing hotlinks to dazzlecommerce.com/wp-content. (A hero image and a section-3 image added in the first build were removed in the 2026-11-23 fidelity pass, and their files were deleted from public/images/ as unused; the og:image is a social image only and is not rendered on the page.)
+- ~~Live images in the main content: none in sections 1–11; the three “Other routes” cards each carry a photo (alts listed in section 12) and the og:image is a separate social image. The clone likewise has no hero or section image on this page; its three “Other routes” cards carry newly created matching photographs. Images are not copies of live assets and nothing hotlinks to dazzlecommerce.com/wp-content. (A hero image and a section-3 image added in the first build were removed in the 2026-11-23 fidelity pass, and their files were deleted from public/images/ as unused; the og:image is a social image only and is not rendered on the page.)~~ — wrong, corrected 2026-11-23: the live page has 7 images in the main content — hero `Two business buyers discussing documents over coffee`, section 3 `Reviewing compliance documents with a pen and notepad`, section 4 `Compliance manager holding a folder of market documentation`, section 6 `Local banknote held beside pricing documents`, plus the three "Other routes" card photos (alts in section 12). The clone now carries all 7 as newly created matching photographs. Images are not copies of live assets and nothing hotlinks to dazzlecommerce.com/wp-content.
 - The live form is an Elementor form (post_id 2034, form_id 8b334f1) with a hidden honeypot field; the clone reproduces the visible fields and adds client-side validation, localStorage persistence and a confirmation state, following the contact page’s working-form pattern.

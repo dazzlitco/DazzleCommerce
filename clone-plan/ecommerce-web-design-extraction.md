@@ -107,21 +107,23 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow/label: `Deliverables`
 - H2: `What you get as an eCommerce UX agency engagement`
 - Intro: `Twelve deliverables. Everything here is handed over in a form your team can use without us — editable files, documented components and written rationale. An eCommerce UX agency that gives you a PDF of screenshots has handed over a document, not a system.`
-- 12 deliverable cards — each is one image plus an H4 title, with no body copy on the live page:
-  1. `UX research findings` — image `A flat screen monitor in a design workspace` (dzph-syo5eazbrls-1024x683.jpg, 800×534)
-  2. `Funnel analysis per device` — image `A white desk with a keyboard, mouse and other devices` (electronics-retention-1024x731.jpg, 800×571)
-  3. `Information architecture map` — image `Desk at night with a laptop and lamp overlooking city lights` (portfolio-hero-1024x704.jpg, 800×550)
-  4. `Wireframes` — image `Wooden desk with a monitor and keyboard in a design workspace` (wix-agency-hero-1024x704.jpg, 800×550)
-  5. `Clickable prototype` — image `Two monitors on a wooden desk in a design studio` (squarespace-agency-hero-1024x704.jpg, 800×550)
-  6. `Category template design` — image `A laptop on a plain surface` (dzph-sg8nxmpwdm-1024x683.jpg, 800×534)
-  7. `Product template design` — image `A laptop open on a white desk` (dzph-ejhjszkteeg-1024x683.jpg, 800×534)
-  8. `Basket & checkout design` — image `Laptop open on a wooden desk in a workspace` (woocommerce-agency-hero-1024x704.jpg, 800×550)
-  9. `Design system & components` — image `A laptop, mouse and phone laid out on a desk for comparison` (electronics-specification-1024x683.jpg, 800×534)
-  10. `Accessibility annotations` — image `A laptop being used at a desk` (dzph-ogowdvlbmsc-1024x683.jpg, 800×534)
-  11. `Landing page kit` — image `A flat screen monitor on a wooden desk` (electronics-insight-seo-1024x576.jpg, 800×450)
-  12. `Developer handover pack` — image `A person working on a laptop computer` (dzph-af5oi0kobye-1024x683.jpg, 800×534)
+- 12 deliverable cards — each is an H4 title, and eleven of them carry one image; the twelfth (`Developer handover pack`) has NO image on the live page. A standalone section image sits between the intro paragraph and the card grid. (Correction 2026-11-23: an earlier version of this file attached the section image to `UX research findings` and gave every deliverable an image, shifting every mapping by one. That mapping was wrong and is superseded by the list below, verified against the live DOM image order. The clone is now fixed to match.)
+  - Section image (after the intro, before the grid): `A flat screen monitor in a design workspace` (dzph-syo5eazbrls-1024x683.jpg, 800×534)
+  1. `UX research findings` — image `A white desk with a keyboard, mouse and other devices` (electronics-retention-1024x731.jpg, 800×571)
+  2. `Funnel analysis per device` — image `Desk at night with a laptop and lamp overlooking city lights` (portfolio-hero-1024x704.jpg, 800×550)
+  3. `Information architecture map` — image `Wooden desk with a monitor and keyboard in a design workspace` (wix-agency-hero-1024x704.jpg, 800×550)
+  4. `Wireframes` — image `Two monitors on a wooden desk in a design studio` (squarespace-agency-hero-1024x704.jpg, 800×550)
+  5. `Clickable prototype` — image `A laptop on a plain surface` (dzph-sg8nxmpwdm-1024x683.jpg, 800×534)
+  6. `Category template design` — image `A laptop open on a white desk` (dzph-ejhjszkteeg-1024x683.jpg, 800×534)
+  7. `Product template design` — image `Laptop open on a wooden desk in a workspace` (woocommerce-agency-hero-1024x704.jpg, 800×550)
+  8. `Basket & checkout design` — image `A laptop, mouse and phone laid out on a desk for comparison` (electronics-specification-1024x683.jpg, 800×534)
+  9. `Design system & components` — image `A laptop being used at a desk` (dzph-ogowdvlbmsc-1024x683.jpg, 800×534)
+  10. `Accessibility annotations` — image `A flat screen monitor on a wooden desk` (electronics-insight-seo-1024x576.jpg, 800×450)
+  11. `Landing page kit` — image `A person working on a laptop computer` (dzph-af5oi0kobye-1024x683.jpg, 800×534)
+  12. `Developer handover pack` — NO image on the live page (title only)
 - Closing note: `Not every engagement needs all twelve. A template programme on an existing store is usually five or six of these; a replatform design is most of them.`
-- Quirk: several of these images are the same files the live site reuses on other pages (e.g. portfolio-hero, wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-retention / specification / insight-seo). The clone creates fresh matching images with the `ecommerce-web-design-` prefix for each deliverable instead of reusing the Batch 1 files — except deliverable 3 (Information architecture map), which since the 2026-11-23 fidelity fix uses the clone's existing `portfolio-hero.webp` (the live file, same alt text). The other live reused files (wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-*) do not exist in the clone's public/images/, so those 11 deliverables keep their created images; count (12) and placement match live.
+- Quirk: several of these images are the same files the live site reuses on other pages (e.g. portfolio-hero, wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-retention / specification / insight-seo). The clone creates fresh matching images with the `ecommerce-web-design-` prefix for each deliverable instead of reusing the Batch 1 files — except deliverable 2 (Funnel analysis per device), which since the 2026-11-23 fidelity fix uses the clone's existing `portfolio-hero.webp` (the live file, same alt text). The other live reused files (wix-agency-hero, squarespace-agency-hero, woocommerce-agency-hero, electronics-*) do not exist in the clone's public/images/, so those deliverables keep their created images; count (13 total) and placement match live.
+- Correction 2026-11-23 (image shift): the clone's deliverable images were previously assigned one position too high (the section image's file/alt sat on `UX research findings`, and an invented image sat on `Developer handover pack`). The clone now reuses the same 12 created files shifted down one slot so each file's depicted subject and alt text match the live image for that deliverable, adds the standalone section image (the file formerly on `UX research findings`), and renders `Developer handover pack` with no image, as on live. No new image files were created and none were orphaned; the created filenames no longer name the deliverable they illustrate (e.g. `ecommerce-web-design-funnel-analysis.webp` now illustrates `UX research findings`) — the file contents and alt texts are what match live.
 
 ### 6. The Process
 - Eyebrow/label: `The Process`
@@ -215,4 +217,5 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 ## Other live-page elements (not main content)
 - No form inside the main content (0 `<form>`, 0 `<input>`, 0 `<button>` in `<main>`). The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No stats/numbers section on this page. No testimonials, no case-study cards, no pricing figures on this page.
 - Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3), /ecommerce-development/ (×2), /conversion-rate-optimization/, /ecommerce-creative-content/, /portfolio/, /case-studies/, /faqs/.
-- Total content images on the live page: 13 (1 hero + 12 deliverable images). No other images in `<main>`.
+- Total content images on the live page: 13 (1 hero + 1 section image + 11 deliverable images). No other images in `<main>`.
+- Correction 2026-11-23: the live page has NO fixed/sticky side navigation — no aside/nav/sticky element in the live main content. The section labels (`The Problem`, `What We Do`, etc.) are plain eyebrow text, not nav links. Do not add a side nav.

@@ -111,3 +111,4 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Spelling is British throughout ("honour", "recognises", "organised" style) — kept verbatim.
 - `__cf_bm` (Cloudflare) is listed under "Strictly necessary" but marked third-party — kept as live.
 - The live page has no FAQ section and no JSON-LD FAQPage.
+- **Correction 2026-11-23 (fresh curl fetch):** the live categories render as H3 + intro paragraph + `<ul>` in sequence (category 4 has no intro — straight to the list), with no card or grid markup. The clone had rendered each category as a card in a 2-column grid; flattened to live's sequence the same day. This was fetch-inferred from raw HTML, not render-proven.

@@ -2,6 +2,8 @@
 Fetched fresh 2026-11-23 via curl (478,002 bytes, HTTP 200) and browser.open the same day. Source: WordPress / Hello Elementor / Elementor Pro.
 Copy below is word-for-word from the live HTML. Nothing invented. Where the live copy has a typo or quirk, it is kept and noted.
 
+> **Correction note — 2026-11-23 (fresh re-fetch):** the checklist index is a sticky sidebar on live (sticky on desktop only, top offset 110px), not a card grid above the sections; the twelve checks carry no "Point 01"–"Point 12" labels (only prose "point eleven/twelve" in the marketplace section intro); each check card has an empty blue-outlined square checkbox icon on the left and bolds its "Threshold: …" lead-in; section labels are two separate paragraphs ("SECTION 01" + "2 checks"); and the sources rows bold "Ours." in the five house-threshold rows. "THE CHECKLIST" is a plain label in the sidebar card, not a pill/eyebrow. The lines below have been corrected accordingly.
+
 ## Meta
 - Title: `eCommerce Growth Assessment: The 12-Point Framework`
 - Description: `Run our twelve-point eCommerce growth assessment yourself. Every check, every threshold, and how to turn a list of flags into the one constraint worth fixing.`
@@ -92,9 +94,9 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `Layer 3 · Conversion` — `Product page quality against a written standard, and the catalogue and feed health underneath it. There is little point auditing creative volume for a brand whose contribution margin after returns and carriage is four per cent — that constraint sits in layer one.`
   - `Layer 4 · Channels and retention` — `Ad account structure, creative supply, marketplace account health and lifecycle coverage. This is the layer most agencies start with, and the layer least likely to contain your actual constraint.`
 
-### 6. The checklist — index
-- Eyebrow: `THE CHECKLIST` (live text renders as `THE CHECKLIST`)
-- Six anchor links to the sections below:
+### 6. The checklist — index (sticky sidebar, left of the sections)
+- White rounded card, pinned on the left while the sections scroll (sticky on desktop only, top offset 110px). Plain heading `THE CHECKLIST` in blue caps — not a pill/eyebrow.
+- Six anchor links to the sections below (bold blue number, black label):
   - `01  Store & experience` → `#ga-store`
   - `02  eCommerce SEO` → `#ga-seo`
   - `03  Paid media` → `#ga-paid`
@@ -108,27 +110,27 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Intro: `Measured on the devices your traffic actually uses, on the templates it actually lands on. Testing the homepage on a desktop tells you almost nothing.`
 - Image alt: `Shopper browsing a collection grid on an online store using a laptop` (live file: shopseo-collections-1024x658.jpg)
 - Note: `Run both checks on your highest-traffic collection and product templates, not the homepage.`
-- Point 1 — H3: `Largest Contentful Paint is under 2.5 seconds on your highest-traffic template`
+- Check 1 (no "Point 01" label on live — the checks are numbered only in this extraction) — H3: `Largest Contentful Paint is under 2.5 seconds on your highest-traffic template`
   - `Threshold: 2.5s or under, on mobile. This is Google’s published “good” boundary for the metric, not our opinion. Measure field data over the last 28 days rather than a lab score, and measure the template that receives the most sessions — usually a collection or product page. A homepage that loads in 1.4 seconds and a product page that loads in 5 tells you nothing useful as an average.`
-- Point 2 — H3: `Mobile converts at no less than two thirds of the desktop rate`
+- Check 2 — H3: `Mobile converts at no less than two thirds of the desktop rate`
   - `Threshold: mobile conversion rate at 0.66× desktop or better, on comparable traffic. Some gap is normal and expected; a gap wider than a third usually means a specific broken step rather than general mobile behaviour. This is our own operating threshold rather than a published benchmark, set from the accounts we run. Below it, check the basket and the first checkout step on a real handset before anything else.`
 
 ### 8. SECTION 02 — eCommerce SEO (points 3–4)
 - Label: `SECTION 02`, `2 checks`
 - H2: `eCommerce SEO`
 - Intro: `Whether your category layer can capture the demand your catalogue is already able to serve. Both checks are about structure, not content volume.`
-- Point 3 — H3: `Seven in ten of your top fifty non-brand demand terms have a page built to rank for them`
+- Check 3 — H3: `Seven in ten of your top fifty non-brand demand terms have a page built to rank for them`
   - `Threshold: 70% coverage of your top fifty non-brand terms. Export your non-brand queries, group them into the fifty clusters that describe real buying demand, then check each one has a page whose main subject is that cluster. A product that happens to mention the phrase does not count. Most stores that fail this are organised around how their catalogue was built rather than how people shop it — the SEO checklist works through the fix.` (link: `SEO checklist` → `/resources/checklists/ecommerce-seo-checklist/`)
-- Point 4 — H3: `Indexed URL count is within 20% of the number of pages you intend to rank`
+- Check 4 — H3: `Indexed URL count is within 20% of the number of pages you intend to rank`
   - `Threshold: indexed pages no more than 1.2× intended pages. Compare Search Console’s indexed count against a list of the pages you actually want in search. A large gap almost always means crawlable filter and sort parameters have generated thousands of near-duplicates. This is our own threshold; the 20% allowance covers legitimate pagination.`
 
 ### 9. SECTION 03 — Paid media (points 5–6)
 - Label: `SECTION 03`, `2 checks`
 - H2: `Paid media`
 - Intro: `Two checks that between them decide whether spend is buying profit or buying revenue. They are the two most commonly failed points in this framework.`
-- Point 5 — H3: `Bids are set against margin, not one blended return target across the whole catalogue`
+- Check 5 — H3: `Bids are set against margin, not one blended return target across the whole catalogue`
   - `Threshold: binary — either campaigns are segmented by margin tier or they are not. One return-on-spend target across a catalogue with a three-to-one margin spread guarantees you overpay for low-margin products and underspend on high. If a single target covers a $40 accessory and a $900 item, this point is flagged regardless of how good the blended number looks.`
-- Point 6 — H3: `Feed disapprovals are under 2% and matching attributes are populated on 95% of active SKUs`
+- Check 6 — H3: `Feed disapprovals are under 2% and matching attributes are populated on 95% of active SKUs`
   - `Threshold: under 2% disapproved, 95%+ populated on GTIN, brand, condition and variant attributes. Read it from your Merchant Center diagnostics rather than your platform’s own report. Both numbers are our operating standard. Unpopulated attributes do not throw errors — they quietly remove you from the comparisons where the purchase decision happens.`
 
 ### 10. SECTION 04 — Conversion (points 7–8)
@@ -137,27 +139,27 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Intro: `Where the funnel loses people, and whether the losses are the ones worth engineering against. Both thresholds here come from published research rather than from us.`
 - Image alt: `Online checkout screen on a laptop against a plain background` (live file: chk-cro-hero-1024x684.jpg)
 - Note: `The final checkout step is where both of these checks are won or lost.`
-- Point 7 — H3: `Checkout abandonment is at or below 70.2%`
+- Check 7 — H3: `Checkout abandonment is at or below 70.2%`
   - `Threshold: 70.22%, the published average across 49 studies. Measure sessions that reach the first checkout step against completed orders — not basket additions, which produces a much worse number and a false alarm. The benchmark and its methodology are cited on our cart abandonment statistics page.` (link: `cart abandonment statistics` → `/resources/statistics/cart-abandonment/`) `Being at the average is a clear, not a triumph.`
-- Point 8 — H3: `Total cost including delivery is visible before the final checkout step`
+- Check 8 — H3: `Total cost including delivery is visible before the final checkout step`
   - `Threshold: binary — the full figure is shown early, or it is not. Unexpected extra cost at checkout is the most frequently stated reason people abandon, ahead of price itself. Showing it earlier feels like it should cost conversions and reliably does not: you lose the orders that were never going to complete and keep the ones that were. Verdano Foods is the worked example.` (link: `Verdano Foods` → `/testimonials/verdano-foods-review/`)
 
 ### 11. SECTION 05 — Email & retention (points 9–10)
 - Label: `SECTION 05`, `2 checks`
 - H2: `Email & retention`
 - Intro: `Coverage first, then honesty about what that coverage is really earning. The second check is failed by almost every store that runs it properly for the first time.`
-- Point 9 — H3: `At least four of the five core lifecycle flows are live and sending`
+- Check 9 — H3: `At least four of the five core lifecycle flows are live and sending`
   - `Threshold: 4 of 5 — welcome, browse abandonment, cart abandonment, post-purchase and win-back or replenishment. Live means sending to the segment it was built for, not built and paused. Our threshold, not an industry one. Which of the five matters most depends entirely on whether you sell consumables or considered purchases.`
-- Point 10 — H3: `Recovery revenue is measured against a holdout, not attributed by last click`
+- Check 10 — H3: `Recovery revenue is measured against a holdout, not attributed by last click`
   - `Threshold: binary — a holdout group exists, or this is flagged. Hold back 5 to 10% of each flow’s audience and compare. Without it, every order a customer would have placed anyway gets credited to the email that happened to arrive first, and the flow looks two or three times more valuable than it is. Expect the honest number to be materially lower, and expect that to be uncomfortable.`
 
 ### 12. SECTION 06 — Marketplace & reporting (points 11–12)
 - Label: `SECTION 06`, `2 checks`
 - H2: `Marketplace & reporting`
 - Intro: `Not every store sells on marketplaces. If you do not, mark point eleven not applicable and do not treat it as a clear. Point twelve applies to everybody.`
-- Point 11 — H3: `You control your own listings, and variations reflect real product differences`
+- Check 11 — H3: `You control your own listings, and variations reflect real product differences`
   - `Threshold: binary — brand registry or equivalent control, a written pricing policy covering resellers, and no unattended repricer. Merged variations are the check most sellers assume they pass. Open your three best-selling parent listings and confirm every child is genuinely the same product in a different size or colour. Vac & Vacuums failed this for three years without knowing.` (link: `Vac & Vacuums` → `/testimonials/vac-vacuums-review/`)
-- Point 12 — H3: `One report shows contribution margin per order, including carriage, returns and fees`
+- Check 12 — H3: `One report shows contribution margin per order, including carriage, returns and fees`
   - `Threshold: binary — the view exists and somebody reads it monthly. Per order, not per channel. Carriage, packaging, returns, marketplace fees and marketing cost in one place. Stores that fail this point usually discover that their best campaigns on revenue are their worst on margin, which is what Kitchenary found. If you fail only one point in this framework, hope it is not this one.` (link: `Kitchenary` → `/testimonials/kitchenary-review/`)
 
 ### 13. Where the numbers come from — Four thresholds are published research. The rest are ours.
@@ -329,5 +331,5 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Point 3's link text in the crawler reads "SEO checklist"; in the raw HTML it is the same anchor.
 - The page uses the British spelling `optimising` (layer 1) and `organised` (point 3) alongside American copy elsewhere.
 - Two different phone numbers and two different hours ranges appear on the live page (see Footer section above).
-- "THE CHECKLIST" eyebrow is uppercase in the live render.
+- "THE CHECKLIST" is a plain label in the sticky sidebar card, uppercase in the live render — it is not a pill/eyebrow.
 - The live page's "Product Variants" block lists platform options (Shopify / Shopify Plus … Not selling online yet) — a WooCommerce-style product block on a content page.

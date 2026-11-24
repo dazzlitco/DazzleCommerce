@@ -155,3 +155,6 @@ Operations → eCommerce Account Manager.
 - `/careers/ppc-specialist/`
 - `/careers/ecommerce-account-manager/`
 - `/privacy-policy/` (form consent)
+
+## Correction 2026-11-23
+- The extraction already recorded live correctly (line 134: CV upload max 5 MB, live error message "This file exceeds the maximum allowed size."). The clone had drifted: it showed an invented "Maximum file size 5 MB." helper text under the CV field and an error message with "(5 MB)" appended. Both were fixed 2026-11-23 — the helper text was removed and the error message now matches live verbatim. The 5 MB limit itself is unchanged.

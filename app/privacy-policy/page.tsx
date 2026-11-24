@@ -278,7 +278,10 @@ export default function PrivacyPolicyPage() {
             Post: Dazzle Commerce, 1201 Commerce Street, Suite 480, Austin, TX 78701,
             United States
           </p>
-          <p>Phone: +1 (555) 010-2400</p>
+          <p>
+            Phone:{" "}
+            <a href="tel:+15550102400">+1 (555) 010-2400</a>
+          </p>
         </div>
       </section>
 
@@ -288,12 +291,7 @@ export default function PrivacyPolicyPage() {
           <h2>Questions about how we handle your data?</h2>
           <p className="lead" style={{ color: "#c6d2e4" }}>
             Our privacy team answers within one business day. Email{" "}
-            <a
-              href="mailto:privacy@dazzlecommerce.com"
-              style={{ color: "#fff", textDecoration: "underline" }}
-            >
-              privacy@dazzlecommerce.com
-            </a>{" "}
+            privacy@dazzlecommerce.com{" "}
             or use the contact form — no ticket queue, no chatbot.
           </p>
           <div className="btn-row">

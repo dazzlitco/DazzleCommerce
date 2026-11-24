@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Marketing Agency Services | Dazzle Commerce",
@@ -294,7 +295,7 @@ const cases = [
     metrics: [
       { value: "+214%", label: "Revenue growth" },
       { value: "7.9x", label: "Blended ROAS" },
-      { value: "-31%", label: "Average CAC reduction" },
+      { value: "-31%", label: "CAC reduction" },
     ],
   },
   {
@@ -339,7 +340,7 @@ export default function EcommerceMarketingPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">eCommerce Marketing</p>
+              <Pill icon="fa-solid fa-globe">eCommerce Marketing</Pill>
               <h1>eCommerce Marketing Built Around Revenue, Not Channel Reports</h1>
               <p className="lead">
                 Search, paid media, shopping, social, email and conversion run as one plan
@@ -385,7 +386,7 @@ export default function EcommerceMarketingPage() {
       {/* 2. The Problem */}
       <section className="section" id="problem">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The eCommerce marketing challenge</h2>
           <p className="lead">
             Most stores do not have a channel problem. They have a system problem — six
@@ -406,7 +407,7 @@ export default function EcommerceMarketingPage() {
       {/* 3. Our eCommerce marketing services */}
       <section className="section section-soft" id="services">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce marketing services</h2>
           <p className="lead">
             Eight disciplines, one plan. Four of them have dedicated pages if you already
@@ -435,7 +436,7 @@ export default function EcommerceMarketingPage() {
       {/* 4. Process */}
       <section className="section" id="process">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our eCommerce digital marketing agency strategy</h2>
           <p className="lead">
             Research → Strategy → Launch → Measure → Optimize → Scale. The last three
@@ -462,7 +463,7 @@ export default function EcommerceMarketingPage() {
       {/* 5. Channels */}
       <section className="section section-soft" id="channels">
         <div className="container">
-          <p className="eyebrow">Channels</p>
+          <Pill icon="fa-solid fa-compass" center>Channels</Pill>
           <h2>Channels we manage as your eCommerce advertising agency</h2>
           <p className="lead">
             Four groups, planned together. Which ones you actually need depends on category,
@@ -486,7 +487,7 @@ export default function EcommerceMarketingPage() {
       {/* 6. By Goal */}
       <section className="section" id="by-goal">
         <div className="container">
-          <p className="eyebrow">By Goal</p>
+          <Pill icon="fa-solid fa-bullseye" center>By Goal</Pill>
           <h2>eCommerce marketing by business goal</h2>
           <p className="lead">
             Tell us the outcome you are actually being measured on and we will tell you
@@ -507,7 +508,7 @@ export default function EcommerceMarketingPage() {
       {/* 7. Why Us */}
       <section className="section section-soft" id="why-us">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce marketing agency</h2>
           <p className="lead">
             Eight things clients tell us actually mattered once budget was moving, and the
@@ -528,7 +529,7 @@ export default function EcommerceMarketingPage() {
       {/* 8. Marketing results */}
       <section className="section" id="results">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>Marketing results</h2>
           <p className="lead">
             Three engagements, each measured against the twelve months before we started.
@@ -582,7 +583,7 @@ export default function EcommerceMarketingPage() {
       {/* 9. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce marketing FAQs</h2>
           <p className="lead">
             Eight questions that come up before most engagements. More on{" "}

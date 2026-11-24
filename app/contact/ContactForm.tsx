@@ -104,8 +104,8 @@ export default function ContactForm() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
       next.email = "That email address does not look right — please check it.";
     }
-    if (form.phone.trim() && !/^[0-9()#&+*\-.=\s]+$/.test(form.phone.trim())) {
-      next.phone = "Only numbers and phone characters (#, -, +, spaces) please.";
+    if (form.phone.trim() && !/^[0-9()#&+*\-.=]+$/.test(form.phone.trim())) {
+      next.phone = "Only numbers and phone characters (#, -, *, etc) are accepted.";
     }
     if (!form.website.trim()) {
       next.website = "Please enter your store website.";
@@ -117,6 +117,9 @@ export default function ContactForm() {
       } catch {
         next.website = "That website address does not look right — please check it.";
       }
+    }
+    if (!form.message.trim()) {
+      next.message = "Please tell us the main thing you want to fix.";
     }
     if (!form.consent) next.consent = "Please agree to the Privacy Policy to continue.";
     setErrors(next);
@@ -243,6 +246,8 @@ export default function ContactForm() {
           type="tel"
           autoComplete="tel"
           placeholder="+1 (555) 000-0000"
+          pattern="[0-9()#&+*-=.]+"
+          title="Only numbers and phone characters (#, -, *, etc) are accepted."
           value={form.phone}
           onChange={(e) => set("phone", e.target.value)}
           aria-invalid={Boolean(errors.phone)}
@@ -362,7 +367,7 @@ export default function ContactForm() {
 
       <div className="form-field">
         <label htmlFor="contact-message">
-          What is the main thing you want to fix?
+          What is the main thing you want to fix? <span className="required">*</span>
         </label>
         <textarea
           id="contact-message"
@@ -371,11 +376,22 @@ export default function ContactForm() {
           placeholder="e.g. Our Amazon sales dropped 30% after a listing suppression and we have not recovered. Shopify is flat and paid social CAC is up 40% year on year."
           value={form.message}
           onChange={(e) => set("message", e.target.value)}
+          aria-invalid={Boolean(errors.message)}
           style={{ resize: "vertical", width: "100%" }}
         />
+        {errors.message && (
+          <p className="form-msg form-msg-dark err" role="alert">
+            {errors.message}
+          </p>
+        )}
       </div>
 
       <div className="form-field">
+        <span
+          style={{ display: "block", fontWeight: 700, marginBottom: "6px", fontSize: "0.95rem" }}
+        >
+          Consent
+        </span>
         <label className="form-check" style={{ fontWeight: 400 }}>
           <input
             type="checkbox"

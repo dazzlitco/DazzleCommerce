@@ -1,7 +1,13 @@
 # About Us — full extraction
 
+> Correction note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): the Final CTA section below omitted a live body paragraph. The live Final CTA reads H2 "Let's grow together" followed by the paragraph "Start with a free 30-minute strategy call. You will meet the senior strategist who would actually run your account — not a salesperson — and leave with three specific things to fix.", then the two buttons and the three checks. That paragraph was missing from both this extraction and the clone; it has been restored to the clone in this audit. Everything else in this extraction was verified against the fresh live fetch with no further differences found.
+
 Source: https://dazzlecommerce.com/about-us/ — re-fetched fresh 2026-11-23, 452,171 bytes
 Title: About Dazzle Commerce | eCommerce Management Experts
+
+> Pill fix — 2026-11-23 (live page re-fetched fresh the same day): every section pill on live is an Elementor icon-list item with a leading icon inside a rounded pale-blue chip, and every pill widget carries `elementor-align-center` — all 9 clone pills now use the shared Pill component, centered. Live pill icons are custom inline SVGs (no Font Awesome class on this page), so the clone uses the closest Font Awesome equivalents, verified visually from the rendered SVG shapes: Our Story book → fa-solid fa-book; Our Core Values medal → fa-solid fa-award; Our Approach gear → fa-solid fa-gear; Why Businesses Choose Us thumbs-up → fa-regular fa-thumbs-up; Our Expertise layers → fa-solid fa-layer-group; Meet The Team two people → fa-solid fa-user-group; Certifications & Partnerships medal → fa-solid fa-award; Journey Milestones trend arrow → fa-solid fa-arrow-trend-up; FAQs About the Agency speech bubble with "?" → fa-solid fa-circle-question (no free FA bubble-with-question icon exists; closest available). Centering and icon choice are fetch-inferred, not render-proven.
+> "Our Approach" DOM order corrected: live order is pill → H2 → intro → 4 principles → image; the clone's split layout had the image before the pill. Fixed by swapping the split columns (text first, image second). Rendered visual impact unverified.
+> Partner badges: live uses real badge graphics. Created badge images are now used in the clone for Shopify Partners (public/images/badge-shopify-partners.webp) and Meta Business Partner (public/images/badge-meta-business-partner.webp). Google Partner, Amazon Ads Partner Network, LinkedIn Marketing Partner and Microsoft Advertising Partner badge images were not on disk, so those four keep the text cards. This supersedes the earlier note that badge graphics were not attempted.
 Description: Meet Dazzle Commerce, an eCommerce growth agency since 2017. 38 specialists, 320+ stores managed, $180M+ client revenue influenced. Our story and team.
 Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: about-story-image.webp (900x601)
 
@@ -190,6 +196,7 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - H3: Can we speak to a current client before signing?
 - P: Yes. After the audit we will connect you with a client in a comparable category and at a comparable stage. We do not screen the conversation.
 - H2: Let’s grow together
+- P: Start with a free 30-minute strategy call. You will meet the senior strategist who would actually run your account — not a salesperson — and leave with three specific things to fix.
 - A: Book Your Free Call -> /contact/
 - A: See Our Services -> /services/
 - LI: Free 30-minute call

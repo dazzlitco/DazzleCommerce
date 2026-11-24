@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
+import { PartnerBadge, type PartnerBrandKey } from "@/components/PartnerBadge";
 
 export const metadata: Metadata = {
   title: "About Dazzle Commerce | eCommerce Management Experts",
@@ -183,13 +185,21 @@ const team = [
   },
 ];
 
-const badges = [
-  { name: "Shopify Partners", note: "Certified Shopify and Shopify Plus development partner" },
-  { name: "Google Partner", note: "Certified across search, shopping and Performance Max" },
-  { name: "Meta Business Partner", note: "Badged partner for Meta advertising and commerce" },
-  { name: "Amazon Ads Partner Network", note: "Verified partner in the Amazon Ads Partner Network" },
-  { name: "LinkedIn Marketing Partner", note: "Top-tier partner status for lifecycle and retention" },
-  { name: "Microsoft Advertising Partner", note: "Verified partner in the Microsoft Partner Network" },
+const badges: { name: string; note: string; brand: PartnerBrandKey }[] = [
+  {
+    name: "Shopify Partners",
+    note: "Certified Shopify and Shopify Plus development partner",
+    brand: "shopify",
+  },
+  { name: "Google Partner", note: "Certified across search, shopping and Performance Max", brand: "google" },
+  {
+    name: "Meta Business Partner",
+    note: "Badged partner for Meta advertising and commerce",
+    brand: "meta",
+  },
+  { name: "Amazon Ads Partner Network", note: "Verified partner in the Amazon Ads Partner Network", brand: "amazon" },
+  { name: "LinkedIn Marketing Partner", note: "Top-tier partner status for lifecycle and retention", brand: "linkedin" },
+  { name: "Microsoft Advertising Partner", note: "Verified partner in the Microsoft Partner Network", brand: "microsoft" },
 ];
 
 const journey = [
@@ -283,7 +293,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Our Story</p>
+              <Pill icon="fa-solid fa-book" center>Our Story</Pill>
               <h2>How it all started</h2>
               <p>
                 In 2017 our founder was running digital for a nine-figure home goods retailer
@@ -322,7 +332,7 @@ export default function AboutPage() {
       {/* 3. Our Core Values */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Our Core Values</p>
+          <Pill icon="fa-solid fa-award" center>Our Core Values</Pill>
           <h2>Our commitments we are willing to lose business over</h2>
           <div className="card-grid card-grid-2" style={{ marginBottom: "20px" }}>
             <article className="card">
@@ -357,16 +367,8 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div className="split">
-            <div className="split-img">
-              <Image
-                src="/images/about-why-choose.webp"
-                alt="eCommerce specialists reviewing store performance data with a client"
-                width={1920}
-                height={1280}
-              />
-            </div>
             <div>
-              <p className="eyebrow">Our Approach</p>
+              <Pill icon="fa-solid fa-gear" center>Our Approach</Pill>
               <h2>How we think about eCommerce growth</h2>
               <p>
                 Not a methodology with a trademark. Four operating principles that decide what
@@ -382,6 +384,14 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+            <div className="split-img">
+              <Image
+                src="/images/about-why-choose.webp"
+                alt="eCommerce specialists reviewing store performance data with a client"
+                width={1920}
+                height={1280}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -389,7 +399,7 @@ export default function AboutPage() {
       {/* 5. Why Businesses Choose Us */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Why Businesses Choose Us</p>
+          <Pill icon="fa-regular fa-thumbs-up" center>Why Businesses Choose Us</Pill>
           <h2>The reasons clients actually give</h2>
           <p className="lead">
             We asked in exit and renewal interviews. These are the answers, in the order they
@@ -414,7 +424,7 @@ export default function AboutPage() {
       {/* 6. Our Expertise */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our Expertise</p>
+          <Pill icon="fa-solid fa-layer-group" center>Our Expertise</Pill>
           <h2>Six disciplines, one accountable team</h2>
           <p className="lead">Each one led by a specialist who does nothing else.</p>
           <div className="card-grid">
@@ -431,7 +441,7 @@ export default function AboutPage() {
       {/* 7. Meet The Team */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Meet The Team</p>
+          <Pill icon="fa-solid fa-user-group" center>Meet The Team</Pill>
           <h2>The people who will be on your calls</h2>
           <p className="lead">
             No account-manager layer between you and the specialists.You work with the people
@@ -461,7 +471,7 @@ export default function AboutPage() {
       {/* 8. Certifications & Partnerships */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Certifications &amp; Partnerships</p>
+          <Pill icon="fa-solid fa-award" center>Certifications &amp; Partnerships</Pill>
           <h2>Badged where badges mean something</h2>
           <p className="lead">
             Certification is table stakes rather than a differentiator — but its absence tells
@@ -470,7 +480,7 @@ export default function AboutPage() {
           <div className="card-grid">
             {badges.map((b) => (
               <div className="card platform-card" key={b.name}>
-                <h3 className="platform-name">{b.name}</h3>
+                <PartnerBadge brand={b.brand} name={b.name} />
                 <p>{b.note}</p>
               </div>
             ))}
@@ -481,7 +491,7 @@ export default function AboutPage() {
       {/* 9. Journey Milestones */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Journey Milestones</p>
+          <Pill icon="fa-solid fa-arrow-trend-up" center>Journey Milestones</Pill>
           <h2>Our growth journey</h2>
           <p className="lead">
             Nine years, deliberately unglamorous. Every step below was a response to something
@@ -510,7 +520,7 @@ export default function AboutPage() {
       {/* 10. FAQs About the Agency */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs About the Agency</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs About the Agency</Pill>
           <h2>What people ask before the first call</h2>
           <FaqAccordion faqs={faqs} />
         </div>
@@ -520,6 +530,11 @@ export default function AboutPage() {
       <section className="section section-blue final-cta">
         <div className="container">
           <h2>Let’s grow together</h2>
+          <p className="lead">
+            Start with a free 30-minute strategy call. You will meet the senior strategist
+            who would actually run your account — not a salesperson — and leave with three
+            specific things to fix.
+          </p>
           <div className="btn-row">
             <Link className="btn btn-light" href="/contact/">
               Book Your Free Call

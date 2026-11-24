@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "How We Work | Dazzle Commerce",
@@ -56,7 +57,14 @@ const faqs: Faq[] = [
   },
   {
     q: "How do you charge?",
-    a: "A monthly fee scoped to the plan, with media spend and third-party tooling billed separately and transparently. We do not take a percentage of ad spend, because it rewards us for spending more rather than for spending well. Pricing covers the structure in more detail.",
+    a: (
+      <>
+        A monthly fee scoped to the plan, with media spend and third-party tooling billed
+        separately and transparently. We do not take a percentage of ad spend, because it
+        rewards us for spending more rather than for spending well.{" "}
+        <Link href="/pricing/">Pricing</Link> covers the structure in more detail.
+      </>
+    ),
   },
   {
     q: "What happens if a month goes badly?",
@@ -303,7 +311,7 @@ const boundaries = [
 const gettingStarted = [
   {
     num: "01",
-    step: "Step one",
+    step: "STEP ONE",
     title: "A conversation",
     body: "Thirty minutes on what you sell, where it sells and what is not working. No deck, no discovery process.",
     cta: "Talk to us →",
@@ -311,7 +319,7 @@ const gettingStarted = [
   },
   {
     num: "02",
-    step: "Step two",
+    step: "STEP TWO",
     title: "The free audit",
     body: "We run the twelve-point review against your store and hand you the findings ranked by revenue impact. Yours to keep either way.",
     cta: "Request an audit →",
@@ -319,7 +327,7 @@ const gettingStarted = [
   },
   {
     num: "03",
-    step: "Step three",
+    step: "STEP THREE",
     title: "A plan and a price",
     body: "A ninety-day plan with a forecast and a scope. You see what the work is before you agree to any of it.",
     cta: "See how pricing works →",
@@ -327,7 +335,7 @@ const gettingStarted = [
   },
   {
     num: "04",
-    step: "Step four",
+    step: "STEP FOUR",
     title: "The first thirty days",
     body: "Access, audit, plan, first work shipped — in that order, with nothing launched in the first fortnight.",
     cta: "Back to month one →",
@@ -386,9 +394,12 @@ export default function HowWeWorkPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
+          <p>
+            <Link href="/">Home</Link> &nbsp;›&nbsp; <span>How We Work</span>
+          </p>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Our process</p>
+              <Pill icon="fa-solid fa-diagram-project" center>Our process</Pill>
               <h1>How We Work</h1>
               <p className="lead">
                 Most agency process pages describe a methodology nobody follows. This one
@@ -420,13 +431,16 @@ export default function HowWeWorkPage() {
               />
             </div>
           </div>
+          <p className="lead" style={{ marginTop: "32px" }}>
+            The first thirty days decide whether the following twelve months are any good.
+          </p>
         </div>
       </section>
 
       {/* 2. Principles */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Principles</p>
+          <Pill icon="fa-solid fa-lightbulb" center>Principles</Pill>
           <h2>Four rules that govern every engagement</h2>
           <p className="lead">
             These are not values on a wall. Each one changes a decision we make regularly,
@@ -456,9 +470,7 @@ export default function HowWeWorkPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">
-                The first thirty days decide whether the following twelve months are any good.
-              </p>
+              <Pill icon="fa-solid fa-calendar-days" center>The first 30 days</Pill>
               <h2>What actually happens in month one</h2>
               <p>
                 Nothing is launched in the first fortnight. That is deliberate: the most
@@ -498,6 +510,14 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <div className="split">
+            <div>
+              <Pill icon="fa-solid fa-layer-group" center>The rhythm</Pill>
+              <h2>What a normal month looks like once you are running</h2>
+              <p>
+                Predictable contact, so nobody has to chase for an update and nobody sits
+                through a meeting that could have been a number.
+              </p>
+            </div>
             <div className="split-img">
               <Image
                 src="/images/how-we-work-rhythm.webp"
@@ -506,42 +526,34 @@ export default function HowWeWorkPage() {
                 height={933}
               />
             </div>
-            <div>
-              <p className="eyebrow">The rhythm</p>
-              <h2>What a normal month looks like once you are running</h2>
-              <p>
-                Predictable contact, so nobody has to chase for an update and nobody sits
-                through a meeting that could have been a number.
-              </p>
-              <p>
-                The fortnightly call is with the people doing the work, which is the part
-                most brands say was missing before.
-              </p>
-              <p>
-                The cadence below is the default. It flexes for peak trading, launches and
-                migrations, but the principle does not: you should always know what is being
-                worked on this week and what it is expected to produce.
-              </p>
-              <ul className="check-list">
-                {cadence.map((c) => (
-                  <li key={c.label}>
-                    <strong>{c.label}:</strong> {c.body}
-                  </li>
-                ))}
-              </ul>
-              <p>
-                Everything is written down. If a decision was made on a call, it appears in
-                the weekly update, because verbal-only decisions are how accounts drift.
-              </p>
-            </div>
           </div>
+          <p style={{ marginTop: "1.5rem" }}>
+            The fortnightly call is with the people doing the work, which is the part
+            most brands say was missing before.
+          </p>
+          <p>
+            The cadence below is the default. It flexes for peak trading, launches and
+            migrations, but the principle does not: you should always know what is being
+            worked on this week and what it is expected to produce.
+          </p>
+          <ul className="check-list">
+            {cadence.map((c) => (
+              <li key={c.label}>
+                <strong>{c.label}:</strong> {c.body}
+              </li>
+            ))}
+          </ul>
+          <p>
+            Everything is written down. If a decision was made on a call, it appears in
+            the weekly update, because verbal-only decisions are how accounts drift.
+          </p>
         </div>
       </section>
 
       {/* 5. Inside the work */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Inside the work</p>
+          <Pill icon="fa-solid fa-layer-group" center>Inside the work</Pill>
           <h2>What the first ninety days actually look like</h2>
           <p className="lead">
             Not a methodology diagram. These are the four things that take up most of the time
@@ -569,7 +581,7 @@ export default function HowWeWorkPage() {
       {/* 6. Your team */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Your team</p>
+          <Pill icon="fa-solid fa-users" center>Your team</Pill>
           <h2>Who you actually work with</h2>
           <p className="lead">
             Small, named and stable. You are not handed to a different pod when something
@@ -645,51 +657,47 @@ export default function HowWeWorkPage() {
       {/* 7. Prioritising */}
       <section className="section section-soft">
         <div className="container">
-          <div className="split">
-            <div>
-              <p className="eyebrow">Prioritising</p>
-              <h2>How we decide what to do first when everything looks urgent</h2>
-              <p>
-                Every audit produces more findings than any team can act on. The scoring is
-                what turns a list into a plan.
-              </p>
-              <p>
-                Each finding gets two scores: the revenue impact if it were fixed, and the
-                effort to fix it. Impact is estimated from your own numbers — traffic,
-                conversion rate, margin — rather than from a general benchmark, so the
-                estimate can be argued with rather than accepted on faith.
-              </p>
-              <ul className="check-list">
-                {prioritisingChecks.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-              <p>
-                You see the scores. If you disagree with an impact estimate, that is a useful
-                conversation rather than an inconvenience — you know things about your
-                business that the data does not show.
-              </p>
-              <p>
-                Findings are scored in the open. Nothing enters the plan because it is the
-                work we happen to enjoy.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/how-we-work-audit-figure.webp"
-                alt="Hands pointing at printed data charts while a team works through audit findings"
-                width={1400}
-                height={933}
-              />
-            </div>
+          <Pill icon="fa-solid fa-layer-group" center>Prioritising</Pill>
+          <h2>How we decide what to do first when everything looks urgent</h2>
+          <p>
+            Every audit produces more findings than any team can act on. The scoring is
+            what turns a list into a plan.
+          </p>
+          <p>
+            Each finding gets two scores: the revenue impact if it were fixed, and the
+            effort to fix it. Impact is estimated from your own numbers — traffic,
+            conversion rate, margin — rather than from a general benchmark, so the
+            estimate can be argued with rather than accepted on faith.
+          </p>
+          <ul className="check-list">
+            {prioritisingChecks.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+          <p>
+            You see the scores. If you disagree with an impact estimate, that is a useful
+            conversation rather than an inconvenience — you know things about your
+            business that the data does not show.
+          </p>
+          <div className="split-img" style={{ margin: "32px 0" }}>
+            <Image
+              src="/images/how-we-work-audit-figure.webp"
+              alt="Hands pointing at printed data charts while a team works through audit findings"
+              width={1400}
+              height={933}
+            />
           </div>
+          <p>
+            Findings are scored in the open. Nothing enters the plan because it is the
+            work we happen to enjoy.
+          </p>
         </div>
       </section>
 
       {/* 8. The sequence */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The sequence</p>
+          <Pill icon="fa-solid fa-calendar-days" center>The sequence</Pill>
           <h2>How the scores turn into an order</h2>
           <p className="lead">
             A simplified view of how a quarter typically sequences on a store with no
@@ -726,6 +734,14 @@ export default function HowWeWorkPage() {
       <section className="section section-soft">
         <div className="container">
           <div className="split">
+            <div>
+              <Pill icon="fa-solid fa-chart-simple" center>Reporting</Pill>
+              <h2>What lands in your inbox, and what it says</h2>
+              <p>
+                Reporting exists so you can make decisions, not so we can demonstrate
+                activity.
+              </p>
+            </div>
             <div className="split-img">
               <Image
                 src="/images/how-we-work-report.webp"
@@ -734,44 +750,36 @@ export default function HowWeWorkPage() {
                 height={933}
               />
             </div>
-            <div>
-              <p className="eyebrow">Reporting</p>
-              <h2>What lands in your inbox, and what it says</h2>
-              <p>
-                Reporting exists so you can make decisions, not so we can demonstrate
-                activity.
-              </p>
-              <p>
-                If the month was poor, the report says so in the first paragraph rather than
-                the appendix.
-              </p>
-              <p>
-                The monthly report leads with contribution, not revenue, and it states what
-                we got wrong alongside what worked. A report where everything went well every
-                month is a report nobody is reading carefully.
-              </p>
-              <ul className="check-list">
-                {reportingChecks.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-              <p>
-                The{" "}
-                <Link href="/resources/templates/ecommerce-kpi-dashboard-template/">
-                  KPI dashboard template
-                </Link>{" "}
-                we publish is a simplified version of the model behind these reports, if you
-                want to run the same numbers yourself.
-              </p>
-            </div>
           </div>
+          <p style={{ marginTop: "1.5rem" }}>
+            If the month was poor, the report says so in the first paragraph rather than
+            the appendix.
+          </p>
+          <p>
+            The monthly report leads with contribution, not revenue, and it states what
+            we got wrong alongside what worked. A report where everything went well every
+            month is a report nobody is reading carefully.
+          </p>
+          <ul className="check-list">
+            {reportingChecks.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+          <p>
+            The{" "}
+            <Link href="/resources/templates/ecommerce-kpi-dashboard-template/">
+              KPI dashboard template
+            </Link>{" "}
+            we publish is a simplified version of the model behind these reports, if you
+            want to run the same numbers yourself.
+          </p>
         </div>
       </section>
 
       {/* 10. Your side */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Your side</p>
+          <Pill icon="fa-solid fa-layer-group" center>Your side</Pill>
           <h2>What we need from you</h2>
           <p className="lead">
             Engagements fail for predictable reasons, and three of the four are on the client
@@ -800,7 +808,7 @@ export default function HowWeWorkPage() {
       {/* 11. Boundaries */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Boundaries</p>
+          <Pill icon="fa-solid fa-layer-group" center>Boundaries</Pill>
           <h2>What we will not do</h2>
           <p className="lead">
             Stated here so it never has to be an awkward conversation later.
@@ -823,7 +831,7 @@ export default function HowWeWorkPage() {
       {/* 12. Getting started */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Getting started</p>
+          <Pill icon="fa-solid fa-flag-checkered" center>Getting started</Pill>
           <h2>Four steps, and you can stop at any of them</h2>
           <p className="lead">
             Nothing here commits you to anything until the third step.
@@ -849,7 +857,7 @@ export default function HowWeWorkPage() {
       {/* 13. FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>How we work — FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             The questions prospects ask before signing anything.
@@ -861,7 +869,7 @@ export default function HowWeWorkPage() {
       {/* 14. Read on */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Read on</p>
+          <Pill icon="fa-solid fa-book-open" center>Read on</Pill>
           <h2>The detail behind the process</h2>
           <p className="lead">
             Three pages that show the method rather than describe it.

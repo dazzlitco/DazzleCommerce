@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 
 // NOTE: this file is a client component because the "Testimonials by Service"
 // filter needs client-side state. (A client module cannot export `metadata`;
@@ -329,7 +330,7 @@ export default function TestimonialsPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Client Testimonials &amp; Reviews</p>
+          <Pill icon="fa-solid fa-users" center>Client Testimonials &amp; Reviews</Pill>
           <h1>What It Is Actually Like to Work With Us</h1>
           <p className="lead">
             Every quote below sits next to the work that produced it. Where a number is
@@ -350,7 +351,7 @@ export default function TestimonialsPage() {
       {/* 2. Results Snapshot */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Results Snapshot</p>
+          <Pill icon="fa-solid fa-chart-line" center>Results Snapshot</Pill>
           <h2>The aggregate, before the anecdotes</h2>
           <p className="lead">
             Individual results vary considerably by category, margin structure and
@@ -393,7 +394,7 @@ export default function TestimonialsPage() {
       {/* 3. Featured Client Stories */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Featured Client Stories</p>
+          <Pill icon="fa-solid fa-star" center>Featured Client Stories</Pill>
           <h2>Four engagements, in their words</h2>
           <p className="lead">
             Each of these has a full case study with the methodology, the baseline and
@@ -436,7 +437,7 @@ export default function TestimonialsPage() {
       {/* 4. Testimonials by Service (working filter) */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Testimonials by Service</p>
+          <Pill icon="fa-solid fa-quote-left" center>Testimonials by Service</Pill>
           <h2>Filter by the work that produced them</h2>
           <p className="lead">
             Nine quotes across the disciplines we run. Pick the one you are actually
@@ -492,7 +493,7 @@ export default function TestimonialsPage() {
       {/* 5. Client reviews */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Client reviews</p>
+          <Pill icon="fa-solid fa-users" center>Client reviews</Pill>
           <h2>Six engagements, reviewed by the people who paid for them</h2>
           <p className="lead">
             Each review covers why they went looking for an agency, what they had
@@ -531,7 +532,7 @@ export default function TestimonialsPage() {
       {/* 6. Client Stories */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Client Stories</p>
+          <Pill icon="fa-solid fa-layer-group" center>Client Stories</Pill>
           <h2>The work behind the quotes</h2>
           <p className="lead">
             Six engagements told end to end, with every number measured against a
@@ -569,7 +570,7 @@ export default function TestimonialsPage() {
         <div className="container">
           <h2>Want to be the next story on this page?</h2>
           <p className="lead">
-            Start with the free audit. We will show you where your revenue is leaking, what
+            Start with the free audit. We will show you where revenue is leaking, what
             it is worth to fix, and whether we are the right team to do it.
           </p>
           <div className="btn-row">

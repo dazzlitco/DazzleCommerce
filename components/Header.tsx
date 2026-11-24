@@ -6,19 +6,57 @@ import Link from "next/link";
 import {
   servicesLinks,
   platformsLinks,
+  platformsGroups,
+  platformsFoot,
   industriesLinks,
+  industriesFoot,
   locationsLinks,
+  locationsFoot,
   resourcesGroups,
+  resourcesFoot,
+  type MegaFoot,
+  type NavGroup,
 } from "./nav";
 
-function MegaLinks({ links }: { links: { label: string; href: string }[] }) {
+function MegaLinks({ links }: { links: { label: string; href: string; desc?: string }[] }) {
   return (
     <div className="mega-grid">
       {links.map((l) => (
         <Link key={l.href + l.label} href={l.href}>
-          {l.label}
+          <span className="mega-link-label">{l.label}</span>
+          {l.desc ? <span className="mega-link-desc">{l.desc}</span> : null}
         </Link>
       ))}
+    </div>
+  );
+}
+
+function MegaGroups({ groups }: { groups: NavGroup[] }) {
+  return (
+    <>
+      {groups.map((g) => (
+        <div key={g.title}>
+          <p className="mega-col-title">{g.title}</p>
+          <MegaLinks links={g.links} />
+        </div>
+      ))}
+    </>
+  );
+}
+
+function MegaFooter({ foot }: { foot: MegaFoot }) {
+  return (
+    <div className="mega-foot">
+      <p className="mega-foot-title">{foot.title}</p>
+      {foot.text ? <p>{foot.text}</p> : null}
+      <ul>
+        {foot.bullets.map((b) => (
+          <li key={b}>{b}</li>
+        ))}
+      </ul>
+      <Link href={foot.cta.href} className="mega-cta">
+        {foot.cta.label}
+      </Link>
     </div>
   );
 }
@@ -32,6 +70,9 @@ export default function Header() {
         <Link href="/" className="header-logo" aria-label="Dazzle Commerce — home">
           <Image src="/images/logo.svg" alt="Dazzle Commerce" width={220} height={48} priority />
         </Link>
+        <p className="header-tagline">
+          <strong>Scale. Optimize. Succeed.</strong>
+        </p>
 
         <nav className="main-nav" aria-label="Main navigation">
           <div className="nav-item">
@@ -39,25 +80,17 @@ export default function Header() {
               Services <span className="caret">▾</span>
             </Link>
             <div className="mega mega-wide">
+              <p className="mega-col-title">What we do</p>
               <MegaLinks links={servicesLinks} />
-              <div className="mega-foot">
-                <div className="mega-foot-links">
-                  <Link href="/services/">What we do</Link>
-                  <Link href="/how-we-work/">See how we work</Link>
-                  <Link href="/locations-we-serve/">Where we work</Link>
-                </div>
-                <div className="mega-card">
-                  <p className="mega-card-title">Free growth audit</p>
-                  <p>
-                    We audit your store, ad accounts and marketplace health, then rank every
-                    opportunity by revenue impact. Yours to keep.
-                  </p>
-                  <Link href="/book-a-strategy-call/">Book a free call</Link>
-                </div>
+              <p className="mega-col-title">See how we work</p>
+              <div className="mega-card">
+                <p className="mega-card-title">Free growth audit</p>
+                <p>
+                  We audit your store, ad accounts and marketplace health, then rank every
+                  opportunity by revenue impact. Yours to keep.
+                </p>
+                <Link href="/contact/">Book a free call</Link>
               </div>
-              <Link href="/contact/" className="mega-cta">
-                Book a free call
-              </Link>
             </div>
           </div>
 
@@ -66,10 +99,9 @@ export default function Header() {
               Platforms <span className="caret">▾</span>
             </Link>
             <div className="mega mega-wide">
-              <MegaLinks links={platformsLinks} />
-              <Link href="/platforms/" className="mega-cta">
-                See all 21 platforms
-              </Link>
+              <p className="mega-col-title">Where we work</p>
+              <MegaGroups groups={platformsGroups} />
+              <MegaFooter foot={platformsFoot} />
             </div>
           </div>
 
@@ -78,10 +110,9 @@ export default function Header() {
               Industries <span className="caret">▾</span>
             </Link>
             <div className="mega">
+              <p className="mega-col-title">Categories we know properly</p>
               <MegaLinks links={industriesLinks} />
-              <Link href="/industries/" className="mega-cta">
-                See all industries
-              </Link>
+              <MegaFooter foot={industriesFoot} />
             </div>
           </div>
 
@@ -90,10 +121,9 @@ export default function Header() {
               Locations <span className="caret">▾</span>
             </Link>
             <div className="mega">
+              <p className="mega-col-title">Markets we serve</p>
               <MegaLinks links={locationsLinks} />
-              <Link href="/locations-we-serve/" className="mega-cta">
-                See all locations
-              </Link>
+              <MegaFooter foot={locationsFoot} />
             </div>
           </div>
 
@@ -102,6 +132,7 @@ export default function Header() {
               Resources <span className="caret">▾</span>
             </Link>
             <div className="mega mega-wide">
+              <p className="mega-col-title">The library</p>
               {resourcesGroups.map((g) => (
                 <div key={g.title}>
                   <p className="mega-col-title">{g.title}</p>
@@ -112,9 +143,7 @@ export default function Header() {
                   ))}
                 </div>
               ))}
-              <Link href="/resources/" className="mega-cta">
-                Open the Resources hub
-              </Link>
+              <MegaFooter foot={resourcesFoot} />
             </div>
           </div>
 

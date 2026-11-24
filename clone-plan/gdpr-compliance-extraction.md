@@ -25,7 +25,7 @@ Copy below is word-for-word from the live HTML (main content region, `id="conten
 ### 1. Hero
 - H1: `GDPR Compliance`
 - Lead: `Our obligations under the EU and UK GDPR, the rights you hold, and the specific measures we take as both a data controller and a processor for our clients.`
-- Meta line: `Last updated: 1 August 2026  ·  Effective immediately upon posting`
+- Meta line: `Last updated: 1 August 2026  ·  Effective immediately upon posting` — “Last updated:” is **bold** on live.
 - No hero image on the live page (text-only hero).
 - No table of contents / anchor navigation on the live page.
 - No data-request form on the live page — rights requests are made by email (see §5).
@@ -36,12 +36,12 @@ Copy below is word-for-word from the live HTML (main content region, `id="conten
 
 ### 3. Controller or Processor?
 - H2: `Controller or Processor?`
-- Unordered list (5 items, `<ul>` on live):
-  - `Website visitors and enquiries — we are controller. Governed by this page and our Privacy Policy.`
-  - `Newsletter subscribers — controller.`
-  - `Managing a client’s ad accounts and analytics — processor, under a Data Processing Agreement.`
-  - `Handling a client’s customer lists for email or SMS — processor, under a DPA.`
-  - `Our own staff and supplier records — controller.`
+- Unordered list (5 items, `<ul>` on live; the label at the start of each item is **bold** on live):
+  - `**Website visitors and enquiries** — we are controller. Governed by this page and our Privacy Policy.`
+  - `**Newsletter subscribers** — controller.`
+  - `**Managing a client’s ad accounts and analytics** — processor, under a Data Processing Agreement.`
+  - `**Handling a client’s customer lists for email or SMS** — processor, under a DPA.`
+  - `**Our own staff and supplier records** — controller.`
 - P: `Where we act as processor we only process personal data on documented instructions from the client, and we will tell them promptly if we believe an instruction infringes data protection law.`
 - Quirk: "our Privacy Policy" is plain text on the live page, not a link — there is no hyperlink to a privacy policy page in this section.
 
@@ -123,3 +123,4 @@ Copy below is word-for-word from the live HTML (main content region, `id="conten
 - "our Privacy Policy" (§3) and `privacy@dazzlecommerce.com` (§13) are plain text on live, not links; the clone keeps them as plain text.
 - Footer address says Suite 480; JSON-LD Organisation/Place schema says Suite 400. Both kept verbatim in their own places; the clone footer is shared via layout, so this note is for the record only.
 - Live "Last updated: 1 August 2026" predates the head's modified time (26 August 2026) — kept verbatim as displayed.
+- **Correction 2026-11-23 (fresh curl fetch):** “Last updated:” is bold on live and the 5 controller-role labels in §3 are bold on live; the clone had both unbolded. Both restored the same day.

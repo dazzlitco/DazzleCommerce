@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce App Development Company | Dazzle Commerce",
@@ -155,34 +156,42 @@ const problems = [
 
 const services = [
   {
+    num: "01",
     title: "Cross-Platform App Development",
     body: "One React Native codebase shipping to both iOS and Android, which is the right default for most brands.",
   },
   {
+    num: "02",
     title: "Native iOS & Android Development",
     body: "Separate native builds where device features, performance or an existing team genuinely justify two codebases.",
   },
   {
+    num: "03",
     title: "Progressive Web Apps",
     body: "An installable, offline-capable storefront with no app store dependency — often the honest alternative to an app.",
   },
   {
+    num: "04",
     title: "Custom Platform Apps",
     body: "Shopify, BigCommerce and WooCommerce apps built for your own store where no off-the-shelf app does the job properly.",
   },
   {
+    num: "05",
     title: "Headless Storefront Builds",
     body: "A React or Next.js front end on your existing commerce backend, where template control is the actual requirement.",
   },
   {
+    num: "06",
     title: "App Integrations & APIs",
     body: "Commerce, loyalty, search, reviews and support joined to the app through your platform APIs, with error handling.",
   },
   {
+    num: "07",
     title: "Release & Store Submission",
     body: "Signing, provisioning, store listings, review submissions and the staged rollouts that limit the damage of a bad build.",
   },
   {
+    num: "08",
     title: "App Maintenance & Support",
     body: "OS version upgrades, SDK deprecations, crash monitoring and the release cadence that keeps the app from quietly breaking.",
   },
@@ -497,7 +506,7 @@ export default function EcommerceAppDevelopmentPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Apps &amp; Mobile</p>
+              <Pill icon="fa-solid fa-code">Apps &amp; Mobile</Pill>
               <h1>eCommerce App Development That Earns Its Place on a Phone</h1>
               <p className="lead">
                 Native and cross-platform shopping apps, progressive web apps and custom
@@ -544,7 +553,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 2. Why most eCommerce apps get built and then abandoned */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>Why most eCommerce apps get built and then abandoned</h2>
           <p className="lead">
             Twelve reasons app projects fail, and almost none of them is a development
@@ -565,7 +574,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 3. Our eCommerce app development services */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce app development services</h2>
           <p className="lead">
             Eight services covering build, release and upkeep. Scope the eCommerce app
@@ -575,6 +584,7 @@ export default function EcommerceAppDevelopmentPage() {
           <div className="card-grid">
             {services.map((s) => (
               <article className="card" key={s.title}>
+                <p className="card-num">{s.num}</p>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -594,7 +604,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 4. Platforms & technologies we build apps on */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Stack</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Stack</Pill>
           <h2>Platforms &amp; technologies we build apps on</h2>
           <p className="lead">
             We recommend the approach that fits the business and the team that will maintain
@@ -618,7 +628,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 5. What our eCommerce app development covers */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Scope</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope</Pill>
           <h2>What our eCommerce app development covers</h2>
           <p className="lead">
             Ten things we build regularly. If what you need is not on this list it is worth
@@ -638,7 +648,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 6. What the app has to connect to */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Ecosystem</p>
+          <Pill icon="fa-solid fa-diagram-project" center>Ecosystem</Pill>
           <h2>What the app has to connect to</h2>
           <p className="lead">
             An app is a second front end on the same business. Everything below already
@@ -667,7 +677,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 7. Our eCommerce app development process */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-compass" center>The Process</Pill>
           <h2>Our eCommerce app development process</h2>
           <p className="lead">
             Seven stages. The first one is the one that saves most of the money, because it
@@ -688,7 +698,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 8. App development by business need */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">By Need</p>
+          <Pill icon="fa-solid fa-map-location-dot" center>By Need</Pill>
           <h2>App development by business need</h2>
           <p className="lead">
             Eight needs and the approach each one calls for. Two of them are answered by not
@@ -709,7 +719,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 9. Performance, privacy & release discipline */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Foundations</p>
+          <Pill icon="fa-solid fa-chart-line" center>Foundations</Pill>
           <h2>Performance, privacy &amp; release discipline</h2>
           <p className="lead">
             Four non-negotiables, all in scope by default. On an app these are harder to
@@ -734,7 +744,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 10. Why choose our eCommerce app development company */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award" center>Why Us</Pill>
           <h2>Why choose our eCommerce app development company</h2>
           <p className="lead">
             Eight things that separate a commerce app from a general mobile project, and
@@ -755,7 +765,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 11. Three ways this gets built, and what each one commits you to */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Build types</p>
+          <Pill icon="fa-solid fa-cubes-stacked" center>Build types</Pill>
           <h2>Three ways this gets built, and what each one commits you to</h2>
           <p className="lead">
             Three approaches, with when each one fits, what it involves and the scope it
@@ -764,9 +774,6 @@ export default function EcommerceAppDevelopmentPage() {
           </p>
           {buildTypes.map((b) => (
             <article className="card" key={b.title} style={{ marginBottom: "24px" }}>
-              <p className="eyebrow">Build type</p>
-              <h3>{b.title}</h3>
-              <p>{b.tagline}</p>
               <div className="card-grid card-grid-2">
                 {b.images.map((img) => (
                   <figure key={img.src} style={{ margin: 0 }}>
@@ -775,15 +782,16 @@ export default function EcommerceAppDevelopmentPage() {
                   </figure>
                 ))}
               </div>
-              <p className="eyebrow" style={{ marginTop: "20px" }}>
-                When it fits
-              </p>
+              <h6 className="label-plain" style={{ marginTop: "20px" }}>BUILD TYPE</h6>
+              <h3>{b.title}</h3>
+              <p>{b.tagline}</p>
+              <h6 className="label-plain" style={{ marginTop: "20px" }}>WHEN IT FITS</h6>
               <p>{b.whenItFits}</p>
-              <p className="eyebrow">Technology</p>
+              <h6 className="label-plain">TECHNOLOGY</h6>
               <p>{b.technology}</p>
-              <p className="eyebrow">What it involves</p>
+              <h6 className="label-plain">WHAT IT INVOLVES</h6>
               <p>{b.involves}</p>
-              <p className="eyebrow">Typical scope</p>
+              <h6 className="label-plain">TYPICAL SCOPE</h6>
               <div className="stat-row" style={{ marginTop: "12px" }}>
                 {b.scope.map((s) => (
                   <div className="stat" key={s.label}>
@@ -813,7 +821,7 @@ export default function EcommerceAppDevelopmentPage() {
       {/* 12. eCommerce app development FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce app development FAQs</h2>
           <p className="lead">
             Eight questions that come up before most app projects. More on{" "}

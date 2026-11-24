@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 // NOTE: the live page has no interactive tool — its FAQ says "Not yet. This
 // page is the framework in full, designed to be worked through on paper or in
@@ -68,16 +69,32 @@ const CHECKS: Check[] = [
     section: "Store & experience",
     sectionId: "ga-store",
     title: "Largest Contentful Paint is under 2.5 seconds on your highest-traffic template",
-    threshold:
-      "Threshold: 2.5s or under, on mobile. This is Google’s published “good” boundary for the metric, not our opinion. Measure field data over the last 28 days rather than a lab score, and measure the template that receives the most sessions — usually a collection or product page. A homepage that loads in 1.4 seconds and a product page that loads in 5 tells you nothing useful as an average.",
+    threshold: (
+      <>
+        <strong>Threshold: 2.5s or under, on mobile.</strong> This is Google’s
+        published “good” boundary for the metric, not our opinion. Measure field
+        data over the last 28 days rather than a lab score, and measure the template
+        that receives the most sessions — usually a collection or product page. A
+        homepage that loads in 1.4 seconds and a product page that loads in 5 tells
+        you nothing useful as an average.
+      </>
+    ),
   },
   {
     num: 2,
     section: "Store & experience",
     sectionId: "ga-store",
     title: "Mobile converts at no less than two thirds of the desktop rate",
-    threshold:
-      "Threshold: mobile conversion rate at 0.66× desktop or better, on comparable traffic. Some gap is normal and expected; a gap wider than a third usually means a specific broken step rather than general mobile behaviour. This is our own operating threshold rather than a published benchmark, set from the accounts we run. Below it, check the basket and the first checkout step on a real handset before anything else.",
+    threshold: (
+      <>
+        <strong>Threshold: mobile conversion rate at 0.66× desktop or better,</strong>{" "}
+        on comparable traffic. Some gap is normal and expected; a gap wider than a
+        third usually means a specific broken step rather than general mobile
+        behaviour. This is our own operating threshold rather than a published
+        benchmark, set from the accounts we run. Below it, check the basket and the
+        first checkout step on a real handset before anything else.
+      </>
+    ),
   },
   {
     num: 3,
@@ -86,12 +103,12 @@ const CHECKS: Check[] = [
     title: "Seven in ten of your top fifty non-brand demand terms have a page built to rank for them",
     threshold: (
       <>
-        Threshold: 70% coverage of your top fifty non-brand terms. Export your
-        non-brand queries, group them into the fifty clusters that describe real
-        buying demand, then check each one has a page whose main subject is that
-        cluster. A product that happens to mention the phrase does not count. Most
-        stores that fail this are organised around how their catalogue was built
-        rather than how people shop it — the{" "}
+        <strong>Threshold: 70% coverage of your top fifty non-brand terms.</strong>{" "}
+        Export your non-brand queries, group them into the fifty clusters that
+        describe real buying demand, then check each one has a page whose main
+        subject is that cluster. A product that happens to mention the phrase does
+        not count. Most stores that fail this are organised around how their
+        catalogue was built rather than how people shop it — the{" "}
         <Link href="/resources/checklists/ecommerce-seo-checklist/">SEO checklist</Link>{" "}
         works through the fix.
       </>
@@ -102,24 +119,51 @@ const CHECKS: Check[] = [
     section: "eCommerce SEO",
     sectionId: "ga-seo",
     title: "Indexed URL count is within 20% of the number of pages you intend to rank",
-    threshold:
-      "Threshold: indexed pages no more than 1.2× intended pages. Compare Search Console’s indexed count against a list of the pages you actually want in search. A large gap almost always means crawlable filter and sort parameters have generated thousands of near-duplicates. This is our own threshold; the 20% allowance covers legitimate pagination.",
+    threshold: (
+      <>
+        <strong>Threshold: indexed pages no more than 1.2× intended pages.</strong>{" "}
+        Compare Search Console’s indexed count against a list of the pages you
+        actually want in search. A large gap almost always means crawlable filter
+        and sort parameters have generated thousands of near-duplicates. This is our
+        own threshold; the 20% allowance covers legitimate pagination.
+      </>
+    ),
   },
   {
     num: 5,
     section: "Paid media",
     sectionId: "ga-paid",
     title: "Bids are set against margin, not one blended return target across the whole catalogue",
-    threshold:
-      "Threshold: binary — either campaigns are segmented by margin tier or they are not. One return-on-spend target across a catalogue with a three-to-one margin spread guarantees you overpay for low-margin products and underspend on high. If a single target covers a $40 accessory and a $900 item, this point is flagged regardless of how good the blended number looks.",
+    threshold: (
+      <>
+        <strong>
+          Threshold: binary — either campaigns are segmented by margin tier or they
+          are not.
+        </strong>{" "}
+        One return-on-spend target across a catalogue with a three-to-one margin
+        spread guarantees you overpay for low-margin products and underspend on
+        high. If a single target covers a $40 accessory and a $900 item, this point
+        is flagged regardless of how good the blended number looks.
+      </>
+    ),
   },
   {
     num: 6,
     section: "Paid media",
     sectionId: "ga-paid",
     title: "Feed disapprovals are under 2% and matching attributes are populated on 95% of active SKUs",
-    threshold:
-      "Threshold: under 2% disapproved, 95%+ populated on GTIN, brand, condition and variant attributes. Read it from your Merchant Center diagnostics rather than your platform’s own report. Both numbers are our operating standard. Unpopulated attributes do not throw errors — they quietly remove you from the comparisons where the purchase decision happens.",
+    threshold: (
+      <>
+        <strong>
+          Threshold: under 2% disapproved, 95%+ populated on GTIN, brand, condition
+          and variant attributes.
+        </strong>{" "}
+        Read it from your Merchant Center diagnostics rather than your platform’s own
+        report. Both numbers are our operating standard. Unpopulated attributes do
+        not throw errors — they quietly remove you from the comparisons where the
+        purchase decision happens.
+      </>
+    ),
   },
   {
     num: 7,
@@ -128,10 +172,10 @@ const CHECKS: Check[] = [
     title: "Checkout abandonment is at or below 70.2%",
     threshold: (
       <>
-        Threshold: 70.22%, the published average across 49 studies. Measure
-        sessions that reach the first checkout step against completed orders — not
-        basket additions, which produces a much worse number and a false alarm. The
-        benchmark and its methodology are cited on our{" "}
+        <strong>Threshold: 70.22%, the published average across 49 studies.</strong>{" "}
+        Measure sessions that reach the first checkout step against completed orders
+        — not basket additions, which produces a much worse number and a false alarm.
+        The benchmark and its methodology are cited on our{" "}
         <Link href="/resources/statistics/cart-abandonment/">cart abandonment statistics</Link>{" "}
         page. Being at the average is a clear, not a triumph.
       </>
@@ -144,7 +188,7 @@ const CHECKS: Check[] = [
     title: "Total cost including delivery is visible before the final checkout step",
     threshold: (
       <>
-        Threshold: binary — the full figure is shown early, or it is not.
+        <strong>Threshold: binary — the full figure is shown early, or it is not.</strong>{" "}
         Unexpected extra cost at checkout is the most frequently stated reason
         people abandon, ahead of price itself. Showing it earlier feels like it
         should cost conversions and reliably does not: you lose the orders that were
@@ -159,16 +203,33 @@ const CHECKS: Check[] = [
     section: "Email & retention",
     sectionId: "ga-retention",
     title: "At least four of the five core lifecycle flows are live and sending",
-    threshold:
-      "Threshold: 4 of 5 — welcome, browse abandonment, cart abandonment, post-purchase and win-back or replenishment. Live means sending to the segment it was built for, not built and paused. Our threshold, not an industry one. Which of the five matters most depends entirely on whether you sell consumables or considered purchases.",
+    threshold: (
+      <>
+        <strong>
+          Threshold: 4 of 5 — welcome, browse abandonment, cart abandonment,
+          post-purchase and win-back or replenishment.
+        </strong>{" "}
+        Live means sending to the segment it was built for, not built and paused. Our
+        threshold, not an industry one. Which of the five matters most depends
+        entirely on whether you sell consumables or considered purchases.
+      </>
+    ),
   },
   {
     num: 10,
     section: "Email & retention",
     sectionId: "ga-retention",
     title: "Recovery revenue is measured against a holdout, not attributed by last click",
-    threshold:
-      "Threshold: binary — a holdout group exists, or this is flagged. Hold back 5 to 10% of each flow’s audience and compare. Without it, every order a customer would have placed anyway gets credited to the email that happened to arrive first, and the flow looks two or three times more valuable than it is. Expect the honest number to be materially lower, and expect that to be uncomfortable.",
+    threshold: (
+      <>
+        <strong>Threshold: binary — a holdout group exists, or this is flagged.</strong>{" "}
+        Hold back 5 to 10% of each flow’s audience and compare. Without it, every
+        order a customer would have placed anyway gets credited to the email that
+        happened to arrive first, and the flow looks two or three times more valuable
+        than it is. Expect the honest number to be materially lower, and expect that
+        to be uncomfortable.
+      </>
+    ),
   },
   {
     num: 11,
@@ -177,11 +238,13 @@ const CHECKS: Check[] = [
     title: "You control your own listings, and variations reflect real product differences",
     threshold: (
       <>
-        Threshold: binary — brand registry or equivalent control, a written pricing
-        policy covering resellers, and no unattended repricer. Merged variations are
-        the check most sellers assume they pass. Open your three best-selling parent
-        listings and confirm every child is genuinely the same product in a different
-        size or colour.{" "}
+        <strong>
+          Threshold: binary — brand registry or equivalent control, a written pricing
+          policy covering resellers, and no unattended repricer.
+        </strong>{" "}
+        Merged variations are the check most sellers assume they pass. Open your
+        three best-selling parent listings and confirm every child is genuinely the
+        same product in a different size or colour.{" "}
         <Link href="/testimonials/vac-vacuums-review/">Vac &amp; Vacuums</Link> failed
         this for three years without knowing.
       </>
@@ -194,10 +257,11 @@ const CHECKS: Check[] = [
     title: "One report shows contribution margin per order, including carriage, returns and fees",
     threshold: (
       <>
-        Threshold: binary — the view exists and somebody reads it monthly. Per order,
-        not per channel. Carriage, packaging, returns, marketplace fees and marketing
-        cost in one place. Stores that fail this point usually discover that their
-        best campaigns on revenue are their worst on margin, which is what{" "}
+        <strong>Threshold: binary — the view exists and somebody reads it monthly.</strong>{" "}
+        Per order, not per channel. Carriage, packaging, returns, marketplace fees
+        and marketing cost in one place. Stores that fail this point usually discover
+        that their best campaigns on revenue are their worst on margin, which is
+        what{" "}
         <Link href="/testimonials/kitchenary-review/">Kitchenary</Link> found. If you
         fail only one point in this framework, hope it is not this one.
       </>
@@ -289,11 +353,11 @@ const SOURCES: { threshold: string; source: ReactNode }[] = [
     ),
   },
   { threshold: "Extra cost as the leading reason for abandonment", source: "Baymard, same source. The full stated-reason breakdown, with its sample, is published alongside it." },
-  { threshold: "Mobile at 0.66× the desktop rate", source: "Ours. Taken from the accounts we run rather than from published research. Treat it as a trigger to investigate, not a law." },
-  { threshold: "70% coverage of top non-brand demand", source: "Ours. Below it, we have never seen a category layer that was not leaving obvious demand uncaptured." },
-  { threshold: "Indexed pages within 1.2× intended pages", source: "Ours. The 20% allowance exists to cover legitimate pagination rather than to be generous." },
-  { threshold: "Feed under 2% disapproved, 95% populated", source: "Ours. Both are achievable on any catalogue; neither is a stretch target." },
-  { threshold: "Four of five lifecycle flows live", source: "Ours. Which four matters more than the count, and depends on whether you sell consumables." },
+  { threshold: "Mobile at 0.66× the desktop rate", source: (<><strong>Ours.</strong> Taken from the accounts we run rather than from published research. Treat it as a trigger to investigate, not a law.</>), },
+  { threshold: "70% coverage of top non-brand demand", source: (<><strong>Ours.</strong> Below it, we have never seen a category layer that was not leaving obvious demand uncaptured.</>), },
+  { threshold: "Indexed pages within 1.2× intended pages", source: (<><strong>Ours.</strong> The 20% allowance exists to cover legitimate pagination rather than to be generous.</>), },
+  { threshold: "Feed under 2% disapproved, 95% populated", source: (<><strong>Ours.</strong> Both are achievable on any catalogue; neither is a stretch target.</>), },
+  { threshold: "Four of five lifecycle flows live", source: (<><strong>Ours.</strong> Which four matters more than the count, and depends on whether you sell consumables.</>), },
   { threshold: "The five binary checks", source: "Conditions rather than benchmarks. Either margin-tiered bidding, early cost disclosure, a holdout, listing control and a contribution-margin view exist, or they do not." },
 ];
 
@@ -428,7 +492,9 @@ export default function GrowthAssessmentPage() {
           </p>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Assessment framework</p>
+              <Link href="/ecommerce-audit/">
+                <Pill>Assessment framework</Pill>
+              </Link>
               <p style={{ fontWeight: 700, color: "var(--blue)", marginBottom: "0.5rem" }}>
                 Free · nothing gated
               </p>
@@ -493,7 +559,7 @@ export default function GrowthAssessmentPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Why publish it</p>
+              <Pill icon="fa-solid fa-award" center>Why publish it</Pill>
               <h2>Most stores do not have twelve problems</h2>
               <p>They have one that matters and eleven that are fine for now. The point of an assessment is to find which is which.</p>
               <p>
@@ -535,7 +601,7 @@ export default function GrowthAssessmentPage() {
               />
             </div>
             <div>
-              <p className="eyebrow">Before you start</p>
+              <Pill icon="fa-solid fa-flag-checkered" center>Before you start</Pill>
               <h2>What you need in front of you</h2>
               <p>
                 Forty minutes is only realistic if these are open before you begin. Chasing
@@ -562,7 +628,7 @@ export default function GrowthAssessmentPage() {
       {/* 5. How to score it */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">How to score it</p>
+          <Pill icon="fa-solid fa-layer-group" center>How to score it</Pill>
           <h2>Three outcomes per check, and one rule</h2>
           <p className="lead">
             Each of the twelve points gets one of three marks. There is deliberately no
@@ -613,7 +679,7 @@ export default function GrowthAssessmentPage() {
       {/* 6. Why the order matters */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Before the list</p>
+          <Pill icon="fa-solid fa-layer-group" center>Before the list</Pill>
           <h2>Why the order matters more than the checklist</h2>
           <p className="lead">
             Checklists are easy to find. The sequence they run in is what makes them useful.
@@ -642,51 +708,101 @@ export default function GrowthAssessmentPage() {
       {/* 7. The checklist index + the twelve points */}
       <section className="section" id="ga-list">
         <div className="container">
-          <p className="eyebrow">THE CHECKLIST</p>
-          <div className="card-grid card-grid-2">
-            {SECTIONS.map((s) => (
-              <article className="card" key={s.id}>
-                <p className="card-num">{s.num}</p>
-                <h3>
-                  <Link href={`#${s.id}`}>{s.title}</Link>
-                </h3>
-              </article>
-            ))}
-          </div>
-
-          {SECTIONS.map((s) => (
-            <div key={s.id} id={s.id} style={{ marginTop: "56px", scrollMarginTop: "90px" }}>
-              <p className="eyebrow">
-                Section {s.num} · 2 checks
-              </p>
-              <h2>{s.title}</h2>
-              <p className="lead">{s.intro}</p>
-              {s.img && (
-                <div className="split-img" style={{ marginTop: "24px" }}>
-                  <Image src={s.img} alt={s.imgAlt ?? ""} width={1200} height={800} />
+          <div className="ga-checklist-layout">
+            <aside className="ga-checklist-sidebar">
+              <div className="card">
+                <p
+                  style={{
+                    color: "var(--blue)",
+                    fontWeight: 800,
+                    letterSpacing: "0.06em",
+                    fontSize: "0.85rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  THE CHECKLIST
+                </p>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                  {SECTIONS.map((s) => (
+                    <li key={s.id} style={{ margin: "0 0 11px 0" }}>
+                      <Link
+                        href={`#${s.id}`}
+                        style={{ color: "#1b2437", textDecoration: "none" }}
+                      >
+                        <strong style={{ color: "#0a4ed4" }}>{s.num}</strong>
+                        &nbsp;&nbsp;{s.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+            <div>
+              {SECTIONS.map((s, i) => (
+                <div
+                  key={s.id}
+                  id={s.id}
+                  style={{ marginTop: i === 0 ? 0 : "56px", scrollMarginTop: "90px" }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      alignItems: "baseline",
+                      marginBottom: "0.75rem",
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontWeight: 800,
+                        color: "var(--blue)",
+                        letterSpacing: "0.06em",
+                        fontSize: "0.85rem",
+                        margin: 0,
+                      }}
+                    >
+                      SECTION {s.num}
+                    </p>
+                    <p style={{ color: "var(--muted)", margin: 0 }}>2 checks</p>
+                  </div>
+                  <h2>{s.title}</h2>
+                  <p className="lead">{s.intro}</p>
+                  {s.img && (
+                    <div className="split-img" style={{ marginTop: "24px" }}>
+                      <Image src={s.img} alt={s.imgAlt ?? ""} width={1200} height={800} />
+                    </div>
+                  )}
+                  {s.note && (
+                    <p style={{ marginTop: "24px", fontWeight: 700 }}>{s.note}</p>
+                  )}
+                  {CHECKS.filter((c) => c.sectionId === s.id).map((c) => (
+                    <article className="card" key={c.num} style={{ marginTop: "16px" }}>
+                      <div
+                        style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}
+                      >
+                        <i
+                          className="fa-regular fa-square"
+                          aria-hidden="true"
+                          style={{ color: "var(--blue)", fontSize: "1.3rem", lineHeight: 1.4 }}
+                        />
+                        <div style={{ minWidth: 0 }}>
+                          <h3>{c.title}</h3>
+                          <p style={{ marginBottom: 0 }}>{c.threshold}</p>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              )}
-              {s.note && (
-                <p style={{ marginTop: "24px", fontWeight: 700 }}>{s.note}</p>
-              )}
-              {CHECKS.filter((c) => c.sectionId === s.id).map((c) => (
-                <article className="card" key={c.num} style={{ marginTop: "16px" }}>
-                  <p className="card-num" style={{ fontSize: "1.2rem" }}>
-                    Point {c.num}
-                  </p>
-                  <h3>{c.title}</h3>
-                  <p style={{ marginBottom: 0 }}>{c.threshold}</p>
-                </article>
               ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
       {/* 8. Where the numbers come from */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Where the numbers come from</p>
+          <Pill icon="fa-solid fa-globe" center>Where the numbers come from</Pill>
           <h2>Four thresholds are published research. The rest are ours.</h2>
           <p className="lead">
             A framework that presents its own house rules as industry standards is not worth
@@ -717,7 +833,7 @@ export default function GrowthAssessmentPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Reading the result</p>
+              <Pill icon="fa-solid fa-book-open" center>Reading the result</Pill>
               <h2>Do not add it up. Rank it.</h2>
               <p>
                 The output of this assessment is not a score. It is an ordered list, and only
@@ -757,7 +873,7 @@ export default function GrowthAssessmentPage() {
       {/* 10. Impact against effort */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Ranking your flags</p>
+          <Pill icon="fa-solid fa-layer-group" center>Ranking your flags</Pill>
           <h2>Impact against effort, in four bands</h2>
           <p className="lead">
             Put every flagged point into one of these. The band decides the order; the order
@@ -794,7 +910,7 @@ export default function GrowthAssessmentPage() {
       {/* 11. By stage */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">By stage</p>
+          <Pill icon="fa-solid fa-layer-group" center>By stage</Pill>
           <h2>What clearing looks like at your size</h2>
           <p className="lead">
             The twelve points do not change with revenue. Which failures are acceptable does.
@@ -821,7 +937,7 @@ export default function GrowthAssessmentPage() {
       {/* 12. Six ways a self-assessment goes wrong */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Getting it wrong</p>
+          <Pill icon="fa-solid fa-layer-group" center>Getting it wrong</Pill>
           <h2>Six ways a self-assessment goes wrong</h2>
           <p className="lead">
             Most of these are ways of arriving at a comfortable answer. The assessment is only
@@ -845,7 +961,7 @@ export default function GrowthAssessmentPage() {
       {/* 13. What to do with the result */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">What next</p>
+          <Pill icon="fa-solid fa-forward" center>What next</Pill>
           <h2>What to do with the result you got</h2>
           <p className="lead">
             Four outcomes, four different next steps. Only one of them involves us.
@@ -873,7 +989,7 @@ export default function GrowthAssessmentPage() {
       {/* 14. Yourself, or us */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Yourself, or us</p>
+          <Pill icon="fa-solid fa-hand-pointer" center>Yourself, or us</Pill>
           <h2>When this is enough, and when it is not</h2>
           <p className="lead">
             The assessment and the audit work from the same twelve points. What differs is who
@@ -913,7 +1029,7 @@ export default function GrowthAssessmentPage() {
       {/* 15. Assessment FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Questions</p>
+          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
           <h2>Assessment FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             The questions we get asked about running this without us.
@@ -925,7 +1041,7 @@ export default function GrowthAssessmentPage() {
       {/* 16. What to read once you have your flags */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Keep going</p>
+          <Pill icon="fa-solid fa-layer-group" center>Keep going</Pill>
           <h2>What to read once you have your flags</h2>
           <p className="lead">Each of these picks up where a flagged point leaves off.</p>
           <div className="card-grid">

@@ -26,7 +26,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `Management and marketing under one team, because on marketplaces they are the same job`
   - `Twelve marketplaces from North America to South Asia, the Gulf and Africa`
   - `Measured on contribution after commission, fulfilment, ads and returns — not on GMV`
-- Fidelity fix 2026-11-23: the clone renders each badge as one verbatim sentence (previously title + body, which dropped the comma after "one team" in badge 1). The FAQ intro now also keeps the live space before the period (`More on our full FAQ page .`).
+- Fidelity fix 2026-11-23: the clone renders each badge as one verbatim sentence (previously title + body, which dropped the comma after "one team" in badge 1). [Correction 2026-11-23 (second pass, fresh live fetch): the three trust badges sit ABOVE the two CTAs on the live page, in the same order listed here. The clone had rendered them below the hero grid, after the CTAs and hero image; they are now rendered as a checklist above the CTAs, matching live order. The FAQ-intro "space before the period" mentioned in the earlier fix note is NOT a live quirk — the raw live HTML is `our full FAQ page</a>.` with no space; that claim is superseded and the clone no longer renders a space there.]
 - CTAs: `Discuss your marketplace strategy` → /contact/ ; `See pricing` → /pricing/
 - Hero image: marketplace-management-marketing-hero.jpg (1600×1100), alt: `Aerial view of colourful shipping containers at a busy port` (Quirk: British spelling `colourful` in the alt text, kept verbatim.)
 
@@ -200,7 +200,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow/label: `Fit`
 - H2: `Marketplace solutions by business goal`
 - Intro: `Start from the outcome you need this quarter. Most sellers need two of these, not nine.`
-- Table (9 rows; header: `Business goal` | `How we help`):
+- Two-column comparison (9 rows; headings: `Business goal` | `How we help`): [Correction 2026-11-23 (fresh raw-HTML check): the live page has NO `<table>` element at all. This comparison is H4 heading + paragraph pairs in the live DOM, not a table. The clone now renders it as H4 + paragraph pairs matching the live structure.]
   | Business goal | How we help |
   |---|---|
   | `Launch on a marketplace` | `Account setup, catalog upload, category approval and listing build, with a launch plan per channel.` |
@@ -262,7 +262,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 ### 14. FAQs — Marketplace FAQs
 - Eyebrow/label: `FAQs`
 - H2: `Marketplace FAQs`
-- Intro: `Eight questions that come up in most marketplace conversations, including the ones worth asking any marketplace marketing agency before you sign. More on` `our full FAQ page` → /faqs/ `.`
+- Intro: `Eight questions that come up in most marketplace conversations, including the ones worth asking any marketplace marketing agency before you sign. More on our full FAQ page.` (Link text `our full FAQ page` → /faqs/.) [Correction 2026-11-23 (fresh raw-HTML check): the live markup is `our full FAQ page</a>.` — there is NO space before the period in the live copy. The earlier claim of a space-before-period quirk was an artifact of tag-stripped text extraction and is superseded; the clone no longer renders a space there.]
 - 8 FAQs (also in JSON-LD FAQPage, verbatim):
   1. Q: `Which marketplaces do you manage?` A: `Twelve: Amazon, Walmart, eBay, Etsy and TikTok Shop across North America and globally; Daraz in South Asia; Shopee and Lazada in Southeast Asia; noon in the Gulf; Jumia across Africa; AliExpress for cross-border; and Alibaba.com for B2B wholesale. Each has its own page setting out exactly how we run it. If you sell somewhere not on that list, tell us — we will say honestly whether we already run it or would be learning it on your budget.`
   2. Q: `Can you manage multiple marketplaces at once?` A: `Yes, and that is most of what we do. The value is not in running four accounts in parallel — anyone can do that. It is in one master catalog with per-channel variants, pricing set so your channels stop undercutting each other, stock allocated against a single forecast, and one contribution number per channel that your finance team can reconcile.`

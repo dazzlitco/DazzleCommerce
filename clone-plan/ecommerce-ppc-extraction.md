@@ -167,10 +167,29 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 ## Other live-page elements (not main content)
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No pricing table on this page (fee ranges appear only inside FAQ answers: $2,000–$7,000/month management fee; $5,000–$8,000/month minimum media).
 - Images on the live page (main content only): ecommerce-ppc-hero.jpg (1600×1100, alt `Advertising performance dashboard on a laptop`); cases-VAC-Vacuums.webp (alt `Dazzle Commerce marketplace team reviewing Amazon account performance`); cases-Nutriblend.webp (alt `Dazzle Commerce SEO team working through category page structure`); sports-retention-1024x731.jpg (alt `A person training with dumbbells in a gym`). The VAC and Nutriblend images are the same files the live site reuses on its case-studies/portfolio pages, so the clone reuses the existing Batch 1 files `case-vac-vacuums.webp` and `case-nutriblend.webp` for those two cards. The hero and Fitness Gear images are created new for this page.
-- Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3: hero `See pricing`, FAQ `Our pricing page`, final CTA `See pricing and packages`), /ecommerce-seo/, /conversion-rate-optimization/, /ecommerce-management/, /vac-vacuums-amazon-marketplace-europe/, /nutriblend-supplements-retention-uk/, /case-studies/ (×5: three `Read case study` links + `See all case studies`), /portfolio/, /faqs/, /guides/ecommerce-ppc/.
+- Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3: hero `See pricing`, FAQ `Our pricing page`, final CTA `See pricing and packages`), /ecommerce-seo/, /conversion-rate-optimization/, /ecommerce-management/, /vac-vacuums-amazon-marketplace-europe/, /nutriblend-supplements-retention-uk/, /case-studies/ (×4: three `Read case study` links + `See all case studies`), /portfolio/, /faqs/, /guides/ecommerce-ppc/.
+- Correction 2026-11-23: the /case-studies/ count is ×4, not ×5 as an earlier version of this file stated (3 + 1 = 4).
+- Correction 2026-11-23: the live page has NO fixed/sticky side navigation — no aside/nav/sticky element in the live main content. The section labels (`The Problem`, `What We Do`, etc.) are plain eyebrow text, not nav links. Do not add a side nav.
 - Quirks kept verbatim: British spellings (`optimise`, `optimisation`, `cannibalise`, `maths`); the space before the comma in `conversion optimization ,`; the space before the period in `our full FAQ page .`; the Fitness Gear card has no individual case-study link (its `Read case study` goes to /case-studies/); the live page has no og:image.
 
 ## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
 - Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
 - FAQ 2 now renders `Our pricing page` as a real link → /pricing/ (JSX answer). Note: an earlier version of this file claimed the clone already rendered that link; it did not — it was plain text until this pass.
 - Fee ranges verified as FAQ-only: $2,000–$7,000/month management fee (FAQ 2), $5,000–$8,000/month minimum media (FAQ 1). No pricing table on the live page, none in the clone.
+
+## Pill fix — 2026-11-23 (fresh live fetch; supersedes "plain eyebrow text")
+- Correction 2026-11-23: the section labels are NOT plain text. Each is an Elementor icon-list pill: a leading Font Awesome icon, Title Case blue text, inside a rounded pale-blue chip. The clone now renders them with the shared `Pill` component (`components/Pill.tsx`, `.eyebrow` chip in `app/globals.css`). Any earlier line calling these labels "plain eyebrow text" is superseded by this note (the no-side-nav conclusion stands).
+- Pills, verified against the fresh live fetch (icon + centering):
+  - Hero `PPC & Paid Advertising` — icon `fa-solid fa-bullseye`, left-aligned (no center).
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, centered.
+  - `What We Do` — `fa-solid fa-layer-group`, centered.
+  - `Platforms` — `fa-solid fa-screwdriver-wrench`, centered.
+  - `The Process` — `fa-solid fa-diagram-project`, centered.
+  - `Scope` — `fa-solid fa-list-check`, centered.
+  - `By Goal` — `fa-solid fa-compass`, centered.
+  - `Why Us` — `fa-solid fa-award`, left-aligned (no center).
+  - `Proof` — `fa-solid fa-chart-line`, centered.
+  - `FAQs` — `fa-solid fa-circle-question`, centered.
+- Icon source note: live renders some pill icons as `<i class="fas fa-*">` and others as Elementor inline SVG (`e-fas-*` class); both map 1:1 to Font Awesome solid (`fa-solid fa-*`). No icon was invented.
+- Centering note: hero and Why Us left-alignment rests on the rendered desktop check of 2026-11-23 22:05 PST; the fetched widget markup carries `elementor-align-center` on every pill widget (the widgets are width-initial inside left-aligned flex columns, so the class centers content inside the shrink-wrapped chip, not the chip on the page). Centered pills are fetch-inferred from that class, not render-proven in this pass.
+- No other clone differences found in this pass: copy, links, images, metadata, FAQs, hero stats and the space-before-comma quirk all match live.

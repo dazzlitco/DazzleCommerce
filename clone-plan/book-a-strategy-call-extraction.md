@@ -298,3 +298,7 @@ Image: `b2b-lead-generation.jpg`, alt `Two business buyers discussing documents 
 8. **Schema vs visible copy:** the JSON-LD telephone is `+1 (555) 012-3456` and the address is `Suite 400` — neither appears in the visible page copy, so neither is used in the clone. The author slug `shaheensagar2000yahoo-com` is reproduced here for the record only; not used in the clone.
 9. **Spelling / phrasing:** the live page uses British phrasing in places (`turn up`, `Messy and real beats tidy and approximate`) — quoted copy is reproduced exactly as fetched.
 10. **Links to pages not yet built in the clone:** `/resources/checklists/` and `/guides/` do not exist as clone routes yet; the clone keeps the live hrefs unchanged so they resolve once those pages are built. (`/ecommerce-audit/`, `/ecommerce-growth-assessment/` and `/request-a-proposal/` now exist.)
+
+## Correction 2026-11-23 — approved fix pass
+- Section pills converted to the shared `Pill` component (chip + leading icon, Title Case): hero "Strategy call" is a TEXT-ONLY chip on live (no icon) — rendered icon-less; section pills centered with live icons (sections mostly `fa-layer-group`, "Questions" `fa-circle-question`, "Other routes in" `fa-route`).
+- Hero fact labels LENGTH / WHO YOU MEET / COST / SLIDES are plain `<p>` on live, not H3 — clone corrected from H3 to `<p>`.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -150,6 +151,7 @@ const locations = [
       "Festive and Diwali trading calendar",
     ],
     href: "/ecommerce-agency-india/",
+    iconHref: "/ecommerce-agency-dubai/",
     linkText: "See our India page",
   },
   {
@@ -163,6 +165,7 @@ const locations = [
       "Returns policy priced deliberately",
     ],
     href: "/ecommerce-agency-london/",
+    iconHref: "/ecommerce-agency-dubai/",
     linkText: "See our London page",
   },
   {
@@ -272,31 +275,20 @@ export default function LocationsPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <h1>eCommerce Growth, Wherever You Sell</h1>
-              <p className="lead">
-                We serve eCommerce brands and marketplace sellers across the United States,
-                United Kingdom, Canada, Australia and the UAE — with account teams staffed in
-                your business hours and expertise in your local channels.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="/book-a-strategy-call/">
-                  Get Free Strategy Call
-                </Link>
-                <Link className="btn btn-outline" href="/contact/">
-                  Talk to a Specialist
-                </Link>
-              </div>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/locations-we-serve-hero.webp"
-                alt="World map illustrating international eCommerce markets served by Dazzle Commerce"
-                width={1920}
-                height={1280}
-                priority
-              />
+          <div>
+            <h1>eCommerce Growth, Wherever You Sell</h1>
+            <p className="lead">
+              We serve eCommerce brands and marketplace sellers across the United States,
+              United Kingdom, Canada, Australia and the UAE — with account teams staffed in
+              your business hours and expertise in your local channels.
+            </p>
+            <div className="btn-row">
+              <Link className="btn" href="/book-a-strategy-call/">
+                Get Free Strategy Call
+              </Link>
+              <Link className="btn btn-outline" href="/contact/">
+                Talk to a Specialist
+              </Link>
             </div>
           </div>
           <div className="stat-row">
@@ -335,7 +327,9 @@ export default function LocationsPage() {
       {/* 2. Where We Serve */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Where We Serve</p>
+          <Pill icon="fa-solid fa-location-dot" center>
+            Where We Serve
+          </Pill>
           <h2>Ten markets we know properly</h2>
           <p className="lead">
             We would rather cover five regions deeply than claim thirty on a map. Each has
@@ -344,7 +338,27 @@ export default function LocationsPage() {
           <div className="card-grid">
             {locations.map((loc) => (
               <article className="card" key={loc.name}>
-                <h3>{loc.name}</h3>
+                <Link
+                  href={loc.iconHref ?? loc.href}
+                  aria-label={loc.name}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "56px",
+                    height: "56px",
+                    borderRadius: "50%",
+                    background: "var(--bg-soft)",
+                    color: "var(--blue)",
+                    fontSize: "1.5rem",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <i className="fa-solid fa-globe" aria-hidden="true" />
+                </Link>
+                <h3>
+                  <Link href={loc.iconHref ?? loc.href}>{loc.name}</Link>
+                </h3>
                 <p>{loc.body}</p>
                 <p style={{ fontWeight: 700, color: "var(--navy)", marginTop: "1rem" }}>
                   {loc.cities}
@@ -366,7 +380,9 @@ export default function LocationsPage() {
       {/* 3. Local Marketing Expertise */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Local Marketing Expertise</p>
+          <Pill icon="fa-solid fa-bullseye" center>
+            Local Marketing Expertise
+          </Pill>
           <h2>Why a copy-paste global strategy fails</h2>
           <p className="lead">
             The mechanics of eCommerce are portable. The details that decide profitability are
@@ -388,7 +404,9 @@ export default function LocationsPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Global eCommerce Capabilities</p>
+              <Pill icon="fa-solid fa-globe" center>
+                Global eCommerce Capabilities
+              </Pill>
               <h2>Built for brands selling across borders</h2>
               <p>
                 Multi-market selling breaks most agency operating models. Ours was designed
@@ -409,13 +427,23 @@ export default function LocationsPage() {
               </div>
             </div>
           </div>
+          <div style={{ marginTop: "2.5rem" }}>
+            <Image
+              src="/images/locations-we-serve-hero.webp"
+              alt="World map illustrating international eCommerce markets served by Dazzle Commerce"
+              width={1920}
+              height={1280}
+            />
+          </div>
         </div>
       </section>
 
       {/* 5. Why Brands Choose Us Globally */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Why Brands Choose Us Globally</p>
+          <Pill icon="fa-solid fa-award" center>
+            Why Brands Choose Us Globally
+          </Pill>
           <h2>What multi-market clients say matters most</h2>
           <div className="card-grid card-grid-2">
             {whyGlobal.map((w) => (
@@ -431,7 +459,9 @@ export default function LocationsPage() {
       {/* 6. Location FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Location FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>
+            Location FAQs
+          </Pill>
           <h2>Working with us from anywhere</h2>
           <FaqAccordion faqs={faqs} />
         </div>

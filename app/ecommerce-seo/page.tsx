@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce SEO Services & Agency | Dazzle Commerce",
@@ -16,14 +17,6 @@ export const metadata: Metadata = {
     title: "eCommerce SEO Services & Agency | Dazzle Commerce",
     description:
       "eCommerce SEO services for Shopify, WooCommerce and marketplaces: technical SEO, category and product optimisation, content and schema.",
-    images: [
-      {
-        url: "/images/ecommerce-seo-hero.webp",
-        width: 1600,
-        height: 1100,
-        alt: "Search analytics charts on a laptop screen",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -371,7 +364,7 @@ export default function EcommerceSeoPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">eCommerce SEO</p>
+              <Pill icon="fa-solid fa-magnifying-glass">eCommerce SEO</Pill>
               <h1>eCommerce SEO That Grows Revenue, Not Just Rankings</h1>
               <p className="lead">
                 We build category, collection and product pages around what people actually
@@ -416,7 +409,7 @@ export default function EcommerceSeoPage() {
       {/* 2. The Problem */}
       <section className="section" id="problem">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>The eCommerce SEO challenge</h2>
           <p className="lead">
             Store SEO is not content SEO with products attached. The constraints are
@@ -436,7 +429,7 @@ export default function EcommerceSeoPage() {
       {/* 3. Our eCommerce SEO services */}
       <section className="section section-soft" id="services">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce SEO services</h2>
           <p className="lead">
             Ten workstreams. Which of them you need depends on the audit — most stores are
@@ -473,7 +466,7 @@ export default function EcommerceSeoPage() {
       {/* 4. The Process */}
       <section className="section" id="process">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>How our eCommerce SEO expert team works</h2>
           <p className="lead">
             Six stages. The last one runs monthly and feeds back into stages three through
@@ -494,7 +487,7 @@ export default function EcommerceSeoPage() {
       {/* 5. Funnel Coverage */}
       <section className="section section-soft" id="funnel">
         <div className="container">
-          <p className="eyebrow">Funnel Coverage</p>
+          <Pill icon="fa-solid fa-compass" center>Funnel Coverage</Pill>
           <h2>SEO for every level of the eCommerce funnel</h2>
           <p className="lead">
             Most store SEO only ever targets the purchase stage. That is the most competitive,
@@ -519,7 +512,7 @@ export default function EcommerceSeoPage() {
       {/* 6. Scope */}
       <section className="section" id="scope">
         <div className="container">
-          <p className="eyebrow">Scope</p>
+          <Pill icon="fa-solid fa-list-check" center>Scope</Pill>
           <h2>What an eCommerce SEO company should be optimizing</h2>
           <p className="lead">
             The actual assets on your store, not a list of abstract SEO tactics.
@@ -542,7 +535,7 @@ export default function EcommerceSeoPage() {
       {/* 7. Platforms we support */}
       <section className="section section-soft" id="platforms">
         <div className="container">
-          <p className="eyebrow">Platforms</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>Platforms</Pill>
           <h2>Platforms we support</h2>
           <p className="lead">
             Storefront and marketplace search, handled by the same team so they stop competing
@@ -566,7 +559,7 @@ export default function EcommerceSeoPage() {
       {/* 8. Why Us */}
       <section className="section" id="why-us">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce SEO agency</h2>
           <p className="lead">
             Seven things that separate store SEO from the generic kind, and from what a
@@ -586,7 +579,7 @@ export default function EcommerceSeoPage() {
       {/* 9. Proof — SEO results */}
       <section className="section section-soft" id="results">
         <div className="container">
-          <p className="eyebrow">Proof</p>
+          <Pill icon="fa-solid fa-chart-line" center>Proof</Pill>
           <h2>SEO results</h2>
           <p className="lead">
             Three engagements: client, problem, strategy, results. Measured against the twelve
@@ -596,6 +589,7 @@ export default function EcommerceSeoPage() {
             {cases.map((c) => (
               <article className="card" key={c.title}>
                 <Image src={c.img} alt={c.imgAlt} width={800} height={533} />
+                <p className="case-cat">Client</p>
                 <h3>
                   {c.titleHref ? (
                     <Link href={c.titleHref}>{c.title}</Link>
@@ -606,8 +600,11 @@ export default function EcommerceSeoPage() {
                 <p>
                   <strong>{c.meta}</strong>
                 </p>
+                <p className="case-cat">Problem</p>
                 <p>{c.problem}</p>
+                <p className="case-cat">Strategy</p>
                 <p>{c.strategy}</p>
+                <p className="case-cat">Results</p>
                 <div className="stat-row" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
                   {c.results.map((r) => (
                     <div className="stat" key={r.label}>
@@ -641,7 +638,7 @@ export default function EcommerceSeoPage() {
       {/* 10. FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce SEO FAQs</h2>
           <p className="lead">
             Eight questions that come up before most SEO engagements. More on{" "}

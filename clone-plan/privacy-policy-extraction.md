@@ -82,7 +82,7 @@ No og:image / twitter:image on the live page. No images anywhere in the page mai
 - P: Privacy enquiries and rights requests: privacy@dazzlecommerce.com
 - P: General enquiries: hello@dazzlecommerce.com
 - P: Post: Dazzle Commerce, 1201 Commerce Street, Suite 480, Austin, TX 78701, United States
-- P: Phone: +1 (555) 010-2400
+- P: Phone: +1 (555) 010-2400 — wrapped in a `tel:+15550102400` link on live.
 - H2: Questions about how we handle your data?
 - P: Our privacy team answers within one business day. Email privacy@dazzlecommerce.com or use the contact form — no ticket queue, no chatbot.
 - A: Contact Us -> /contact/
@@ -100,5 +100,6 @@ No og:image / twitter:image on the live page. No images anywhere in the page mai
 - Body text gives the head office as **Suite 480**, 1201 Commerce Street, Austin, TX 78701; the page's JSON-LD schema gives the organisation/place address as **Suite 400** at the same street address. Body wording is used in the clone.
 - Body "Contact Us" phone is **+1 (555) 010-2400**; the JSON-LD schema telephone is **+1 (555) 012-3456**. Body wording is used in the clone.
 - JSON-LD opening hours are "Mo,Tu,We,Th,Fr,Sa,Su 09:00-17:00". The crawler's "Additional Details" block (Description / Published / Updated / address / phone / email / "Mon–Fri, 9:00–18:00 CT") is structured-data-derived, not visible page copy — the strings "Additional Details" and "Mon–Fri, 9:00–18:00 CT" do not appear in the live HTML, so that block is NOT reproduced as page content; only the description sentence (which matches the meta description) and the published/updated dates are recorded here.
-- Emails in the body copy are plain text (privacy@dazzlecommerce.com, hello@dazzlecommerce.com); the mailto: links exist in the page HTML (header/footer) and are used for the email links in the clone.
+- ~~Emails in the body copy are plain text (privacy@dazzlecommerce.com, hello@dazzlecommerce.com); the mailto: links exist in the page HTML (header/footer) and are used for the email links in the clone.~~ **Correction 2026-11-23 (fresh curl fetch): this line was wrong — the body emails ARE mailto: links on live** (`privacy@dazzlecommerce.com` → mailto:privacy@dazzlecommerce.com in the “Who We Are”, “Your Rights” and “Contact Us” sections; `hello@dazzlecommerce.com` → mailto:hello@dazzlecommerce.com under “Contact Us”). The clone already rendered them as mailto links, so no page change was needed for the emails.
+- **Correction 2026-11-23 (fresh curl fetch):** the “Contact Us” phone `+1 (555) 010-2400` is a `tel:+15550102400` link on live; the clone had it as plain text. Wrapped in the tel link the same day.
 - No FAQ section, no form, no images, no tables, no table of contents on the live page.

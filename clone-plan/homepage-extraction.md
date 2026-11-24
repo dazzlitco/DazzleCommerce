@@ -168,3 +168,22 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Exact visual styling (spacing, colours beyond the blue/navy found in inline CSS, hover states) — no screenshot was taken in this task; clone uses the extracted brand blue #0B5BF4, navy #091325, Plus Jakarta Sans, and a clean agency layout matching the section order.
 - Popup trigger timing/behaviour (see Forms §2).
 - Whether the “Trusted by” wordmarks are links other than VAC Vacuums — only VAC had an href in the main content.
+
+## Correction 2026-11-23 — section pills (supersedes any earlier line describing the pills as text-only / uppercase)
+
+Re-fetched live 2026-11-23. Every section pill on live is an Elementor icon-list item: a leading icon + Title Case blue text inside a rounded pale-blue chip — NOT text-only, NOT uppercase, NOT letter-spaced. `TRUSTED BY 100+ ECOMMERCE BRANDS WORLDWIDE` is NOT a pill (all-caps grey text, no icon, no chip) and is left as-is. Most live pill icons are custom hand-drawn inline SVGs (no Font Awesome class); the clone renders the closest free Font Awesome equivalent and flags each one below. Alignment read from the live widget classes (`elementor-align-center`) except where noted.
+
+| Section | Pill label | Live icon | Clone FA icon | Align |
+|---|---|---|---|---|
+| 1. Hero | `eCommerce Management & Marketing Agency` | custom SVG: three sparkles | `fa-solid fa-wand-magic-sparkles` (closest free FA; `fa-sparkles` is Pro-only and absent from the installed free set) | left (no align class on live widget) |
+| 2. Problems | `Problems We Solve` | custom SVG: target | `fa-solid fa-bullseye` | center |
+| 3. Services | `Our Services` | custom SVG: stacked layers | `fa-solid fa-layer-group` | center |
+| 4. Platforms | `Platforms We Work With` | custom SVG: globe | `fa-solid fa-globe` | center |
+| 5. Why Choose Us | `Why Choose Us` | custom SVG: award ribbon/rosette | `fa-solid fa-award` | left per the 2026-11-23 rendered desktop check — NOTE: the fetched HTML carries `elementor-align-center` on this widget, contradicting the rendered observation; left alignment applied per the rendered check, fetch-inferred discrepancy flagged |
+| 6. Process | `Our Process` | custom SVG: gear | `fa-solid fa-gear` | center |
+| 7. Results | `Results & Success Metrics` | custom SVG: bar chart | `fa-solid fa-chart-column` | center (the clone's old inline `color: #7dd3fc` override on this pill was removed; the chip handles styling) |
+| 8. Case Studies | `Case Studies` | custom SVG: briefcase | `fa-solid fa-briefcase` | center |
+| 9. Testimonials | `Testimonials` | custom SVG: speech bubble with three dots | `fa-solid fa-comment-dots` | center |
+| 10. FAQ | `Frequently Asked Questions` | custom SVG: speech bubble with `?` | `fa-solid fa-circle-question` | center |
+
+All pill icons above are closest-FA equivalents of custom live SVGs (render-proven by rendering the live SVGs to images and identifying them visually); none is a verbatim live icon. No copy, link, order, image or meta differences were found on this page in this pass.

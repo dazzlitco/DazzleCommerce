@@ -125,25 +125,24 @@ export default function CookiesPolicyPage() {
         </div>
       </section>
 
-      {/* 4. Categories of Cookies We Use */}
+      {/* 4. Categories of Cookies We Use — live renders each category as
+          H3 + intro paragraph + list in sequence, not cards in a grid */}
       <section className="section section-soft" id="categories">
-        <div className="container">
+        <div className="container" style={{ maxWidth: "860px" }}>
           <h2>Categories of Cookies We Use</h2>
-          <div className="card-grid card-grid-2">
-            {categories.map((cat) => (
-              <article className="card" key={cat.id} id={cat.id}>
-                <h3>{cat.title}</h3>
-                {cat.intro ? <p>{cat.intro}</p> : null}
-                <ul style={{ paddingLeft: "1.25rem", margin: "1rem 0 0" }}>
-                  {cat.cookies.map((c) => (
-                    <li key={c.name} style={{ marginBottom: "0.5rem" }}>
-                      <strong>{c.name}</strong> — {c.desc}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
+          {categories.map((cat) => (
+            <div key={cat.id} id={cat.id} style={{ marginTop: "2rem" }}>
+              <h3>{cat.title}</h3>
+              {cat.intro ? <p>{cat.intro}</p> : null}
+              <ul style={{ paddingLeft: "1.25rem", margin: "1rem 0 0" }}>
+                {cat.cookies.map((c) => (
+                  <li key={c.name} style={{ marginBottom: "0.5rem" }}>
+                    <strong>{c.name}</strong> — {c.desc}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
           <p style={{ marginTop: "1.5rem" }}>
             Cookie names and durations are set by the providers and can change without notice.
             We review this list quarterly.

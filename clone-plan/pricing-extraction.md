@@ -177,3 +177,18 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Starter price line reads `per month · 3-month initial term` while Growth reads `per month · month-to-month after 90 days` — both kept verbatim (they describe the same 90-day initial term in different words).
 - The comparison table on the live page repeats the tier names as row headers in its first column area (a responsive-table artefact); the clone renders it as a clean 4-column table with the same cell values.
 - The live page has no author/byline block and no “Time to read” body text beyond the Twitter meta label.
+
+## Correction 2026-11-23 — section pills (supersedes any earlier line describing the pills as text-only / uppercase)
+
+Re-fetched live 2026-11-23. Every section pill on live is an Elementor icon-list item: a leading icon + Title Case blue text inside a rounded pale-blue chip — NOT text-only, NOT uppercase, NOT letter-spaced. Unlike the other pages, all six pill icons on this page ARE Font Awesome (live `e-fas-*` / `fas fa-*` classes), so the clone uses the verbatim live icons. All six pill widgets carry `elementor-align-center` on live. (This extraction previously recorded eyebrow lines only for sections 1, 2 and 7; the pills for sections 4–6 are recorded here for the first time.)
+
+| Section | Pill label | Live icon (verbatim FA) | Clone FA icon | Align |
+|---|---|---|---|---|
+| 1. Hero | `Pricing & Packages` | `e-fas-tags` | `fa-solid fa-tags` | center |
+| 2. Choose Your Growth Package | `Choose Your Growth Package` | `fas fa-scale-balanced` | `fa-solid fa-scale-balanced` | center |
+| 4. Services & Add-Ons | `Services & Add-Ons` | `e-fas-layer-group` | `fa-solid fa-layer-group` | center |
+| 5. Included as Standard | `Included as Standard` | `e-fas-lightbulb` | `fa-solid fa-lightbulb` | center |
+| 6. How Our Pricing Works | `How Our Pricing Works` | `e-fas-compass` | `fa-solid fa-compass` | center |
+| 7. FAQ | `Pricing FAQs` | `fas fa-circle-question` | `fa-solid fa-circle-question` | center |
+
+No copy, tier, table, add-on or FAQ differences were found on this page in this pass.

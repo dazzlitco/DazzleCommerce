@@ -58,15 +58,15 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Eyebrow/label: `What We Do`
 - H2: `Our eCommerce app development services`
 - Intro: `Eight services covering build, release and upkeep. Scope the eCommerce app development services you need from the audit rather than from a package list — most brands need two or three of these, not all eight.`
-- 8 cards:
-  1. `Cross-Platform App Development` — `One React Native codebase shipping to both iOS and Android, which is the right default for most brands.`
-  2. `Native iOS & Android Development` — `Separate native builds where device features, performance or an existing team genuinely justify two codebases.`
-  3. `Progressive Web Apps` — `An installable, offline-capable storefront with no app store dependency — often the honest alternative to an app.`
-  4. `Custom Platform Apps` — `Shopify, BigCommerce and WooCommerce apps built for your own store where no off-the-shelf app does the job properly.`
-  5. `Headless Storefront Builds` — `A React or Next.js front end on your existing commerce backend, where template control is the actual requirement.`
-  6. `App Integrations & APIs` — `Commerce, loyalty, search, reviews and support joined to the app through your platform APIs, with error handling.`
-  7. `Release & Store Submission` — `Signing, provisioning, store listings, review submissions and the staged rollouts that limit the damage of a bad build.`
-  8. `App Maintenance & Support` — `OS version upgrades, SDK deprecations, crash monitoring and the release cadence that keeps the app from quietly breaking.`
+- 8 cards (each card carries a number `01`–`08` as an h6 above an icon, then the title and body — CORRECTION 2026-11-23: the numbers were omitted from this extraction and from the clone; they are live text and are now rendered in the clone as `card-num` above each title, matching the process-steps pattern in the same file):
+  1. `01` — `Cross-Platform App Development` — `One React Native codebase shipping to both iOS and Android, which is the right default for most brands.`
+  2. `02` — `Native iOS & Android Development` — `Separate native builds where device features, performance or an existing team genuinely justify two codebases.`
+  3. `03` — `Progressive Web Apps` — `An installable, offline-capable storefront with no app store dependency — often the honest alternative to an app.`
+  4. `04` — `Custom Platform Apps` — `Shopify, BigCommerce and WooCommerce apps built for your own store where no off-the-shelf app does the job properly.`
+  5. `05` — `Headless Storefront Builds` — `A React or Next.js front end on your existing commerce backend, where template control is the actual requirement.`
+  6. `06` — `App Integrations & APIs` — `Commerce, loyalty, search, reviews and support joined to the app through your platform APIs, with error handling.`
+  7. `07` — `Release & Store Submission` — `Signing, provisioning, store listings, review submissions and the staged rollouts that limit the damage of a bad build.`
+  8. `08` — `App Maintenance & Support` — `OS version upgrades, SDK deprecations, crash monitoring and the release cadence that keeps the app from quietly breaking.`
 - Closing line (with inline links): `App work sits on top of the store rather than beside it — it depends on eCommerce development , feeds off retention for installs and reopens, and is only worth doing once conversion on the mobile site is sound.` (Quirk: space before the comma after `eCommerce development`, kept verbatim. Links: `eCommerce development` → /ecommerce-development/ ; `retention` → /email-retention-marketing/ ; `conversion` → /conversion-rate-optimization/ .)
 
 ### 4. Platforms & technologies we build apps on
@@ -167,6 +167,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Intro: `Three approaches, with when each one fits, what it involves and the scope it commits you to. These are build types rather than client case studies — the figures below are scope, not results.`
 - Build type 1 — `Cross-platform shopping app`
   - Tagline: `React Native, one codebase, both app stores`
+  - CORRECTION 2026-11-23 (live DOM order): within each build-type card the two images and their captions come FIRST in the live DOM, before the `Build type` label, the card name and the tagline. The clone previously rendered the label/name/tagline first and the images after; fixed 2026-11-23 so the images sit above the heading, as live.
   - Image captions: `Browse and buy` (image: fashion-insight-retain.jpg, alt `Shopper browsing a store on a smartphone`); `One-tap reorder` (image: uk-insight-mobile.jpg, alt `Close-up of a shopper using a phone to buy online`)
   - `WHEN IT FITS`: `Customers who buy monthly or more often, a meaningful share of revenue already on mobile, and an owned channel — email, SMS or packaging — capable of driving installs without paid spend.`
   - `TECHNOLOGY`: `React Native, your existing commerce backend via API, wallet checkout, push, universal links, crash and analytics SDKs`
@@ -226,6 +227,11 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 7. Build type 3: apac-payments.jpg, alt `Digital wallet application open on a smartphone` — caption `Contract pricing`.
 - No other content images on the live page. The section labels (The Problem, What We Do, Stack, Scope, Ecosystem, The Process, By Need, Foundations, Why Us, Build types, FAQs) appear as list items in the live HTML; they are rendered as eyebrow labels in the clone, matching the Services page pattern.
 
+## Fidelity audit corrections — 2026-11-23 (fresh live fetch, word-level diff vs rendered clone)
+- Services (§3): live cards carry numbers `01`–`08` (h6 above an icon); the extraction and the clone omitted them. Numbers restored in the clone.
+- Build types (§11): live DOM order per card is images + captions first, then `Build type` label, name, tagline. The clone had the images after the tagline; reordered to match live.
+- No other differences found on this page: copy, links (15/15), images (7/7, alts verbatim) and section order otherwise match live. No fixed/sticky side nav exists on the live page — the only sticky element in the live DOM is the shared site header `#dz-header`; the clone has no side nav, which is correct. The live FAQPage JSON-LD script sits inside `<main>` on the live page, so a naive word count shows the FAQ answers twice on live; that is not visible content and the clone does not duplicate it.
+
 ## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
 - Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
 - Ecosystem (§6): the `Your App` centre node is now rendered as a centred hub above the nine-system grid, not as a card inside the grid (live presentation).
@@ -234,3 +240,9 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ## Internal links in main content (all verified in the fetched HTML)
 - /ecommerce-audit/ (×2: hero CTA, final CTA), /pricing/ (×3: hero CTA, FAQ 3, final CTA), /ecommerce-development/ (×2: services closing line, after build types), /email-retention-marketing/ (services closing line), /conversion-rate-optimization/ (×2: services closing line, FAQ 1), /request-a-proposal/ (×3: one per build type), /portfolio/ (after build types), /faqs/ (FAQ intro), /privacy-policy/ (register popup consent link).
+
+## Pill fix pass — 2026-11-23 (fresh live fetch; section pills verified as Elementor icon-list widgets)
+- All 12 section pills now render via the shared `<Pill>` component (icon + rounded pale-blue chip; `center` where the live widget carries `elementor-align-center`). Icons read directly from the live HTML (`fas fa-*` → `fa-solid fa-*`); hero pill is left-aligned on live, all section pills centered.
+  - Hero `Apps & Mobile` — `fa-solid fa-code`, left.
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, center. `What We Do` — `fa-solid fa-layer-group`, center. `Stack` — `fa-solid fa-screwdriver-wrench`, center. `Scope` — `fa-solid fa-list-check`, center. `Ecosystem` — `fa-solid fa-diagram-project`, center. `The Process` — `fa-solid fa-compass`, center. `By Need` — `fa-solid fa-map-location-dot`, center. `Foundations` — `fa-solid fa-chart-line`, center. `Why Us` — `fa-solid fa-award`, center. `Build types` — `fa-solid fa-cubes-stacked`, center. `FAQs` — `fa-solid fa-circle-question`, center.
+- CORRECTION 2026-11-23: the build-type card sub-labels (`BUILD TYPE` / `WHEN IT FITS` / `TECHNOLOGY` / `WHAT IT INVOLVES` / `TYPICAL SCOPE`) are `<h6>` headings on live, NOT icon-list pills — the clone now renders them as `<h6>` (live uppercase text) instead of eyebrow pills. No side nav on live or in the clone. Centering/icon readings are fetch-inferred from live HTML, not render-proven.

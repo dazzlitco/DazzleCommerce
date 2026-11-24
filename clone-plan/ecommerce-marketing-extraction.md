@@ -118,7 +118,8 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - H2: `Marketing results`
 - Intro: `Three engagements, each measured against the twelve months before we started. Client → challenge → strategy → result.`
 - 3 case-study cards:
-  1. `Nutriblend` — `Health & Supplements · Shopify Plus` — Challenge: `$4.1M in revenue with a 3.2x blended ROAS, 18% repeat rate and 84% of paid budget going to cold prospecting on a product customers run out of monthly.` — Strategy: `Rebuilt the PDP around subscribe-and-save, added a day-21 conversion offer post-purchase, and split paid into prospecting, win-back and subscription-lapse audiences with separate targets.` — Results: `+214%` `Revenue growth` / `7.9x` `Blended ROAS` / `-31%` `Average CAC reduction` — link `Read case study` → /nutriblend-supplements-retention-uk/ — image: cases-Nutriblend.webp, alt `Dazzle Commerce SEO team working through category page structure`
+  1. `Nutriblend` — `Health & Supplements · Shopify Plus` — Challenge: `$4.1M in revenue with a 3.2x blended ROAS, 18% repeat rate and 84% of paid budget going to cold prospecting on a product customers run out of monthly.` — Strategy: `Rebuilt the PDP around subscribe-and-save, added a day-21 conversion offer post-purchase, and split paid into prospecting, win-back and subscription-lapse audiences with separate targets.` — Results: `+214%` `Revenue growth` / `7.9x` `Blended ROAS` / `-31%` `CAC reduction` — link `Read case study` → /nutriblend-supplements-retention-uk/ — image: cases-Nutriblend.webp, alt `Dazzle Commerce SEO team working through category page structure`
+  (Correction 2026-11-23: the result label is `CAC reduction`, NOT `Average CAC reduction` — `Average CAC reduction` is the label of the `-31%` hero stat only. An earlier version of this file recorded the hero label here; the clone now uses `CAC reduction`.)
   2. `Kitchenary` — `Home & Kitchen · Shopify` — Challenge: `Heavy reliance on brand search and paid social, with almost no non-brand organic visibility and a 4.1 second mobile LCP suppressing both rankings and conversion.` — Strategy: `Rewrote 340 collection pages around real query clusters, shipped a Core Web Vitals pass, then redirected paid budget from terms organic had started winning.` — Results: `+97%` `Organic traffic growth` / `+52%` `Conversion-rate lift` / `-24%` `Paid dependency` — link `Read case study` → /kitchenary-home-kitchen-shopify-usa/ — image: cases-Kitchenary.webp, alt `Dazzle Commerce paid media specialists reviewing campaign performance`
   3. `VAC Vacuums` — `Home & Appliances · Amazon + Shopify` — Challenge: `Marketplace and storefront advertising run by separate vendors, bidding against each other on brand terms with TACoS above 22% and no view of blended acquisition cost.` — Strategy: `Consolidated both channels under one plan, rebuilt Amazon advertising around SKU profitability, and reported blended contribution rather than per-channel ROAS.` — Results: `+186%` `Sales growth` / `-42%` `TACoS` / `+64%` `Buy Box rate` — link `Read case study` → /vac-vacuums-amazon-marketplace-europe/ — image: cases-VAC-Vacuums.webp, alt `Dazzle Commerce marketplace team reviewing Amazon account performance`
 - Links below the cards: `See all case studies` → /case-studies/ ; `Browse the portfolio` → /portfolio/
@@ -147,14 +148,30 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - CTAs: `Book a free growth audit` → /ecommerce-audit/ ; `See pricing and packages` → /pricing/
 
 ## Other live-page elements (not main content)
-- Side-navigation labels preceding each section (same pattern as the services page): `The Problem`, `What We Do`, `The Process`, `Channels`, `By Goal`, `Why Us`, `Proof`, `FAQs` — rendered as the eyebrow/label of each section in the clone.
+- Correction 2026-11-23: the live page has NO fixed/sticky side navigation — no aside/nav/sticky element in the live main content. `The Problem`, `What We Do`, `The Process`, `Channels`, `By Goal`, `Why Us`, `Proof`, `FAQs` are plain section eyebrow text, not nav links. The earlier line below claiming "side-navigation labels" was wrong and is superseded by this note. Do not add a side nav.
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No pricing table on this page (pricing is only mentioned in FAQ 5: $3,500–$18,000/month, typically $5,000–$12,000 for marketing-only).
 - Content images on the live page (4): ecommerce-marketing-hero.jpg (alt `Marketing team reviewing strategy at a whiteboard`), cases-Nutriblend.webp, cases-Kitchenary.webp, cases-VAC-Vacuums.webp. The three case images are the same files used on the case-studies pages, so the clone reuses the existing Batch 1 images case-nutriblend.webp, case-kitchenary.webp and case-vac-vacuums.webp.
 
 ## Fidelity fix pass — 2026-11-23 (re-fetched live, diffed against clone)
-- Fresh live fetch agrees with this extraction throughout; no copy corrections needed.
+- Fresh live fetch agrees with this extraction throughout, except the Nutriblend case label corrected above (`CAC reduction`, not `Average CAC reduction` — fixed in the clone 2026-11-23) and the side-nav line corrected above (no side nav on live).
 - FAQ 2 now renders `eCommerce management` as a real link → /ecommerce-management/ and FAQ 5 now renders `pricing page` as a real link → /pricing/ (JSX answers, now that the shared FaqAccordion accepts ReactNode).
 - Case cards now carry the live labels `Client` / `Challenge` / `Marketing strategy` / `Result` (previously unlabeled); `Read case study` links to each client's individual case-study page, as on live.
 - Removed the openGraph `images` entry from the clone metadata: the live page sets no og:image / twitter:image.
 - FAQ intro quirk kept verbatim: says "Eight questions" but lists 9 FAQs.
 - Internal links in main content (all verified in the fetched HTML): /ecommerce-audit/ (×2), /pricing/ (×3: hero, FAQ 5, final CTA), /ecommerce-seo/, /ecommerce-ppc/ (×2), /conversion-rate-optimization/, /nutriblend-supplements-retention-uk/, /kitchenary-home-kitchen-shopify-usa/, /vac-vacuums-amazon-marketplace-europe/, /case-studies/, /portfolio/, /faqs/, /ecommerce-management/ (FAQ 2), /guides/ecommerce-marketing/.
+
+## Pill fix — 2026-11-23 (fresh live fetch; supersedes "plain eyebrow text")
+- Correction 2026-11-23: the section labels are NOT plain text. Each is an Elementor icon-list pill: a leading Font Awesome icon, Title Case blue text, inside a rounded pale-blue chip. The clone now renders them with the shared `Pill` component (`components/Pill.tsx`, `.eyebrow` chip in `app/globals.css`). Any earlier line calling these labels "plain section eyebrow text" is superseded by this note (the no-side-nav conclusion stands).
+- Pills, verified against the fresh live fetch (icon + centering):
+  - Hero `eCommerce Marketing` — icon `fa-solid fa-globe`, left-aligned (no center).
+  - `The Problem` — `fa-solid fa-triangle-exclamation`, centered.
+  - `What We Do` — `fa-solid fa-layer-group`, centered.
+  - `The Process` — `fa-solid fa-diagram-project`, centered.
+  - `Channels` — `fa-solid fa-compass`, centered.
+  - `By Goal` — `fa-solid fa-bullseye`, centered.
+  - `Why Us` — `fa-solid fa-award`, left-aligned (no center).
+  - `Proof` — `fa-solid fa-chart-line`, centered.
+  - `FAQs` — `fa-solid fa-circle-question`, centered.
+- Icon source note: live renders some pill icons as `<i class="fas fa-*">` and others as Elementor inline SVG (`e-fas-*` class); both map 1:1 to Font Awesome solid (`fa-solid fa-*`). No icon was invented.
+- Centering note: hero and Why Us left-alignment rests on the rendered desktop check of 2026-11-23 22:05 PST; the fetched widget markup carries `elementor-align-center` on every pill widget (the widgets are width-initial inside left-aligned flex columns, so the class centers content inside the shrink-wrapped chip, not the chip on the page). Centered pills are fetch-inferred from that class, not render-proven in this pass.
+- Pre-stop edit kept: Nutriblend case metric label is `CAC reduction` (live case label), while the hero stat keeps `Average CAC reduction` — both verified present on live in their own places. No other clone differences found in this pass.

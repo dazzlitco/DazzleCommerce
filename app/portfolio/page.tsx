@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 
 /*
  * Portfolio — /portfolio/
@@ -387,7 +388,7 @@ export default function PortfolioPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Our Work</p>
+              <Pill icon="fa-solid fa-chart-simple" center>Our Work</Pill>
               <h1>The Work, With the Numbers Attached</h1>
               <p className="lead">
                 Twelve selected engagements across D2C storefronts, marketplaces and B2B
@@ -438,7 +439,7 @@ export default function PortfolioPage() {
       {/* 2. Featured Work */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Featured Work</p>
+          <Pill icon="fa-solid fa-star" center>Featured Work</Pill>
           <h2>Six engagements worth walking through</h2>
           <p className="lead">
             Each of these has a full write-up with the baseline, the methodology and what we
@@ -488,7 +489,7 @@ export default function PortfolioPage() {
       {/* 3. Browse Our Work — working discipline filter */}
       <section className="section section-soft" id="browse-work">
         <div className="container">
-          <p className="eyebrow">Browse Our Work</p>
+          <Pill icon="fa-solid fa-diagram-project" center>Browse Our Work</Pill>
           <h2>Twelve engagements, filtered by discipline</h2>
           <p className="lead">
             Pick the capability you are actually shopping for. Every project appears under
@@ -552,7 +553,7 @@ export default function PortfolioPage() {
       {/* 4. Work by Capability */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Work by Capability</p>
+          <Pill icon="fa-solid fa-sitemap" center>Work by Capability</Pill>
           <h2>What each discipline actually shipped</h2>
           <p className="lead">
             Most of these engagements ran three or four disciplines at once. This is what
@@ -583,7 +584,7 @@ export default function PortfolioPage() {
       {/* 5. Project Spotlight — Nutriblend */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Project Spotlight</p>
+          <Pill icon="fa-solid fa-layer-group" center>Project Spotlight</Pill>
           <h2>Nutriblend: turning repeat intent into recurring revenue</h2>
           <p className="lead">
             Health &amp; supplements · Shopify Plus · Seven-month engagement, still running

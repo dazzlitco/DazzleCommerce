@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 // Case Studies — /case-studies/
 // Live source: https://dazzlecommerce.com/case-studies/
@@ -17,6 +19,36 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 //   quirk, kept verbatim.
 // - Metrics are THIS page's own live figures for each client, not the
 //   homepage's figures for the same clients.
+
+export const metadata: Metadata = {
+  title: "eCommerce Case Studies & Results | Dazzle Commerce",
+  description:
+    "Six eCommerce case studies with the constraint we found, the work we did and the numbers that moved. Filter by service, platform, industry and market.",
+  alternates: { canonical: "https://dazzlecommerce.com/case-studies/" },
+  openGraph: {
+    type: "article",
+    locale: "en_US",
+    url: "https://dazzlecommerce.com/case-studies/",
+    siteName: "Dazzle Commerce",
+    title: "eCommerce Case Studies & Results | Dazzle Commerce",
+    description:
+      "Six eCommerce case studies with the constraint we found, the work we did and the numbers that moved. Filter by service, platform, industry and market.",
+    images: [
+      {
+        url: "/images/case-nutriblend.webp",
+        width: 800,
+        height: 534,
+        alt: "Dazzle Commerce SEO team working through category page structure",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "eCommerce Case Studies & Results | Dazzle Commerce",
+    description:
+      "Six eCommerce case studies with the constraint we found, the work we did and the numbers that moved. Filter by service, platform, industry and market.",
+  },
+};
 
 const faqs: Faq[] = [
   {
@@ -289,7 +321,7 @@ export default function CaseStudiesPage() {
       {/* 2. Results at a Glance */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Results at a Glance</p>
+          <Pill icon="fa-solid fa-chart-simple" center>Results at a Glance</Pill>
           <h2>Aggregated across managed accounts</h2>
           <p className="lead">
             Individual results vary considerably by category, margin structure and starting
@@ -331,7 +363,7 @@ export default function CaseStudiesPage() {
       {/* 3. The work — six case-study cards, filed-under chips link out */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">The work</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The work</Pill>
           <h2>Six engagements, with the working shown</h2>
           <p className="lead">
             Every case study is classified on four axes — service, platform, industry and
@@ -392,7 +424,7 @@ export default function CaseStudiesPage() {
       {/* 4. Our Methodology */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our Methodology</p>
+          <Pill icon="fa-solid fa-gear" center>Our Methodology</Pill>
           <h2>Why these engagements worked</h2>
           <p className="lead">
             The same four-phase system runs on every account. It is deliberately boring —
@@ -420,7 +452,7 @@ export default function CaseStudiesPage() {
       {/* 5. Results by Service */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Results by Service</p>
+          <Pill icon="fa-solid fa-layer-group" center>Results by Service</Pill>
           <h2>What each discipline typically delivers</h2>
           <div className="card-grid">
             {disciplines.map((d) => (
@@ -436,7 +468,7 @@ export default function CaseStudiesPage() {
       {/* 6. Client Testimonials */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Client Testimonials</p>
+          <Pill icon="fa-solid fa-comment-dots" center>Client Testimonials</Pill>
           <h2>In their words</h2>
           <div className="card-grid">
             {testimonials.map((t) => (
@@ -453,7 +485,7 @@ export default function CaseStudiesPage() {
       {/* 7. Industries */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Industries &amp; Business Types We Help</p>
+          <Pill icon="fa-solid fa-briefcase" center>Industries &amp; Business Types We Help</Pill>
           <h2>Where our experience is deepest</h2>
           <p className="lead">
             Nine categories cover most of our book. The operating system underneath is the
@@ -478,7 +510,7 @@ export default function CaseStudiesPage() {
       {/* 8. Case Study FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">Case Study FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>Case Study FAQs</Pill>
           <h2>Fair questions about these numbers</h2>
           <FaqAccordion faqs={faqs} />
         </div>

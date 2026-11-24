@@ -168,3 +168,6 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - All 33 Q&As reproduced verbatim in 8 category accordion groups under the 3 group headings, with the same anchor ids.
 - The live page has no search box and no form; the clone previously added a client-side search filter and an "Ask a question" form. Both were removed in the 2026-11-23 fidelity fix pass — the clone now has category anchor navigation only, matching live.
 - The live page has NO images inside `<main>` at all. Illustrative images previously added to the clone (hero image and one image per group section: faqs-hero.webp, faqs-agency.webp, faqs-services.webp, faqs-pricing.webp) were removed in the 2026-11-23 fidelity fix pass; the files remain unused in public/images/.
+
+## Correction 2026-11-23
+- The line above is wrong: no `faqs-*.webp` files exist on disk — `public/images/` was checked 2026-11-23 and contains zero files matching `faqs*`. The four illustrative images were never written to disk (or were already deleted); nothing remains unused. This note supersedes the "files remain unused in public/images/" claim.

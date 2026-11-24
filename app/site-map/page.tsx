@@ -6,6 +6,21 @@ export const metadata: Metadata = {
   description:
     "Every page, section and article on the Dazzle Commerce website: services, industries, case studies, blog posts, locations and legal policies.",
   alternates: { canonical: "https://dazzlecommerce.com/site-map/" },
+  openGraph: {
+    type: "article",
+    locale: "en_US",
+    url: "https://dazzlecommerce.com/site-map/",
+    siteName: "Dazzle Commerce",
+    title: "Site Map | Dazzle Commerce",
+    description:
+      "Every page, section and article on the Dazzle Commerce website: services, industries, case studies, blog posts, locations and legal policies.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Site Map | Dazzle Commerce",
+    description:
+      "Every page, section and article on the Dazzle Commerce website: services, industries, case studies, blog posts, locations and legal policies.",
+  },
 };
 
 type SitemapEntry = { title: string; href: string; desc: string };
@@ -275,9 +290,26 @@ export default function SiteMapPage() {
             for something specific and cannot find it here,{" "}
             <Link href="/contact/">tell us</Link> and we will point you at it.
           </p>
-          <p style={{ fontWeight: 700, color: "var(--navy)", marginTop: "1rem" }}>
-            All Pages
-          </p>
+          {/* Icon list on live (custom inline SVG sitemap icon; closest
+              Font Awesome equivalent fa-sitemap used here) */}
+          <ul style={{ listStyle: "none", padding: 0, margin: "1rem 0 0" }}>
+            <li
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontWeight: 700,
+                color: "var(--navy)",
+              }}
+            >
+              <i
+                className="fa-solid fa-sitemap"
+                aria-hidden="true"
+                style={{ color: "var(--blue)" }}
+              />
+              All Pages
+            </li>
+          </ul>
           <h2 style={{ fontSize: "1.35rem", marginBottom: "0.5rem" }}>
             137 destinations across nine groups
           </h2>
@@ -293,17 +325,16 @@ export default function SiteMapPage() {
         <div className="container">
           {groups.map((g) => (
             <div key={g.id} id={g.id} style={{ marginTop: "40px", scrollMarginTop: "96px" }}>
-              <h2 style={{ marginBottom: "4px" }}>{g.title}</h2>
-              <p style={{ color: "var(--muted)", marginBottom: "20px" }}>
-                {g.entries.length} {g.entries.length === 1 ? "page" : "pages"}
-              </p>
+              <h3 style={{ marginBottom: "20px" }}>{g.title}</h3>
               <div className="card-grid card-grid-2">
                 {g.entries.map((e) => (
                   <article className="card" key={`${g.id}-${e.href}-${e.title}`}>
-                    <h3 style={{ fontSize: "1.05rem" }}>
+                    <h6 style={{ fontSize: "1.05rem" }}>
                       <Link href={e.href}>{e.title}</Link>
-                    </h3>
-                    <p style={{ color: "var(--muted)", margin: 0 }}>{e.desc}</p>
+                    </h6>
+                    <h6 style={{ color: "var(--muted)", margin: 0, fontWeight: 400 }}>
+                      {e.desc}
+                    </h6>
                   </article>
                 ))}
               </div>
@@ -319,9 +350,11 @@ export default function SiteMapPage() {
           <p className="lead">
             The information architecture follows how eCommerce brands actually
             evaluate an agency, rather than how agencies like to describe
-            themselves. Services answers what we do, Case Studies answers
-            whether it works, Industries and Locations answer whether it works
-            for someone like you, and About answers who would be doing it.
+            themselves. <strong>Services</strong> answers what we do,{" "}
+            <strong>Case Studies</strong> answers whether it works,{" "}
+            <strong>Industries</strong> and <strong>Locations</strong> answer
+            whether it works for someone like you, and <strong>About</strong>{" "}
+            answers who would be doing it.
           </p>
           <p className="lead">
             Every page carries a unique meta title and description, a single
@@ -362,6 +395,28 @@ export default function SiteMapPage() {
               Back to Home
             </Link>
           </div>
+          {/* Icon list on live: far-check-circle icons, after the buttons */}
+          <ul style={{ listStyle: "none", padding: 0, margin: "1.5rem 0 0" }}>
+            {[
+              "Free 30-minute call",
+              "No long-term contracts",
+              "Actionable audit you keep",
+            ].map((item) => (
+              <li
+                key={item}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  color: "#fff",
+                  padding: "0.35rem 0",
+                }}
+              >
+                <i className="fa-regular fa-circle-check" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

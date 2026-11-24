@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Pill } from "@/components/Pill";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
@@ -267,7 +268,7 @@ export default function ServicesPage() {
       {/* 2. eCommerce Management Services */}
       <section className="section" id="management">
         <div className="container">
-          <p className="eyebrow">eCommerce Management Services</p>
+          <Pill icon="fa-solid fa-box" center>eCommerce Management Services</Pill>
           <h2>Run the store properly, then grow it</h2>
           <p className="lead">
             The operational layer most agencies will not touch. Clean data, healthy accounts
@@ -287,7 +288,7 @@ export default function ServicesPage() {
       {/* 3. eCommerce Marketing Services */}
       <section className="section section-soft" id="marketing">
         <div className="container">
-          <p className="eyebrow">eCommerce Marketing Services</p>
+          <Pill icon="fa-solid fa-arrow-trend-up" center>eCommerce Marketing Services</Pill>
           <h2>Demand capture and demand creation, measured honestly</h2>
           <p className="lead">
             Six disciplines, one budget, one forecast. We move spend between channels based
@@ -307,7 +308,7 @@ export default function ServicesPage() {
       {/* 4. eCommerce Development & Technology */}
       <section className="section" id="development">
         <div className="container">
-          <p className="eyebrow">eCommerce Development &amp; Technology</p>
+          <Pill icon="fa-solid fa-code" center>eCommerce Development &amp; Technology</Pill>
           <h2>A storefront that is fast, stable and easy to change</h2>
           <p className="lead">
             Development is not a separate department here. The people building your site sit
@@ -335,7 +336,7 @@ export default function ServicesPage() {
       {/* 5. Creative & Content */}
       <section className="section section-soft" id="creative">
         <div className="container">
-          <p className="eyebrow">Creative &amp; Content</p>
+          <Pill icon="fa-solid fa-palette" center>Creative &amp; Content</Pill>
           <h2>Assets built for testing, not for the brand book</h2>
           <p className="lead">
             Creative is the biggest remaining lever in paid media. We produce at a cadence
@@ -355,7 +356,7 @@ export default function ServicesPage() {
       {/* 6. Our eCommerce Growth Process */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our eCommerce Growth Process</p>
+          <Pill icon="fa-solid fa-gear" center>Our eCommerce Growth Process</Pill>
           <h2>Four phases, repeated every quarter</h2>
           <p className="lead">
             Structured enough to be predictable, flexible enough to chase a result when we find
@@ -376,7 +377,7 @@ export default function ServicesPage() {
       {/* 7. Platforms We Support */}
       <section className="section section-soft" id="platforms">
         <div className="container">
-          <p className="eyebrow">Platforms We Support</p>
+          <Pill icon="fa-solid fa-globe" center>Platforms We Support</Pill>
           <h2>Storefronts and marketplaces, managed together</h2>
           <p className="lead">
             Certified where certification matters, experienced everywhere else. Your channel mix
@@ -406,7 +407,7 @@ export default function ServicesPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">Why Choose Our Services</p>
+              <Pill icon="fa-solid fa-award" center>Why Choose Our Services</Pill>
               <h2>
                 What a full service eCommerce agency should give you that you are probably not
                 getting now
@@ -446,7 +447,7 @@ export default function ServicesPage() {
       {/* 9. Service FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Service FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>Service FAQs</Pill>
           <h2>Practical questions before you commit</h2>
           <FaqAccordion faqs={faqs} />
         </div>

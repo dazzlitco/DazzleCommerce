@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RegisterModal from "../components/RegisterModal";
@@ -39,11 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <a href="#main-content" className="skip-link" style={{ position: "absolute", left: "-9999px" }}>
+        <a href="#content" className="skip-link screen-reader-text">
           Skip to content
         </a>
         <Header />
-        <main id="main-content">{children}</main>
+        <main id="content">{children}</main>
         <Footer />
         <RegisterModal />
       </body>

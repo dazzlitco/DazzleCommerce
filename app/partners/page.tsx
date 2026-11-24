@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
+import { PartnerBadge, type PartnerBrandKey } from "@/components/PartnerBadge";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 // Live-page note: the live /partners/ page has no in-page application form —
@@ -39,13 +41,13 @@ const faqs: Faq[] = [
   },
 ];
 
-const badges = [
-  { name: "Shopify Partner", mark: "S" },
-  { name: "Amazon Ads Partner", mark: "A" },
-  { name: "Google Partner", mark: "G" },
-  { name: "Meta Business Partner", mark: "M" },
-  { name: "Microsoft Advertising Partner", mark: "Mi" },
-  { name: "LinkedIn Marketing Partner", mark: "in" },
+const badges: { name: string; brand: PartnerBrandKey }[] = [
+  { name: "Shopify Partner", brand: "shopify" },
+  { name: "Amazon Ads Partner", brand: "amazon" },
+  { name: "Google Partner", brand: "google" },
+  { name: "Meta Business Partner", brand: "meta" },
+  { name: "Microsoft Advertising Partner", brand: "microsoft" },
+  { name: "LinkedIn Marketing Partner", brand: "linkedin" },
 ];
 
 const programs = [
@@ -206,7 +208,9 @@ export default function PartnersPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Partnership Program</p>
+              <Pill icon="fa-solid fa-users" center>
+                Partnership Program
+              </Pill>
               <h1>Partnerships That Send Work Both Ways</h1>
               <p className="lead">
                 We partner with agencies, platforms, consultants and app developers who serve
@@ -235,19 +239,19 @@ export default function PartnersPage() {
           </div>
           <div className="stat-row">
             <div className="stat">
-              <strong>40+</strong>
+              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>40+</h3>
               <span>Active partners</span>
             </div>
             <div className="stat">
-              <strong>22%</strong>
+              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>22%</h3>
               <span>Referral share</span>
             </div>
             <div className="stat">
-              <strong>9 yrs</strong>
+              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>9 yrs</h3>
               <span>Operating history</span>
             </div>
             <div className="stat">
-              <strong>48 hrs</strong>
+              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>48 hrs</h3>
               <span>Referral response</span>
             </div>
           </div>
@@ -257,7 +261,9 @@ export default function PartnersPage() {
       {/* 2. Certified & Badged */}
       <section className="section" id="platform-partners">
         <div className="container">
-          <p className="eyebrow">Certified &amp; Badged</p>
+          <Pill icon="fa-solid fa-screwdriver-wrench" center>
+            Certified &amp; Badged
+          </Pill>
           <h2>The platforms we are accountable to</h2>
           <p className="lead">
             Badges are not decoration. Each one carries spend thresholds, certification exams
@@ -267,25 +273,8 @@ export default function PartnersPage() {
           <div className="card-grid">
             {badges.map((b) => (
               <div className="card platform-card" key={b.name}>
-                <span
-                  aria-hidden="true"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "50%",
-                    background: "var(--bg-soft)",
-                    color: "var(--blue)",
-                    fontWeight: 800,
-                    fontSize: "1.25rem",
-                    marginBottom: "12px",
-                  }}
-                >
-                  {b.mark}
-                </span>
-                <h3 className="platform-name">{b.name}</h3>
+                <PartnerBadge brand={b.brand} name={b.name} />
+                <h4 className="platform-name">{b.name}</h4>
               </div>
             ))}
           </div>
@@ -299,7 +288,9 @@ export default function PartnersPage() {
       {/* 3. Four Ways In — Partnership programs */}
       <section className="section section-soft" id="partner-programs">
         <div className="container">
-          <p className="eyebrow">Four Ways In</p>
+          <Pill icon="fa-solid fa-layer-group" center>
+            Four Ways In
+          </Pill>
           <h2>Partnership programs</h2>
           <p className="lead">
             Pick the one that matches how you already make money. Terms are written down
@@ -328,7 +319,9 @@ export default function PartnersPage() {
       {/* 4. Why Partner With Us */}
       <section className="section" id="why-partner">
         <div className="container">
-          <p className="eyebrow">Why Partner With Us</p>
+          <Pill icon="fa-solid fa-award" center>
+            Why Partner With Us
+          </Pill>
           <h2>What you get that a referral fee does not cover</h2>
           <p>
             Most partner programs are a commission rate and a contact form. These are the
@@ -348,7 +341,9 @@ export default function PartnersPage() {
       {/* 5. Working Stack */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Working Stack</p>
+          <Pill icon="fa-solid fa-calendar-days" center>
+            Working Stack
+          </Pill>
           <h2>The tools we are in every day</h2>
           <p className="lead">
             If your product is on this list, an integration conversation is short. If it is
@@ -382,7 +377,9 @@ export default function PartnersPage() {
       {/* 6. The Process */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>
+            The Process
+          </Pill>
           <h2>How a partnership actually starts</h2>
           <p>
             Five steps from first call to first statement. Most partners are enabled and
@@ -403,7 +400,9 @@ export default function PartnersPage() {
       {/* 7. Our Side of It */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Our Side of It</p>
+          <Pill icon="fa-solid fa-compass" center>
+            Our Side of It
+          </Pill>
           <h2>What we commit to, in writing</h2>
           <p className="lead">
             A partnership is only worth having if the obligations run both ways. These six
@@ -426,7 +425,9 @@ export default function PartnersPage() {
       {/* 8. Partner FAQs */}
       <section className="section" id="partner-faqs">
         <div className="container center">
-          <p className="eyebrow">Partner FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>
+            Partner FAQs
+          </Pill>
           <h2>Questions partners ask before signing</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Seven things worth settling before the first introduction. Anything else, the

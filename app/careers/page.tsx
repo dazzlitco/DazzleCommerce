@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Pill } from "@/components/Pill";
 
 // NOTE: this file is a client component because the open-roles filter and the
 // general-application form need client-side state, validation, localStorage
@@ -252,7 +253,7 @@ export default function CareersPage() {
     if (file.size > MAX_CV_BYTES) {
       setErrors((e) => ({
         ...e,
-        cvName: "This file exceeds the maximum allowed size (5 MB).",
+        cvName: "This file exceeds the maximum allowed size.",
       }));
       setForm((f) => ({ ...f, cvName: "" }));
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -320,7 +321,9 @@ export default function CareersPage() {
       {/* 1. Hero (text-only on live — no hero image) */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Careers at Dazzle Commerce</p>
+          <Pill icon="fa-solid fa-code" center>
+            Careers at Dazzle Commerce
+          </Pill>
           <h1>Build eCommerce Careers, Not Just Campaigns</h1>
           <p className="lead">
             We are a remote-first eCommerce agency of specialists who would rather own an
@@ -344,7 +347,9 @@ export default function CareersPage() {
       {/* 2. Why Work With Us */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why Work With Us</p>
+          <Pill icon="fa-solid fa-award" center>
+            Why Work With Us
+          </Pill>
           <h2>What you actually get, beyond the job title</h2>
           <p className="lead">
             Six things we would want to know if we were reading this page rather than writing
@@ -364,7 +369,9 @@ export default function CareersPage() {
       {/* 3. Life at Our Agency */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Life at Our Agency</p>
+          <Pill icon="fa-solid fa-tags" center>
+            Life at Our Agency
+          </Pill>
           <h2>Remote-first, but not remote-feeling</h2>
           <p className="lead">
             We are deliberate about the rituals that make distributed work function. These are
@@ -387,7 +394,9 @@ export default function CareersPage() {
       {/* 4. Our Culture & Values */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our Culture &amp; Values</p>
+          <Pill icon="fa-solid fa-users" center>
+            Our Culture &amp; Values
+          </Pill>
           <h2>Five things we actually hold each other to</h2>
           <p className="lead">
             Not a poster in a room nobody visits. These are the questions asked in performance
@@ -408,7 +417,9 @@ export default function CareersPage() {
       {/* 5. Open Positions */}
       <section className="section section-soft" id="open-positions">
         <div className="container">
-          <p className="eyebrow">Open Positions</p>
+          <Pill icon="fa-solid fa-lightbulb" center>
+            Open Positions
+          </Pill>
           <h2>Three seats open right now</h2>
           <p className="lead">
             Filter by team. Every role is remote-first with core overlap hours in your pod’s
@@ -485,7 +496,9 @@ export default function CareersPage() {
       {/* 6. Our Hiring Process */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Our Hiring Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>
+            Our Hiring Process
+          </Pill>
           <h2>Six steps, roughly three weeks</h2>
           <p className="lead">
             No mystery and no ghosting. You will always know which stage you are at and what
@@ -508,7 +521,9 @@ export default function CareersPage() {
         <div className="container">
           <div className="split">
             <div>
-              <p className="eyebrow">We’re Growing Our Team</p>
+              <Pill icon="fa-solid fa-layer-group" center>
+                We’re Growing Our Team
+              </Pill>
               <h2>Don’t see the right role?</h2>
               <p>
                 We open two to four seats a quarter and we fill a good number of them from
@@ -667,15 +682,14 @@ export default function CareersPage() {
                       accept=".pdf,.doc,.docx"
                       onChange={(e) => handleCvChange(e.target.files?.[0])}
                       aria-invalid={Boolean(errors.cvName)}
-                      aria-describedby="careers-cv-hint"
                     />
-                    <p
-                      id="careers-cv-hint"
-                      style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}
-                    >
-                      Maximum file size 5 MB.
-                      {form.cvName ? ` Attached: ${form.cvName}` : ""}
-                    </p>
+                    {form.cvName ? (
+                      <p
+                        style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}
+                      >
+                        Attached: {form.cvName}
+                      </p>
+                    ) : null}
                     {errors.cvName && (
                       <p className="form-msg form-msg-dark err" role="alert">
                         {errors.cvName}

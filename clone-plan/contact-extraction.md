@@ -39,14 +39,14 @@
 |---|---|---|---|
 | Full name | text (`form_fields[name]`) | Yes | `Jordan Avery` |
 | Work email | email (`form_fields[email]`) | Yes | `jordan@yourbrand.com` |
-| Phone | tel (`form_fields[phone]`, pattern `[0-9()#&+*-=.]+`, title "Only numbers and phone characters (#, - …") | No | `+1 (555) 000-0000` |
+| Phone | tel (`form_fields[phone]`, pattern `[0-9()#&+*-=.]+`, title "Only numbers and phone characters (#, -, *, etc) are accepted.") | No | `+1 (555) 000-0000` |
 | Store website | url (`form_fields[website]`) | Yes | `https://yourbrand.com` |
 | Primary platform | select (`form_fields[platform]`) | No | Shopify / Shopify Plus; WooCommerce; Amazon Seller Central; Amazon Vendor Central; Walmart Marketplace; eBay; Etsy; BigCommerce; Magento / Adobe Commerce; Custom / Headless; Thinking to sell online |
 | Monthly online revenue | select (`form_fields[revenue]`) | No | Pre-launch; Under $25K / month; $25K - $100K / month; $100K - $500K / month; $500K - $2M / month; $2M+ / month |
 | Monthly budget for growth | select (`form_fields[budget]`) | No | Under $2,500 / month; $2,500 - $5,000 / month; $5,000 - $10,000 / month; $10,000 - $25,000 / month; $25,000+ / month; Not sure yet |
 | Which services are you interested in? | checkboxes (`form_fields[services][]`) | No | eCommerce Store Management; eCommerce SEO; PPC & Google Shopping; Amazon PPC & Marketplace; Conversion Rate Optimization; Email & SMS Retention; Shopify / WooCommerce Development; Creative & Content Production |
-| What is the main thing you want to fix? | textarea (`form_fields[message]`, rows 5) | No | `e.g. Our Amazon sales dropped 30% after a listing suppression and we have not recovered. Shopify is flat and paid social CAC is up 40% year on year.` |
-| Consent | checkbox (`form_fields[consent]`) | Yes | Label text: `I agree to the Privacy Policy. We will never sell your data.` — "Privacy Policy" links to `/privacy-policy/` |
+| What is the main thing you want to fix? | textarea (`form_fields[message]`, rows 5) | Yes — **correction 2026-11-23:** the live textarea carries `required="required"` (class `elementor-field-required`); an earlier extraction wrongly listed it as not required, and the clone has been fixed to require it. | `e.g. Our Amazon sales dropped 30% after a listing suppression and we have not recovered. Shopify is flat and paid social CAC is up 40% year on year.` |
+| Consent | checkbox (`form_fields[consent]`) | Yes | Label text: `I agree to the Privacy Policy. We will never sell your data.` — "Privacy Policy" links to `/privacy-policy/` — plus a separate field label `Consent` above the checkbox (**correction 2026-11-23:** the earlier extraction omitted the standalone `Consent` label; the clone now renders it). |
 | Honeypot | hidden text field `form_fields[hp_501ee]` (`display:none !important;`) | — | — |
 | Hidden fields | `post_id=23`, `form_id=ec974e3`, `referer_title="Contact Dazzle Commerce | Book a Free Strategy Call"`, `queried_id=23` | — | — |
 
@@ -176,3 +176,18 @@ Link: `Visit our page` → https://www.linkedin.com/company/dazzlecommerce
 6. **Author slug quirk:** the JSON-LD author URL is `https://dazzlecommerce.com/author/shaheensagar2000yahoo-com/` — reproduced here for the record only; not used in the clone.
 7. **Spelling:** the live page uses British spelling in places (`prioritised`, `enquiry`, `organisation` in schema context) alongside US copy — kept as-is in quoted copy.
 8. **Phone tel: links use two different spellings** (`tel:+1 (555) 010-2400` in the contact block, `tel:+15550102400` in the "Call us" card) — both preserved above.
+9. **Correction 2026-11-23 (fidelity audit):** the "What is the main thing you want to fix?" textarea IS required on live (`required="required"`), the phone field's full `title` is `Only numbers and phone characters (#, -, *, etc) are accepted.` (the earlier extraction truncated it), and the consent checkbox carries a separate field label `Consent` above it. The clone form and this extraction were corrected the same day; the phone pattern `[0-9()#&+*-=.]+` itself was already recorded correctly and does not allow spaces.
+
+## Correction 2026-11-23 — section pills (supersedes any earlier line describing the pills as text-only / uppercase)
+
+Re-fetched live 2026-11-23. Every section pill on live is an Elementor icon-list item: a leading icon + Title Case blue text inside a rounded pale-blue chip — NOT text-only, NOT uppercase, NOT letter-spaced. All five pill widgets on this page carry `elementor-align-center` on live. (This extraction previously recorded no pill/icon lines for these sections; the pills are recorded here for the first time.)
+
+| Section | Pill label | Live icon | Clone FA icon | Align |
+|---|---|---|---|---|
+| 2. Contact Information | `Contact Information` | custom SVG: speech bubble | `fa-solid fa-comment` | center |
+| 3. What Happens Next | `What Happens Next` | Font Awesome `e-far-clock` (live FA class) | `fa-regular fa-clock` (verbatim live icon) | center |
+| 4. Alternative Ways to Connect | `Alternative Ways to Connect` | custom SVG: headphones | `fa-solid fa-headphones` | center |
+| 5. Find Us | `Find Us` | custom SVG: map pin | `fa-solid fa-location-dot` | center |
+| 6. FAQ | `Contact FAQs` | custom SVG: speech bubble with `?` (same artwork as homepage FAQ) | `fa-solid fa-circle-question` | center |
+
+The "Contact Information", "Alternative Ways to Connect" and "Find Us" icons are closest-FA equivalents of custom live SVGs (render-proven by rendering the live SVGs to images and identifying them visually). The form itself is unchanged in this pass: the pre-existing edits (message textarea required, standalone `Consent` label, phone pattern tightened to live's, verbatim title) are kept, and the clone-invented validation messages and success panel copy are kept per the user's 2026-11-23 approval. The success panel's `Request received` line still uses the plain `.eyebrow` class (it is clone-invented UI, not a live pill, so it was not converted to the Pill component); note it now inherits the chip styling from the shared `.eyebrow` CSS.

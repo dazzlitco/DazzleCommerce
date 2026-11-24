@@ -127,6 +127,23 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Checklist line: `Free 30-minute call` / `No long-term contracts` / `Actionable audit you keep`
 
 ## Other live-page elements (not main content)
-- The Services mega-menu in the shared site header carries a footer block: labels `What we do`, `See how we work`, `Where we work`, plus a mini-card: heading `Free growth audit`, copy `We audit your store, ad accounts and marketplace health, then rank every opportunity by revenue impact. Yours to keep.`, link `Book a free call` → /book-a-strategy-call/ (the menu also links to the `management`/`marketing`/`development`/`creative` anchors and `platforms`). This block appears in the header on every page of the live site (verified: the same markup is present in the homepage, about-us, contact, pricing and how-we-work HTML) — it is header chrome, not a services-page section, and it is not a fixed side navigation as an earlier extraction stated. (Note 2026-11-23: the clone previously rendered this card in-flow at the end of the Process section; it was removed in the fidelity fix pass. The shared clone header does not yet reproduce the mega-menu footer block — flagged to the coordinator as a shared-chrome gap.)
+- The Services mega-menu in the shared site header has two column headings, `What we do` (13 service links) and `See how we work`, plus a mini-card: heading `Free growth audit`, copy `We audit your store, ad accounts and marketplace health, then rank every opportunity by revenue impact. Yours to keep.`, link `Book a free call` → /contact/ (verified live in a desktop browser check 2026-11-23; there is no separate footer block of `What we do` / `See how we work` / `Where we work` links and no second `Book a free call` link in the menu). Correction 2026-11-23: the clone header previously rendered those three footer links (inferred, not live) and linked the card to /book-a-strategy-call/ with a duplicate CTA — all corrected to match live. Follow-up 2026-11-23 (live desktop check ~2:25 PM PST): each of the 13 service links also carries a one-line description on live — all 13 were transcribed verbatim and added to the clone header (`components/nav.ts`, rendered by `components/Header.tsx`); none was missing on live. The card heading, copy and /contact/ link were re-confirmed in the same check.
 - No form inside the main content. The only forms on the page are the shared footer newsletter form and the Register modal (both in the shared layout, already cloned). No stats/numbers section on this page (no stat row). No testimonials or case-study cards on this page.
 - Internal links in main content (all verified in the fetched HTML): /book-a-strategy-call/, /contact/, /ecommerce-app-development/, /ecommerce-web-design/, /case-studies/ (×2), /ecommerce-audit/.
+
+## Correction 2026-11-23 — section pills (supersedes any earlier line describing the pills as text-only / uppercase)
+
+Re-fetched live 2026-11-23. Every section pill on live is an Elementor icon-list item: a leading icon + Title Case blue text inside a rounded pale-blue chip — NOT text-only, NOT uppercase, NOT letter-spaced. Most live pill icons are custom hand-drawn inline SVGs (no Font Awesome class); the clone renders the closest free Font Awesome equivalent and flags each one below. All eight pill widgets on this page carry `elementor-align-center` on live.
+
+| Section | Pill label | Live icon | Clone FA icon | Align |
+|---|---|---|---|---|
+| 2 | `eCommerce Management Services` | custom SVG: shipping box | `fa-solid fa-box` | center |
+| 3 | `eCommerce Marketing Services` | custom SVG: rising trend arrow | `fa-solid fa-arrow-trend-up` | center |
+| 4 | `eCommerce Development & Technology` | custom SVG: code brackets `</>` | `fa-solid fa-code` | center |
+| 5 | `Creative & Content` | custom SVG: artist palette | `fa-solid fa-palette` | center |
+| 6 | `Our eCommerce Growth Process` | custom SVG: gear (same artwork as homepage "Our Process") | `fa-solid fa-gear` | center |
+| 7 | `Platforms We Support` | custom SVG: globe (same artwork as homepage "Platforms We Work With") | `fa-solid fa-globe` | center |
+| 8 | `Why Choose Our Services` | custom SVG: award ribbon/rosette (same artwork as homepage "Why Choose Us") | `fa-solid fa-award` | center |
+| 9. FAQ | `Service FAQs` | custom SVG: speech bubble with `?` (same artwork as homepage FAQ) | `fa-solid fa-circle-question` | center |
+
+All pill icons above are closest-FA equivalents of custom live SVGs (render-proven by rendering the live SVGs to images and identifying them visually); none is a verbatim live icon. The Services mega-menu descriptions/hrefs were already verified verbatim against live and were not touched in this pass. No copy, link, card or FAQ differences were found on this page in this pass.

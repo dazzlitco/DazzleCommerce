@@ -9,6 +9,8 @@ Clone target: `app/site-map/page.tsx` (Batch 1, Page 19).
 - **Meta title:** `Site Map | Dazzle Commerce`
 - **Meta description:** `Every page, section and article on the Dazzle Commerce website: services, industries, case studies, blog posts, locations and legal policies.`
 - **Canonical:** `https://dazzlecommerce.com/site-map/`
+- **Open Graph:** type `article`, locale `en_US`, url `https://dazzlecommerce.com/site-map/`, site_name `Dazzle Commerce`, title `Site Map | Dazzle Commerce`, description as above. No og:image on the page.
+- **Twitter:** card `summary_large_image`, title `Site Map | Dazzle Commerce`, description as above, label1 `Time to read`, data1 `2 minutes`. No twitter:image.
 - **Published:** 2026-08-15T07:14:04-05:00 — **Updated:** 2026-09-04T06:24:03-05:00
 - **Structured data types present:** Article, WebPage, WebSite, BreadcrumbList, Person, Place, PostalAddress (x2), ImageObject (x2). No og:image on the page.
 - **Business (footer/schema, as shown on the live page):** Dazzle Commerce — 1201 Commerce Street, Suite 480, Austin, TX 78701, United States; +1 (555) 010-2400; hello@dazzlecommerce.com; Mon–Fri, 9:00–18:00 CT. (The page also shows a second phone, +1 (555) 012-3456, and hours Mo–Su 09:00–17:00 in schema — see Quirks.)
@@ -18,16 +20,18 @@ Clone target: `app/site-map/page.tsx` (Batch 1, Page 19).
 1. **Hero** — H1 `Site Map`. Intro paragraph (verbatim):
    > `Every page on this site, grouped and described. If you are looking for something specific and cannot find it here, tell us and we will point you at it.`
    (`tell us` links to `/contact/`.)
-2. **Sitemap index** — label `All Pages`, subheading (H2) `137 destinations across nine groups`, note: `Human-readable version. Search engines should use the XML sitemap.` (XML sitemap links to `/sitemap.xml`.)
-   Nine groups, in this order: Main Pages, Services, Industries, Locations, Platforms & Marketplaces, Proof & Expertise, Resources, Legal & Policies, For Search Engines.
+2. **Sitemap index** — `All Pages` is an icon-list `<li>` (Elementor icon-list widget, custom inline SVG sitemap icon — not a pill/eyebrow and not a Font Awesome icon), followed by subheading (H2) `137 destinations across nine groups`, note: `Human-readable version. Search engines should use the XML sitemap.` (XML sitemap links to `/sitemap.xml`.)
+   Nine groups, in this order: Main Pages, Services, Industries, Locations, Platforms & Marketplaces, Proof & Expertise, Resources, Legal & Policies, For Search Engines. Group titles are **H3** on live; each entry's title and its one-line description are both **H6** on live. Live shows **no per-group page counts**.
    No search box, filter or images appear in the live sitemap index — it is a plain grouped link list with one-line descriptions. (Fix pass 2026-11-23: the clone's client-side search box, group jump buttons and generated hero image were all removed; the page is now a plain server-component grouped list, matching live.)
 3. **How this site is structured** (H2) — see full copy below.
-4. **Found what you were looking for?** (H2) — CTA: `If not, a two-minute conversation usually beats another twenty minutes of clicking around.` Buttons: `Book a Free Strategy Call` → `/book-a-strategy-call/`, `Back to Home` → `/`.
+4. **Found what you were looking for?** (H2) — CTA: `If not, a two-minute conversation usually beats another twenty minutes of clicking around.` Buttons: `Book a Free Strategy Call` → `/book-a-strategy-call/`, `Back to Home` → `/`. Below the buttons, an icon list (far-check-circle icons): `Free 30-minute call`, `No long-term contracts`, `Actionable audit you keep`.
 5. **Footer** (shared site footer — see `app/layout.tsx`; not re-extracted here).
 
 ## “How this site is structured” — full copy (verbatim)
 
 > The information architecture follows how eCommerce brands actually evaluate an agency, rather than how agencies like to describe themselves. Services answers what we do, Case Studies answers whether it works, Industries and Locations answer whether it works for someone like you, and About answers who would be doing it.
+
+(Bold on live: **Services**, **Case Studies**, **Industries**, **Locations**, **About**.)
 
 > Every page carries a unique meta title and description, a single H1, a logical heading hierarchy, descriptive alt text on images and structured data appropriate to its type — Organization and FAQPage on the home page, Service on the services page, BreadcrumbList throughout.
 
@@ -269,3 +273,4 @@ Total listed entries: **191** across **9** groups.
 - **No search/filter on the live page.** The clone adds a client-side search box (filters the 191 entries by title, description and group, with a live result count and group jump links). This is an addition, flagged here, not a live feature.
 - **Product-variant block:** the live page carries a WooCommerce-style block listing `Options: Shopify / Shopify Plus, WooCommerce, Amazon Seller Central, Walmart Marketplace, eBay, Etsy, BigCommerce, Magento / Adobe Commerce, Not selling online yet`. It is store-form chrome, not page copy, and is not reproduced in the clone.
 - **British spelling is used throughout the live copy** (`prioritisation`, `localisation`, `catalogue`, `optimisation`) — preserved in the clone.
+- **Correction 2026-11-23 (fresh curl fetch, raw HTML):** the clone had (a) group titles as H2 and entry titles/descriptions as H3/`<p>` — live uses H3 for group titles and H6 for both entry title and description; (b) invented per-group “{n} pages” counts — live has none; (c) “All Pages” as a bold `<p>` — live has it as an icon-list `<li>` with a custom inline SVG sitemap icon (no FA class; the clone uses the closest FA equivalent `fa-solid fa-sitemap` — fetch-inferred, not render-proven); (d) the structure paragraph without bold — live bolds Services, Case Studies, Industries, Locations, About; (e) no final-CTA check list — live lists “Free 30-minute call”, “No long-term contracts”, “Actionable audit you keep” (far-check-circle icons, after the buttons); (f) no og/twitter metadata — live carries the og/twitter block recorded in Meta above. All corrected in the clone the same day; entry data (191 entries) untouched.

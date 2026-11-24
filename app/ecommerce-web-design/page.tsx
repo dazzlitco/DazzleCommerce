@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
+import { Pill } from "@/components/Pill";
 
 export const metadata: Metadata = {
   title: "eCommerce Web Design Agency | UX & Templates",
@@ -225,63 +226,63 @@ const breakpoints = [
 const deliverables = [
   {
     title: "UX research findings",
-    img: "/images/ecommerce-web-design-ux-research-findings.webp",
-    alt: "A flat screen monitor in a design workspace",
-  },
-  {
-    title: "Funnel analysis per device",
     img: "/images/ecommerce-web-design-funnel-analysis.webp",
     alt: "A white desk with a keyboard, mouse and other devices",
   },
   {
-    title: "Information architecture map",
+    title: "Funnel analysis per device",
     img: "/images/portfolio-hero.webp",
     alt: "Desk at night with a laptop and lamp overlooking city lights",
   },
   {
-    title: "Wireframes",
+    title: "Information architecture map",
     img: "/images/ecommerce-web-design-wireframes.webp",
     alt: "Wooden desk with a monitor and keyboard in a design workspace",
   },
   {
-    title: "Clickable prototype",
+    title: "Wireframes",
     img: "/images/ecommerce-web-design-clickable-prototype.webp",
     alt: "Two monitors on a wooden desk in a design studio",
   },
   {
-    title: "Category template design",
+    title: "Clickable prototype",
     img: "/images/ecommerce-web-design-category-template.webp",
     alt: "A laptop on a plain surface",
   },
   {
-    title: "Product template design",
+    title: "Category template design",
     img: "/images/ecommerce-web-design-product-template.webp",
     alt: "A laptop open on a white desk",
   },
   {
-    title: "Basket & checkout design",
+    title: "Product template design",
     img: "/images/ecommerce-web-design-basket-checkout.webp",
     alt: "Laptop open on a wooden desk in a workspace",
   },
   {
-    title: "Design system & components",
+    title: "Basket & checkout design",
     img: "/images/ecommerce-web-design-design-system.webp",
     alt: "A laptop, mouse and phone laid out on a desk for comparison",
   },
   {
-    title: "Accessibility annotations",
+    title: "Design system & components",
     img: "/images/ecommerce-web-design-accessibility-annotations.webp",
     alt: "A laptop being used at a desk",
   },
   {
-    title: "Landing page kit",
+    title: "Accessibility annotations",
     img: "/images/ecommerce-web-design-landing-page-kit.webp",
     alt: "A flat screen monitor on a wooden desk",
   },
   {
-    title: "Developer handover pack",
+    title: "Landing page kit",
     img: "/images/ecommerce-web-design-developer-handover.webp",
     alt: "A person working on a laptop computer",
+  },
+  {
+    title: "Developer handover pack",
+    img: null,
+    alt: "",
   },
 ];
 
@@ -408,7 +409,7 @@ export default function EcommerceWebDesignPage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">Design &amp; UX</p>
+              <Pill icon="fa-solid fa-camera">Design &amp; UX</Pill>
               <h1>eCommerce Web Design Built Around the Decision to Buy</h1>
               <p className="lead">
                 User research, information architecture, wireframes, a design system and
@@ -454,7 +455,7 @@ export default function EcommerceWebDesignPage() {
       {/* 2. The Problem */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Problem</p>
+          <Pill icon="fa-solid fa-triangle-exclamation" center>The Problem</Pill>
           <h2>Why eCommerce stores get redesigned and convert no better</h2>
           <p className="lead">
             Eight reasons a redesign fails to move the number. Almost none of them is a taste
@@ -475,7 +476,7 @@ export default function EcommerceWebDesignPage() {
       {/* 3. What We Do */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">What We Do</p>
+          <Pill icon="fa-solid fa-layer-group" center>What We Do</Pill>
           <h2>Our eCommerce web design services</h2>
           <p className="lead">
             Eight services covering the experience layer of an online store. Scope what you
@@ -505,7 +506,7 @@ export default function EcommerceWebDesignPage() {
       {/* 4. Coverage */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Coverage</p>
+          <Pill icon="fa-solid fa-arrow-trend-up" center>Coverage</Pill>
           <h2>The templates that actually decide the sale</h2>
           <p className="lead">
             A store is a small number of templates producing thousands of URLs, so design work
@@ -541,7 +542,7 @@ export default function EcommerceWebDesignPage() {
       {/* 5. Deliverables */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Deliverables</p>
+          <Pill icon="fa-solid fa-compass" center>Deliverables</Pill>
           <h2>What you get as an eCommerce UX agency engagement</h2>
           <p className="lead">
             Twelve deliverables. Everything here is handed over in a form your team can use
@@ -549,10 +550,18 @@ export default function EcommerceWebDesignPage() {
             eCommerce UX agency that gives you a PDF of screenshots has handed over a
             document, not a system.
           </p>
+          <div className="hero-img" style={{ marginBottom: "24px" }}>
+            <Image
+              src="/images/ecommerce-web-design-ux-research-findings.webp"
+              alt="A flat screen monitor in a design workspace"
+              width={800}
+              height={534}
+            />
+          </div>
           <div className="card-grid">
             {deliverables.map((d) => (
               <article className="case-card" key={d.title}>
-                <Image src={d.img} alt={d.alt} width={1920} height={1280} />
+                {d.img ? <Image src={d.img} alt={d.alt} width={1920} height={1280} /> : null}
                 <div className="case-body">
                   <h4>{d.title}</h4>
                 </div>
@@ -569,7 +578,7 @@ export default function EcommerceWebDesignPage() {
       {/* 6. The Process */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">The Process</p>
+          <Pill icon="fa-solid fa-diagram-project" center>The Process</Pill>
           <h2>Our eCommerce design process</h2>
           <p className="lead">
             Six stages. Stage one is measurement, and stage six is measurement again — without
@@ -590,7 +599,7 @@ export default function EcommerceWebDesignPage() {
       {/* 7. Accountability */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Accountability</p>
+          <Pill icon="fa-solid fa-chart-line" center>Accountability</Pill>
           <h2>How we judge whether the design worked</h2>
           <p className="lead">
             This is where we differ from a conventional design studio. A redesign is a change
@@ -627,7 +636,7 @@ export default function EcommerceWebDesignPage() {
       {/* 8. Why Us */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Why Us</p>
+          <Pill icon="fa-solid fa-award">Why Us</Pill>
           <h2>Why choose our eCommerce design agency</h2>
           <p className="lead">
             Eight things that separate this from a studio engagement. The questions worth
@@ -649,7 +658,7 @@ export default function EcommerceWebDesignPage() {
       {/* 9. Our work */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Our work</p>
+          <Pill icon="fa-solid fa-star" center>Our work</Pill>
           <h2>Design work in context</h2>
           <p className="lead">
             Our published case studies include the design and template work inside each
@@ -671,7 +680,7 @@ export default function EcommerceWebDesignPage() {
       {/* 10. FAQs */}
       <section className="section">
         <div className="container center">
-          <p className="eyebrow">FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>FAQs</Pill>
           <h2>eCommerce web design FAQs</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
             Eight questions that come up before most design engagements. More on{" "}

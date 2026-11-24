@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Pill } from "@/components/Pill";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
@@ -281,7 +282,7 @@ export default function PricingPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Pricing &amp; Packages</p>
+          <Pill icon="fa-solid fa-tags" center>Pricing &amp; Packages</Pill>
           <h1>eCommerce Management Pricing That Matches Your Stage</h1>
           <p className="lead">
             Three packages built around what actually drives cost — channel count, catalog
@@ -306,7 +307,7 @@ export default function PricingPage() {
       {/* 2. Choose Your Growth Package */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Choose Your Growth Package</p>
+          <Pill icon="fa-solid fa-scale-balanced" center>Choose Your Growth Package</Pill>
           <h2>Three packages, priced on what actually drives cost</h2>
           <p className="lead">
             Pick the tier that matches your stage. Every package can be extended with add-ons,
@@ -456,7 +457,7 @@ export default function PricingPage() {
       {/* 4. Services & Add-Ons */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Services &amp; Add-Ons</p>
+          <Pill icon="fa-solid fa-layer-group" center>Services &amp; Add-Ons</Pill>
           <h2>Need something beyond your package?</h2>
           <p className="lead">
             Every package can be extended. Add-ons are scoped and priced individually so you
@@ -476,7 +477,7 @@ export default function PricingPage() {
       {/* 5. Included as Standard */}
       <section className="section section-soft">
         <div className="container">
-          <p className="eyebrow">Included as Standard</p>
+          <Pill icon="fa-solid fa-lightbulb" center>Included as Standard</Pill>
           <h2>What&rsquo;s included in every package</h2>
           <p className="lead">
             Whichever tier you choose, these are not upsells. They are the baseline we
@@ -496,7 +497,7 @@ export default function PricingPage() {
       {/* 6. How Our Pricing Works */}
       <section className="section">
         <div className="container">
-          <p className="eyebrow">How Our Pricing Works</p>
+          <Pill icon="fa-solid fa-compass" center>How Our Pricing Works</Pill>
           <h2>No two eCommerce brands cost the same to run</h2>
           <p>
             Business size + platforms and channels + scope of work + growth goals → your
@@ -531,7 +532,7 @@ export default function PricingPage() {
       {/* 7. Pricing FAQs */}
       <section className="section section-soft">
         <div className="container center">
-          <p className="eyebrow">Pricing FAQs</p>
+          <Pill icon="fa-solid fa-circle-question" center>Pricing FAQs</Pill>
           <h2>Straight answers before you enquire</h2>
           <FaqAccordion faqs={faqs} />
         </div>

@@ -1,6 +1,17 @@
 # How We Work extraction — https://dazzlecommerce.com/how-we-work/
-Fetched fresh 2026-11-23 via curl (429,592 bytes, HTTP 200). Source: WordPress / Hello Elementor / Elementor Pro. `browser.open` failed with a network/DNS error on this run, so the extraction below is from the curl-fetched HTML (same fetch, verified complete: full `<main>` present, 15,873 chars of body text).
+
+> Correction note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from). The following lines in this extraction were WRONG and are superseded by the corrections below; the clone has been fixed to match live in this audit:
+> 1. Breadcrumb: the extraction said "no visible breadcrumb element is rendered in the page body". WRONG — the live page DOES render a visible breadcrumb as the first element of the hero container: `<p><a href="/">Home</a> › <span>How We Work</span></p>`. The clone was missing it; it has been added to the hero.
+> 2. "The first thirty days decide whether the following twelve months are any good." — the extraction placed this sentence as the eyebrow of §3 (the first-30-days section). WRONG — in the live DOM it sits in the HERO container, immediately after the hero image and before the Principles section. The §3 eyebrow on the live page is the short label "The first 30 days" (icon-list item). The clone has been fixed: the sentence now closes the hero, and §3's eyebrow is "The first 30 days".
+> 3. FAQ Q6 ("How do you charge?"): the extraction said the word "Pricing" in the answer is plain text, not a link. WRONG — in the live visible accordion answer, "Pricing" is a link to /pricing/ ("<a href=\"/pricing/\">Pricing</a> covers the structure in more detail."). The clone's FAQ answer now carries that link.
+> 4. Getting-started step labels are literally "STEP ONE" / "STEP TWO" / "STEP THREE" / "STEP FOUR" in the live text (plain `<p>` elements, not CSS uppercase). The clone used "Step one" etc.; fixed to the literal uppercase.
+> Everything else in this extraction was verified against the fresh live fetch with no further differences found.
+
+Fetched fresh 2026-11-23 via curl (429,592 bytes, HTTP 200).
 Copy below is word-for-word from the live HTML. Nothing invented. Where the live copy has a typo or quirk, it is kept and noted.
+
+> Pill fix — 2026-11-23 (live page re-fetched fresh the same day): every section pill on live is an Elementor icon-list item with a leading icon, and every pill widget carries `elementor-align-center` — all 14 clone pills now use the shared Pill component, centered. Live pill icons and their Font Awesome classes read from the live markup: Our process fa-diagram-project; Principles fa-lightbulb; The first 30 days fa-calendar-days; The rhythm / Inside the work / Prioritising / Your side / Boundaries fa-layer-group; Your team fa-users; The sequence fa-calendar-days; Reporting fa-chart-simple; Getting started fa-flag-checkered; Questions fa-circle-question; Read on fa-book-open. (The first three, plus The sequence, Reporting and Questions, use `<i class="fas ...">` in the live markup; the rest use the same icons as inline SVG with `e-fas-*` classes. Centering is fetch-inferred, not render-proven.)
+> DOM-order corrections from the live DOM: "The rhythm" live order is pill → H2 → "Predictable contact…" paragraph → image → "The fortnightly call…" → "The cadence below…" → checklist → "Everything is written down…"; the clone had the image before the pill — restructured so the split holds pill/H2/first paragraph + image, with the rest below. "Reporting" live order is pill → H2 → "Reporting exists…" → image → "If the month was poor…" → "The monthly report…" → checklist → KPI template paragraph; restructured the same way. "Prioritising" live order is pill → H2 → intro paragraphs → checklist → "You see the scores…" → image → "Findings are scored in the open…"; the clone had the image in a side column — restructured to a single flow with the image between the two closing lines. Rendered visual impact of these restructures is unverified (DOM order only).
 
 ## Meta
 - Title: `How We Work | Dazzle Commerce`
@@ -15,11 +26,12 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - No `<form>` element exists anywhere in the live page's `<main>` content (verified by regex over the fetched HTML). All conversion actions are links (see CTAs below).
 
 ## Breadcrumb
-- `Home › How We Work` (Home → /) — JSON-LD schema only; no visible breadcrumb element is rendered in the page body (verified 2026-11-23).
+- `Home › How We Work` (Home → /) — rendered visibly as the first element of the hero container (`<p><a href="/">Home</a> › <span>How We Work</span></p>`), in addition to the JSON-LD BreadcrumbList. (Correction 2026-11-23: an earlier version of this extraction wrongly said no visible breadcrumb was rendered.)
 
 ## Main content — in order
 
 ### 1. Hero
+- Breadcrumb (visible, first element of the hero container): `Home › How We Work` (Home → /)
 - Eyebrow: `Our process`
 - H1: `How We Work`
 - Copy: `Most agency process pages describe a methodology nobody follows. This one describes what actually happens: what the first month looks like, who you speak to each week, how work gets prioritised when everything looks urgent, and what we report when the numbers are not good.`
@@ -29,6 +41,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - `Month-to-month terms — the work holds the account, not the contract`
 - CTAs: `Start with a free audit` → /ecommerce-audit/ ; `See the first 30 days` → #hww-onboarding (in-page anchor to the "first 30 days" section)
 - Hero image alt: `eCommerce team working through a growth plan around a table` (live file: hww-hero.jpg / hww-hero-1024x682.jpg)
+- Closing line of the hero container, immediately after the hero image and before the Principles section: `The first thirty days decide whether the following twelve months are any good.` (Correction 2026-11-23: this sentence belongs to the hero, not to §3 — an earlier version of this extraction wrongly placed it as the §3 eyebrow.)
 - Note: the live hero image is lazy-loaded with a 1×1 transparent GIF placeholder (`data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=`) — same pattern on every image on the page; not reproduced in the clone.
 
 ### 2. Principles
@@ -59,7 +72,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 - Closing line under the cards: `The last one is the one prospects check. Agency-owned ad accounts are the most common way a brand discovers it cannot leave.`
 
 ### 3. The first 30 days (id="hww-onboarding")
-- Eyebrow: `The first thirty days decide whether the following twelve months are any good.` (Note: on the live page this line is styled as the eyebrow/kicker above the H2, not as body copy.)
+- Eyebrow: `The first 30 days` (Correction 2026-11-23: an earlier version of this extraction wrongly gave this section the long sentence "The first thirty days decide whether the following twelve months are any good." as its eyebrow; that sentence is the hero's closing line — see §1.)
 - H2: `What actually happens in month one`
 - Intro: `Nothing is launched in the first fortnight. That is deliberate: the most expensive mistakes we see were made quickly by people who wanted to look busy.`
 - Four numbered steps:
@@ -210,7 +223,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   3. Q: `Who owns the accounts and the data?` — A: `You do, throughout. We work inside your ad accounts, your analytics and your store rather than agency-owned equivalents. A handover document is maintained from month one, so leaving is an administrative task rather than a negotiation.`
   4. Q: `Will we work with the people we meet in the pitch?` — A: `Yes. The account lead and the specialists in the first conversation are the ones on the account. We do not run a separate new business team, which is partly why we take on fewer clients than we could.`
   5. Q: `What if we already have an internal team?` — A: `Common, and usually the better setup. We work alongside internal teams frequently, either covering a discipline they do not have or taking the execution load while they keep strategy. The plan says explicitly who owns what, because that is where these arrangements usually break.`
-  6. Q: `How do you charge?` — A: `A monthly fee scoped to the plan, with media spend and third-party tooling billed separately and transparently. We do not take a percentage of ad spend, because it rewards us for spending more rather than for spending well. Pricing covers the structure in more detail.` — Note: the live answer contains the word `Pricing` as plain text, not a link.
+  6. Q: `How do you charge?` — A: `A monthly fee scoped to the plan, with media spend and third-party tooling billed separately and transparently. We do not take a percentage of ad spend, because it rewards us for spending more rather than for spending well. Pricing covers the structure in more detail.` — Note (correction 2026-11-23): in the live visible accordion answer the word `Pricing` IS a link to `/pricing/`; an earlier version of this extraction wrongly said it was plain text.
   7. Q: `What happens if a month goes badly?` — A: `You hear about it that week, not at the monthly review. The report leads with what went wrong, what we think caused it and what changes. Accounts that go quiet during a bad month are accounts where somebody is hoping it recovers before anyone notices.`
   8. Q: `Can we start with just one discipline?` — A: `Yes, and often that is the right way in. Plenty of engagements start with a single service and widen only when the numbers justify it. Starting with everything at once is usually a sign nobody has decided what the constraint actually is.`
 
@@ -253,7 +266,7 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ## Quirks / notes
 - British spelling throughout the live copy: `prioritised`, `optimise`, `catalogue` (sequence table), `fulfilment`, `merchandising` is spelled the same either way. Kept verbatim.
-- The "first 30 days" eyebrow is a full sentence (`The first thirty days decide whether the following twelve months are any good.`) rather than a short label — unusual vs. other sections.
+- The "first thirty days decide…" sentence is the hero container's closing line (after the hero image), not the §3 eyebrow — corrected 2026-11-23; see the correction note at the top of this file.
 - Section 5 ("Inside the work") is the only section with four separate images, one per item.
 - The live FAQ accordion markup is present in the HTML (Elementor boilerplate); the 8 Q&As above are the visible content.
 - No stats/numbers block on this page (no "100+ brands" style stat row) — the page is process narrative, not a numbers page.
