@@ -65,18 +65,26 @@ const faqs: Faq[] = [
 const commitments = [
   {
     title: "Margin over vanity",
+    icon: "fa-solid fa-bullseye",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
     body: "We report contribution margin next to ROAS because you cannot bank a return on ad spend. If a channel looks good on the dashboard and bad on the P&L, we say so.",
   },
   {
     title: "Radical transparency",
+    icon: "fa-solid fa-eye",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
     body: "You own every account, every asset and every dashboard. No black-box reporting, no proprietary metric invented to make a bad month look survivable.",
   },
   {
     title: "Senior people, on your account",
+    icon: "fa-solid fa-user-group",
+    tint: { background: "#dcfce7", color: "#16a34a" },
     body: "The strategist who scopes your engagement is the strategist who runs it. We cap accounts per strategist so that stays true at scale.",
   },
   {
     title: "Earn the renewal monthly",
+    icon: "fa-solid fa-thumbs-up",
+    tint: { background: "#ffedd5", color: "#ea580c" },
     body: "Month-to-month after the first 90 days. Long contracts protect agencies from their own performance. We would rather not need one.",
   },
 ];
@@ -197,9 +205,9 @@ const badges: { name: string; note: string; brand: PartnerBrandKey }[] = [
     note: "Badged partner for Meta advertising and commerce",
     brand: "meta",
   },
-  { name: "Amazon Ads Partner Network", note: "Verified partner in the Amazon Ads Partner Network", brand: "amazon" },
+  { name: "Amazon Ads", note: "Verified partner in the Amazon Ads Partner Network", brand: "amazon" },
   { name: "LinkedIn Marketing Partner", note: "Top-tier partner status for lifecycle and retention", brand: "linkedin" },
-  { name: "Microsoft Advertising Partner", note: "Verified partner in the Microsoft Partner Network", brand: "microsoft" },
+  { name: "Microsoft Advertising", note: "Verified partner in the Microsoft Partner Network", brand: "microsoft" },
 ];
 
 const journey = [
@@ -241,6 +249,7 @@ export default function AboutPage() {
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
+          <Pill icon="fa-solid fa-wand-magic-sparkles">About Dazzle Commerce</Pill>
           <h1>We Are the eCommerce Team You Wish You Had In-House</h1>
           <p className="lead">
             Dazzle Commerce is a full-service eCommerce management and marketing agency built
@@ -303,7 +312,8 @@ export default function AboutPage() {
                 The pattern never changed. A senior partner would win the pitch, promise
                 strategic partnership, and then hand the account to someone three months out of
                 university. Reporting arrived as a deck full of impressions. Nobody could answer
-                the only question that mattered: is this channel making us money after costs?
+                the only question that mattered:{" "}
+                <strong>is this channel making us money after costs?</strong>
               </p>
               <p>
                 So she left and started the agency she had been trying to hire. Two people, one
@@ -336,6 +346,9 @@ export default function AboutPage() {
           <h2>Our commitments we are willing to lose business over</h2>
           <div className="card-grid card-grid-2" style={{ marginBottom: "20px" }}>
             <article className="card">
+              <span className="card-icon" style={{ background: "#e0e7ff", color: "#111827" }}>
+                <i className="fa-solid fa-calendar-check" aria-hidden="true" />
+              </span>
               <h3>Our Mission</h3>
               <p>
                 To give eCommerce brands the calibre of growth team normally reserved for
@@ -344,6 +357,9 @@ export default function AboutPage() {
               </p>
             </article>
             <article className="card">
+              <span className="card-icon" style={{ background: "#dbeafe", color: "#0B5BF4" }}>
+                <i className="fa-solid fa-crosshairs" aria-hidden="true" />
+              </span>
               <h3>Our Vision</h3>
               <p>
                 An industry where agency performance is measured in contribution margin rather
@@ -355,6 +371,9 @@ export default function AboutPage() {
           <div className="card-grid card-grid-2">
             {commitments.map((c) => (
               <article className="card" key={c.title}>
+                <span className="card-icon" style={c.tint}>
+                  <i className={c.icon} aria-hidden="true" />
+                </span>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
               </article>
@@ -449,8 +468,10 @@ export default function AboutPage() {
           </p>
           <div className="card-grid">
             {team.map((m) => (
-              <article className="case-card" key={m.name}>
-                <Image src={m.img} alt={m.imgAlt} width={1200} height={800} />
+              <article className="case-card team-card" key={m.name}>
+                <div className="team-photo">
+                  <Image src={m.img} alt={m.imgAlt} width={900} height={1200} />
+                </div>
                 <div className="case-body">
                   <h3>{m.name}</h3>
                   <p style={{ fontWeight: 700, color: "var(--navy)", marginBottom: "0.5rem" }}>
@@ -458,8 +479,12 @@ export default function AboutPage() {
                   </p>
                   <p style={{ color: "var(--muted)" }}>{m.bio}</p>
                   <div className="team-socials">
-                    <Link href="https://x.com/#">X-twitter</Link>
-                    <Link href="https://www.linkedin.com/in/#">Linkedin</Link>
+                    <Link href="https://x.com/#" aria-label={`${m.name} on X`}>
+                      <i className="fa-brands fa-x-twitter" aria-hidden="true" />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/#" aria-label={`${m.name} on LinkedIn`}>
+                      <i className="fa-brands fa-linkedin-in" aria-hidden="true" />
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -497,22 +522,24 @@ export default function AboutPage() {
             Nine years, deliberately unglamorous. Every step below was a response to something
             clients kept asking for.
           </p>
-          <div className="timeline">
-            {journey.map((j) => (
-              <div className="timeline-item" key={j.year}>
-                <p className="timeline-year">{j.year}</p>
-                <h3>{j.title}</h3>
-                <p style={{ color: "var(--muted)" }}>{j.body}</p>
-              </div>
-            ))}
-          </div>
-          <div className="split-img" style={{ marginTop: "32px" }}>
-            <Image
-              src="/images/about-milestones.webp"
-              alt="The Dazzle Commerce team marking a milestone in the agency history"
-              width={1920}
-              height={1280}
-            />
+          <div className="milestones-layout">
+            <div className="timeline-vertical">
+              {journey.map((j) => (
+                <div className="timeline-v-item" key={j.year}>
+                  <p className="timeline-year">{j.year}</p>
+                  <h3>{j.title}</h3>
+                  <p style={{ color: "var(--muted)" }}>{j.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="milestones-img">
+              <Image
+                src="/images/about-milestones.webp"
+                alt="The Dazzle Commerce team marking a milestone in the agency history"
+                width={1920}
+                height={1280}
+              />
+            </div>
           </div>
         </div>
       </section>
