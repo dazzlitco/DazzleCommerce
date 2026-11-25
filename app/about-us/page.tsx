@@ -302,7 +302,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="split">
             <div>
-              <Pill icon="fa-solid fa-book" center>Our Story</Pill>
+              <Pill icon="fa-solid fa-book">Our Story</Pill>
               <h2>How it all started</h2>
               <p>
                 In 2017 our founder was running digital for a nine-figure home goods retailer
@@ -343,7 +343,7 @@ export default function AboutPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-award" center>Our Core Values</Pill>
-          <h2>Our commitments we are willing to lose business over</h2>
+          <h2 className="center">Our commitments we are willing to lose business over</h2>
           <div className="card-grid card-grid-2" style={{ marginBottom: "20px" }}>
             <article className="card">
               <span className="card-icon" style={{ background: "#e0e7ff", color: "#111827" }}>
@@ -385,14 +385,14 @@ export default function AboutPage() {
       {/* 4. Our Approach */}
       <section className="section">
         <div className="container">
+          <Pill icon="fa-solid fa-gear" center>Our Approach</Pill>
+          <h2 className="center">How we think about eCommerce growth</h2>
+          <p className="lead center">
+            Not a methodology with a trademark. Four operating principles that decide what
+            we do first, second and not at all.
+          </p>
           <div className="split">
             <div>
-              <Pill icon="fa-solid fa-gear" center>Our Approach</Pill>
-              <h2>How we think about eCommerce growth</h2>
-              <p>
-                Not a methodology with a trademark. Four operating principles that decide what
-                we do first, second and not at all.
-              </p>
               {principles.map((p) => (
                 <div key={p.num} style={{ marginTop: "1.25rem" }}>
                   <p className="card-num" style={{ fontSize: "1.4rem" }}>
@@ -418,7 +418,7 @@ export default function AboutPage() {
       {/* 5. Why Businesses Choose Us */}
       <section className="section section-soft">
         <div className="container">
-          <Pill icon="fa-regular fa-thumbs-up" center>Why Businesses Choose Us</Pill>
+          <Pill icon="fa-regular fa-thumbs-up">Why Businesses Choose Us</Pill>
           <h2>The reasons clients actually give</h2>
           <p className="lead">
             We asked in exit and renewal interviews. These are the answers, in the order they
@@ -444,8 +444,8 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Our Expertise</Pill>
-          <h2>Six disciplines, one accountable team</h2>
-          <p className="lead">Each one led by a specialist who does nothing else.</p>
+          <h2 className="center">Six disciplines, one accountable team</h2>
+          <p className="lead center">Each one led by a specialist who does nothing else.</p>
           <div className="card-grid">
             {disciplines.map((d) => (
               <article className="card" key={d.title}>
@@ -461,8 +461,8 @@ export default function AboutPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-user-group" center>Meet The Team</Pill>
-          <h2>The people who will be on your calls</h2>
-          <p className="lead">
+          <h2 className="center">The people who will be on your calls</h2>
+          <p className="lead center">
             No account-manager layer between you and the specialists.You work with the people
             doing the work.
           </p>
@@ -497,8 +497,8 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-award" center>Certifications &amp; Partnerships</Pill>
-          <h2>Badged where badges mean something</h2>
-          <p className="lead">
+          <h2 className="center">Badged where badges mean something</h2>
+          <p className="lead center">
             Certification is table stakes rather than a differentiator — but its absence tells
             you something, so here it is.
           </p>
@@ -516,7 +516,7 @@ export default function AboutPage() {
       {/* 9. Journey Milestones */}
       <section className="section section-soft">
         <div className="container">
-          <Pill icon="fa-solid fa-arrow-trend-up" center>Journey Milestones</Pill>
+          <Pill icon="fa-solid fa-arrow-trend-up">Journey Milestones</Pill>
           <h2>Our growth journey</h2>
           <p className="lead">
             Nine years, deliberately unglamorous. Every step below was a response to something
