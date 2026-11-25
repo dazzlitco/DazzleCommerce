@@ -83,78 +83,105 @@ const steps = [
   },
 ];
 
+const infoBlocks = [
+  {
+    icon: "fa-solid fa-location-dot",
+    title: "Head Office",
+    body: (
+      <>
+        1201 Commerce Street, Suite 480 Austin, TX 78701, United States
+      </>
+    ),
+  },
+  {
+    icon: "fa-solid fa-phone",
+    title: "Phone",
+    body: (
+      <>
+        <a href="tel:+1 (555) 010-2400">+1 (555) 010-2400</a>
+        <br />
+        Mon–Fri, 9:00–18:00 CT
+      </>
+    ),
+  },
+  {
+    icon: "fa-solid fa-envelope",
+    title: "Email",
+    body: (
+      <>
+        <a href="mailto:hello@dazzlecommerce.com">hello@dazzlecommerce.com</a>
+        <br />
+        New business, support and partnerships
+      </>
+    ),
+  },
+  {
+    icon: "fa-solid fa-clock",
+    title: "Coverage",
+    body: (
+      <>
+        Account teams across five time zones
+        <br />
+        US, UK, EU, Gulf and APAC business hours
+      </>
+    ),
+  },
+  {
+    icon: "fa-solid fa-globe",
+    title: "Serving clients in",
+    body: (
+      <>
+        United States, United Kingdom, Canada, Australia and the UAE
+        <br />
+        <Link href="/locations-we-serve/">See all locations we serve</Link>
+      </>
+    ),
+  },
+];
+
 export default function ContactPage() {
   return (
     <>
-      {/* 1. Hero + Growth Audit form */}
-      <section className="hero" id="form">
-        <div className="container">
-          <div className="hero-grid">
-            <div>
-              <h1>Let’s Talk About Your eCommerce Growth</h1>
-              <p className="lead">
-                Tell us where you are stuck and we will tell you what we would do about it.
-                Free audit, free 30-minute strategy call, and an honest answer about whether
-                we are the right fit.
-              </p>
-            </div>
-            <div>
-              <ContactForm />
-            </div>
-          </div>
+      {/* 1. Hero — centered H1 + intro only; the form lives in the next section */}
+      <section className="hero">
+        <div className="container center">
+          <h1>Let’s Talk About Your eCommerce Growth</h1>
+          <p className="lead center">
+            Tell us where you are stuck and we will tell you what we would do about it.
+            Free audit, free 30-minute strategy call, and an honest answer about whether
+            we are the right fit.
+          </p>
         </div>
       </section>
 
-      {/* 2. Contact Information */}
-      <section className="section">
+      {/* 2. Form + Contact Information — two columns: form card left, info right */}
+      <section className="section" id="form">
         <div className="container">
-          <Pill icon="fa-solid fa-comment" center>Contact Information</Pill>
-          <h2>Talk to a human, quickly</h2>
-          <p className="lead">
-            No gatekeeping, no qualification quiz before you are allowed to speak to someone
-            who knows what they are talking about.
-          </p>
-          <div className="card-grid">
-            <article className="card">
-              <h3>Head Office</h3>
-              <p>
-                1201 Commerce Street, Suite 480
-                <br />
-                Austin, TX 78701, United States
+          <div className="contact-grid">
+            <div>
+              <ContactForm />
+            </div>
+            <div>
+              <Pill icon="fa-solid fa-comment">Contact Information</Pill>
+              <h2>Talk to a human, quickly</h2>
+              <p className="lead">
+                No gatekeeping, no qualification quiz before you are allowed to speak to someone
+                who knows what they are talking about.
               </p>
-            </article>
-            <article className="card">
-              <h3>Phone</h3>
-              <p>
-                <a href="tel:+1 (555) 010-2400">+1 (555) 010-2400</a>
-                <br />
-                Mon–Fri, 9:00–18:00 CT
-              </p>
-            </article>
-            <article className="card">
-              <h3>Email</h3>
-              <p>
-                <a href="mailto:hello@dazzlecommerce.com">hello@dazzlecommerce.com</a>
-                <br />
-                New business, support and partnerships
-              </p>
-            </article>
-            <article className="card">
-              <h3>Coverage</h3>
-              <p>
-                Account teams across five time zones
-                <br />
-                US, UK, EU, Gulf and APAC business hours
-              </p>
-            </article>
-            <article className="card">
-              <h3>Serving clients in</h3>
-              <p>
-                United States, United Kingdom, Canada, Australia and the UAE
-                <br />
-                <Link href="/locations-we-serve/">See all locations we serve</Link>
-              </p>
-            </article>
+              <div className="info-list">
+                {infoBlocks.map((b) => (
+                  <div key={b.title} className="info-row">
+                    <span className="card-icon">
+                      <i className={b.icon} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3>{b.title}</h3>
+                      <p>{b.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,19 +190,17 @@ export default function ContactPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-regular fa-clock" center>What Happens Next</Pill>
-          <h2>From enquiry to answers in about a week</h2>
-          <p className="lead">
+          <h2 className="center">From enquiry to answers in about a week</h2>
+          <p className="lead center">
             No mystery, no chasing. Here is exactly what follows after you hit submit.
           </p>
-          <div style={{ marginTop: "32px" }}>
+          <div className="card-grid card-grid-4">
             {steps.map((s) => (
-              <div key={s.num} style={{ marginTop: "1.25rem" }}>
-                <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                  {s.num}
-                </p>
+              <article key={s.num} className="card">
+                <p className="step-num">{s.num}</p>
                 <h3>{s.title}</h3>
-                <p style={{ color: "var(--muted)" }}>{s.body}</p>
-              </div>
+                <p>{s.body}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -185,8 +210,8 @@ export default function ContactPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-headphones" center>Alternative Ways to Connect</Pill>
-          <h2>Forms are not for everyone</h2>
-          <p className="lead">
+          <h2 className="center">Forms are not for everyone</h2>
+          <p className="lead center">
             Pick whichever is least annoying. They all reach the same team.
           </p>
           <div className="card-grid card-grid-2">
@@ -252,8 +277,8 @@ export default function ContactPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-location-dot" center>Find Us</Pill>
-          <h2>Head office in Austin, Texas</h2>
-          <p>
+          <h2 className="center">Head office in Austin, Texas</h2>
+          <p className="lead center">
             Visits are by appointment — most of our work happens remotely, so let us know
             you are coming.
           </p>

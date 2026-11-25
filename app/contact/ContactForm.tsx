@@ -344,8 +344,8 @@ export default function ContactForm() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "8px 16px",
+            gridTemplateColumns: "1fr",
+            gap: "8px",
           }}
         >
           {services.map((s) => (
@@ -412,7 +412,7 @@ export default function ContactForm() {
       </div>
 
       <button className="btn" type="submit" style={{ width: "100%", justifyContent: "center" }}>
-        Request My Free Audit
+        <i className="fa-solid fa-calendar-check" aria-hidden="true" /> Request My Free Audit
       </button>
       {submitError && (
         <p className="form-msg form-msg-dark err" role="alert">

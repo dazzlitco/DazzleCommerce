@@ -171,6 +171,14 @@ p { margin: 0 0 1rem; }
 .platform-card .platform-name { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
 .platform-card p { margin-top: 0.25rem; }
 
+/* Contact page: form + info two-column layout, info rows (icon left, text right). */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.info-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
+.info-row { display: flex; gap: 18px; align-items: flex-start; }
+.info-row .card-icon { flex-shrink: 0; margin: 0; }
+.info-row h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.info-row p { margin: 0; color: var(--muted); }
+
 /* Split */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .split-img { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
@@ -293,7 +301,7 @@ p { margin: 0 0 1rem; }
 @media (max-width: 960px) {
   .main-nav, .header-actions .header-phone, .header-tagline { display: none; }
   .menu-toggle { display: block; }
-  .hero-grid, .split { grid-template-columns: 1fr; gap: 32px; }
+  .hero-grid, .split, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .card-grid, .card-grid-4, .card-grid-6 { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
