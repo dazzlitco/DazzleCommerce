@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Pill } from "@/components/Pill";
+import PlatformLogo, { type PlatformLogoKey } from "@/components/PlatformLogo";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
@@ -65,26 +66,38 @@ const management = [
   {
     title: "Product Listing & Catalog Management",
     body: "Listing creation, bulk enrichment, variant logic, attribute mapping and taxonomy clean-up across every storefront and marketplace you sell on.",
+    icon: "fa-solid fa-box",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "eCommerce Operations Management",
     body: "Order routing, returns and RMA workflows, inventory sync across channels, supplier feeds and fulfilment exception handling.",
+    icon: "fa-solid fa-gear",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Dedicated Account Management",
     body: "A named senior manager plus a specialist pod. Weekly stand-ups, a shared board you can see, and one person who owns your number.",
+    icon: "fa-solid fa-user-group",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "Marketplace Account Health",
     body: "Buy Box monitoring, policy compliance, suppressed-listing recovery, case management and performance-metric defence.",
+    icon: "fa-solid fa-globe",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "eCommerce Support & Virtual Assistance",
     body: "Trained eCommerce virtual assistant services for customer service, data entry, listing uploads and daily store admin.",
+    icon: "fa-solid fa-headphones",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Reporting & Business Intelligence",
     body: "A single dashboard covering revenue, contribution margin, blended CAC, channel mix and inventory velocity.",
+    icon: "fa-solid fa-chart-column",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
 ];
 
@@ -92,26 +105,38 @@ const marketing = [
   {
     title: "eCommerce SEO",
     body: "Technical SEO, collection and product page optimization, internal linking at catalog scale, schema and content that targets commercial intent.",
+    icon: "fa-solid fa-magnifying-glass",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "PPC & Google Shopping Management",
     body: "Google Ads, Performance Max, Shopping feed optimization and margin-tiered campaign structures. We bid to contribution margin.",
+    icon: "fa-solid fa-bullseye",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Marketplace Advertising",
     body: "Amazon PPC, Walmart Connect and eBay Promoted Listings, managed to TACoS and true profitability rather than raw ad sales.",
+    icon: "fa-solid fa-bolt",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "Paid Social & Performance Marketing",
     body: "Meta, TikTok and Pinterest built around a creative testing engine. New concepts weekly, winners scaled, fatigue caught early.",
+    icon: "fa-solid fa-thumbs-up",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Email, SMS & Retention Marketing",
     body: "Klaviyo and Attentive lifecycle programmes: welcome, browse and cart abandonment, post-purchase, winback and VIP.",
+    icon: "fa-solid fa-envelope",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Conversion Rate Optimization",
     body: "Heuristic audit, session analysis, hypothesis backlog, then A/B tests on product pages, cart and checkout. Every test documented.",
+    icon: "fa-solid fa-arrow-trend-up",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
 ];
 
@@ -119,36 +144,52 @@ const development = [
   {
     title: "Shopify & Shopify Plus Development",
     body: "Theme development, Online Store 2.0 sections, headless builds, checkout extensibility and custom app work.",
+    icon: "fa-solid fa-cart-shopping",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "WooCommerce Development",
     body: "WordPress-native storefronts, custom plugins, high-volume catalog handling and hosting architecture that survives a Black Friday spike.",
+    icon: "fa-solid fa-layer-group",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Replatforming & Migrations",
     body: "Magento, BigCommerce and legacy builds moved to Shopify or WooCommerce with URL mapping and redirect strategy planned first.",
+    icon: "fa-solid fa-arrows-rotate",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Performance & Core Web Vitals",
     body: "LCP, CLS and INP remediation, image and script strategy, caching and CDN tuning. Speed is a conversion lever and a ranking factor.",
+    icon: "fa-solid fa-bolt",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "Integrations & Automation",
     body: "ERP, PIM, 3PL, subscription and CRM integrations, plus middleware that removes the spreadsheets your team has quietly built a business on.",
+    icon: "fa-solid fa-code",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Analytics & Tracking Architecture",
     body: "GA4, server-side tagging, consent mode, marketplace attribution and a data layer that reconciles with your finance numbers.",
+    icon: "fa-solid fa-eye",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Mobile & Progressive Web Apps",
     body: "Cross-platform shopping apps, installable progressive web apps and private platform apps — scoped only where purchase frequency justifies one.",
     link: { href: "/ecommerce-app-development/", label: "See eCommerce app development" },
+    icon: "fa-solid fa-mobile-screen",
+    tint: { background: "#ccfbf1", color: "#0d9488" },
   },
   {
     title: "Web Design & UX",
     body: "UX research, information architecture, wireframes, accessible templates and a design system handed over as components.",
     link: { href: "/ecommerce-web-design/", label: "See eCommerce web design" },
+    icon: "fa-solid fa-palette",
+    tint: { background: "#e0e7ff", color: "#111827" },
   },
 ];
 
@@ -156,18 +197,26 @@ const creative = [
   {
     title: "Product Photography & Video",
     body: "Studio, lifestyle and UGC-style production built for the exact aspect ratios each channel rewards.",
+    icon: "fa-solid fa-palette",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "Conversion Copywriting",
     body: "Product detail pages, collection copy, ad angles and email sequences written to be tested, not admired.",
+    icon: "fa-solid fa-file-lines",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "A+ Content & Brand Stores",
     body: "Amazon A+ / Enhanced Brand Content, Brand Stores and Walmart rich media that lift conversion and defend your listing.",
+    icon: "fa-solid fa-award",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Landing Pages & Creative Testing",
     body: "Campaign landing pages and a running creative test calendar so paid media never starves for new angles.",
+    icon: "fa-solid fa-wand-magic-sparkles",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
 ];
 
@@ -194,39 +243,45 @@ const processSteps = [
   },
 ];
 
-const platforms = [
-  { name: "Shopify", note: "Plus & standard" },
-  { name: "Amazon", note: "Seller & Vendor" },
-  { name: "WooCommerce", note: "WordPress" },
-  { name: "Walmart", note: "Marketplace" },
-  { name: "eBay", note: "Stores & listings" },
-  { name: "Etsy", note: "Handmade & craft" },
+const platforms: { name: string; note: string; key: PlatformLogoKey }[] = [
+  { name: "Shopify", note: "Plus & standard", key: "shopify" },
+  { name: "Amazon", note: "Seller & Vendor", key: "amazon" },
+  { name: "WooCommerce", note: "WordPress", key: "woocommerce" },
+  { name: "Walmart", note: "Marketplace", key: "walmart" },
+  { name: "eBay", note: "Stores & listings", key: "ebay" },
+  { name: "Etsy", note: "Handmade & craft", key: "etsy" },
 ];
 
-const platformDetails = [
+const platformDetails: { title: string; body: string; key: PlatformLogoKey }[] = [
   {
     title: "Shopify & Shopify Plus",
     body: "Shopify agency services spanning store management, Shopify SEO, Shopify PPC, conversion optimization and custom Shopify development — from first launch to Plus-scale operations.",
+    key: "shopify",
   },
   {
     title: "Amazon Seller & Vendor",
     body: "Amazon marketplace management covering listing optimization, Amazon SEO, Amazon PPC management, brand registry, A+ content and account health defense.",
+    key: "amazon",
   },
   {
     title: "WooCommerce & WordPress",
     body: "WooCommerce development agency work: custom builds, plugin engineering, large-catalog performance and WooCommerce SEO services for content-led brands.",
+    key: "woocommerce",
   },
   {
     title: "Walmart Marketplace",
     body: "Walmart agency services spanning store management, Walmart SEO, Walmart PPC, conversion optimization and custom Walmart consultation — from first launch to Plus-scale operations.",
+    key: "walmart",
   },
   {
     title: "eBay Stores & Listings",
     body: "eBay marketplace management covering listing optimization, eBay SEO, eBay PPC management, brand registry, A+ content and account health defense.",
+    key: "ebay",
   },
   {
     title: "Etsy Handmade & Crafts",
     body: "Etsy agency work: custom products ideas, handmade inventry production, large-catalog performance and Etsy SEO services for content-led brands.",
+    key: "etsy",
   },
 ];
 
@@ -244,9 +299,9 @@ export default function ServicesPage() {
     <>
       {/* 1. Hero */}
       <section className="hero">
-        <div className="container">
+        <div className="container center">
           <h1>eCommerce Services That Move Revenue, Not Just Metrics</h1>
-          <p className="lead">
+          <p className="lead center">
             Management, marketing, development and creative under one roof — delivered by
             one senior team accountable to a single number. Our eCommerce services run from
             catalogue and order operations through to paid media, and the eCommerce agency
@@ -254,7 +309,7 @@ export default function ServicesPage() {
             run either ongoing or, where you only need the thinking, as an eCommerce
             consulting agency arrangement scoped to a single decision.
           </p>
-          <div className="btn-row">
+          <div className="btn-row" style={{ justifyContent: "center" }}>
             <Link className="btn" href="/book-a-strategy-call/">
               Get Free Strategy Call
             </Link>
@@ -269,14 +324,17 @@ export default function ServicesPage() {
       <section className="section" id="management">
         <div className="container">
           <Pill icon="fa-solid fa-box" center>eCommerce Management Services</Pill>
-          <h2>Run the store properly, then grow it</h2>
-          <p className="lead">
+          <h2 className="center">Run the store properly, then grow it</h2>
+          <p className="lead center">
             The operational layer most agencies will not touch. Clean data, healthy accounts
             and reliable fulfilment are what make marketing spend work at all.
           </p>
           <div className="card-grid">
             {management.map((s) => (
               <article className="card" key={s.title}>
+                <span className="card-icon" style={s.tint}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -289,14 +347,17 @@ export default function ServicesPage() {
       <section className="section section-soft" id="marketing">
         <div className="container">
           <Pill icon="fa-solid fa-arrow-trend-up" center>eCommerce Marketing Services</Pill>
-          <h2>Demand capture and demand creation, measured honestly</h2>
-          <p className="lead">
+          <h2 className="center">Demand capture and demand creation, measured honestly</h2>
+          <p className="lead center">
             Six disciplines, one budget, one forecast. We move spend between channels based
             on evidence rather than whichever team shouts loudest.
           </p>
           <div className="card-grid">
             {marketing.map((s) => (
               <article className="card" key={s.title}>
+                <span className="card-icon" style={s.tint}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -309,14 +370,36 @@ export default function ServicesPage() {
       <section className="section" id="development">
         <div className="container">
           <Pill icon="fa-solid fa-code" center>eCommerce Development &amp; Technology</Pill>
-          <h2>A storefront that is fast, stable and easy to change</h2>
-          <p className="lead">
+          <h2 className="center">A storefront that is fast, stable and easy to change</h2>
+          <p className="lead center">
             Development is not a separate department here. The people building your site sit
             next to the people responsible for your conversion rate.
           </p>
           <div className="card-grid">
-            {development.map((s) => (
+            {development.slice(0, 6).map((s) => (
               <article className="card" key={s.title}>
+                <span className="card-icon" style={s.tint}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
+                <h3>{s.title}</h3>
+                <p>
+                  {s.body}
+                  {s.link ? (
+                    <>
+                      {" "}
+                      <Link href={s.link.href}>{s.link.label}</Link> .
+                    </>
+                  ) : null}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="card-grid card-grid-2">
+            {development.slice(6).map((s) => (
+              <article className="card" key={s.title}>
+                <span className="card-icon" style={s.tint}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.title}</h3>
                 <p>
                   {s.body}
@@ -337,14 +420,17 @@ export default function ServicesPage() {
       <section className="section section-soft" id="creative">
         <div className="container">
           <Pill icon="fa-solid fa-palette" center>Creative &amp; Content</Pill>
-          <h2>Assets built for testing, not for the brand book</h2>
-          <p className="lead">
+          <h2 className="center">Assets built for testing, not for the brand book</h2>
+          <p className="lead center">
             Creative is the biggest remaining lever in paid media. We produce at a cadence
             that lets the algorithm actually learn.
           </p>
           <div className="card-grid card-grid-2">
             {creative.map((s) => (
               <article className="card" key={s.title}>
+                <span className="card-icon" style={s.tint}>
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -357,15 +443,15 @@ export default function ServicesPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-gear" center>Our eCommerce Growth Process</Pill>
-          <h2>Four phases, repeated every quarter</h2>
-          <p className="lead">
+          <h2 className="center">Four phases, repeated every quarter</h2>
+          <p className="lead center">
             Structured enough to be predictable, flexible enough to chase a result when we find
             one.
           </p>
           <div className="card-grid card-grid-4">
             {processSteps.map((s) => (
               <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
+                <p className="step-num">{s.num}</p>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -378,14 +464,17 @@ export default function ServicesPage() {
       <section className="section section-soft" id="platforms">
         <div className="container">
           <Pill icon="fa-solid fa-globe" center>Platforms We Support</Pill>
-          <h2>Storefronts and marketplaces, managed together</h2>
-          <p className="lead">
+          <h2 className="center">Storefronts and marketplaces, managed together</h2>
+          <p className="lead center">
             Certified where certification matters, experienced everywhere else. Your channel mix
             should follow your margins.
           </p>
-          <div className="card-grid card-grid-4">
+          <div className="card-grid card-grid-6">
             {platforms.map((p) => (
               <div className="card platform-card" key={p.name}>
+                <div className="platform-mark">
+                  <PlatformLogo brand={p.key} size={44} />
+                </div>
                 <h3 className="platform-name">{p.name}</h3>
                 <p>{p.note}</p>
               </div>
@@ -394,6 +483,9 @@ export default function ServicesPage() {
           <div className="card-grid">
             {platformDetails.map((p) => (
               <article className="card" key={p.title}>
+                <div className="platform-mark" style={{ justifyContent: "flex-start" }}>
+                  <PlatformLogo brand={p.key} size={36} />
+                </div>
                 <h3>{p.title}</h3>
                 <p>{p.body}</p>
               </article>
@@ -406,8 +498,16 @@ export default function ServicesPage() {
       <section className="section">
         <div className="container">
           <div className="split">
+            <div className="split-img">
+              <Image
+                src="/images/services-why-choose.webp"
+                alt="Analytics dashboard showing eCommerce revenue, conversion rate and channel performance"
+                width={1920}
+                height={1280}
+              />
+            </div>
             <div>
-              <Pill icon="fa-solid fa-award" center>Why Choose Our Services</Pill>
+              <Pill icon="fa-solid fa-award">Why Choose Our Services</Pill>
               <h2>
                 What a full service eCommerce agency should give you that you are probably not
                 getting now
@@ -431,14 +531,6 @@ export default function ServicesPage() {
                   See the results
                 </Link>
               </div>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/services-why-choose.webp"
-                alt="Analytics dashboard showing eCommerce revenue, conversion rate and channel performance"
-                width={1920}
-                height={1280}
-              />
             </div>
           </div>
         </div>
