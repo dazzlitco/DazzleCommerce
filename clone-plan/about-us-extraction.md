@@ -217,3 +217,4 @@ Canonical: https://dazzlecommerce.com/about-us/ | og:type: article | og:image: a
 - Team social links point to https://x.com/# and https://www.linkedin.com/in/# (placeholders on the live page).
 - "No account-manager layer between you and the specialists.You work with the people doing the work." — missing space after the period is on the live page.
 - Description says 38 specialists; FAQ answer says 42 specialists; timeline 2025 says 42 specialists. All kept as written per section.
+- Heading alignment (2026-11-24 fix, per live HTML + LiteSpeed CSS): centered — Our commitments, How we think (full-width centered header above the split, intro centered), Six disciplines, The people, Badged, FAQ, final CTA; left — How it all started, The reasons clients actually give, Our growth journey. The clone previously had every pill centered and every H2 left; now pill + H2 + lead agree per section.
