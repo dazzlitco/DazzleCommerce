@@ -191,38 +191,56 @@ const addOns = [
   {
     title: "Additional PPC Management",
     body: "Extra paid channels beyond your package — TikTok, Pinterest, Microsoft Ads or a second marketplace ad account, each with its own margin target.",
+    icon: "fa-solid fa-bullseye",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Marketplace Management",
     body: "Adding Walmart, eBay, Etsy or Noon to an existing engagement, including listing build, fee modelling and channel-level pricing.",
+    icon: "fa-solid fa-store",
+    tint: { background: "#ede9fe", color: "#7c3aed" },
   },
   {
     title: "Shopify Development",
     body: "Theme work, Online Store 2.0 sections, app integration, headless builds and full replatforms with tested redirect maps.",
+    icon: "fa-solid fa-store",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "Amazon Management",
     body: "Seller or Vendor Central management: catalog rebuilds, Buy Box defence, A+ Content, Brand Store and account-health remediation.",
+    icon: "fa-solid fa-box-open",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
   {
     title: "Product Photography",
     body: "Studio and lifestyle shoots built for conversion, sized and cropped per channel including Amazon main-image compliance.",
+    icon: "fa-solid fa-camera",
+    tint: { background: "#ccfbf1", color: "#0d9488" },
   },
   {
     title: "Creative Production",
     body: "Static and video ad creative produced on a testing cadence, plus UGC and creator briefs written for your category.",
+    icon: "fa-solid fa-palette",
+    tint: { background: "#fce7f3", color: "#db2777" },
   },
   {
     title: "Email Automation",
     body: "Klaviyo or Braze build-out: welcome, abandonment, post-purchase, replenishment and winback flows with revenue attribution.",
+    icon: "fa-solid fa-envelope",
+    tint: { background: "#dbeafe", color: "#0B5BF4" },
   },
   {
     title: "Conversion Rate Optimisation",
     body: "A dedicated CRO programme — research, prioritised hypotheses, build and analysis, with every test documented win or lose.",
+    icon: "fa-solid fa-envelope",
+    tint: { background: "#dcfce7", color: "#16a34a" },
   },
   {
     title: "Additional Markets",
     body: "A new country added to an existing engagement: viability model first, then hreflang, currency, localisation and local channel setup.",
+    icon: "fa-solid fa-globe",
+    tint: { background: "#ffedd5", color: "#ea580c" },
   },
 ];
 
@@ -230,26 +248,32 @@ const included = [
   {
     title: "Dedicated Account Setup",
     body: "A structured onboarding: access audit, tracking verification, baseline capture and a documented account map before any work starts.",
+    icon: "fa-solid fa-lightbulb",
   },
   {
     title: "Performance Reporting",
     body: "Reporting that leads with contribution margin next to ROAS, so you can see what a channel earns rather than only what it spends.",
+    icon: "fa-solid fa-lightbulb",
   },
   {
     title: "Strategy & Recommendations",
     body: "A named senior strategist who owns the account, plus a standing recommendation each period about what to stop doing.",
+    icon: "fa-solid fa-lightbulb",
   },
   {
     title: "Regular Optimization",
     body: "Two-week working cycles. Nothing ships without tracking attached, and every test is written up whether it wins or loses.",
+    icon: "fa-solid fa-lightbulb",
   },
   {
     title: "Transparent Communication",
     body: "Scheduled calls in your business hours, notes circulated after every one, and problems raised by us before you notice them.",
+    icon: "fa-solid fa-comments",
   },
   {
     title: "Performance Tracking",
     body: "Analytics, server-side and platform tracking validated at onboarding and re-checked quarterly, because bad data makes every decision worse.",
+    icon: "fa-solid fa-comments",
   },
 ];
 
@@ -258,21 +282,25 @@ const pricingSteps = [
     num: "01",
     title: "Business size",
     body: "Revenue band, order volume and catalog size. A 200-SKU brand and a 4,200-SKU seller need different operational capacity, and that is the biggest single cost driver.",
+    icon: "fa-solid fa-compass",
   },
   {
     num: "02",
     title: "Platforms & channels",
     body: "How many storefronts and marketplaces, and how many paid channels. Each additional channel adds management, reporting and creative load.",
+    icon: "fa-solid fa-building",
   },
   {
     num: "03",
     title: "Scope of work",
     body: "Which disciplines you actually need. Most brands do not need all of them on day one, and we would rather sequence than sell everything at once.",
+    icon: "fa-solid fa-building",
   },
   {
     num: "04",
     title: "Growth goals",
     body: "What you are trying to reach and by when. An aggressive target needs more testing velocity, which needs more hours.",
+    icon: "fa-solid fa-bullseye",
   },
 ];
 
@@ -281,16 +309,16 @@ export default function PricingPage() {
     <>
       {/* 1. Hero */}
       <section className="hero">
-        <div className="container">
+        <div className="container center">
           <Pill icon="fa-solid fa-tags" center>Pricing &amp; Packages</Pill>
           <h1>eCommerce Management Pricing That Matches Your Stage</h1>
-          <p className="lead">
+          <p className="lead center">
             Three packages built around what actually drives cost — channel count, catalog
             size and ad spend under management. Most engagements sit between $3,500 and
             $18,000 per month, and we scope after a free audit so the number reflects real
             work rather than a guess.
           </p>
-          <div className="btn-row">
+          <div className="btn-row" style={{ justifyContent: "center" }}>
             <Link className="btn" href="/contact/">
               Get Your Free Scoping Call
             </Link>
@@ -299,7 +327,8 @@ export default function PricingPage() {
             </Link>
           </div>
           <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-            No setup fees. No long lock-in. Month-to-month after the first 90 days.
+            <strong>No setup fees. No long lock-in.</strong> Month-to-month after the first
+            90 days.
           </p>
         </div>
       </section>
@@ -308,8 +337,8 @@ export default function PricingPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-scale-balanced" center>Choose Your Growth Package</Pill>
-          <h2>Three packages, priced on what actually drives cost</h2>
-          <p className="lead">
+          <h2 className="center">Three packages, priced on what actually drives cost</h2>
+          <p className="lead center">
             Pick the tier that matches your stage. Every package can be extended with add-ons,
             and you can move between tiers at the start of any month.
           </p>
@@ -320,14 +349,24 @@ export default function PricingPage() {
                 key={t.name}
                 style={
                   t.featured
-                    ? { borderColor: "var(--blue)", borderWidth: "2px", boxShadow: "var(--shadow)" }
+                    ? {
+                        position: "relative",
+                        background: "var(--bg-soft)",
+                        borderColor: "var(--blue)",
+                        borderWidth: "2px",
+                        boxShadow: "var(--shadow)",
+                        paddingTop: "36px",
+                      }
                     : undefined
                 }
               >
                 {t.badge ? (
                   <p
                     style={{
-                      display: "inline-block",
+                      position: "absolute",
+                      top: "-14px",
+                      left: "50%",
+                      transform: "translateX(-50%)",
                       background: "var(--blue)",
                       color: "#fff",
                       fontSize: "0.78rem",
@@ -335,7 +374,8 @@ export default function PricingPage() {
                       letterSpacing: "0.06em",
                       padding: "6px 12px",
                       borderRadius: "999px",
-                      marginBottom: "1rem",
+                      margin: 0,
+                      whiteSpace: "nowrap",
                     }}
                   >
                     {t.badge}
@@ -391,13 +431,12 @@ export default function PricingPage() {
               }}
             >
               <thead>
-                <tr style={{ background: "var(--navy)" }}>
+                <tr>
                   <th
                     style={{
                       textAlign: "left",
                       padding: "16px 20px",
-                      color: "#fff",
-                      fontSize: "1rem",
+                      width: "28%",
                     }}
                   >
                     &nbsp;
@@ -408,8 +447,10 @@ export default function PricingPage() {
                       style={{
                         textAlign: "left",
                         padding: "16px 20px",
-                        color: "#fff",
-                        fontSize: "1rem",
+                        color: t.featured ? "var(--blue)" : "var(--navy)",
+                        fontSize: "0.95rem",
+                        fontWeight: 800,
+                        background: t.featured ? "var(--bg-soft)" : undefined,
                       }}
                     >
                       {t.name}
@@ -418,29 +459,28 @@ export default function PricingPage() {
                 </tr>
               </thead>
               <tbody>
-                {comparisonRows.map((row, i) => (
-                  <tr
-                    key={row.label}
-                    style={{ background: i % 2 === 0 ? "#fff" : "var(--bg-softer)" }}
-                  >
+                {comparisonRows.map((row) => (
+                  <tr key={row.label}>
                     <th
                       style={{
                         textAlign: "left",
-                        padding: "14px 20px",
+                        padding: "18px 20px",
                         color: "var(--navy)",
                         borderTop: "1px solid var(--line)",
+                        fontWeight: 700,
                       }}
                     >
                       {row.label}
                     </th>
-                    {row.values.map((v) => (
+                    {row.values.map((v, vi) => (
                       <td
                         key={v}
                         style={{
-                          padding: "14px 20px",
+                          padding: "18px 20px",
                           color: "var(--muted)",
                           borderTop: "1px solid var(--line)",
                           verticalAlign: "top",
+                          background: vi === 1 ? "var(--bg-soft)" : undefined,
                         }}
                       >
                         {v}
@@ -458,14 +498,17 @@ export default function PricingPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Services &amp; Add-Ons</Pill>
-          <h2>Need something beyond your package?</h2>
-          <p className="lead">
+          <h2 className="center">Need something beyond your package?</h2>
+          <p className="lead center">
             Every package can be extended. Add-ons are scoped and priced individually so you
             are never paying for a tier you do not need in order to unlock one thing you do.
           </p>
           <div className="card-grid">
             {addOns.map((a) => (
               <article className="card" key={a.title}>
+                <span className="card-icon" style={{ background: a.tint.background, color: a.tint.color }}>
+                  <i className={a.icon} aria-hidden="true" />
+                </span>
                 <h3>{a.title}</h3>
                 <p>{a.body}</p>
               </article>
@@ -478,14 +521,17 @@ export default function PricingPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-lightbulb" center>Included as Standard</Pill>
-          <h2>What&rsquo;s included in every package</h2>
-          <p className="lead">
+          <h2 className="center">What&rsquo;s included in every package</h2>
+          <p className="lead center">
             Whichever tier you choose, these are not upsells. They are the baseline we
             consider necessary to do the job honestly.
           </p>
-          <div className="card-grid card-grid-2">
+          <div className="card-grid">
             {included.map((item) => (
               <article className="card" key={item.title}>
+                <span className="card-icon" style={{ background: "#dbeafe", color: "#0B5BF4" }}>
+                  <i className={item.icon} aria-hidden="true" />
+                </span>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </article>
@@ -498,29 +544,51 @@ export default function PricingPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-compass" center>How Our Pricing Works</Pill>
-          <h2>No two eCommerce brands cost the same to run</h2>
-          <p>
+          <h2 className="center">No two eCommerce brands cost the same to run</h2>
+          <p className="lead center">
             Business size + platforms and channels + scope of work + growth goals → your
             investment. Four inputs, one number, and we show you the arithmetic rather than
             asking you to trust a bracket.
           </p>
-          {pricingSteps.map((s) => (
-            <div key={s.num} style={{ marginTop: "1.25rem" }}>
-              <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                {s.num}
-              </p>
-              <h3>{s.title}</h3>
-              <p style={{ color: "var(--muted)" }}>{s.body}</p>
-            </div>
-          ))}
-          <div className="card" style={{ marginTop: "40px", background: "var(--bg-soft)" }}>
-            <h3>Your customised investment</h3>
-            <p>
+          <div className="card-grid card-grid-4">
+            {pricingSteps.map((s) => (
+              <article className="card" key={s.num}>
+                <p className="step-num">{s.num}</p>
+                <p style={{ margin: "0 0 14px" }}>
+                  <i
+                    className={s.icon}
+                    aria-hidden="true"
+                    style={{ color: "var(--blue)", fontSize: "1.25rem" }}
+                  />
+                </p>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
+          </div>
+          <div
+            className="card"
+            style={{
+              marginTop: "40px",
+              background: "var(--bg-soft)",
+              textAlign: "center",
+              padding: "36px",
+            }}
+          >
+            <p style={{ margin: "0 0 12px" }}>
+              <i
+                className="fa-solid fa-arrow-down"
+                aria-hidden="true"
+                style={{ color: "var(--blue)", fontSize: "1.25rem" }}
+              />
+            </p>
+            <h3 style={{ textAlign: "center" }}>Your customised investment</h3>
+            <p style={{ maxWidth: "640px", margin: "0 auto" }}>
               One monthly figure, scoped after the free audit, with the working shown. You see
               which disciplines are in, how many hours sit behind each, and what we expect
               them to return — before you commit to anything.
             </p>
-            <div className="btn-row">
+            <div className="btn-row" style={{ justifyContent: "center" }}>
               <Link className="btn" href="/contact/">
                 Get Your Free Scoping Call
               </Link>
