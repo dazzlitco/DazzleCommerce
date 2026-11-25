@@ -44,7 +44,7 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 
 ## Batch 1 — Core (23 pages, in order)
 
-1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`) — **REDONE 2026-11-24 vs live rendered page, pushed code `5f3001e`, photos `076211a`; DYNAMIC HERO 2026-11-24, code `9db6623`; awaiting Alif's check before page 2**
+1. `/` — Homepage — **Pushed** (commits `e0c3a55`, `3dde869`, photos `c49cdf8`, record `e6edc87`) — **REDONE 2026-11-24 vs live rendered page, pushed code `5f3001e`, photos `076211a`; DYNAMIC HERO 2026-11-24, code `9db6623`; PLATFORM LOGOS 2026-11-24, code `654e4e5`; awaiting Alif's check before page 2**
 2. `/about-us/` — **Pushed** (commits `22e4760`, photos `163521c`)
 3. `/services/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
 4. `/contact/` — **Pushed** (code `44f5336`, photos `39d7f0c` / `7dd7095` / `bb226b6`)
@@ -142,3 +142,4 @@ Batch 7 breakdown: Tools 21, Guides 16, Resources 35, Careers 3. Batch 8: Blog i
 | 2026-11-24 | Homepage redo pushed: code `5f3001e` (9 files: app/page.tsx, app/globals.css, Header, Footer, Pill, FaqAccordion, RegisterModal, logo.svg, logo-footer.svg). |
 | 2026-11-24 | Homepage redo photos uploaded via the website, commit `076211a` — 3 case photos replaced, 3 testimonial portraits added. `public/images/` on GitHub now holds 195 files (193 .webp + 2 logos). Homepage on GitHub is now the redone version. Awaiting Alif's check before About Us (page 2). |
 | 2026-11-24 | Dynamic hero (owner request): the supplied dashboard image rebuilt as a living component `components/HeroDashboard.tsx` — count-up stats, drawing charts, animated bars, floating cards, mouse tilt, clickable sidebar/products. Verified: `npm run build` passes; Playwright desktop + mobile screenshots, interaction test passed (sidebar switch, product share bar, tilt). Code pushed `9db6623`. The earlier skip found and fixed: GitHub's `home-hero.webp` was still the old generated stand-in (422 KB) — the supplied image (64 KB) is now uploaded to GitHub as `home-hero.webp` (commit `94c73d5`, hash-verified identical to the supplied file); the static file stays in the repo as the source asset, the page now shows the dynamic hero. |
+| 2026-11-24 | Platform logos (supplied by Alif): real logos now render via shared `components/PlatformLogo.tsx` in the homepage Platforms section, the hero dashboard tiles, and the Shopify/Amazon partner badges (About Us, Partners). Walmart + TikTok keep code marks (no logo supplied). Code pushed `654e4e5`. Verified: build passes, Playwright screenshots, all 8 homepage logo images load. |
