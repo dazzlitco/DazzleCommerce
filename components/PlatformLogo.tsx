@@ -7,7 +7,8 @@ export type PlatformLogoKey =
   | "walmart"
   | "ebay"
   | "etsy"
-  | "tiktok";
+  | "tiktok"
+  | "meta";
 
 const LOGOS: Partial<
   Record<PlatformLogoKey, { src: string; width: number; height: number; alt: string }>
@@ -18,13 +19,17 @@ const LOGOS: Partial<
   ebay: { src: "/images/platform-ebay.webp", width: 468, height: 512, alt: "eBay" },
   etsy: { src: "/images/platform-etsy.webp", width: 512, height: 512, alt: "Etsy" },
   walmart: { src: "/images/platform-walmart.webp", width: 474, height: 513, alt: "Walmart" },
+  tiktok: { src: "/images/platform-tiktok.webp", width: 468, height: 512, alt: "TikTok" },
+  meta: { src: "/images/brand-meta.webp", width: 770, height: 512, alt: "Meta" },
 };
 
 /**
- * Real platform logos supplied by Alif (2026-11-24), used everywhere a
- * platform mark renders: homepage "Platforms We Work With", the hero
- * dashboard tiles, and the Shopify/Amazon partner badges.
- * TikTok has no supplied logo, so it keeps its closest code mark.
+ * Real brand logos supplied by Alif (2026-11-24), used everywhere a
+ * brand mark renders: homepage "Platforms We Work With", the hero
+ * dashboard tiles and Marketing Performance icons, and the Shopify/Amazon
+ * partner badges. Meta's file had coloured glitch blocks baked in and was
+ * cleaned (blue-only mask) before use; Google's file was corrupted the
+ * same way and could not be cleaned, so it is not used yet.
  */
 export default function PlatformLogo({
   brand,
@@ -44,11 +49,6 @@ export default function PlatformLogo({
         className="platform-logo"
         style={{ height: size, width: "auto" }}
       />
-    );
-  }
-  if (brand === "tiktok") {
-    return (
-      <i className="fa-brands fa-tiktok" style={{ color: "#111827" }} aria-hidden="true" />
     );
   }
   return null;

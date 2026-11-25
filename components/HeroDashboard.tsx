@@ -71,10 +71,18 @@ const PRODUCTS = [
   { name: "Portable Bluetooth Speaker", price: "$12,980", share: 23, icon: "fa-brands fa-bluetooth-b" },
 ];
 
-const MARKETING = [
+const MARKETING: {
+  name: string;
+  icon?: string | null;
+  logo?: PlatformLogoKey;
+  color: string;
+  spend: string;
+  delta: string;
+  width: number;
+}[] = [
   { name: "Google Ads", icon: "fa-brands fa-google", color: "#4285f4", spend: "$12,450", delta: "↑ 32%", width: 100 },
-  { name: "Meta Ads", icon: null, meta: true, color: "#0082fb", spend: "$9,200", delta: "↑ 28%", width: 74 },
-  { name: "TikTok Ads", icon: "fa-brands fa-tiktok", color: "#111827", spend: "$4,870", delta: "↑ 42%", width: 39 },
+  { name: "Meta Ads", logo: "meta", color: "#0082fb", spend: "$9,200", delta: "↑ 28%", width: 74 },
+  { name: "TikTok Ads", logo: "tiktok", color: "#111827", spend: "$4,870", delta: "↑ 42%", width: 39 },
   { name: "Email Campaigns", icon: "fa-solid fa-envelope", color: "#0b5bf4", spend: "$2,840", delta: "↑ 18%", width: 23 },
 ];
 
@@ -299,8 +307,8 @@ export default function HeroDashboard() {
           {MARKETING.map((m) => (
             <div className="dash-mp-row" key={m.name}>
               <span className="dash-mp-icon" style={{ color: m.color }}>
-                {m.meta ? (
-                  <span className="dash-meta" aria-hidden="true">∞</span>
+                {m.logo ? (
+                  <PlatformLogo brand={m.logo} size={14} />
                 ) : (
                   <i className={m.icon ?? ""} aria-hidden="true" />
                 )}
