@@ -28,7 +28,7 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch 8 — Blogs | 11 | 0 | 0 |
 | **Total** | **177** | **36** | **36** |
 
-Last updated: 2026-11-24 — Platform logos supplied by Alif now used across the site (code `654e4e5`, logos `bdd7839`). 36 of 177 pages built, 36 pushed. Next: Alif checks the Homepage before About Us (page 2).
+Last updated: 2026-11-24 — Walmart logo supplied by Alif now used across the site (code `a159623`, logo `1d56cc7`). All 6 platform tiles are now real logos. 36 of 177 pages built, 36 pushed. Next: Alif checks the Homepage before About Us (page 2).
 
 ## Batch 1 — Core — 23 pages
 
@@ -279,3 +279,5 @@ Last updated: 2026-11-24 — Platform logos supplied by Alif now used across the
 | 2026-11-24 | Skipped hero replacement fixed: GitHub's `home-hero.webp` was still the old generated stand-in (422 KB) — the user-supplied image is now on GitHub as `home-hero.webp`, commit `94c73d5` (via intermediates `5329c1f` add + `f6860b8` delete old); hash-verified identical to the supplied file (63,912 bytes). Homepage on GitHub now shows the dynamic hero; awaiting Alif's check before About Us (page 2). |
 | 2026-11-24 | Platform logos (supplied by Alif): real logos via shared `components/PlatformLogo.tsx` in the homepage Platforms section, hero dashboard tiles, and Shopify/Amazon partner badges (About Us, Partners). Walmart + TikTok keep code marks (no logo supplied). Code pushed `654e4e5`. |
 | 2026-11-24 | Platform logo files uploaded, commit `bdd7839` — 5 new .webp files in `public/images/` (platform-shopify, platform-amazon, platform-woocommerce, platform-ebay, platform-etsy). Hash-verified on GitHub. `public/images/` now holds 200 files (198 .webp + 2 logos). |
+| 2026-11-24 | Walmart logo (supplied by Alif): real yellow spark via `components/PlatformLogo.tsx` in the homepage Platforms section and hero dashboard tiles. All 6 platform tiles are now real logos; only TikTok keeps a code mark. Code pushed `a159623`. |
+| 2026-11-24 | Walmart logo file uploaded, commit `1d56cc7` — 1 new .webp file in `public/images/` (platform-walmart). Hash-verified on GitHub. `public/images/` now holds 201 files (199 .webp + 2 logos). |
