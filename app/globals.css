@@ -160,6 +160,7 @@ p { margin: 0 0 1rem; }
 .card p.card-num { font-size: 2rem; font-weight: 800; color: var(--blue); opacity: 0.9; }
 /* Blue rounded-square number badge (live Services process steps). */
 .card p.step-num { display: inline-flex; align-items: center; justify-content: center; background: var(--blue); color: #fff; font-weight: 800; font-size: 1.05rem; width: 46px; height: 46px; border-radius: 10px; margin: 0 0 14px; }
+.striped-table tbody tr:nth-child(even) { background: var(--bg-softer); }
 .platform-card { text-align: center; }
 .platform-mark { display: flex; align-items: center; justify-content: center; height: 52px; font-size: 1.7rem; margin-bottom: 6px; }
 .ebay-mark { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; }

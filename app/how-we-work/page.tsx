@@ -257,6 +257,7 @@ const reportingChecks = [
 const yourSide = [
   {
     title: "Access, early",
+    icon: "fa-solid fa-key",
     bullets: [
       "Admin or read access to analytics, ad accounts and the store",
       "Marketplace seller central access where relevant",
@@ -266,6 +267,7 @@ const yourSide = [
   },
   {
     title: "Decisions, within a week",
+    icon: "fa-solid fa-gavel",
     bullets: [
       "A named person who can approve work without a committee",
       "A week is our working assumption for a decision to come back",
@@ -275,6 +277,7 @@ const yourSide = [
   },
   {
     title: "A few hours a month",
+    icon: "fa-solid fa-clock",
     bullets: [
       "One monthly review, one fortnightly working call",
       "Occasional questions that only you can answer",
@@ -284,6 +287,7 @@ const yourSide = [
   },
   {
     title: "Candour about constraints",
+    icon: "fa-solid fa-clock",
     bullets: [
       "Tell us about the stock problem, the cash position, the politics",
       "A plan built without the real constraints is a plan for a different business",
@@ -375,8 +379,8 @@ const tableStyle: React.CSSProperties = {
 const thStyle: React.CSSProperties = {
   textAlign: "left",
   padding: "14px 18px",
-  background: "var(--bg-soft)",
-  color: "var(--navy)",
+  background: "var(--navy)",
+  color: "#fff",
   fontWeight: 800,
   borderBottom: "1px solid var(--line)",
 };
@@ -399,7 +403,7 @@ export default function HowWeWorkPage() {
           </p>
           <div className="hero-grid">
             <div>
-              <Pill icon="fa-solid fa-diagram-project" center>Our process</Pill>
+              <Pill icon="fa-solid fa-diagram-project">Our process</Pill>
               <h1>How We Work</h1>
               <p className="lead">
                 Most agency process pages describe a methodology nobody follows. This one
@@ -414,6 +418,11 @@ export default function HowWeWorkPage() {
               </ul>
               <div className="btn-row">
                 <Link className="btn" href="/ecommerce-audit/">
+                  <i
+                    className="fa-solid fa-scale-balanced"
+                    aria-hidden="true"
+                    style={{ marginRight: "8px" }}
+                  />
                   Start with a free audit
                 </Link>
                 <Link className="btn btn-outline" href="#hww-onboarding">
@@ -429,11 +438,19 @@ export default function HowWeWorkPage() {
                 height={933}
                 priority
               />
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "var(--muted)",
+                  fontSize: "0.95rem",
+                  marginTop: "16px",
+                }}
+              >
+                The first thirty days decide whether the following twelve months are any
+                good.
+              </p>
             </div>
           </div>
-          <p className="lead" style={{ marginTop: "32px" }}>
-            The first thirty days decide whether the following twelve months are any good.
-          </p>
         </div>
       </section>
 
@@ -441,12 +458,12 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-lightbulb" center>Principles</Pill>
-          <h2>Four rules that govern every engagement</h2>
-          <p className="lead">
+          <h2 className="center">Four rules that govern every engagement</h2>
+          <p className="lead center">
             These are not values on a wall. Each one changes a decision we make regularly,
             and each one occasionally costs us money.
           </p>
-          <div className="card-grid card-grid-2">
+          <div className="card-grid card-grid-4">
             {principles.map((p) => (
               <article className="card" key={p.title}>
                 <h3>{p.title}</h3>
@@ -458,7 +475,7 @@ export default function HowWeWorkPage() {
               </article>
             ))}
           </div>
-          <p className="lead" style={{ marginTop: "32px" }}>
+          <p className="lead center" style={{ marginTop: "32px" }}>
             The last one is the one prospects check. Agency-owned ad accounts are the most
             common way a brand discovers it cannot leave.
           </p>
@@ -468,56 +485,62 @@ export default function HowWeWorkPage() {
       {/* 3. The first 30 days */}
       <section className="section section-soft" id="hww-onboarding">
         <div className="container">
-          <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-calendar-days" center>The first 30 days</Pill>
-              <h2>What actually happens in month one</h2>
-              <p>
-                Nothing is launched in the first fortnight. That is deliberate: the most
-                expensive mistakes we see were made quickly by people who wanted to look busy.
-              </p>
-              {first30Days.map((s) => (
-                <div key={s.num} style={{ marginTop: "1.25rem" }}>
-                  <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                    {s.num}
-                  </p>
-                  <h3>{s.title}</h3>
-                  <p style={{ color: "var(--muted)" }}>{s.body}</p>
-                </div>
-              ))}
-              <p style={{ marginTop: "1.5rem" }}>
-                If we find nothing worth doing, we tell you that too. It is rare, and it has
-                happened.
-              </p>
-              <p style={{ color: "var(--muted)" }}>
-                Kickoff is a working session with the people who will run the account, not a
-                presentation.
-              </p>
-            </div>
-            <div className="split-img">
-              <Image
-                src="/images/how-we-work-kickoff.webp"
-                alt="Kickoff meeting with a team reviewing documents together"
-                width={1400}
-                height={933}
-              />
-            </div>
+          <Pill icon="fa-solid fa-calendar-days" center>The first 30 days</Pill>
+          <h2 className="center">What actually happens in month one</h2>
+          <p className="lead center">
+            Nothing is launched in the first fortnight. That is deliberate: the most
+            expensive mistakes we see were made quickly by people who wanted to look busy.
+          </p>
+          <div className="card-grid">
+            {first30Days.map((s) => (
+              <article className="card" key={s.num}>
+                <p className="step-num">{s.num}</p>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
           </div>
+          <p className="lead center" style={{ marginTop: "32px" }}>
+            If we find nothing worth doing, we tell you that too. It is rare, and it has
+            happened.
+          </p>
+        </div>
+      </section>
+
+      {/* Kickoff image block */}
+      <section className="section">
+        <div className="container">
+          <div className="split-img">
+            <Image
+              src="/images/how-we-work-kickoff.webp"
+              alt="Kickoff meeting with a team reviewing documents together"
+              width={1400}
+              height={933}
+            />
+          </div>
+          <p
+            style={{
+              textAlign: "center",
+              color: "var(--muted)",
+              marginTop: "16px",
+            }}
+          >
+            Kickoff is a working session with the people who will run the account, not a
+            presentation.
+          </p>
         </div>
       </section>
 
       {/* 4. The rhythm */}
       <section className="section">
         <div className="container">
+          <Pill icon="fa-solid fa-layer-group" center>The rhythm</Pill>
+          <h2 className="center">What a normal month looks like once you are running</h2>
+          <p className="lead center">
+            Predictable contact, so nobody has to chase for an update and nobody sits
+            through a meeting that could have been a number.
+          </p>
           <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-layer-group" center>The rhythm</Pill>
-              <h2>What a normal month looks like once you are running</h2>
-              <p>
-                Predictable contact, so nobody has to chase for an update and nobody sits
-                through a meeting that could have been a number.
-              </p>
-            </div>
             <div className="split-img">
               <Image
                 src="/images/how-we-work-rhythm.webp"
@@ -526,27 +549,29 @@ export default function HowWeWorkPage() {
                 height={933}
               />
             </div>
+            <div>
+              <p>
+                The fortnightly call is with the people doing the work, which is the part
+                most brands say was missing before.
+              </p>
+              <p>
+                The cadence below is the default. It flexes for peak trading, launches and
+                migrations, but the principle does not: you should always know what is being
+                worked on this week and what it is expected to produce.
+              </p>
+              <ul className="check-list">
+                {cadence.map((c) => (
+                  <li key={c.label}>
+                    <strong>{c.label}:</strong> {c.body}
+                  </li>
+                ))}
+              </ul>
+              <p>
+                Everything is written down. If a decision was made on a call, it appears in
+                the weekly update, because verbal-only decisions are how accounts drift.
+              </p>
+            </div>
           </div>
-          <p style={{ marginTop: "1.5rem" }}>
-            The fortnightly call is with the people doing the work, which is the part
-            most brands say was missing before.
-          </p>
-          <p>
-            The cadence below is the default. It flexes for peak trading, launches and
-            migrations, but the principle does not: you should always know what is being
-            worked on this week and what it is expected to produce.
-          </p>
-          <ul className="check-list">
-            {cadence.map((c) => (
-              <li key={c.label}>
-                <strong>{c.label}:</strong> {c.body}
-              </li>
-            ))}
-          </ul>
-          <p>
-            Everything is written down. If a decision was made on a call, it appears in
-            the weekly update, because verbal-only decisions are how accounts drift.
-          </p>
         </div>
       </section>
 
@@ -554,12 +579,12 @@ export default function HowWeWorkPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Inside the work</Pill>
-          <h2>What the first ninety days actually look like</h2>
-          <p className="lead">
+          <h2 className="center">What the first ninety days actually look like</h2>
+          <p className="lead center">
             Not a methodology diagram. These are the four things that take up most of the time
             in a new engagement.
           </p>
-          <div className="card-grid card-grid-2">
+          <div className="card-grid card-grid-4">
             {insideWork.map((w) => (
               <article className="case-card" key={w.title}>
                 <Image src={w.img} alt={w.imgAlt} width={1200} height={800} />
@@ -571,7 +596,7 @@ export default function HowWeWorkPage() {
               </article>
             ))}
           </div>
-          <p className="lead" style={{ marginTop: "32px" }}>
+          <p className="lead center" style={{ marginTop: "32px" }}>
             The unglamorous first week is the one that most often gets skipped elsewhere, and
             the one that decides whether the reporting can be trusted.
           </p>
@@ -582,12 +607,12 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-users" center>Your team</Pill>
-          <h2>Who you actually work with</h2>
-          <p className="lead">
+          <h2 className="center">Who you actually work with</h2>
+          <p className="lead center">
             Small, named and stable. You are not handed to a different pod when something
             goes wrong.
           </p>
-          <table style={tableStyle}>
+          <table style={tableStyle} className="striped-table">
             <thead>
               <tr>
                 <th style={thStyle}>Role</th>
@@ -642,15 +667,17 @@ export default function HowWeWorkPage() {
                   per piece of work rather than assumed.
                 </td>
               </tr>
+              <tr>
+                <td style={{ ...tdStyle, fontWeight: 700, color: "var(--navy)" }}>
+                  Who you will not meet
+                </td>
+                <td style={tdStyle}>
+                  A dedicated account manager whose role is to relay questions between you and
+                  the team. We do not have that role, deliberately.
+                </td>
+              </tr>
             </tbody>
           </table>
-          <div className="card" style={{ marginTop: "24px" }}>
-            <h3>Who you will not meet</h3>
-            <p>
-              A dedicated account manager whose role is to relay questions between you and
-              the team. We do not have that role, deliberately.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -658,39 +685,49 @@ export default function HowWeWorkPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Prioritising</Pill>
-          <h2>How we decide what to do first when everything looks urgent</h2>
-          <p>
+          <h2 className="center">How we decide what to do first when everything looks urgent</h2>
+          <p className="lead center">
             Every audit produces more findings than any team can act on. The scoring is
             what turns a list into a plan.
           </p>
-          <p>
-            Each finding gets two scores: the revenue impact if it were fixed, and the
-            effort to fix it. Impact is estimated from your own numbers — traffic,
-            conversion rate, margin — rather than from a general benchmark, so the
-            estimate can be argued with rather than accepted on faith.
-          </p>
-          <ul className="check-list">
-            {prioritisingChecks.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-          <p>
-            You see the scores. If you disagree with an impact estimate, that is a useful
-            conversation rather than an inconvenience — you know things about your
-            business that the data does not show.
-          </p>
-          <div className="split-img" style={{ margin: "32px 0" }}>
-            <Image
-              src="/images/how-we-work-audit-figure.webp"
-              alt="Hands pointing at printed data charts while a team works through audit findings"
-              width={1400}
-              height={933}
-            />
+          <div className="split">
+            <div>
+              <p>
+                Each finding gets two scores: the revenue impact if it were fixed, and the
+                effort to fix it. Impact is estimated from your own numbers — traffic,
+                conversion rate, margin — rather than from a general benchmark, so the
+                estimate can be argued with rather than accepted on faith.
+              </p>
+              <ul className="check-list">
+                {prioritisingChecks.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+              <p>
+                You see the scores. If you disagree with an impact estimate, that is a useful
+                conversation rather than an inconvenience — you know things about your
+                business that the data does not show.
+              </p>
+            </div>
+            <div className="split-img">
+              <Image
+                src="/images/how-we-work-audit-figure.webp"
+                alt="Hands pointing at printed data charts while a team works through audit findings"
+                width={1400}
+                height={933}
+              />
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "var(--muted)",
+                  marginTop: "16px",
+                }}
+              >
+                Findings are scored in the open. Nothing enters the plan because it is the
+                work we happen to enjoy.
+              </p>
+            </div>
           </div>
-          <p>
-            Findings are scored in the open. Nothing enters the plan because it is the
-            work we happen to enjoy.
-          </p>
         </div>
       </section>
 
@@ -698,12 +735,12 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-calendar-days" center>The sequence</Pill>
-          <h2>How the scores turn into an order</h2>
-          <p className="lead">
+          <h2 className="center">How the scores turn into an order</h2>
+          <p className="lead center">
             A simplified view of how a quarter typically sequences on a store with no
             previous agency work.
           </p>
-          <table style={tableStyle}>
+          <table style={tableStyle} className="striped-table">
             <thead>
               <tr>
                 <th style={thStyle}>Band</th>
@@ -723,7 +760,7 @@ export default function HowWeWorkPage() {
               ))}
             </tbody>
           </table>
-          <p className="lead" style={{ marginTop: "32px" }}>
+          <p className="lead center" style={{ marginTop: "32px" }}>
             The fourth row is the one that matters. Work we decline is documented, so the
             decision can be revisited when circumstances change.
           </p>
@@ -733,15 +770,13 @@ export default function HowWeWorkPage() {
       {/* 9. Reporting */}
       <section className="section section-soft">
         <div className="container">
+          <Pill icon="fa-solid fa-chart-simple" center>Reporting</Pill>
+          <h2 className="center">What lands in your inbox, and what it says</h2>
+          <p className="lead center">
+            Reporting exists so you can make decisions, not so we can demonstrate
+            activity.
+          </p>
           <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-chart-simple" center>Reporting</Pill>
-              <h2>What lands in your inbox, and what it says</h2>
-              <p>
-                Reporting exists so you can make decisions, not so we can demonstrate
-                activity.
-              </p>
-            </div>
             <div className="split-img">
               <Image
                 src="/images/how-we-work-report.webp"
@@ -750,29 +785,31 @@ export default function HowWeWorkPage() {
                 height={933}
               />
             </div>
+            <div>
+              <p>
+                If the month was poor, the report says so in the first paragraph rather than
+                the appendix.
+              </p>
+              <p>
+                The monthly report leads with contribution, not revenue, and it states what
+                we got wrong alongside what worked. A report where everything went well every
+                month is a report nobody is reading carefully.
+              </p>
+              <ul className="check-list">
+                {reportingChecks.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+              <p>
+                The{" "}
+                <Link href="/resources/templates/ecommerce-kpi-dashboard-template/">
+                  KPI dashboard template
+                </Link>{" "}
+                we publish is a simplified version of the model behind these reports, if you
+                want to run the same numbers yourself.
+              </p>
+            </div>
           </div>
-          <p style={{ marginTop: "1.5rem" }}>
-            If the month was poor, the report says so in the first paragraph rather than
-            the appendix.
-          </p>
-          <p>
-            The monthly report leads with contribution, not revenue, and it states what
-            we got wrong alongside what worked. A report where everything went well every
-            month is a report nobody is reading carefully.
-          </p>
-          <ul className="check-list">
-            {reportingChecks.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-          <p>
-            The{" "}
-            <Link href="/resources/templates/ecommerce-kpi-dashboard-template/">
-              KPI dashboard template
-            </Link>{" "}
-            we publish is a simplified version of the model behind these reports, if you
-            want to run the same numbers yourself.
-          </p>
         </div>
       </section>
 
@@ -780,15 +817,18 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Your side</Pill>
-          <h2>What we need from you</h2>
-          <p className="lead">
+          <h2 className="center">What we need from you</h2>
+          <p className="lead center">
             Engagements fail for predictable reasons, and three of the four are on the client
             side. Being explicit about this at the start avoids the conversation six months
             in.
           </p>
-          <div className="card-grid card-grid-2">
+          <div className="card-grid card-grid-4">
             {yourSide.map((c) => (
               <article className="card" key={c.title}>
+                <span className="card-icon" style={{ background: "#dbeafe", color: "#0B5BF4" }}>
+                  <i className={c.icon} aria-hidden="true" />
+                </span>
                 <h3>{c.title}</h3>
                 <ul className="check-list">
                   {c.bullets.map((b) => (
@@ -798,7 +838,7 @@ export default function HowWeWorkPage() {
               </article>
             ))}
           </div>
-          <p className="lead" style={{ marginTop: "32px" }}>
+          <p className="lead center" style={{ marginTop: "32px" }}>
             None of this requires a dedicated internal resource. It requires one person who
             can decide things.
           </p>
@@ -809,8 +849,8 @@ export default function HowWeWorkPage() {
       <section className="section section-soft">
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>Boundaries</Pill>
-          <h2>What we will not do</h2>
-          <p className="lead">
+          <h2 className="center">What we will not do</h2>
+          <p className="lead center">
             Stated here so it never has to be an awkward conversation later.
           </p>
           <div className="card-grid">
@@ -821,7 +861,7 @@ export default function HowWeWorkPage() {
               </article>
             ))}
           </div>
-          <p className="lead" style={{ marginTop: "32px" }}>
+          <p className="lead center" style={{ marginTop: "32px" }}>
             We also decline work we do not think will pay. It happens a few times a year,
             and it is usually the most useful call a prospect has that month.
           </p>
@@ -832,16 +872,45 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-flag-checkered" center>Getting started</Pill>
-          <h2>Four steps, and you can stop at any of them</h2>
-          <p className="lead">
+          <h2 className="center">Four steps, and you can stop at any of them</h2>
+          <p className="lead center">
             Nothing here commits you to anything until the third step.
           </p>
           <div className="card-grid card-grid-4">
             {gettingStarted.map((s) => (
               <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
-                <p className="case-cat">{s.step}</p>
-                <h3>{s.title}</h3>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    marginBottom: "14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      background: "var(--bg-soft)",
+                      color: "#0A4ED4",
+                      fontWeight: 800,
+                      fontSize: "0.82rem",
+                      padding: "4px 12px",
+                      borderRadius: "999px",
+                    }}
+                  >
+                    {s.num}
+                  </span>
+                  <span className="case-cat" style={{ margin: 0, color: "#6B7280" }}>
+                    {s.step}
+                  </span>
+                </div>
+                <h3>
+                  <Link
+                    href={s.href}
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    {s.title}
+                  </Link>
+                </h3>
                 <p>{s.body}</p>
                 <p style={{ marginTop: "1rem" }}>
                   <Link href={s.href} style={{ fontWeight: 700 }}>
@@ -870,8 +939,8 @@ export default function HowWeWorkPage() {
       <section className="section">
         <div className="container">
           <Pill icon="fa-solid fa-book-open" center>Read on</Pill>
-          <h2>The detail behind the process</h2>
-          <p className="lead">
+          <h2 className="center">The detail behind the process</h2>
+          <p className="lead center">
             Three pages that show the method rather than describe it.
           </p>
           <div className="card-grid">
