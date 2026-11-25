@@ -28,14 +28,14 @@ Rule: one batch at a time, one page at once. No rushing, no mess.
 | Batch 8 — Blogs | 11 | 0 | 0 |
 | **Total** | **177** | **36** | **36** |
 
-Last updated: 2026-11-24 — Walmart logo supplied by Alif now used across the site (code `a159623`, logo `1d56cc7`). All 6 platform tiles are now real logos. 36 of 177 pages built, 36 pushed. Next: Alif checks the Homepage before About Us (page 2).
+Last updated: 2026-11-24 — About Us redo pushed (code `9c992d5`, photos `4a879a6`, hash-verified on GitHub main). 36 of 177 pages built, 36 pushed. Next: Alif checks About Us before the next page.
 
 ## Batch 1 — Core — 23 pages
 
 | # | Source URL | Clone route | Category | Status | Pushed |
 |---:|---|---|---|---|---|
 | 1 | https://dazzlecommerce.com/ | `app/page.tsx` | Core | Pushed | `e0c3a5587f1e597ff1318082f12b90c579f97891` (2026-11-23); redone 2026-11-24: code `5f3001e`, photos `076211a` — awaiting Alif's check |
-| 2 | https://dazzlecommerce.com/about-us/ | `app/about-us/page.tsx` | Core | Pushed | `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1` (2026-11-23); photos `163521c` |
+| 2 | https://dazzlecommerce.com/about-us/ | `app/about-us/page.tsx` | Core | Pushed | `22e4760e9ab1ba9bf676b7c4fda225a0afd41ba1` (2026-11-23); photos `163521c`; redone 2026-11-24: code `9c992d5`, photos `4a879a6` — awaiting Alif's check |
 | 3 | https://dazzlecommerce.com/services/ | `app/services/page.tsx` | Core | Pushed | `44f533637c947f26c3b54b201a40d08905b01037` (2026-11-23); photos `39d7f0c` / `7dd7095` / `bb226b6` |
 | 4 | https://dazzlecommerce.com/contact/ | `app/contact/page.tsx` | Core | Pushed | `44f533637c947f26c3b54b201a40d08905b01037` (2026-11-23); photos `39d7f0c` / `7dd7095` / `bb226b6` |
 | 5 | https://dazzlecommerce.com/pricing/ | `app/pricing/page.tsx` | Core | Pushed | `44f533637c947f26c3b54b201a40d08905b01037` (2026-11-23); photos `39d7f0c` / `7dd7095` / `bb226b6` |
@@ -281,3 +281,7 @@ Last updated: 2026-11-24 — Walmart logo supplied by Alif now used across the s
 | 2026-11-24 | Platform logo files uploaded, commit `bdd7839` — 5 new .webp files in `public/images/` (platform-shopify, platform-amazon, platform-woocommerce, platform-ebay, platform-etsy). Hash-verified on GitHub. `public/images/` now holds 200 files (198 .webp + 2 logos). |
 | 2026-11-24 | Walmart logo (supplied by Alif): real yellow spark via `components/PlatformLogo.tsx` in the homepage Platforms section and hero dashboard tiles. All 6 platform tiles are now real logos; only TikTok keeps a code mark. Code pushed `a159623`. |
 | 2026-11-24 | Walmart logo file uploaded, commit `1d56cc7` — 1 new .webp file in `public/images/` (platform-walmart). Hash-verified on GitHub. `public/images/` now holds 201 files (199 .webp + 2 logos). |
+| 2026-11-24 | Hero icons (supplied by Alif): TikTok logo in the hero platform tiles + TikTok Ads row; Meta logo (cleaned of glitch blocks in the supplied file) as the Meta Ads row icon. Google logo file was corrupted beyond repair — Google Ads row keeps its "G" icon until Alif re-sends a clean file. Code pushed `6547d9c`. |
+| 2026-11-24 | TikTok + Meta logo files uploaded, commit `0d2a0e1` — 2 new .webp files in `public/images/` (platform-tiktok, brand-meta). Hash-verified on GitHub. `public/images/` now holds 203 files (201 .webp + 2 logos). |
+| 2026-11-24 | About Us REDO (page 2, one-page-at-a-time method): live runs A/B experiments — the first walkthrough showed variant copy, but a fresh re-check + HTML fetch confirmed the control copy, which the clone already matched. Fixes: hero pill, story bold, values icons (calendar-check, crosshairs, bullseye, eye, user-group, thumbs-up), badge names "Amazon Ads" / "Microsoft Advertising", icon team socials, oval team portraits, vertical milestones timeline with sticky image. 9 photos regenerated to match the live scenes. `npm run build` passes; Playwright screenshots verified. |
+| 2026-11-24 | About Us redo pushed: code `9c992d5` (app/about-us/page.tsx, app/globals.css), photos `4a879a6` (9 .webp replaced, hash-verified on GitHub main). About Us on GitHub is now the redone version; awaiting Alif's check before the next page. |
