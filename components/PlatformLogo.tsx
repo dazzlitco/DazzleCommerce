@@ -17,14 +17,14 @@ const LOGOS: Partial<
   woocommerce: { src: "/images/platform-woocommerce.webp", width: 860, height: 512, alt: "WooCommerce" },
   ebay: { src: "/images/platform-ebay.webp", width: 468, height: 512, alt: "eBay" },
   etsy: { src: "/images/platform-etsy.webp", width: 512, height: 512, alt: "Etsy" },
+  walmart: { src: "/images/platform-walmart.webp", width: 474, height: 513, alt: "Walmart" },
 };
 
 /**
  * Real platform logos supplied by Alif (2026-11-24), used everywhere a
  * platform mark renders: homepage "Platforms We Work With", the hero
  * dashboard tiles, and the Shopify/Amazon partner badges.
- * Walmart and TikTok have no supplied logo, so they keep their closest
- * code marks (blue spark / TikTok glyph).
+ * TikTok has no supplied logo, so it keeps its closest code mark.
  */
 export default function PlatformLogo({
   brand,
@@ -46,12 +46,10 @@ export default function PlatformLogo({
       />
     );
   }
-  if (brand === "walmart") {
+  if (brand === "tiktok") {
     return (
-      <i className="fa-solid fa-asterisk" style={{ color: "#0071ce" }} aria-hidden="true" />
+      <i className="fa-brands fa-tiktok" style={{ color: "#111827" }} aria-hidden="true" />
     );
   }
-  return (
-    <i className="fa-brands fa-tiktok" style={{ color: "#111827" }} aria-hidden="true" />
-  );
+  return null;
 }
