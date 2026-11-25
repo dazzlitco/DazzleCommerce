@@ -182,6 +182,24 @@ Link: `Visit our page` → https://www.linkedin.com/company/dazzlecommerce
 
 Re-fetched live 2026-11-23. Every section pill on live is an Elementor icon-list item: a leading icon + Title Case blue text inside a rounded pale-blue chip — NOT text-only, NOT uppercase, NOT letter-spaced. All five pill widgets on this page carry `elementor-align-center` on live. (This extraction previously recorded no pill/icon lines for these sections; the pills are recorded here for the first time.)
 
+## Redo 2026-11-24 (page 4, one-page-at-a-time method) — STRUCTURE CORRECTIONS
+
+Verified against the live rendered page (cloud-browser walkthrough + fresh HTML fetch 355,023 bytes, unchanged since 2026-11-23 + DOM-tree parse of the live HTML + rendering live's contact-info SVGs to a contact sheet).
+
+**A/B variant warning:** the walkthrough showed VARIANT copy in several places — an extra intro sentence ("Direct lines to the people who run the accounts."), rewritten Alternative Ways card bodies ("early-morning slots for UK and EU callers", "we will return it first thing", "a considered answer", "about attribution"), a shortened final-CTA copy (dropping "and no agency invoice"), and different links ("See all locations we serve" → /locations/, final-CTA button → #form, header CTA → #form). NONE of these are in the served HTML — the control copy in this extraction (and already in the clone) is correct and was kept. The walkthrough's STRUCTURAL observations were confirmed against the control DOM and were applied.
+
+**Structure corrections (clone was wrong, now fixed):**
+1. Hero: live is a CENTERED H1 + intro in a full-width container, NO form in the hero. The clone had a split (text left + form right). Fixed: hero is centered text only.
+2. Form + Contact Information: live is ONE section with TWO columns — form card LEFT, contact info RIGHT. The clone had the form inside the hero and contact info as a separate section below. Fixed: new two-column `.contact-grid` section (id="form", so the "Choose a time" #form anchor lands on the form).
+3. Contact Information: live is a vertical LIST of 5 icon-boxes (icon left, text right), NOT a grid of cards. Fixed: `.info-list` / `.info-row` with icon chips. Icons identified from live's SVGs: Head Office = map pin (`fa-location-dot`), Phone = handset (`fa-phone`), Email = envelope (`fa-envelope`), Coverage = CLOCK (`fa-clock`, not a globe — the 512×512 SVG is a clock face), Serving clients in = globe (`fa-globe`). Head Office address is ONE flowing line on live (no `<br>` between "Suite 480" and "Austin, TX") — the clone's forced break was removed. Pill: the widget carries `elementor-align-center` in the HTML but RENDERS left-aligned in the narrow right column (same rendered-truth rule as Services Why Choose Us) — clone pill is left, H2 + intro left.
+4. What Happens Next: live is a 4-column GRID of white cards with blue square number tiles (the number is a separate H6 block above the title). The clone had a vertical list with large blue text numbers. Fixed: `.card-grid.card-grid-4` with `.step-num` blue badges (same treatment as Services process steps). Header centered (H2 + intro).
+5. Alternative Ways: header centered (H2 + intro); 2×2 card grid was already right.
+6. Find Us: header centered (H2 + intro); map full-width below was already right.
+7. Form: services checkboxes are a SINGLE vertical column on live (clone had a 2-column grid) — fixed. Submit button carries a calendar-check icon on live (`fa-solid fa-calendar-check`) — added to the clone button.
+8. FAQ + final CTA: already matched live (centered, all 6 collapsed, buttons → /book-a-strategy-call/ + /case-studies/, copy with "and no agency invoice") — no change. Header CTA → Calendly — confirmed in the live HTML (the walkthrough's "#form" was variant/misread); no change.
+
+**Verified locally:** `npm run build` passes; Playwright screenshots of all sections; computed alignment of every header (H1 center; form H2 start; "Talk to a human, quickly" start with pill left in the right column; What Happens Next / Alternative Ways / Find Us / FAQ / final CTA center; footer H2s start); 16 copy checks pass (0 variant strings present); 104 links, only expected externals (Calendly, socials, fonts, canonical); 2 image refs (header/footer logos only — the Contact page has no photos on live).
+
 | Section | Pill label | Live icon | Clone FA icon | Align |
 |---|---|---|---|---|
 | 2. Contact Information | `Contact Information` | custom SVG: speech bubble | `fa-solid fa-comment` | center |
