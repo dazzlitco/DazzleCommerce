@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Pill } from "@/components/Pill";
 import Link from "next/link";
 import HeroDashboard from "../components/HeroDashboard";
+import PlatformLogo from "../components/PlatformLogo";
 import FaqAccordion, { type Faq } from "../components/FaqAccordion";
 
 const faqs: Faq[] = [
@@ -101,50 +102,32 @@ const platforms = [
   {
     name: "Shopify",
     note: "Plus & standard",
-    mark: <i className="fa-brands fa-shopify" style={{ color: "#95bf47" }} aria-hidden="true" />,
+    mark: <PlatformLogo brand="shopify" size={44} />,
   },
   {
     name: "Amazon",
     note: "Seller & Vendor",
-    mark: (
-      <svg viewBox="0 0 32 24" width="34" height="26" aria-hidden="true">
-        <text x="4" y="15" fontFamily="Arial, sans-serif" fontSize="17" fontWeight="700" fill="#111827">
-          a
-        </text>
-        <path d="M5 18 Q16 25 27 16" stroke="#ff9900" strokeWidth="2" fill="none" strokeLinecap="round" />
-      </svg>
-    ),
+    mark: <PlatformLogo brand="amazon" size={44} />,
   },
   {
     name: "WooCommerce",
     note: "WordPress",
-    mark: <span style={{ color: "#96588a", fontWeight: 800, fontSize: "1.6rem" }}>W</span>,
+    mark: <PlatformLogo brand="woocommerce" size={44} />,
   },
   {
     name: "Walmart",
     note: "Marketplace",
-    mark: <i className="fa-solid fa-asterisk" style={{ color: "#0071ce" }} aria-hidden="true" />,
+    mark: <PlatformLogo brand="walmart" size={44} />,
   },
   {
     name: "eBay",
     note: "Stores & listings",
-    mark: (
-      <span className="ebay-mark" aria-hidden="true">
-        <span style={{ color: "#e53238" }}>e</span>
-        <span style={{ color: "#0064d2" }}>b</span>
-        <span style={{ color: "#f5af02" }}>a</span>
-        <span style={{ color: "#86b817" }}>y</span>
-      </span>
-    ),
+    mark: <PlatformLogo brand="ebay" size={44} />,
   },
   {
     name: "Etsy",
     note: "Handmade & craft",
-    mark: (
-      <span style={{ color: "#f1641e", fontWeight: 800, fontFamily: "Georgia, serif", fontSize: "1.5rem" }}>
-        Etsy
-      </span>
-    ),
+    mark: <PlatformLogo brand="etsy" size={44} />,
   },
 ];
 

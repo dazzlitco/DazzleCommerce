@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import PlatformLogo, { type PlatformLogoKey } from "./PlatformLogo";
 
 /* Dynamic hero dashboard — a living recreation of the hero image Alif
    supplied (dashboard overview: revenue, orders, ROAS, growth chart,
@@ -77,43 +78,13 @@ const MARKETING = [
   { name: "Email Campaigns", icon: "fa-solid fa-envelope", color: "#0b5bf4", spend: "$2,840", delta: "↑ 18%", width: 23 },
 ];
 
-const PLATFORMS = [
+const PLATFORMS: { name: string; mark: PlatformLogoKey }[] = [
   { name: "Amazon", mark: "amazon" },
   { name: "Shopify", mark: "shopify" },
   { name: "Walmart", mark: "walmart" },
   { name: "eBay", mark: "ebay" },
   { name: "TikTok", mark: "tiktok" },
 ];
-
-function AmazonMark() {
-  return (
-    <span className="dash-amazon" aria-hidden="true">
-      a
-      <svg viewBox="0 0 40 14" aria-hidden="true">
-        <path d="M2 3 C 12 12, 28 12, 38 3" fill="none" stroke="#ff9900" strokeWidth="3" strokeLinecap="round" />
-        <path d="M34 1 L 38 4 L 35 7 Z" fill="#ff9900" />
-      </svg>
-    </span>
-  );
-}
-
-function PlatformMark({ mark }: { mark: string }) {
-  if (mark === "amazon") return <AmazonMark />;
-  if (mark === "shopify")
-    return <i className="fa-brands fa-shopify" style={{ color: "#95bf47" }} aria-hidden="true" />;
-  if (mark === "walmart")
-    return <i className="fa-solid fa-asterisk" style={{ color: "#0071ce" }} aria-hidden="true" />;
-  if (mark === "ebay")
-    return (
-      <span className="dash-ebay" aria-hidden="true">
-        <b style={{ color: "#e53238" }}>e</b>
-        <b style={{ color: "#0064d2" }}>b</b>
-        <b style={{ color: "#f5af02" }}>a</b>
-        <b style={{ color: "#86b817" }}>y</b>
-      </span>
-    );
-  return <i className="fa-brands fa-tiktok" style={{ color: "#111827" }} aria-hidden="true" />;
-}
 
 function Sparkline({ points, color, inView }: { points: string; color: string; inView: boolean }) {
   return (
@@ -346,7 +317,7 @@ export default function HeroDashboard() {
         <div className="dash-platforms">
           {PLATFORMS.map((p) => (
             <span className="dash-platform" key={p.name} title={p.name}>
-              <PlatformMark mark={p.mark} />
+              <PlatformLogo brand={p.mark} size={34} />
             </span>
           ))}
         </div>
