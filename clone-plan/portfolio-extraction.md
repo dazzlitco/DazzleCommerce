@@ -2,6 +2,8 @@
 
 > Audit note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): copy, headings, order, all links (including browse-grid names — only the first three linked on live), filter tabs and counts, capability counts, spotlight steps, images and final CTA verified against the fresh live fetch — no differences found, no extraction corrections needed. Note: the portfolio and testimonials pages are client components, so they cannot export metadata; their live titles/descriptions are recorded here but the pages currently serve the root layout metadata (pre-existing limitation, not changed in this audit).
 
+> REDO note — 2026-11-26 (page 8, one-page-at-a-time method): live re-fetched fresh (558,266 bytes, unchanged since 2026-11-23). The cloud-browser walkthrough landed on an A/B experiment variant (rewritten capability/browse intros, "How to read" text, final CTA paragraph, two browse-link slugs, different footer, two misdescribed photos) — all 6 variant strings ABSENT from the served HTML, so the control copy in this extraction stands and no copy was changed. Corrections from the control DOM/CSS (stack-parser probes + LiteSpeed CSS): (1) hero stats are a 2×2 grid of white cards inside the RIGHT column, overlapping the hero image bottom by 42px — NOT a stat row under the split; stat icons are store (100+), sack-dollar ($48M+), chart-line (+142%), handshake (31 mo). (2) Featured grid is 2 columns, not 3; card image is inset (radius 16px); category/platform/tags are blue bold flex-grow chips (#EFF4FD, 12.5px/700, #0B5BF4); metrics are 4 in a single row with blue 24px values; "Read the case study" is an outlined button with the arrow after the text. (3) Browse cards are a single-column vertical stack of wide horizontal cards (not a grid), with the headline metric green (#0D9668) and right-aligned. (4) "How to read these numbers" is its OWN section below the spotlight — a white bordered box (radius 22px, padding 32px) with a blue info icon — not a note inside the spotlight area. (5) Final CTA panel is the bright blue gradient (125deg #0B5BF4 → #0A44C4, radius 28px). (6) Capability icons: store, magnifying-glass-chart, bullseye, flask, envelope-open-text, code. (7) The featured cards use their own image files (cases-Nutriblend.webp etc. on live), NOT the Case Studies hero images. Alignment (live HTML + CSS audit): H1 LEFT, spotlight H2 LEFT, all other section H2s CENTERED, spotlight stats CENTERED. The clone was rebuilt to match all of the above; code `3d594b73`, photos `b0af1ae`.
+
 Fetched fresh 2026-11-23 via curl (HTTP 200, 558,266 bytes; `browser.open` failed with a
 network/DNS error in this session, so the curl HTML is the source of record).
 Live page is WordPress + Elementor. Meta `dateModified` 2026-09-03T12:04:02-05:00,
@@ -30,7 +32,7 @@ Canonical: https://dazzlecommerce.com/portfolio/
 3. Browse Our Work — twelve engagements, filtered by discipline (tab filter)
 4. Work by Capability — six discipline cards
 5. Project Spotlight — Nutriblend (five numbered steps)
-6. How to read these numbers (note inside the spotlight area)
+6. How to read these numbers (separate boxed section below the spotlight — NOT inside the spotlight area; corrected 2026-11-26)
 7. Final CTA — "Want your store on this page next year?"
 
 There is NO FAQ section on the live portfolio page (no FAQ accordion, no FAQ schema).
@@ -47,7 +49,7 @@ There is NO site search on the page; the only interactive control is the discipl
 - Button 1: `Browse the work` → `#browse-work`
 - Button 2: `Read full case studies` → `/case-studies/`
 - Hero image: `portfolio-hero.jpg` — alt: `Desk at night with a laptop and lamp overlooking city lights`
-- Stat row:
+- Stat row (layout corrected 2026-11-26: a 2×2 grid of white cards inside the RIGHT column, overlapping the hero image bottom by 42px — NOT a row under the split):
   - `100+` — `Brands served`
   - `$48M+` — `GMV managed`
   - `+142%` — `Average revenue growth`
