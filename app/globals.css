@@ -252,8 +252,25 @@ p { margin: 0 0 1rem; }
 .final-cta .container { background: var(--navy); border-radius: 24px; padding: 64px 48px; }
 .final-cta .lead { margin: 0 auto; color: #c6d2e4; }
 .final-cta .btn-row { justify-content: center; }
-.final-checks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; list-style: none; padding: 0; margin-top: 28px; color: #c6d2e4; font-weight: 600; }
-.final-checks li::before { content: "✓ "; color: #7dd3fc; font-weight: 800; }
+.final-cta .final-checks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; list-style: none; padding: 0; margin-top: 28px; color: #c6d2e4; font-weight: 600; }
+.final-cta .final-checks li::before { content: "✓ "; color: #7dd3fc; font-weight: 800; }
+
+/* Case Studies final CTA: bright blue gradient panel (live), not the navy panel. */
+.final-cta-blue .container { background: linear-gradient(125deg, #0B5BF4 0%, #0A44C4 100%); border-radius: 28px; padding: 72px 56px; }
+.final-cta-blue h2 { color: #fff; }
+.final-cta-blue .lead { color: #fff; }
+.final-cta-blue .final-checks { color: #fff; }
+.final-cta-blue .final-checks li::before { color: #fff; }
+
+/* Case Studies: "Read the case study" is an outlined button with an arrow (live). */
+.read-more { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #fff; border: 2px solid #D9E1EE; border-radius: 12px; padding: 17px 28px; color: var(--navy); font-weight: 700; font-size: 1rem; text-decoration: none; }
+.read-more:hover { color: var(--blue); border-color: var(--blue); }
+
+/* Case Studies: industry cards are a row — tinted icon tile left, text left. */
+.industry-card { display: flex; align-items: center; justify-content: center; gap: 16px; text-align: left; }
+.industry-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 12px; font-size: 1.75rem; flex-shrink: 0; }
+.industry-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.25rem; }
+.industry-card p { margin: 0; }
 
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
