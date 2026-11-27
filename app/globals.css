@@ -554,6 +554,91 @@ p { margin: 0 0 1rem; }
   .pt-badge-grid { grid-template-columns: repeat(2, 1fr); }
   .pt-program-grid, .pt-why-grid, .pt-stack-grid, .pt-process-grid { grid-template-columns: 1fr; }
 }
+/* Our Technology Stack page (Batch 1, page 13) — control structure from live HTML/CSS. */
+.techstack-page .hero { background: #F7F9FC; padding: 40px 0 70px; display: flex; flex-direction: column; gap: 14px; }
+.techstack-page .hero .container { display: flex; flex-direction: column; gap: 14px; }
+.ts-breadcrumb { font-family: "DM Sans", sans-serif; font-size: 13.5px; color: #6B7280; margin: 0; }
+.ts-breadcrumb a { color: #0B5BF4; text-decoration: none; }
+.ts-breadcrumb span { color: #6B7280; }
+.techstack-page .hero h1 { font-size: clamp(28px, 3.4vw, 45px); font-weight: 800; line-height: 1.12; letter-spacing: -1.5px; color: #091325; margin: 0; }
+.techstack-page .hero .lead { font-family: "DM Sans", sans-serif; font-size: 19px; line-height: 1.7; color: #5D6675; max-width: 800px; margin: 0; }
+.ts-hero-pills { display: flex; flex-direction: row; gap: 8px; padding-top: 14px; }
+.ts-hero-pill { background: #EFF4FD; border: 1px solid #E6EBF3; border-radius: 999px; padding: 6px 13px; font-family: "DM Sans", sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .4px; color: #0A4ED4; }
+.ts-hero-pill a { color: #0A4ED4; text-decoration: none; }
+.ts-stats { display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap; background: #fff; border: 1px solid #E6EBF3; border-radius: 16px; padding: 18px 22px; margin-top: 8px; }
+.ts-stat { display: flex; flex-direction: column; gap: 3px; }
+.ts-stat span { font-family: "DM Sans", sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: 1.1px; color: #6B7280; }
+.ts-stat strong { font-family: "DM Sans", sans-serif; font-size: 15.5px; font-weight: 700; color: #1B2437; }
+.ts-hero-btns { display: flex; flex-direction: row; gap: 14px; margin-top: 14px; }
+.ts-hero-media { display: flex; flex-direction: column; gap: 10px; padding-top: 34px; }
+.techstack-page .hero-img img { border-radius: 18px; box-shadow: 0 16px 40px -14px rgb(9 19 37 / .2); }
+.ts-standalone { text-align: center; font-family: "DM Sans", sans-serif; font-size: 13px; line-height: 1.5; color: #6B7280; margin: 0; }
+.techstack-page .ts-h2 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: #091325; margin: 0; }
+.ts-header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-bottom: 46px; text-align: center; }
+.ts-header .lead { margin: 0; }
+.ts-split { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 48px; margin-top: 8px; }
+.ts-split-text { width: 52%; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px; }
+.ts-split-text p { font-family: "DM Sans", sans-serif; font-size: 17px; line-height: 1.78; color: #5D6675; margin: 0; }
+.ts-split-text .check-list { margin: 0; }
+.ts-split-text .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+.ts-split-img { width: 43%; flex-shrink: 0; }
+.ts-split-img img { width: 100%; border-radius: 18px; box-shadow: 0 16px 40px -14px rgb(9 19 37 / .2); }
+.ts-rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 32px; }
+.ts-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 32px; }
+.ts-limit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+.ts-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; }
+.ts-limit-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px 28px; display: flex; flex-direction: column; gap: 12px; }
+.ts-card-head { display: flex; flex-direction: row; align-items: center; gap: 13px; }
+.ts-card-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #0B5BF4; color: #EFF4FD; font-size: 20px; padding: 13px; border-radius: 13px; }
+.ts-card h3, .ts-limit-card h3 { font-size: 19px; font-weight: 800; line-height: 1.28; letter-spacing: -.4px; color: #091325; margin: 0; }
+.ts-card .check-list-blue { margin: 0; }
+.ts-card .check-list-blue li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+.ts-limit-card p { font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.62; color: #5D6675; margin: 0; }
+.ts-closing { text-align: center; font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.7; color: #6B7280; margin: 40px 0 0; }
+.ts-closing-note { text-align: center; font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.7; color: #6B7280; margin: 40px 0 0; }
+.ts-table { display: flex; flex-direction: column; margin: 0 auto; }
+.ts-table-row { display: flex; flex-direction: row; gap: 20px; background: #fff; border: 1px solid #E6EBF3; border-top: 0; padding: 18px 26px; }
+.ts-table-head { background: #091325; border: 1px solid #091325; border-radius: 14px 14px 0 0; padding: 16px 26px; }
+.ts-table-head h4 { font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .4px; color: #fff; margin: 0; }
+.ts-table-foot { background: #F7F9FC; border-radius: 0 0 14px 14px; }
+.ts-table-foot h4 { font-family: "DM Sans", sans-serif; font-size: 16px; font-weight: 800; letter-spacing: -.2px; color: #091325; margin: 0; }
+.ts-table-foot p { font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.6; color: #5D6675; margin: 0; }
+.ts-table-col-a { width: 42%; flex-shrink: 0; }
+.ts-table-col-b { width: 56%; flex-shrink: 0; }
+.ts-table-row h4:not(.ts-table-head h4):not(.ts-table-foot h4) { font-size: 16px; font-weight: 800; letter-spacing: -.2px; color: #091325; margin: 0; }
+.ts-table-row p { font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.6; color: #5D6675; margin: 0; }
+.ts-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+.ts-related-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 18px 18px 24px; display: flex; flex-direction: column; gap: 10px; }
+.ts-related-card img { width: 100%; border-radius: 12px; }
+.ts-related-card h4 { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; color: #0B5BF4; margin: 0; }
+.ts-related-card h3 { font-size: 19px; font-weight: 800; line-height: 1.3; letter-spacing: -.4px; color: #091325; margin: 0; }
+.ts-related-card h3 a { color: #091325; text-decoration: none; }
+.ts-related-card p { font-family: "DM Sans", sans-serif; font-size: 14.5px; line-height: 1.6; color: #5D6675; margin: 0; }
+/* Tech Stack FAQ uses the same nested-accordion look as the FAQs page. */
+.techstack-page .faq-list { max-width: none; width: 70%; max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.techstack-page .faq-item { margin-bottom: 0; border-color: #E6EBF3; border-radius: 16px; }
+.techstack-page .faq-item.open { border-color: #B7CEFB; box-shadow: 0 2px 4px rgb(9 19 37 / .05), 0 4px 10px rgb(9 19 37 / .04); }
+.techstack-page .faq-q { padding: 22px 26px; gap: 20px; font-size: 17px; line-height: 1.45; color: #091325; align-items: flex-start; }
+.techstack-page .faq-q:hover { color: var(--blue); }
+.techstack-page .faq-q .faq-toggle { display: grid; place-items: center; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: #EFF4FD; color: var(--blue); font-size: 15px; line-height: 1; margin-top: 1px; transition: transform .28s ease, background-color .22s ease, color .22s ease; }
+.techstack-page .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--blue); color: #fff; }
+.techstack-page .faq-a { padding: 0 26px 24px; font-size: 15.5px; line-height: 1.72; color: #5D6675; }
+.techstack-page .faq-a p { max-width: 70ch; }
+@media (max-width: 1024px) {
+  .techstack-page .hero { padding: 72px 0 56px; }
+  .techstack-page .faq-list { width: 88%; }
+  .ts-rule-grid { grid-template-columns: repeat(2, 1fr); }
+  .ts-card-grid, .ts-limit-grid, .ts-related-grid { grid-template-columns: repeat(2, 1fr); }
+  .ts-split-text, .ts-split-img { width: 100%; }
+}
+@media (max-width: 767px) {
+  .techstack-page .hero { padding: 56px 0; }
+  .ts-rule-grid, .ts-card-grid, .ts-limit-grid, .ts-related-grid { grid-template-columns: 1fr; }
+  .ts-split { flex-direction: column; }
+  .ts-table-row { flex-direction: column; gap: 10px; }
+  .ts-table-col-a, .ts-table-col-b { width: 100%; }
+  .techstack-page .faq-list { width: 100%; }
+}
 
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
