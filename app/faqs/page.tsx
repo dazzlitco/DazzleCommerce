@@ -19,6 +19,11 @@ import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 type Category = {
   id: string;
   title: string;
+  // Live browse-card icon tile: Font Awesome icon + tint bg + icon colour.
+  // Tiles cycle blue / green / purple / orange across the 8 cards.
+  icon: string;
+  tileBg: string;
+  tileColor: string;
   faqs: Faq[];
 };
 
@@ -40,6 +45,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-general",
         title: "General Services",
+        icon: "fa-solid fa-circle-question",
+        tileBg: "#EFF4FD",
+        tileColor: "#0B5BF4",
         faqs: [
           {
             q: "What exactly does an eCommerce management agency do?",
@@ -66,6 +74,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-process",
         title: "Process & Communication",
+        icon: "fa-solid fa-comments",
+        tileBg: "#E6F6F0",
+        tileColor: "#0D9668",
         faqs: [
           {
             q: "Who will actually be working on our account?",
@@ -96,6 +107,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-management",
         title: "eCommerce Management",
+        icon: "fa-solid fa-boxes-stacked",
+        tileBg: "#F1ECFE",
+        tileColor: "#8B5CF6",
         faqs: [
           {
             q: "What does eCommerce store management cover day to day?",
@@ -118,6 +132,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-marketing",
         title: "Marketing & Advertising",
+        icon: "fa-solid fa-bullhorn",
+        tileBg: "#FEF0E7",
+        tileColor: "#F97316",
         faqs: [
           {
             q: "Which paid channels do you manage?",
@@ -140,6 +157,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-seo",
         title: "SEO",
+        icon: "fa-solid fa-magnifying-glass",
+        tileBg: "#EFF4FD",
+        tileColor: "#0B5BF4",
         faqs: [
           {
             q: "How long does eCommerce SEO take to show results?",
@@ -162,6 +182,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-platforms",
         title: "Platforms & Marketplaces",
+        icon: "fa-solid fa-store",
+        tileBg: "#E6F6F0",
+        tileColor: "#0D9668",
         faqs: [
           {
             q: "Which eCommerce platforms do you work on?",
@@ -192,6 +215,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-pricing",
         title: "Pricing & Packages",
+        icon: "fa-solid fa-tags",
+        tileBg: "#F1ECFE",
+        tileColor: "#8B5CF6",
         faqs: [
           {
             q: "How much does it cost to hire an eCommerce agency?",
@@ -214,6 +240,9 @@ const groups: FaqGroup[] = [
       {
         id: "faq-results",
         title: "Results & Reporting",
+        icon: "fa-solid fa-chart-line",
+        tileBg: "#FEF0E7",
+        tileColor: "#F97316",
         faqs: [
           {
             q: "What results can we realistically expect in the first 90 days?",
@@ -241,101 +270,125 @@ const allCategories: Category[] = groups.flatMap((g) => g.categories);
 
 export default function FaqsPage() {
   return (
-    <>
-      {/* 1. Hero (text-only on live — no hero image) */}
-      <section className="hero">
-        <div className="container">
+    <div className="faq-page">
+      {/* 1. Hero — live: flat #F7F9FC, 72px/66px, centred, no hero image */}
+      <section
+        className="hero"
+        style={{ background: "#F7F9FC", padding: "72px 0 66px" }}
+      >
+        <div className="container center">
           <Pill icon="fa-solid fa-circle-question" center>
             Frequently Asked Questions
           </Pill>
           <h1>eCommerce Agency Questions, Answered Properly</h1>
-          <p className="lead">
+          <p className="lead center">
             Thirty-three questions we are actually asked, grouped by topic. Where the
             honest answer is &ldquo;it depends&rdquo;, we have said what it depends on
             rather than leaving you with a slogan.
           </p>
-          <div className="btn-row">
-            <Link className="btn" href="#categories">
+          <div className="btn-row" style={{ justifyContent: "center" }}>
+            <Link className="tm-btn tm-btn-blue" href="#categories">
+              <i className="fa-solid fa-arrow-down" aria-hidden="true" />
               Browse by Category
             </Link>
-            <Link className="btn btn-outline" href="/contact/">
+            <Link className="read-more" href="/contact/">
+              <i className="fa-solid fa-comment-dots" aria-hidden="true" />
               Ask Us Directly
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Browse FAQs by Category */}
-      <section className="section" id="categories" style={{ paddingTop: "32px" }}>
-        <div className="container">
+      {/* 2. Browse FAQs by Category — live: white, centred header, 4-col grid of
+          whole-card links, each with a tinted icon tile */}
+      <section className="section" id="categories">
+        <div className="container center">
           <Pill icon="fa-solid fa-store" center>
             Browse FAQs by Category
           </Pill>
-          <h2>Eight topics, thirty-three answers</h2>
-          <p className="lead">Jump straight to what you came for.</p>
-          <div className="card-grid card-grid-4">
+          <h2 className="fq-h2">Eight topics, thirty-three answers</h2>
+          <p className="lead center">Jump straight to what you came for.</p>
+          <div className="fq-card-grid">
             {allCategories.map((c) => (
-              <article className="card platform-card" key={c.id}>
-                <h3 className="platform-name">
-                  <Link href={`#${c.id}`}>{c.title}</Link>
-                </h3>
+              <Link className="fq-card" href={`#${c.id}`} key={c.id}>
+                <span
+                  className="fq-card-icon"
+                  style={
+                    {
+                      background: c.tileBg,
+                      color: c.tileColor,
+                      "--fq-tile": c.tileColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <i className={c.icon} aria-hidden="true" />
+                </span>
+                <h3>{c.title}</h3>
                 <p>
                   {c.faqs.length} question{c.faqs.length === 1 ? "" : "s"}
                 </p>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3–5. FAQ groups and categories */}
+      {/* 3–5. FAQ groups — live: ONE section per group (header + categories inside,
+          no background break), G1/G3 #F7F9FC, G2 white, 100px padding */}
       {groups.map((g, gi) => (
-        <div key={g.label}>
-          {/* Group intro */}
-          <section className={gi % 2 === 0 ? "section section-soft" : "section"}>
-            <div className="container">
+        <section
+          key={g.label}
+          className={gi % 2 === 0 ? "section section-soft" : "section"}
+          style={{ padding: "100px 0" }}
+        >
+          <div className="container">
+            <div className="center">
               <Pill icon={g.icon} center>
                 {g.label}
               </Pill>
-              <h2>{g.heading}</h2>
-              <p className="lead">{g.intro}</p>
+              <h2 className="fq-h2">{g.heading}</h2>
+              <p className="lead center">{g.intro}</p>
             </div>
-          </section>
-          {/* Categories in this group */}
-          {g.categories.map((c, ci) => (
-            <section
-              key={c.id}
-              id={c.id}
-              className={ci % 2 === 0 ? "section" : "section section-soft"}
-            >
-              <div className="container center">
-                <h2>{c.title}</h2>
-                <FaqAccordion faqs={c.faqs} />
-              </div>
-            </section>
-          ))}
-        </div>
+            <div className="fq-cats">
+              {g.categories.map((c) => (
+                <div key={c.id} id={c.id} className="fq-cat">
+                  {/* Live: icon tile + H2 in a row (11px gap, 20px below) */}
+                  <div className="fq-cat-head">
+                    <span className="fq-cat-icon">
+                      <i className={c.icon} aria-hidden="true" />
+                    </span>
+                    <h2 className="fq-cat-h2">{c.title}</h2>
+                  </div>
+                  <FaqAccordion faqs={c.faqs} rotateIcon />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       ))}
 
-      {/* 6. Still have questions? */}
-      <section className="section section-soft">
-        <div className="container center">
-          <h2>Still have questions?</h2>
-          <p className="lead" style={{ margin: "0 auto" }}>
+      {/* 6. Still have questions? — live: blue gradient panel, white + ghost
+          12px buttons (same pattern as Testimonials) */}
+      <section className="section final-cta final-cta-blue">
+        <div className="container">
+          <h2 className="fq-h2">Still have questions?</h2>
+          <p className="lead center">
             If your question is not here, it is probably a good one. Ask a senior
             strategist directly — the first reply comes from a person who does the work,
             not a sales development rep.
           </p>
-          <div className="btn-row" style={{ justifyContent: "center" }}>
-            <Link className="btn" href="/book-a-strategy-call/">
+          <div className="btn-row">
+            <Link className="tm-btn tm-btn-white" href="/book-a-strategy-call/">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" />
               Book Your Free Strategy Call
             </Link>
-            <Link className="btn btn-outline" href="/pricing/">
+            <Link className="tm-btn tm-btn-ghost" href="/pricing/">
               See Pricing &amp; Packages
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

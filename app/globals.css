@@ -383,6 +383,45 @@ p { margin: 0 0 1rem; }
 .tm-note i { color: var(--blue); font-size: 18px; margin-top: 2px; flex-shrink: 0; }
 .tm-note p { margin: 0; font-size: 15.5px; line-height: 1.65; color: #5D6675; }
 
+/* FAQs: live section H2s are 44px (36/30 at smaller breakpoints), category H2s 25px. */
+.faq-page h1 { font-size: clamp(2.25rem, 4.3vw, 3.875rem); letter-spacing: -1px; }
+.faq-page .fq-h2 { font-size: clamp(1.875rem, 3.05vw, 2.75rem); letter-spacing: -1px; }
+/* FAQs: browse cards are Elementor icon-box cards (white, 22px radius, tinted icon tile). */
+.fq-card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+.fq-card { display: block; background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; text-align: left; text-decoration: none; }
+.fq-card:hover { text-decoration: none; border-color: #B7CEFB; }
+/* Live: hovering a card turns its icon tile solid (icon goes pale). */
+.fq-card:hover .fq-card-icon { background: var(--fq-tile) !important; color: #EFF4FD !important; }
+.fq-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 15px; font-size: 26px; margin-bottom: 16px; }
+.fq-card h3 { font-size: 1.3125rem; font-weight: 800; letter-spacing: -0.4px; color: #091325; margin: 0 0 11px; }
+.fq-card p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 1rem; line-height: 1.65; color: #5D6675; }
+/* FAQs: one section per group; categories stack 50px apart inside it. */
+.fq-cats { display: flex; flex-direction: column; gap: 50px; margin-top: 48px; }
+.fq-cat-head { display: flex; align-items: center; gap: 11px; padding-bottom: 20px; }
+.fq-cat-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #0B5BF4; color: #EFF4FD; font-size: 17px; padding: 11px; border-radius: 12px; }
+.fq-cat-h2 { font-size: 25px; font-weight: 800; line-height: 1.25; letter-spacing: -0.6px; color: #091325; margin: 0; }
+/* FAQs: live nested accordion — 70%/880px centred column, 16px cards, 14px gap,
+   17px titles, 26px circle toggle that rotates 45deg into an x when open. */
+.faq-page .faq-list { max-width: none; width: 70%; max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-page .faq-item { margin-bottom: 0; border-color: #E6EBF3; border-radius: 16px; }
+.faq-page .faq-item.open { border-color: #B7CEFB; box-shadow: 0 2px 4px rgb(9 19 37 / .05), 0 4px 10px rgb(9 19 37 / .04); }
+.faq-page .faq-q { padding: 22px 26px; gap: 20px; font-size: 17px; line-height: 1.45; color: #091325; align-items: flex-start; }
+.faq-page .faq-q:hover { color: var(--blue); }
+.faq-page .faq-q .faq-toggle { display: grid; place-items: center; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: #EFF4FD; color: var(--blue); font-size: 15px; line-height: 1; margin-top: 1px; transition: transform .28s ease, background-color .22s ease, color .22s ease; }
+.faq-page .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--blue); color: #fff; }
+.faq-page .faq-a { padding: 0 26px 24px; font-size: 15.5px; line-height: 1.72; color: #5D6675; }
+.faq-page .faq-a p { max-width: 70ch; }
+@media (max-width: 1024px) {
+  .faq-page .faq-list { width: 88%; }
+  .faq-page .fq-cat-h2 { font-size: 23px; }
+}
+@media (max-width: 640px) {
+  .faq-page .faq-list { width: 100%; }
+  .faq-page .faq-q { padding: 19px 20px; gap: 14px; font-size: 16px; }
+  .faq-page .faq-a { padding-left: 20px; padding-right: 20px; }
+  .faq-page .fq-cat-h2 { font-size: 21px; }
+}
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
