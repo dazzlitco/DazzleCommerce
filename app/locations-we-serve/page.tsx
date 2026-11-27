@@ -222,20 +222,31 @@ const locations = [
   },
 ];
 
+const stats = [
+  { value: "5", label: "Core markets", caption: "US, UK, Canada, Australia, UAE" },
+  { value: "5", label: "Time zones covered", caption: "Account teams in your working hours" },
+  { value: "12", label: "Marketplaces managed", caption: "Amazon, Walmart, eBay, Etsy, Noon" },
+  { value: "40%", label: "Clients outside the US", caption: "International is core, not an afterthought" },
+];
+
 const expertise = [
   {
+    icon: "fa-solid fa-magnifying-glass",
     title: "Local search & market nuance",
     body: "Search behaviour is not universal. Spelling, seasonality, sizing conventions and even category names differ by market, so we build separate keyword sets rather than translating one.",
   },
   {
+    icon: "fa-solid fa-dollar-sign",
     title: "Currency, tax & landed cost",
     body: "Pricing that accounts for VAT, GST, duties and shipping so your margin survives contact with a customs form.",
   },
   {
+    icon: "fa-solid fa-calendar-days",
     title: "Regional promotional calendars",
     body: "Black Friday matters in the US, Boxing Day in the UK and Canada, Click Frenzy in Australia, and Ramadan and White Friday in the Gulf. We plan to the right calendar.",
   },
   {
+    icon: "fa-solid fa-shield-halved",
     title: "Compliance & consumer law",
     body: "GDPR, UK GDPR, CCPA, Australian Consumer Law and UAE e-commerce regulation shape what you can claim, collect and automate. We build inside those lines from the start.",
   },
@@ -252,18 +263,22 @@ const capabilities = [
 
 const whyGlobal = [
   {
+    icon: "fa-solid fa-clock",
     title: "Your hours, not ours",
     body: "Account teams are staffed across five time zones. Your weekly call happens in your working day, and urgent issues get a human inside your business hours.",
   },
   {
+    icon: "fa-solid fa-users",
     title: "One team, every market",
     body: "Expanding into a new country does not mean a new agency, a new contract and a new onboarding. Same strategist, extended scope.",
   },
   {
+    icon: "fa-solid fa-chart-column",
     title: "Consolidated, comparable reporting",
     body: "Every market reports into one dashboard on the same definitions, so you can actually tell which one deserves the next dollar.",
   },
   {
+    icon: "fa-solid fa-globe",
     title: "Honest expansion advice",
     body: "We have told clients not to enter markets. Where the margin maths does not work after duties, returns and local CAC, you will hear it before you spend.",
   },
@@ -271,106 +286,93 @@ const whyGlobal = [
 
 export default function LocationsPage() {
   return (
-    <>
+    <div className="locations-page">
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <div>
-            <h1>eCommerce Growth, Wherever You Sell</h1>
-            <p className="lead">
-              We serve eCommerce brands and marketplace sellers across the United States,
-              United Kingdom, Canada, Australia and the UAE — with account teams staffed in
-              your business hours and expertise in your local channels.
-            </p>
-            <div className="btn-row">
-              <Link className="btn" href="/book-a-strategy-call/">
-                Get Free Strategy Call
-              </Link>
-              <Link className="btn btn-outline" href="/contact/">
-                Talk to a Specialist
-              </Link>
-            </div>
+          <h1>eCommerce Growth, Wherever You Sell</h1>
+          <p className="lead">
+            We serve eCommerce brands and marketplace sellers across the United States,
+            United Kingdom, Canada, Australia and the UAE — with account teams staffed in
+            your business hours and expertise in your local channels.
+          </p>
+          <div className="loc-hero-btns">
+            <Link
+              className="tm-btn tm-btn-blue"
+              href="/book-a-strategy-call/"
+              style={{ boxShadow: "0 10px 26px -6px rgb(11 91 244 / .42)" }}
+            >
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" />
+              Get Free Strategy Call
+            </Link>
+            <Link
+              className="read-more"
+              href="/contact/"
+              style={{ borderWidth: "1px" }}
+            >
+              <i className="fa-solid fa-comment" aria-hidden="true" />
+              Talk to a Specialist
+            </Link>
           </div>
-          <div className="stat-row">
-            <div className="stat">
-              <strong>5</strong>
-              <span>Core markets</span>
-              <p style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}>
-                US, UK, Canada, Australia, UAE
-              </p>
-            </div>
-            <div className="stat">
-              <strong>5</strong>
-              <span>Time zones covered</span>
-              <p style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}>
-                Account teams in your working hours
-              </p>
-            </div>
-            <div className="stat">
-              <strong>12</strong>
-              <span>Marketplaces managed</span>
-              <p style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}>
-                Amazon, Walmart, eBay, Etsy, Noon
-              </p>
-            </div>
-            <div className="stat">
-              <strong>40%</strong>
-              <span>Clients outside the US</span>
-              <p style={{ color: "var(--muted)", fontSize: "0.9rem", margin: "0.4rem 0 0" }}>
-                International is core, not an afterthought
-              </p>
-            </div>
+        </div>
+      </section>
+
+      {/* Hero stats — own section on live */}
+      <section className="loc-stats">
+        <div className="container">
+          <div className="loc-stats-grid">
+            {stats.map((s) => (
+              <div className="loc-stat" key={s.label}>
+                <h3>{s.value}</h3>
+                <h4>{s.label}</h4>
+                <p>{s.caption}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 2. Where We Serve */}
-      <section className="section">
+      <section style={{ padding: "100px 0", background: "#F7F9FC" }}>
         <div className="container">
-          <Pill icon="fa-solid fa-location-dot" center>
-            Where We Serve
-          </Pill>
-          <h2>Ten markets we know properly</h2>
-          <p className="lead">
-            We would rather cover five regions deeply than claim thirty on a map. Each has
-            staffed hours, local marketplace experience and clients we can introduce you to.
-          </p>
-          <div className="card-grid">
+          <div className="loc-header">
+            <Pill icon="fa-solid fa-location-dot" center>
+              Where We Serve
+            </Pill>
+            <h2 className="loc-h2">Ten markets we know properly</h2>
+            <p className="lead loc-intro-wide">
+              We would rather cover five regions deeply than claim thirty on a map. Each has
+              staffed hours, local marketplace experience and clients we can introduce you to.
+            </p>
+          </div>
+          <div className="loc-loc-grid">
             {locations.map((loc) => (
-              <article className="card" key={loc.name}>
-                <Link
-                  href={loc.iconHref ?? loc.href}
-                  aria-label={loc.name}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "50%",
-                    background: "var(--bg-soft)",
-                    color: "var(--blue)",
-                    fontSize: "1.5rem",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <i className="fa-solid fa-globe" aria-hidden="true" />
-                </Link>
-                <h3>
-                  <Link href={loc.iconHref ?? loc.href}>{loc.name}</Link>
-                </h3>
-                <p>{loc.body}</p>
-                <p style={{ fontWeight: 700, color: "var(--navy)", marginTop: "1rem" }}>
-                  {loc.cities}
-                </p>
+              <article className="loc-card" key={loc.name}>
+                <div className="loc-iconbox">
+                  <Link
+                    href={loc.iconHref ?? loc.href}
+                    aria-label={loc.name}
+                    className="loc-card-icon"
+                  >
+                    <i className="fa-solid fa-globe" aria-hidden="true" />
+                  </Link>
+                  <h3>
+                    <Link href={loc.iconHref ?? loc.href}>{loc.name}</Link>
+                  </h3>
+                  <p>{loc.body}</p>
+                </div>
+                <p className="loc-cities">{loc.cities}</p>
                 <ul className="check-list">
                   {loc.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-                <Link className="read-more" href={loc.href} style={{ fontWeight: 700 }}>
-                  {loc.linkText}
-                </Link>
+                <div className="loc-card-link">
+                  <Link className="loc-see" href={loc.href}>
+                    {loc.linkText}
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
@@ -378,21 +380,28 @@ export default function LocationsPage() {
       </section>
 
       {/* 3. Local Marketing Expertise */}
-      <section className="section section-soft">
+      <section style={{ padding: "100px 0" }}>
         <div className="container">
-          <Pill icon="fa-solid fa-bullseye" center>
-            Local Marketing Expertise
-          </Pill>
-          <h2>Why a copy-paste global strategy fails</h2>
-          <p className="lead">
-            The mechanics of eCommerce are portable. The details that decide profitability are
-            not.
-          </p>
-          <div className="card-grid card-grid-2">
+          <div className="loc-header">
+            <Pill icon="fa-solid fa-bullseye" center>
+              Local Marketing Expertise
+            </Pill>
+            <h2 className="loc-h2 loc-h2-narrow">Why a copy-paste global strategy fails</h2>
+            <p className="lead">
+              The mechanics of eCommerce are portable. The details that decide profitability are
+              not.
+            </p>
+          </div>
+          <div className="loc-grid-2">
             {expertise.map((e) => (
-              <article className="card" key={e.title}>
-                <h3>{e.title}</h3>
-                <p>{e.body}</p>
+              <article className="loc-card" key={e.title}>
+                <div className="loc-iconbox">
+                  <span className="loc-card-icon">
+                    <i className={e.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{e.title}</h3>
+                  <p>{e.body}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -400,15 +409,15 @@ export default function LocationsPage() {
       </section>
 
       {/* 4. Global eCommerce Capabilities */}
-      <section className="section">
+      <section style={{ padding: "100px 0", background: "#F7F9FC" }}>
         <div className="container">
-          <div className="split">
-            <div>
+          <div className="loc-split">
+            <div className="loc-split-text">
               <Pill icon="fa-solid fa-globe" center>
                 Global eCommerce Capabilities
               </Pill>
-              <h2>Built for brands selling across borders</h2>
-              <p>
+              <h2 className="loc-h2 loc-h2-left">Built for brands selling across borders</h2>
+              <p className="loc-capab-intro">
                 Multi-market selling breaks most agency operating models. Ours was designed
                 around it from the point we opened our second hub in 2021.
               </p>
@@ -417,39 +426,52 @@ export default function LocationsPage() {
                   <li key={c}>{c}</li>
                 ))}
               </ul>
-              <div className="btn-row">
-                <Link className="btn" href="/book-a-strategy-call/">
+              <div className="loc-capab-btns">
+                <Link
+                  className="tm-btn tm-btn-blue"
+                  href="/book-a-strategy-call/"
+                  style={{ boxShadow: "0 10px 26px -6px rgb(11 91 244 / .42)" }}
+                >
+                  <i className="fa-solid fa-calendar-days" aria-hidden="true" />
                   Get Free Strategy Call
                 </Link>
-                <Link className="btn btn-outline" href="/services/">
+                <Link className="read-more" href="/services/">
+                  <i className="fa-solid fa-layer-group" aria-hidden="true" />
                   See our services
                 </Link>
               </div>
             </div>
-          </div>
-          <div style={{ marginTop: "2.5rem" }}>
-            <Image
-              src="/images/locations-we-serve-hero.webp"
-              alt="World map illustrating international eCommerce markets served by Dazzle Commerce"
-              width={1920}
-              height={1280}
-            />
+            <div className="loc-split-img">
+              <Image
+                src="/images/locations-we-serve-hero.webp"
+                alt="World map illustrating international eCommerce markets served by Dazzle Commerce"
+                width={900}
+                height={614}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* 5. Why Brands Choose Us Globally */}
-      <section className="section section-soft">
+      <section style={{ padding: "100px 0" }}>
         <div className="container">
-          <Pill icon="fa-solid fa-award" center>
-            Why Brands Choose Us Globally
-          </Pill>
-          <h2>What multi-market clients say matters most</h2>
-          <div className="card-grid card-grid-2">
+          <div className="loc-header loc-header-wide">
+            <Pill icon="fa-solid fa-award" center>
+              Why Brands Choose Us Globally
+            </Pill>
+            <h2 className="loc-h2 loc-h2-narrow">What multi-market clients say matters most</h2>
+          </div>
+          <div className="loc-grid-2">
             {whyGlobal.map((w) => (
-              <article className="card" key={w.title}>
-                <h3>{w.title}</h3>
-                <p>{w.body}</p>
+              <article className="loc-card" key={w.title}>
+                <div className="loc-iconbox">
+                  <span className="loc-card-icon">
+                    <i className={w.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{w.title}</h3>
+                  <p>{w.body}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -457,18 +479,20 @@ export default function LocationsPage() {
       </section>
 
       {/* 6. Location FAQs */}
-      <section className="section">
-        <div className="container center">
-          <Pill icon="fa-solid fa-circle-question" center>
-            Location FAQs
-          </Pill>
-          <h2>Working with us from anywhere</h2>
-          <FaqAccordion faqs={faqs} />
+      <section style={{ padding: "100px 0", background: "#F7F9FC" }}>
+        <div className="container">
+          <div className="loc-header">
+            <Pill icon="fa-solid fa-circle-question" center>
+              Location FAQs
+            </Pill>
+            <h2 className="loc-h2">Working with us from anywhere</h2>
+          </div>
+          <FaqAccordion faqs={faqs} rotateIcon />
         </div>
       </section>
 
       {/* 7. Final CTA */}
-      <section className="section section-blue final-cta">
+      <section className="section final-cta final-cta-blue" style={{ padding: "90px 0 100px" }}>
         <div className="container">
           <h2>Selling in one market and eyeing another?</h2>
           <p className="lead">
@@ -477,24 +501,35 @@ export default function LocationsPage() {
             yet”.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-light" href="/book-a-strategy-call/">
+            <Link className="tm-btn tm-btn-white" href="/book-a-strategy-call/">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" />
               Book Your Free Strategy Call
             </Link>
-            <Link
-              className="btn"
-              href="/industries/"
-              style={{ background: "transparent", borderColor: "#fff" }}
-            >
+            <Link className="tm-btn tm-btn-ghost" href="/industries/">
               Explore Industries
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
-          <ul className="final-checks">
-            <li>Free 30-minute call</li>
-            <li>No long-term contracts</li>
-            <li>Actionable audit you keep</li>
-          </ul>
+          <div className="loc-cta-checks">
+            <div className="loc-cta-checks-row">
+              <span>
+                <i className="fa-regular fa-circle-check" aria-hidden="true" />
+                Free 30-minute call
+              </span>
+              <span>
+                <i className="fa-regular fa-circle-check" aria-hidden="true" />
+                No long-term contracts
+              </span>
+            </div>
+            <div className="loc-cta-checks-row">
+              <span>
+                <i className="fa-regular fa-circle-check" aria-hidden="true" />
+                Actionable audit you keep
+              </span>
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

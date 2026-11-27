@@ -640,6 +640,87 @@ p { margin: 0 0 1rem; }
   .techstack-page .faq-list { width: 100%; }
 }
 
+/* Locations We Serve page (Batch 1, page 14) — control structure from live HTML/CSS. */
+.locations-page .hero { background: #F7F9FC; padding: 92px 0 84px; }
+.locations-page .hero .container { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.locations-page .hero h1 { font-size: clamp(33px, 3.5vw, 50px); line-height: 1.15; letter-spacing: -1px; padding: 0 300px; text-align: center; margin: 0; }
+.locations-page .hero .lead { font-size: 19px; line-height: 1.6; max-width: 800px; margin: 0; }
+.loc-hero-btns { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+.loc-stats { background: #fff; padding: 100px 0; }
+.loc-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.loc-stat { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 30px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.loc-stat h3 { font-family: "Plus Jakarta Sans", sans-serif; font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -1.4px; color: #0B5BF4; margin: 0; }
+.loc-stat h4 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; line-height: 1.4; color: #1B2437; margin: 0; }
+.loc-stat p { font-family: "DM Sans", sans-serif; font-size: 13px; line-height: 1.5; color: #6B7280; margin: 0; }
+.loc-header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-bottom: 46px; text-align: center; }
+.loc-header-wide { padding-bottom: 50px; }
+.loc-h2 { font-size: clamp(30px, 3.05vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: #091325; text-align: center; margin: 0; }
+.loc-h2-narrow { padding: 0 350px; }
+.loc-h2-left { text-align: left; }
+.loc-header .lead { font-size: 17px; line-height: 1.7; color: #5D6675; margin: 0; }
+.loc-intro-wide { padding: 0 200px; }
+.loc-loc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.loc-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.loc-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.loc-card:hover { border-color: #B7CEFB; box-shadow: 0 0 10px 0 #B7CEFB; }
+.loc-iconbox { display: flex; flex-direction: column; align-items: flex-start; }
+.loc-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 15px; background: #EFF4FD; color: #0B5BF4; font-size: 26px; margin-bottom: 22px; text-decoration: none; }
+a.loc-card-icon:hover { text-decoration: none; color: #0B5BF4; }
+.loc-iconbox h3 { font-size: 21px; font-weight: 800; line-height: 1.3; letter-spacing: -0.4px; color: #091325; margin: 0 0 11px; }
+.loc-iconbox h3 a { color: #091325; text-decoration: none; }
+.loc-iconbox h3 a:hover { color: #0B5BF4; text-decoration: none; }
+.loc-iconbox p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.65; color: #5D6675; }
+.loc-cities { font-family: "DM Sans", sans-serif; font-size: 13px; line-height: 1.5; color: #6B7280; margin: 0; }
+.loc-card .check-list { margin: 0; }
+.loc-card .check-list li { font-family: "DM Sans", sans-serif; font-size: 14px; line-height: 1.6; color: #5D6675; }
+.loc-card-link { flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 20px; }
+.loc-see { display: inline-flex; align-items: center; gap: 8px; font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; color: #0B5BF4; text-decoration: none; align-self: flex-start; }
+.loc-see:hover { color: #0A4ED4; text-decoration: none; }
+.loc-split { display: flex; flex-direction: row; align-items: center; gap: 56px; }
+.loc-split-text { width: 48%; display: flex; flex-direction: column; gap: 20px; }
+.loc-split-img { width: 46%; display: flex; flex-direction: column; gap: 18px; }
+.loc-split-img img { width: 100%; border-radius: 28px; box-shadow: 0 18px 40px -12px rgb(9 19 37 / .16); }
+.loc-capab-intro { font-family: "DM Sans", sans-serif; font-size: 18px; line-height: 1.65; color: #5D6675; margin: 0; }
+.loc-capab-btns { display: flex; flex-direction: row; gap: 14px; flex-wrap: wrap; padding-top: 18px; }
+.locations-page .final-cta-blue .lead { color: #CFE0FE; }
+.loc-cta-checks { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 16px; }
+.loc-cta-checks-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.loc-cta-checks-row span { display: inline-flex; align-items: center; gap: 6px; font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #CFE0FC; }
+.loc-cta-checks-row span i { font-size: 14px; color: #CFE0FC; }
+/* Locations FAQ uses the same nested-accordion look as the FAQs page. */
+.locations-page .faq-list { max-width: none; width: 70%; max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.locations-page .faq-item { margin-bottom: 0; border-color: #E6EBF3; border-radius: 16px; }
+.locations-page .faq-item.open { border-color: #B7CEFB; box-shadow: 0 2px 4px rgb(9 19 37 / .05), 0 4px 10px rgb(9 19 37 / .04); }
+.locations-page .faq-q { padding: 22px 26px; gap: 20px; font-size: 17px; line-height: 1.45; color: #091325; align-items: flex-start; }
+.locations-page .faq-q:hover { color: var(--blue); }
+.locations-page .faq-q .faq-toggle { display: grid; place-items: center; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: #EFF4FD; color: var(--blue); font-size: 15px; line-height: 1; margin-top: 1px; transition: transform .28s ease, background-color .22s ease, color .22s ease; }
+.locations-page .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--blue); color: #fff; }
+.locations-page .faq-a { padding: 0 26px 24px; font-size: 15.5px; line-height: 1.72; color: #5D6675; }
+.locations-page .faq-a p { max-width: 70ch; }
+@media (max-width: 1024px) {
+  .locations-page .hero { padding: 72px 0; }
+  .locations-page .hero h1 { padding: 0 180px; }
+  .loc-stats { padding: 72px 0; }
+  .loc-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .loc-loc-grid { grid-template-columns: 1fr; }
+  .loc-intro-wide { padding: 0 50px; }
+  .loc-split { flex-direction: column; gap: 34px; align-items: flex-start; }
+  .loc-split-text, .loc-split-img { width: 100%; }
+  .locations-page .faq-list { width: 88%; }
+}
+@media (max-width: 767px) {
+  .locations-page .hero { padding: 56px 0; }
+  .locations-page .hero h1 { padding: 0; }
+  .loc-stats { padding: 56px 0; }
+  .loc-stats-grid { grid-template-columns: 1fr; }
+  .loc-stat { padding: 26px 24px; }
+  .loc-grid-2 { grid-template-columns: 1fr; }
+  .loc-intro-wide { padding: 0; }
+  .locations-page .faq-list { width: 100%; }
+  .locations-page .faq-q { padding: 19px 20px; gap: 14px; font-size: 16px; }
+  .locations-page .faq-a { padding-left: 20px; padding-right: 20px; }
+}
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
