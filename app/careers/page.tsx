@@ -16,26 +16,44 @@ const benefits = [
   {
     title: "Learn & Grow",
     body: "A training budget that is actually spent, paid certifications for the platforms you work on, and a fortnightly internal session where someone teaches the rest of us something they just figured out.",
+    icon: "fa-solid fa-graduation-cap",
+    tileBg: "#EFF4FD",
+    tileColor: "#0B5BF4",
   },
   {
     title: "Meaningful Work",
     body: "You will own accounts, not tickets. Every specialist sees the revenue impact of their work in the same dashboard the client sees, which makes the job harder and considerably more satisfying.",
+    icon: "fa-solid fa-bullseye",
+    tileBg: "#E6F6F0",
+    tileColor: "#0D9668",
   },
   {
     title: "Collaborative Culture",
     body: "Pods, not silos. SEO, paid, CRO and development sit on the same account and the same call, so nobody optimises their own metric at another discipline’s expense.",
+    icon: "fa-solid fa-people-group",
+    tileBg: "#F1ECFE",
+    tileColor: "#8B5CF6",
   },
   {
     title: "Ownership & Autonomy",
     body: "You are trusted to run your workstream and to say when something is not working. Recommending that a client stop spending on your channel is treated as good judgement, not a threat.",
+    icon: "fa-solid fa-hand-holding-heart",
+    tileBg: "#FEF0E7",
+    tileColor: "#F97316",
   },
   {
     title: "Flexible Work",
     body: "Remote-first since day one. Core overlap hours with your pod, the rest of the day is yours to structure. No performative presence, no camera-on policy.",
+    icon: "fa-solid fa-house-laptop",
+    tileBg: "#EFF4FD",
+    tileColor: "#0B5BF4",
   },
   {
     title: "Career Development",
     body: "A written progression framework with defined levels, a review every six months against it, and internal promotion as the default when a senior seat opens.",
+    icon: "fa-solid fa-arrow-trend-up",
+    tileBg: "#E6F6F0",
+    tileColor: "#0D9668",
   },
 ];
 
@@ -160,31 +178,37 @@ const hiringSteps = [
     num: "01",
     title: "Apply",
     body: "A short form and your CV. No cover letter, no 40-field application portal, no account to create.",
+    icon: "fa-solid fa-paper-plane",
   },
   {
     num: "02",
     title: "Application Review",
     body: "A human on the hiring team reads it within five working days. You get an answer either way — silence is not a response we use.",
+    icon: "fa-solid fa-magnifying-glass",
   },
   {
     num: "03",
     title: "Interview",
     body: "Forty-five minutes with the person who would manage you. Mostly about how you think and what you have actually shipped.",
+    icon: "fa-solid fa-comments",
   },
   {
     num: "04",
     title: "Skills Assessment",
     body: "A short, paid, realistic task — an audit or a plan for an anonymised account. Never spec work on a live client.",
+    icon: "fa-solid fa-clipboard-check",
   },
   {
     num: "05",
     title: "Offer",
     body: "Salary band shared up front, written offer, and a call to walk through the progression framework before you decide.",
+    icon: "fa-solid fa-file-signature",
   },
   {
     num: "06",
     title: "Welcome Aboard",
     body: "A structured 30-day onboarding with a named buddy, and no client-facing ownership until you say you are ready.",
+    icon: "fa-solid fa-hands-clapping",
   },
 ];
 
@@ -317,47 +341,65 @@ export default function CareersPage() {
   }
 
   return (
-    <>
+    <div className="careers-page">
       {/* 1. Hero (text-only on live — no hero image) */}
-      <section className="hero">
+      <section className="cr-hero">
         <div className="container">
           <Pill icon="fa-solid fa-code" center>
             Careers at Dazzle Commerce
           </Pill>
           <h1>Build eCommerce Careers, Not Just Campaigns</h1>
-          <p className="lead">
+          <p className="lead center">
             We are a remote-first eCommerce agency of specialists who would rather own an
             outcome than fill a timesheet. If you want your work measured by what it earns
             a client — and to be told honestly when it did not — you will fit here.
           </p>
           <div className="btn-row">
-            <Link className="btn" href="#open-positions">
+            <Link
+              className="tm-btn tm-btn-blue"
+              href="#open-positions"
+              style={{ boxShadow: "0 10px 26px -6px rgb(11 91 244 / .42)" }}
+            >
+              <i className="fa-solid fa-arrow-down" aria-hidden="true" />
               See Open Positions
             </Link>
-            <Link className="btn btn-outline" href="#talent-pool">
+            <Link className="read-more" href="#talent-pool">
+              <i className="fa-solid fa-paper-plane" aria-hidden="true" />
               Send a General Application
             </Link>
           </div>
-          <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-            Remote-first across five time zones. Three roles open right now.
+          <p className="cr-hero-note">
+            <strong>Remote-first across five time zones.</strong> Three roles open right now.
           </p>
         </div>
       </section>
 
       {/* 2. Why Work With Us */}
-      <section className="section">
+      <section className="section cr-why" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-award" center>
             Why Work With Us
           </Pill>
-          <h2>What you actually get, beyond the job title</h2>
-          <p className="lead">
+          <h2 className="cr-h2" style={{ textAlign: "center" }}>
+            What you actually get, beyond the job title
+          </h2>
+          <p className="lead center">
             Six things we would want to know if we were reading this page rather than writing
             it.
           </p>
-          <div className="card-grid">
+          <div className="cr-grid-3">
             {benefits.map((b) => (
-              <article className="card" key={b.title}>
+              <article
+                className="fq-card"
+                key={b.title}
+                style={{ "--fq-tile": b.tileColor } as React.CSSProperties}
+              >
+                <span
+                  className="fq-card-icon"
+                  style={{ background: b.tileBg, color: b.tileColor }}
+                >
+                  <i className={b.icon} aria-hidden="true" />
+                </span>
                 <h3>{b.title}</h3>
                 <p>{b.body}</p>
               </article>
@@ -367,23 +409,25 @@ export default function CareersPage() {
       </section>
 
       {/* 3. Life at Our Agency */}
-      <section className="section section-soft">
+      <section className="section section-soft" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-tags" center>
             Life at Our Agency
           </Pill>
-          <h2>Remote-first, but not remote-feeling</h2>
-          <p className="lead">
+          <h2 className="cr-h2" style={{ textAlign: "center" }}>
+            Remote-first, but not remote-feeling
+          </h2>
+          <p className="lead center">
             We are deliberate about the rituals that make distributed work function. These are
             the ones that stuck.
           </p>
-          <div className="card-grid">
+          <div className="cr-grid-3">
             {lifeCards.map((c) => (
-              <article className="case-card" key={c.title}>
+              <article className="cr-life-card" key={c.title}>
                 <Image src={c.img} alt={c.imgAlt} width={1200} height={800} />
-                <div className="case-body">
+                <div className="cr-life-body">
                   <h3>{c.title}</h3>
-                  <p style={{ color: "var(--muted)" }}>{c.body}</p>
+                  <p>{c.body}</p>
                 </div>
               </article>
             ))}
@@ -392,59 +436,54 @@ export default function CareersPage() {
       </section>
 
       {/* 4. Our Culture & Values */}
-      <section className="section">
+      <section className="section" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-users" center>
             Our Culture &amp; Values
           </Pill>
-          <h2>Five things we actually hold each other to</h2>
-          <p className="lead">
+          <h2 className="cr-h2" style={{ textAlign: "center" }}>
+            Five things we actually hold each other to
+          </h2>
+          <p className="lead center">
             Not a poster in a room nobody visits. These are the questions asked in performance
             reviews.
           </p>
-          <div className="card-grid">
+          <div className="cr-values">
             {values.map((v) => (
-              <article className="card" key={v.num}>
-                <p className="card-num">{v.num}</p>
+              <div className="cr-value" key={v.num}>
+                <p className="cr-value-num">{v.num}</p>
                 <h3>{v.title}</h3>
                 <p>{v.body}</p>
-              </article>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* 5. Open Positions */}
-      <section className="section section-soft" id="open-positions">
+      <section className="section section-soft" id="open-positions" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-lightbulb" center>
             Open Positions
           </Pill>
-          <h2>Three seats open right now</h2>
-          <p className="lead">
+          <h2 className="cr-h2" style={{ textAlign: "center" }}>
+            Three seats open right now
+          </h2>
+          <p className="lead center">
             Filter by team. Every role is remote-first with core overlap hours in your pod’s
             time zone.
           </p>
-          <div
-            className="btn-row"
-            role="group"
-            aria-label="Filter open positions by team"
-            style={{ marginTop: "1.5rem" }}
-          >
+          <div className="tm-tabs cr-tabs" role="tablist" aria-label="Filter open positions by team">
             {filters.map((f) => {
               const active = filter === f;
               return (
                 <button
                   key={f}
                   type="button"
-                  className="btn"
-                  aria-pressed={active}
+                  role="tab"
+                  aria-selected={active}
+                  className={`tm-tab${active ? " tm-tab-active" : ""}`}
                   onClick={() => setFilter(f)}
-                  style={
-                    active
-                      ? undefined
-                      : { background: "#fff", color: "var(--blue)", borderColor: "var(--blue)" }
-                  }
                 >
                   {f}
                 </button>
@@ -452,62 +491,61 @@ export default function CareersPage() {
             })}
           </div>
           {visibleRoles.length > 0 ? (
-            <div className="card-grid">
+            <div className="cr-role-grid">
               {visibleRoles.map((r) => (
-                <article className="card" key={r.title}>
-                  <p
-                    style={{
-                      color: "var(--muted)",
-                      fontSize: "0.9rem",
-                      fontWeight: 700,
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    Remote / Full-Time
-                  </p>
+                <article className="cr-role-card" key={r.title}>
+                  <span className="cr-role-badge">Remote / Full-Time</span>
                   <h3>{r.title}</h3>
-                  <p>{r.category}</p>
-                  <p style={{ marginTop: "1rem" }}>
-                    <Link className="read-more" href={r.href}>
+                  <p className="cr-role-cat">{r.category}</p>
+                  <div className="cr-role-btn-wrap">
+                    <Link className="read-more cr-full-btn" href={r.href}>
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                       View Position
                     </Link>
-                  </p>
+                  </div>
                 </article>
               ))}
             </div>
           ) : (
-            <div className="card" style={{ marginTop: "32px", background: "#fff" }}>
+            <div className="cr-empty">
+              <span className="cr-empty-icon">
+                <i className="fa-solid fa-inbox" aria-hidden="true" />
+              </span>
               <h3>{emptyHeading}</h3>
               <p>
                 We hire in this team regularly and we keep every application on file. Send us
                 yours and we will come back to you when a seat opens rather than leaving you
                 to check the page.
               </p>
-              <p style={{ marginTop: "1rem" }}>
-                <Link className="btn btn-outline" href="#talent-pool">
-                  Join the talent pool
-                </Link>
-              </p>
+              <Link className="read-more" href="#talent-pool">
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                Join the talent pool
+              </Link>
             </div>
           )}
         </div>
       </section>
 
       {/* 6. Our Hiring Process */}
-      <section className="section">
+      <section className="section" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-diagram-project" center>
             Our Hiring Process
           </Pill>
-          <h2>Six steps, roughly three weeks</h2>
-          <p className="lead">
+          <h2 className="cr-h2" style={{ textAlign: "center" }}>
+            Six steps, roughly three weeks
+          </h2>
+          <p className="lead center">
             No mystery and no ghosting. You will always know which stage you are at and what
             happens next.
           </p>
-          <div className="card-grid">
+          <div className="cr-grid-3">
             {hiringSteps.map((s) => (
-              <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
+              <article className="cr-step-card" key={s.num}>
+                <span className="cr-step-num">{s.num}</span>
+                <span className="cr-step-icon">
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
@@ -517,15 +555,15 @@ export default function CareersPage() {
       </section>
 
       {/* 7. We’re Growing Our Team / Talent Pool */}
-      <section className="section section-soft" id="talent-pool">
+      <section className="section section-soft" id="talent-pool" style={{ padding: "100px 0" }}>
         <div className="container">
-          <div className="split">
-            <div>
+          <div className="cr-talent">
+            <div className="cr-talent-text">
               <Pill icon="fa-solid fa-layer-group" center>
                 We’re Growing Our Team
               </Pill>
-              <h2>Don’t see the right role?</h2>
-              <p>
+              <h2 className="cr-h2">Don’t see the right role?</h2>
+              <p className="lead">
                 We open two to four seats a quarter and we fill a good number of them from
                 applications that arrived before the role existed. Tell us what you would want
                 to own and we will keep you on file properly — which means an actual person
@@ -537,17 +575,13 @@ export default function CareersPage() {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="cr-talent-form">
               {submitted ? (
-                <div
-                  className="card"
-                  role="status"
-                  style={{ background: "#fff", textAlign: "left" }}
-                >
+                <div role="status">
                   <p className="eyebrow">Application received</p>
-                  <h2 style={{ fontSize: "1.5rem" }}>
+                  <h3 style={{ fontSize: "1.5rem" }}>
                     Thank you, {form.name.split(" ")[0] || "there"} — your application is in.
-                  </h2>
+                  </h3>
                   <p style={{ color: "var(--muted)" }}>
                     A human on the hiring team will read your application for{" "}
                     <strong>{form.area}</strong> within five working days, and you will get
@@ -556,24 +590,18 @@ export default function CareersPage() {
                     for twelve months, then deleted unless you say otherwise.
                   </p>
                   <div className="btn-row">
-                    <button className="btn" type="button" onClick={resetForm}>
+                    <button className="tm-btn tm-btn-blue" type="button" onClick={resetForm}>
                       Send another application
                     </button>
-                    <Link className="btn btn-outline" href="#open-positions">
+                    <Link className="read-more" href="#open-positions">
                       See open positions
                     </Link>
                   </div>
                 </div>
               ) : (
-                <form
-                  className="card"
-                  style={{ background: "#fff" }}
-                  onSubmit={handleSubmit}
-                  noValidate
-                  aria-label="General Application"
-                >
-                  <h3 style={{ fontSize: "1.5rem" }}>General application</h3>
-                  <p style={{ color: "var(--muted)" }}>Takes about three minutes.</p>
+                <form onSubmit={handleSubmit} noValidate aria-label="General Application">
+                  <h3>General application</h3>
+                  <p className="cr-form-sub">Takes about three minutes.</p>
 
                   <div className="form-field">
                     <label htmlFor="careers-name">
@@ -740,11 +768,8 @@ export default function CareersPage() {
                     )}
                   </div>
 
-                  <button
-                    className="btn"
-                    type="submit"
-                    style={{ width: "100%", justifyContent: "center" }}
-                  >
+                  <button className="tm-btn tm-btn-blue" type="submit">
+                    <i className="fa-solid fa-paper-plane" aria-hidden="true" />
                     Send My Application
                   </button>
                   {submitError && (
@@ -758,6 +783,6 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

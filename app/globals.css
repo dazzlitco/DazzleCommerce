@@ -422,6 +422,64 @@ p { margin: 0 0 1rem; }
   .faq-page .fq-cat-h2 { font-size: 21px; }
 }
 
+/* Careers (live /careers/, 2026-11-27 redo). All geometry from live's element-id CSS:
+   hero flat #F7F9FC 92/84 centred, H1 62px; section H2s 44px; sections 100px;
+   icon-box cards (white, 22px radius, 26/24 padding, 56px tinted tile, 28px grid gap);
+   life cards flush image radius 21px 21px 0 0, text 20/22/22, H3 18px;
+   values are a plain 5-column flex row (no cards), navy 21px numerals;
+   role cards with pale-green pill badge, full-width outlined button;
+   hiring steps with 46px blue square number tiles (13px radius) + small blue icons;
+   talent pool split 44% text / form card, gap 52px. */
+.careers-page h1 { font-size: clamp(2.25rem, 4.3vw, 3.875rem); letter-spacing: -1px; }
+.careers-page .cr-h2 { font-size: clamp(1.875rem, 3.05vw, 2.75rem); letter-spacing: -1px; }
+.cr-hero { background: #F7F9FC; padding: 92px 0 84px; text-align: center; }
+.cr-hero .btn-row { justify-content: center; }
+.cr-hero-note { margin-top: 1.25rem; color: var(--muted); }
+.cr-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+.cr-why .fq-card-icon { margin-bottom: 22px; }
+.cr-life-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; }
+.cr-life-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 21px 21px 0 0; }
+.cr-life-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.cr-life-body h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.3px; color: #091325; margin: 0; }
+.cr-life-body p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 14.5px; line-height: 1.55; color: #6B7280; }
+.cr-values { display: flex; gap: 24px; margin-top: 48px; }
+.cr-value { flex: 1; display: flex; flex-direction: column; gap: 7px; padding-top: 4px; }
+.cr-value-num { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; color: #091325; margin: 0; }
+.cr-value h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; color: #091325; margin: 0; }
+.cr-value p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.68; color: #5D6675; }
+.cr-tabs .tm-tab { font-size: 16px; }
+.cr-role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 34px; }
+.cr-role-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 10px; }
+.cr-role-badge { display: inline-flex; align-self: flex-start; background: #E6F6F0; color: #0D9668; font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.2px; border-radius: 999px; padding: 5px 12px; }
+.cr-role-card h3 { font-size: 23px; font-weight: 800; letter-spacing: -0.5px; color: #091325; margin: 0; }
+.cr-role-cat { font-family: "DM Sans", sans-serif; font-size: 14.5px; line-height: 1.5; color: #6B7280; margin: 0; }
+.cr-role-btn-wrap { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 18px; }
+.cr-full-btn { display: flex; width: 100%; justify-content: center; align-self: stretch; }
+.cr-empty { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 9px; margin-top: 34px; align-items: flex-start; }
+.cr-empty-icon { display: inline-flex; align-items: center; justify-content: center; background: #EFF4FD; color: #0B5BF4; font-size: 20px; padding: 13px; border-radius: 14px; }
+.cr-empty h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; color: #091325; margin: 0; }
+.cr-empty p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.65; color: #5D6675; }
+.cr-step-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 9px; }
+.cr-step-num { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: #0B5BF4; color: #fff; font-weight: 800; font-size: 16px; border-radius: 13px; margin-bottom: 4px; }
+.cr-step-icon { color: #0B5BF4; font-size: 19px; }
+.cr-step-card h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; color: #091325; margin: 0; }
+.cr-step-card p { margin: 0; font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.62; color: #5D6675; }
+.cr-talent { display: flex; gap: 52px; align-items: flex-start; }
+.cr-talent-text { width: 44%; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; }
+.cr-talent-text .lead { margin: 0; }
+.cr-talent-text .check-list { margin: 0; }
+.cr-talent-form { flex: 1; background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 22px; }
+.cr-talent-form h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; color: #091325; margin: 0 0 6px; }
+.cr-form-sub { font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.7; color: #6B7280; margin: 0 0 18px; }
+.cr-talent-form .form-input, .cr-talent-form .form-select { border: 2px solid #D9E1EE; border-radius: 12px; font-size: 15px; }
+.cr-talent-form .form-field label { font-size: 14px; }
+.cr-talent-form .tm-btn { width: 100%; justify-content: center; }
+@media (max-width: 960px) {
+  .cr-talent { flex-direction: column; gap: 34px; }
+  .cr-talent-text { width: 100%; }
+  .cr-values { flex-direction: column; gap: 14px; }
+}
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
