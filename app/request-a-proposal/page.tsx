@@ -62,6 +62,7 @@ const faqs: Faq[] = [
 
 const whatArrives = [
   {
+    icon: "fa-solid fa-bullseye",
     title: "The constraint we think you have",
     points: [
       "Named in one sentence, before any scope is described",
@@ -70,6 +71,7 @@ const whatArrives = [
     ],
   },
   {
+    icon: "fa-solid fa-list-ol",
     title: "Scope, in the order it happens",
     points: [
       "Which service lines run, and which deliberately do not",
@@ -78,6 +80,7 @@ const whatArrives = [
     ],
   },
   {
+    icon: "fa-solid fa-tag",
     title: "Price, with the reasoning",
     points: [
       "A monthly figure, not a range you have to call about",
@@ -86,6 +89,7 @@ const whatArrives = [
     ],
   },
   {
+    icon: "fa-solid fa-users",
     title: "The people, by name",
     points: [
       "Who runs each discipline on your account",
@@ -94,6 +98,7 @@ const whatArrives = [
     ],
   },
   {
+    icon: "fa-solid fa-chart-line",
     title: "How it gets measured",
     points: [
       "The metric that decides whether this worked",
@@ -102,6 +107,7 @@ const whatArrives = [
     ],
   },
   {
+    icon: "fa-solid fa-circle-exclamation",
     title: "Assumptions and exclusions",
     points: [
       "What we have assumed that could turn out to be wrong",
@@ -145,10 +151,12 @@ const timelineSteps = [
 
 const premature = [
   {
+    icon: "fa-solid fa-scale-balanced",
     title: "You are collecting three quotes to compare",
     body: "Proposals from different agencies are not comparable — the scopes differ, so the prices measure different things. Compare the reasoning on page one instead, or ask all three what they would not do.",
   },
   {
+    icon: "fa-solid fa-question",
     title: "You do not know what is wrong yet",
     body: (
       <>
@@ -160,14 +168,17 @@ const premature = [
     ),
   },
   {
+    icon: "fa-solid fa-user-lock",
     title: "The decision-maker is not involved",
     body: "A proposal that cannot reach the person who signs is a document that gets forwarded, skimmed and forgotten. Bring them to a call first.",
   },
   {
+    icon: "fa-solid fa-hourglass-half",
     title: "The budget is not agreed internally",
     body: "We will quote the number the work costs. If no number has been agreed on your side, that quote lands as a shock rather than a decision.",
   },
   {
+    icon: "fa-solid fa-file-contract",
     title: "You need a document to satisfy procurement",
     body: "Tell us that in the form. It is a legitimate reason and it changes what we write — but a proposal written for procurement is a different document to one written to make a decision.",
   },
@@ -403,91 +414,96 @@ export default function RequestProposalPage() {
   }
 
   return (
-    <>
+    <div className="rp-page">
       {/* 1. Hero */}
       <section className="hero" id="rp-hero">
         <div className="container">
-          <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "1.5rem" }}>
+          <p className="rp-breadcrumb">
             <Link href="/">Home</Link> › <Link href="/pricing/">Pricing</Link> › Request a Proposal
           </p>
-          <div>
-            <div>
-              <Pill>Proposal request</Pill>
-              <Pill>Five working days</Pill>
-              <h1>Request a Proposal for Your Store</h1>
-              <p className="lead">
-                A written proposal with the scope, the sequence, the price and the named people
-                who would do the work. Free, non-binding, and specific enough to take to a board.
-                This page tells you exactly what arrives, what we need to write it, and when
-                asking for one is premature.
-              </p>
-              <div className="stat-row">
-                <div className="stat">
-                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>TURNAROUND</span>
-                  <strong>Five working days</strong>
-                </div>
-                <div className="stat">
-                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>TYPICAL LENGTH</span>
-                  <strong>Eight to twelve pages</strong>
-                </div>
-                <div className="stat">
-                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>COST</span>
-                  <strong>Free</strong>
-                </div>
-                <div className="stat">
-                  <span style={{ fontWeight: 800, color: "var(--navy)" }}>OBLIGATION</span>
-                  <strong>None</strong>
-                </div>
-              </div>
-              <div className="btn-row">
-                <Link className="btn" href="#rp-form">
-                  Go to the request form
-                </Link>
-                <Link className="btn btn-outline" href="/book-a-strategy-call/">
-                  Book a call instead
-                </Link>
-              </div>
-              <div className="hero-img" style={{ marginTop: "32px" }}>
-                <Image
-                  src="/images/request-a-proposal-buyers-coffee.webp"
-                  alt="Two business buyers discussing documents over coffee"
-                  width={2048}
-                  height={1152}
-                />
-              </div>
-              <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-                Every proposal is written against your numbers, not assembled from a template
-                with your logo dropped on it.
-              </p>
+          <div className="rp-hero-pills">
+            <span className="rp-hero-pill">Proposal request</span>
+            <span className="rp-hero-pill">Five working days</span>
+          </div>
+          <h1>Request a Proposal for Your Store</h1>
+          <p className="lead">
+            A written proposal with the scope, the sequence, the price and the named people
+            who would do the work. Free, non-binding, and specific enough to take to a board.
+            This page tells you exactly what arrives, what we need to write it, and when
+            asking for one is premature.
+          </p>
+          <div className="rp-facts">
+            <div className="rp-fact">
+              <h4>TURNAROUND</h4>
+              <p>Five working days</p>
+            </div>
+            <div className="rp-fact">
+              <h4>TYPICAL LENGTH</h4>
+              <p>Eight to twelve pages</p>
+            </div>
+            <div className="rp-fact">
+              <h4>COST</h4>
+              <p>Free</p>
+            </div>
+            <div className="rp-fact">
+              <h4>OBLIGATION</h4>
+              <p>None</p>
             </div>
           </div>
+          <div className="rp-hero-btns">
+            <Link className="tm-btn tm-btn-blue" href="#rp-form">
+              <i className="fa-solid fa-file-signature" aria-hidden="true" />
+              Go to the request form
+            </Link>
+            <Link className="tm-btn rp-btn-white" href="/book-a-strategy-call/">
+              Book a call instead
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="rp-hero-media">
+            <Image
+              src="/images/request-a-proposal-buyers-coffee.webp"
+              alt="Two business buyers discussing documents over coffee"
+              width={2048}
+              height={1152}
+            />
+          </div>
+          <p className="rp-standalone">
+            Every proposal is written against your numbers, not assembled from a template
+            with your logo dropped on it.
+          </p>
         </div>
       </section>
 
       {/* 2. What arrives */}
       <section className="section" id="rp-what">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>What arrives</Pill>
-          <h2>Six things, every time</h2>
-          <p className="lead">
-            A proposal that leaves any of these out is a brochure. Ours is structured the same
-            way whether the engagement is $3,000 a month or $30,000.
-          </p>
-          <div className="card-grid">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>What arrives</Pill>
+            <h2 className="rp-h2">Six things, every time</h2>
+            <p className="lead">
+              A proposal that leaves any of these out is a brochure. Ours is structured the same
+              way whether the engagement is $3,000 a month or $30,000.
+            </p>
+          </div>
+          <div className="rp-arrives-grid">
             {whatArrives.map((c) => (
-              <article className="card" key={c.title}>
-                <h3>{c.title}</h3>
-                <ul style={{ margin: "0.75rem 0 0", paddingLeft: "1.25rem", color: "var(--muted)" }}>
+              <article className="rp-card rp-arrives-card" key={c.title}>
+                <div className="rp-card-head">
+                  <span className="rp-card-icon">
+                    <i className={c.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{c.title}</h3>
+                </div>
+                <ul className="check-list check-list-blue">
                   {c.points.map((p) => (
-                    <li key={p} style={{ marginBottom: "0.4rem" }}>
-                      {p}
-                    </li>
+                    <li key={p}>{p}</li>
                   ))}
                 </ul>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "2rem", color: "var(--muted)" }}>
+          <p className="rp-closing">
             Proposals are written by the strategist who would run the account, not by a business
             development team. That is why they take five days rather than one.
           </p>
@@ -495,94 +511,108 @@ export default function RequestProposalPage() {
       </section>
 
       {/* 3. The shape of it */}
-      <section className="section section-soft" id="rp-anatomy">
+      <section className="section" id="rp-anatomy">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>The shape of it</Pill>
-          <h2>Front-loaded, deliberately</h2>
-          <p>The first page is the argument. The scope and the price follow from it rather than leading it.</p>
-          <p>
-            Most agency proposals open with an About Us section, a client logo wall and a
-            description of the agency’s methodology. By the time anything about your business
-            appears, the reader has skimmed four pages. Ours opens on page one with what we
-            think is holding your revenue down and why we think it — then everything after
-            that is the case for fixing it in a particular order.
-          </p>
-          <p>
-            That structure has a side effect worth stating: if we cannot name a constraint
-            from what you have given us, the proposal says so rather than padding.
-            Occasionally the honest version of page one is that you should take the free
-            audit first, and we will tell you that instead of quoting.
-          </p>
-          <ul className="check-list">
-            <li>No logo wall, no methodology diagram, no filler case studies</li>
-            <li>Every number in it traceable to something you sent us</li>
-            <li>Written to be forwarded internally without a covering explanation</li>
-          </ul>
-          <div className="split-img" style={{ marginTop: "24px" }}>
-            <Image
-              src="/images/request-a-proposal-compliance-documents.webp"
-              alt="Reviewing compliance documents with a pen and notepad"
-              width={1920}
-              height={1280}
-            />
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>The shape of it</Pill>
+            <h2 className="rp-h2">Front-loaded, deliberately</h2>
+            <p className="lead">The first page is the argument. The scope and the price follow from it rather than leading it.</p>
+          </div>
+          <div className="rp-split">
+            <div className="rp-split-text">
+              <p>
+                Most agency proposals open with an About Us section, a client logo wall and a
+                description of the agency’s methodology. By the time anything about your business
+                appears, the reader has skimmed four pages. Ours opens on page one with what we
+                think is holding your revenue down and why we think it — then everything after
+                that is the case for fixing it in a particular order.
+              </p>
+              <p>
+                That structure has a side effect worth stating: if we cannot name a constraint
+                from what you have given us, the proposal says so rather than padding.
+                Occasionally the honest version of page one is that you should take the free
+                audit first, and we will tell you that instead of quoting.
+              </p>
+              <ul className="check-list">
+                <li>No logo wall, no methodology diagram, no filler case studies</li>
+                <li>Every number in it traceable to something you sent us</li>
+                <li>Written to be forwarded internally without a covering explanation</li>
+              </ul>
+            </div>
+            <div className="rp-split-img">
+              <Image
+                src="/images/request-a-proposal-compliance-documents.webp"
+                alt="Reviewing compliance documents with a pen and notepad"
+                width={1920}
+                height={1280}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* 4. From your side */}
-      <section className="section" id="rp-need">
+      <section className="section section-soft" id="rp-need">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>From your side</Pill>
-          <h2>What we need to write it</h2>
-          <p className="lead">
-            The form below asks for most of this. The more of it you can give, the more specific
-            the proposal — and the less of it reads as assumption.
-          </p>
-          <div className="split-img" style={{ margin: "24px 0" }}>
-            <Image
-              src="/images/request-a-proposal-compliance-manager.webp"
-              alt="Compliance manager holding a folder of market documentation"
-              width={1920}
-              height={1280}
-            />
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>From your side</Pill>
+            <h2 className="rp-h2">What we need to write it</h2>
+            <p className="lead">
+              The form below asks for most of this. The more of it you can give, the more specific
+              the proposal — and the less of it reads as assumption.
+            </p>
           </div>
-          <p className="lead">
-            None of this is a prerequisite. We will write a proposal from the store URL alone
-            if that is all you want to share, it will simply carry more caveats and a wider
-            price range.
-          </p>
-          <ul className="check-list">
-            {needItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p style={{ color: "var(--muted)" }}>
-            We do not ask for analytics access to write a proposal. That comes later, and only
-            if you decide to go ahead or to take the{" "}
-            <Link href="/ecommerce-audit/">free audit</Link> .
-          </p>
+          <div className="rp-split">
+            <div className="rp-split-img">
+              <Image
+                src="/images/request-a-proposal-compliance-manager.webp"
+                alt="Compliance manager holding a folder of market documentation"
+                width={1920}
+                height={1280}
+              />
+            </div>
+            <div className="rp-split-text">
+              <p>
+                None of this is a prerequisite. We will write a proposal from the store URL alone
+                if that is all you want to share, it will simply carry more caveats and a wider
+                price range.
+              </p>
+              <ul className="check-list">
+                {needItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="rp-split-close">
+                We do not ask for analytics access to write a proposal. That comes later, and only
+                if you decide to go ahead or to take the{" "}
+                <Link href="/ecommerce-audit/">free audit</Link> .
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 5. The timeline */}
-      <section className="section section-soft" id="rp-timeline">
+      <section className="section" id="rp-timeline">
         <div className="container">
-          <Pill icon="fa-solid fa-calendar-days" center>The timeline</Pill>
-          <h2>Request to proposal in five working days</h2>
-          <p className="lead">
-            No discovery workshop, no mutual NDA before anyone has said anything, no
-            three-week scheduling exercise.
-          </p>
-          <div className="card-grid card-grid-4">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-calendar-days" center>The timeline</Pill>
+            <h2 className="rp-h2">Request to proposal in five working days</h2>
+            <p className="lead">
+              No discovery workshop, no mutual NDA before anyone has said anything, no
+              three-week scheduling exercise.
+            </p>
+          </div>
+          <div className="rp-timeline-grid">
             {timelineSteps.map((s) => (
-              <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
+              <article className="rp-card rp-timeline-card" key={s.num}>
+                <span className="rp-num-tile">{s.num}</span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "2rem", color: "var(--muted)" }}>
+          <p className="rp-closing">
             If you need it faster than five days, say so in the form. We will tell you honestly
             whether a rushed version is worth having.
           </p>
@@ -592,59 +622,71 @@ export default function RequestProposalPage() {
       {/* 6. On price */}
       <section className="section" id="rp-pricing">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>On price</Pill>
-          <h2>Why the number is in the proposal and not on the call</h2>
-          <p className="lead">
-            We publish packages. What we cannot publish is which one your catalogue actually
-            needs.
-          </p>
-          <p>
-            Our <Link href="/pricing/">pricing page</Link> carries three packages and what
-            drives the cost of each. For most brands one of those is the answer and the
-            proposal simply confirms which. For the
-            rest — multi-marketplace sellers, large catalogues, brands mid-replatform — the
-            honest number sits outside a package, and quoting one on a first call would be a
-            guess dressed as an answer.
-          </p>
-          <p>
-            Either way the proposal states a figure rather than a range, along with what would
-            move it. If the figure is higher than the band you gave us, it says so on page one
-            instead of at the end.
-          </p>
-          <div className="btn-row">
-            <Link className="btn btn-outline" href="/pricing/">
-              See published pricing
-            </Link>
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>On price</Pill>
+            <h2 className="rp-h2">Why the number is in the proposal and not on the call</h2>
+            <p className="lead">
+              We publish packages. What we cannot publish is which one your catalogue actually
+              needs.
+            </p>
           </div>
-          <div className="split-img" style={{ marginTop: "24px" }}>
-            <Image
-              src="/images/request-a-proposal-banknote-pricing.webp"
-              alt="Local banknote held beside pricing documents"
-              width={1920}
-              height={1280}
-            />
+          <div className="rp-split">
+            <div className="rp-split-text">
+              <p>
+                Our <Link href="/pricing/">pricing page</Link> carries three packages and what
+                drives the cost of each. For most brands one of those is the answer and the
+                proposal simply confirms which. For the
+                rest — multi-marketplace sellers, large catalogues, brands mid-replatform — the
+                honest number sits outside a package, and quoting one on a first call would be a
+                guess dressed as an answer.
+              </p>
+              <p>
+                Either way the proposal states a figure rather than a range, along with what would
+                move it. If the figure is higher than the band you gave us, it says so on page one
+                instead of at the end.
+              </p>
+              <Link className="tm-btn rp-btn-white" href="/pricing/">
+                See published pricing
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
+            <div className="rp-split-img">
+              <Image
+                src="/images/request-a-proposal-banknote-pricing.webp"
+                alt="Local banknote held beside pricing documents"
+                width={1920}
+                height={1280}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* 7. Before you ask */}
-      <section className="section section-soft" id="rp-premature">
+      <section className="section" id="rp-premature">
         <div className="container">
-          <Pill icon="fa-solid fa-circle-question" center>Before you ask</Pill>
-          <h2>Five times a proposal is the wrong request</h2>
-          <p className="lead">
-            We would rather tell you this here than write you a document that cannot be acted
-            on.
-          </p>
-          <div className="card-grid">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-circle-question" center>Before you ask</Pill>
+            <h2 className="rp-h2">Five times a proposal is the wrong request</h2>
+            <p className="lead">
+              We would rather tell you this here than write you a document that cannot be acted
+              on.
+            </p>
+          </div>
+          <div className="rp-premature-grid">
             {premature.map((c) => (
-              <article className="card" key={c.title}>
-                <h3>{c.title}</h3>
+              <article className="rp-card rp-premature-card" key={c.title}>
+                <div className="rp-card-head">
+                  <span className="rp-card-icon">
+                    <i className={c.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{c.title}</h3>
+                </div>
                 <p>{c.body}</p>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "2rem", color: "var(--muted)" }}>
+          <p className="rp-closing rp-closing-15">
             None of these are refusals. Say so in the form and we will write what is actually
             useful, or tell you plainly that a call would serve you better.
           </p>
@@ -654,31 +696,33 @@ export default function RequestProposalPage() {
       {/* 8. Fit */}
       <section className="section" id="rp-fit">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Fit</Pill>
-          <h2>Who this works for, and who it does not</h2>
-          <p className="lead">
-            Stated before you spend ten minutes on a form rather than after we have both spent
-            a week.
-          </p>
-          <div className="card-grid card-grid-2">
-            <article className="card">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>Fit</Pill>
+            <h2 className="rp-h2">Who this works for, and who it does not</h2>
+            <p className="lead">
+              Stated before you spend ten minutes on a form rather than after we have both spent
+              a week.
+            </p>
+          </div>
+          <div className="rp-fit-grid">
+            <article className="rp-card rp-fit-card">
               <h3>We are usually a good fit when</h3>
-              <ul className="check-list">
+              <ul className="check-list check-list-blue">
                 {goodFit.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             </article>
-            <article className="card">
+            <article className="rp-card rp-fit-card">
               <h3>We are usually the wrong choice when</h3>
-              <ul className="check-list">
+              <ul className="check-list check-list-blue">
                 {wrongFit.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             </article>
           </div>
-          <p style={{ marginTop: "2rem", color: "var(--muted)" }}>
+          <p className="rp-closing">
             If you read the right-hand column and recognise your situation, the honest answer is
             that we would take your money and underperform. We would rather you knew now.
           </p>
@@ -688,14 +732,16 @@ export default function RequestProposalPage() {
       {/* 9. The request — proposal form */}
       <section className="section section-soft" id="rp-form">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>The request</Pill>
-          <h2>Tell us enough to write something useful</h2>
-          <p className="lead">
-            Six required fields, consent included. Everything else sharpens the proposal rather
-            than gating it.
-          </p>
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>The request</Pill>
+            <h2 className="rp-h2">Tell us enough to write something useful</h2>
+            <p className="lead">
+              Six required fields, consent included. Everything else sharpens the proposal rather
+              than gating it.
+            </p>
+          </div>
           {submitted ? (
-            <div className="card" style={{ marginTop: "32px", maxWidth: "760px" }}>
+            <div className="rp-form-card">
               <h3>
                 Thank you, {form.name.split(" ")[0] || "there"} — your proposal request is in.
               </h3>
@@ -721,271 +767,263 @@ export default function RequestProposalPage() {
                 )}
               </p>
               <div className="btn-row">
-                <button className="btn btn-outline" type="button" onClick={resetForm}>
+                <button className="tm-btn rp-btn-white" type="button" onClick={resetForm}>
                   Send another request
                 </button>
-                <Link className="btn" href="/book-a-strategy-call/">
+                <Link className="tm-btn tm-btn-blue" href="/book-a-strategy-call/">
                   Book a Strategy Call
                 </Link>
               </div>
             </div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              style={{ marginTop: "32px", maxWidth: "860px" }}
-            >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                  gap: "0 16px",
-                }}
-              >
-                <div className="form-field">
-                  <label htmlFor="rp-name">
-                    Full name <span className="required">*</span>
-                  </label>
-                  <input
-                    id="rp-name"
-                    className="form-input"
-                    type="text"
-                    placeholder="Jordan Avery"
-                    value={form.name}
-                    onChange={(e) => set("name", e.target.value)}
-                    required
-                  />
-                  {errors.name && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {errors.name}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-email">
-                    Work email <span className="required">*</span>
-                  </label>
-                  <input
-                    id="rp-email"
-                    className="form-input"
-                    type="email"
-                    placeholder="jordan@yourbrand.com"
-                    value={form.email}
-                    onChange={(e) => set("email", e.target.value)}
-                    required
-                  />
-                  {errors.email && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-company">
-                    Company <span className="required">*</span>
-                  </label>
-                  <input
-                    id="rp-company"
-                    className="form-input"
-                    type="text"
-                    placeholder="Your brand"
-                    value={form.company}
-                    onChange={(e) => set("company", e.target.value)}
-                    required
-                  />
-                  {errors.company && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {errors.company}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-role">Your role</label>
-                  <select
-                    id="rp-role"
-                    className="form-select"
-                    value={form.role}
-                    onChange={(e) => set("role", e.target.value)}
-                  >
-                    {roles.map((r) => (
-                      <option key={r} value={r}>
-                        {r}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-website">
-                    Store website <span className="required">*</span>
-                  </label>
-                  <input
-                    id="rp-website"
-                    className="form-input"
-                    type="url"
-                    placeholder="https://"
-                    value={form.website}
-                    onChange={(e) => set("website", e.target.value)}
-                    required
-                  />
-                  {errors.website && (
-                    <p className="form-msg form-msg-dark err" role="alert">
-                      {errors.website}
-                    </p>
-                  )}
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-platform">Primary platform</label>
-                  <select
-                    id="rp-platform"
-                    className="form-select"
-                    value={form.platform}
-                    onChange={(e) => set("platform", e.target.value)}
-                  >
-                    {platforms.map((p) => (
-                      <option key={p} value={p}>
-                        {p}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-revenue">Monthly online revenue</label>
-                  <select
-                    id="rp-revenue"
-                    className="form-select"
-                    value={form.revenue}
-                    onChange={(e) => set("revenue", e.target.value)}
-                  >
-                    {revenues.map((r) => (
-                      <option key={r} value={r}>
-                        {r}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="rp-budget">Monthly budget you have in mind</label>
-                  <select
-                    id="rp-budget"
-                    className="form-select"
-                    value={form.budget}
-                    onChange={(e) => set("budget", e.target.value)}
-                  >
-                    {budgets.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div className="form-field">
-                <label>What should the proposal cover?</label>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-                    gap: "4px 16px",
-                  }}
-                >
-                  {serviceOptions.map((s) => (
-                    <label className="form-check" key={s} style={{ fontWeight: 400 }}>
-                      <input
-                        type="checkbox"
-                        checked={form.services.includes(s)}
-                        onChange={() => toggleService(s)}
-                      />
-                      {s}
+            <div className="rp-form-card">
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="rp-form-grid">
+                  <div className="form-field">
+                    <label htmlFor="rp-name">
+                      Full name <span className="required">*</span>
                     </label>
-                  ))}
+                    <input
+                      id="rp-name"
+                      className="form-input"
+                      type="text"
+                      placeholder="Jordan Avery"
+                      value={form.name}
+                      onChange={(e) => set("name", e.target.value)}
+                      required
+                    />
+                    {errors.name && (
+                      <p className="form-msg form-msg-dark err" role="alert">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-email">
+                      Work email <span className="required">*</span>
+                    </label>
+                    <input
+                      id="rp-email"
+                      className="form-input"
+                      type="email"
+                      placeholder="jordan@yourbrand.com"
+                      value={form.email}
+                      onChange={(e) => set("email", e.target.value)}
+                      required
+                    />
+                    {errors.email && (
+                      <p className="form-msg form-msg-dark err" role="alert">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-company">
+                      Company <span className="required">*</span>
+                    </label>
+                    <input
+                      id="rp-company"
+                      className="form-input"
+                      type="text"
+                      placeholder="Your brand"
+                      value={form.company}
+                      onChange={(e) => set("company", e.target.value)}
+                      required
+                    />
+                    {errors.company && (
+                      <p className="form-msg form-msg-dark err" role="alert">
+                        {errors.company}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-role">Your role</label>
+                    <select
+                      id="rp-role"
+                      className="form-select"
+                      value={form.role}
+                      onChange={(e) => set("role", e.target.value)}
+                    >
+                      {roles.map((r) => (
+                        <option key={r} value={r}>
+                          {r}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-website">
+                      Store website <span className="required">*</span>
+                    </label>
+                    <input
+                      id="rp-website"
+                      className="form-input"
+                      type="url"
+                      placeholder="https://"
+                      value={form.website}
+                      onChange={(e) => set("website", e.target.value)}
+                      required
+                    />
+                    {errors.website && (
+                      <p className="form-msg form-msg-dark err" role="alert">
+                        {errors.website}
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-platform">Primary platform</label>
+                    <select
+                      id="rp-platform"
+                      className="form-select"
+                      value={form.platform}
+                      onChange={(e) => set("platform", e.target.value)}
+                    >
+                      {platforms.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-revenue">Monthly online revenue</label>
+                    <select
+                      id="rp-revenue"
+                      className="form-select"
+                      value={form.revenue}
+                      onChange={(e) => set("revenue", e.target.value)}
+                    >
+                      {revenues.map((r) => (
+                        <option key={r} value={r}>
+                          {r}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="rp-budget">Monthly budget you have in mind</label>
+                    <select
+                      id="rp-budget"
+                      className="form-select"
+                      value={form.budget}
+                      onChange={(e) => set("budget", e.target.value)}
+                    >
+                      {budgets.map((b) => (
+                        <option key={b} value={b}>
+                          {b}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div className="form-field">
-                <label htmlFor="rp-context">
-                  What is the main thing you want fixed, and what have you already tried?{" "}
-                  <span className="required">*</span>
-                </label>
-                <textarea
-                  id="rp-context"
-                  className="form-input"
-                  rows={5}
-                  placeholder="The more specific you are here, the more specific the proposal."
-                  value={form.context}
-                  onChange={(e) => set("context", e.target.value)}
-                  required
-                  style={{ width: "100%", resize: "vertical" }}
-                />
-                {errors.context && (
+                <div className="form-field">
+                  <label>What should the proposal cover?</label>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                      gap: "4px 16px",
+                    }}
+                  >
+                    {serviceOptions.map((s) => (
+                      <label className="form-check" key={s} style={{ fontWeight: 400 }}>
+                        <input
+                          type="checkbox"
+                          checked={form.services.includes(s)}
+                          onChange={() => toggleService(s)}
+                        />
+                        {s}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div className="form-field">
+                  <label htmlFor="rp-context">
+                    What is the main thing you want fixed, and what have you already tried?{" "}
+                    <span className="required">*</span>
+                  </label>
+                  <textarea
+                    id="rp-context"
+                    className="form-input"
+                    rows={5}
+                    placeholder="The more specific you are here, the more specific the proposal."
+                    value={form.context}
+                    onChange={(e) => set("context", e.target.value)}
+                    required
+                    style={{ width: "100%", resize: "vertical" }}
+                  />
+                  {errors.context && (
+                    <p className="form-msg form-msg-dark err" role="alert">
+                      {errors.context}
+                    </p>
+                  )}
+                </div>
+                <div className="form-field">
+                  <label htmlFor="rp-deadline">Any deadline or event driving this? (optional)</label>
+                  <input
+                    id="rp-deadline"
+                    className="form-input"
+                    type="text"
+                    placeholder="Peak season, board review, contract ending"
+                    value={form.deadline}
+                    onChange={(e) => set("deadline", e.target.value)}
+                  />
+                </div>
+                <div className="form-field form-check">
+                  <input
+                    id="rp-consent"
+                    type="checkbox"
+                    checked={form.consent}
+                    onChange={(e) => set("consent", e.target.checked)}
+                    required
+                  />
+                  <label htmlFor="rp-consent">
+                    I agree to Dazzle Commerce using these details to prepare and send a proposal.
+                  </label>
+                </div>
+                {errors.consent && (
                   <p className="form-msg form-msg-dark err" role="alert">
-                    {errors.context}
+                    {errors.consent}
                   </p>
                 )}
-              </div>
-              <div className="form-field">
-                <label htmlFor="rp-deadline">Any deadline or event driving this? (optional)</label>
-                <input
-                  id="rp-deadline"
-                  className="form-input"
-                  type="text"
-                  placeholder="Peak season, board review, contract ending"
-                  value={form.deadline}
-                  onChange={(e) => set("deadline", e.target.value)}
-                />
-              </div>
-              <div className="form-field form-check">
-                <input
-                  id="rp-consent"
-                  type="checkbox"
-                  checked={form.consent}
-                  onChange={(e) => set("consent", e.target.checked)}
-                  required
-                />
-                <label htmlFor="rp-consent">
-                  Consent <span className="required">*</span> — I agree to Dazzle Commerce using
-                  these details to prepare and send a proposal.
-                </label>
-              </div>
-              {errors.consent && (
-                <p className="form-msg form-msg-dark err" role="alert">
-                  {errors.consent}
-                </p>
-              )}
-              <button className="btn" type="submit">
-                Request My Proposal
-              </button>
-              {submitError && (
-                <p className="form-msg form-msg-dark err" role="alert">
-                  {submitError}
-                </p>
-              )}
-              <p style={{ marginTop: "1rem", color: "var(--muted)" }}>
-                Your details go to one inbox and are used to write the proposal. No newsletter,
-                no sequence, and no third parties. We reply within one business day.
-              </p>
-            </form>
+                <button className="tm-btn tm-btn-blue" type="submit">
+                  <i className="fa-regular fa-calendar-check" aria-hidden="true" />
+                  Request My Proposal
+                </button>
+                {submitError && (
+                  <p className="form-msg form-msg-dark err" role="alert">
+                    {submitError}
+                  </p>
+                )}
+              </form>
+            </div>
           )}
+          <p className="rp-form-note" style={{ marginTop: "24px" }}>
+            Your details go to one inbox and are used to write the proposal. No newsletter,
+            no sequence, and no third parties. We reply within one business day.
+          </p>
         </div>
       </section>
 
       {/* 10. Afterwards */}
       <section className="section" id="rp-after">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
-          <h2>What happens once you send it</h2>
-          <p className="lead">Four steps, and a firm limit on how often we contact you.</p>
-          <div className="card-grid card-grid-4">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
+            <h2 className="rp-h2">What happens once you send it</h2>
+            <p className="lead">Four steps, and a firm limit on how often we contact you.</p>
+          </div>
+          <div className="rp-after-grid">
             {afterwards.map((s) => (
-              <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
-                <p style={{ fontWeight: 800, color: "var(--blue)", fontSize: "0.85rem", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
-                  {s.label}
-                </p>
+              <article className="rp-card rp-after-card" key={s.num}>
+                <p className="rp-after-num">{s.num}</p>
+                <p className="rp-after-tag">{s.label}</p>
                 <h3>
                   <Link href={s.href}>{s.title}</Link>
                 </h3>
                 <p>{s.body}</p>
-                <p style={{ marginTop: "1rem", marginBottom: 0 }}>
-                  <Link href={s.href} style={{ fontWeight: 700 }}>
+                <p>
+                  <Link className="rp-after-link" href={s.href}>
                     {s.linkText}
                   </Link>
                 </p>
@@ -996,49 +1034,53 @@ export default function RequestProposalPage() {
       </section>
 
       {/* 11. Questions — Proposal FAQs */}
-      <section className="section section-soft" id="rp-faqs">
-        <div className="container center">
-          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
-          <h2>Proposal FAQs</h2>
-          <p className="lead" style={{ margin: "0 auto" }}>
-            The things people ask before filling in the form.
-          </p>
-          <FaqAccordion faqs={faqs} />
+      <section className="section" id="rp-faqs">
+        <div className="container">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
+            <h2 className="rp-h2">Proposal FAQs</h2>
+            <p className="lead">The things people ask before filling in the form.</p>
+          </div>
+          <FaqAccordion faqs={faqs} rotateIcon />
         </div>
       </section>
 
       {/* 12. Other routes in */}
       <section className="section" id="rp-more">
         <div className="container">
-          <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
-          <h2>Three ways to start that are not this one</h2>
-          <p className="lead">
-            A proposal is the most committed of the four. These are the lighter options.
-          </p>
-          <div className="card-grid">
+          <div className="rp-header">
+            <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
+            <h2 className="rp-h2">Three ways to start that are not this one</h2>
+            <p className="lead">
+              A proposal is the most committed of the four. These are the lighter options.
+            </p>
+          </div>
+          <div className="rp-route-grid">
             {otherRoutes.map((r) => (
-              <article className="case-card" key={r.title}>
+              <article className="rp-card rp-route-card" key={r.title}>
                 <Image src={r.img} alt={r.imgAlt} width={1200} height={800} />
-                <div className="case-body">
-                  <p className="case-cat">{r.label}</p>
-                  <h3>
-                    <Link href={r.href}>{r.title}</Link>
-                  </h3>
-                  <p style={{ color: "var(--muted)" }}>{r.body}</p>
-                </div>
+                <p className="rp-route-label">{r.label}</p>
+                <h3>
+                  <Link href={r.href}>{r.title}</Link>
+                </h3>
+                <p>{r.body}</p>
               </article>
             ))}
           </div>
-          <div className="center mt">
-            <Link className="btn btn-outline" href="/guides/">
+          <div className="rp-route-btn">
+            <Link className="tm-btn rp-btn-white" href="/guides/">
               All guides
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* 13. Final CTA */}
-      <section className="section section-blue final-cta">
+      <section
+        className="section final-cta final-cta-blue"
+        style={{ padding: "90px 0 100px" }}
+      >
         <div className="container">
           <h2>Not sure a proposal is the right next step?</h2>
           <p className="lead">
@@ -1046,19 +1088,17 @@ export default function RequestProposalPage() {
             proposal is better for having waited. All three cost nothing.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-light" href="/book-a-strategy-call/">
+            <Link className="tm-btn tm-btn-white" href="/book-a-strategy-call/">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" />
               Book a Strategy Call
             </Link>
-            <Link
-              className="btn"
-              href="/ecommerce-audit/"
-              style={{ background: "transparent", borderColor: "#fff" }}
-            >
+            <Link className="tm-btn tm-btn-ghost" href="/ecommerce-audit/">
               Request the Free Audit
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
