@@ -1,5 +1,7 @@
 # Testimonials — full extraction
 
+> REDO note — 2026-11-26 (one-page-at-a-time method, page 9 of Batch 1): re-verified against the live rendered page (cloud-browser walkthrough + fresh HTML fetch 482,709 bytes, byte-identical size to the 2026-11-23 fetch + live HTML + LiteSpeed CSS audit + stack-parser probes + direct viewing of the 12 live page photos). The walkthrough landed on an A/B experiment variant — the eighth occurrence (5 quote endings rewritten, Priya's featured quote reworded, story links prefixed with /case-studies/, brand links invented in by-service cards); ALL 5 variant strings are ABSENT from the served HTML and all control strings are PRESENT — control copy kept, no copy changes. Corrections to this extraction found in the redo: (1) story brands are **h6** links, not h3; story titles are **h3**, not h4 — all 12 lines corrected in place below. (2) Featured AND by-service cards carry 5 amber stars each (featured 16px, by-service 15px, fill #FBBF24). (3) The "Filmed testimonials are not published yet" note is a boxed info note (bg #EFF4FD, 4px blue left border, info icon), not plain text. (4) Featured "Read …'s full review" links are plain text links (14.5px/700 #0A4ED4), not buttons. (5) Tab membership verified from the live HTML's tab panels: Management = Devin Okafor + Head of Growth (Fitness Gear); SEO = Head of Organic Growth (Kitchenary) + Marketing Director (petzz); PPC = Marisa Chen + Founder (Luxury Comforts); CRO = Head of eCommerce (Men's grooming) + Retention Lead (Nutriblend); Development = Priya Raghavan. (6) The served HTML contains ZERO curly-quote characters — the batch build had wrapped all 13 quotes in curly quotes live does not have; removed in the redo. (7) Negative featured metrics use ASCII hyphens on live (-34% / -17% / -21%), not U+2212. (8) Story images: stories 1–3 use the `cases-*.webp` files (same as Portfolio's featured cards), stories 4–6 use `cs-*-hero.jpg`; the clone's old `case-*.webp` / `case-studies-*.webp` files were the wrong scenes for this page. Code pushed `49b744e`, photos `7c64bda`, records pushed after.
+
 > Correction note — 2026-11-23 (fidelity audit, live page re-fetched fresh the same day, byte-identical to the fetch this extraction was built from): the Final CTA body copy was recorded wrong. Live reads "Start with the free audit. We will show you where revenue is leaking, what it is worth to fix, and whether we are the right team to do it." — no "your" before "revenue". (The Case Studies page's equivalent line DOES say "where your revenue is leaking"; the two pages differ, and each keeps its own wording.) The clone wrongly had "where your revenue is leaking" on this page; fixed in this audit. Everything else in this extraction was verified against the fresh live fetch with no further differences found.
 
 Source: https://dazzlecommerce.com/testimonials/ — re-fetched fresh 2026-11-23 (curl, 482,709 bytes)
@@ -122,43 +124,43 @@ og:image: none on the live page | No JSON-LD on the live page.
 
 ### Story 1 — Nutriblend
 - IMG alt: "Dazzle Commerce SEO team working through category page structure" (live file: cases-Nutriblend.webp)
-- H3 link: Nutriblend -> /nutriblend-supplements-retention-uk/
-- H4: Fixing the churn window
+- H6 link: Nutriblend -> /nutriblend-supplements-retention-uk/
+- H3: Fixing the churn window
 - P: How a UK supplements brand lifted subscriber lifetime value 29% by matching delivery to consumption.
 - A: Read the full story -> /nutriblend-supplements-retention-uk/
 
 ### Story 2 — VAC Vacuums
 - IMG alt: "Dazzle Commerce marketplace team reviewing Amazon account performance" (live file: cases-VAC-Vacuums.webp)
-- H3 link: VAC Vacuums -> /vac-vacuums-amazon-marketplace-europe/
-- H4: Buy-box and catalogue recovery
+- H6 link: VAC Vacuums -> /vac-vacuums-amazon-marketplace-europe/
+- H3: Buy-box and catalogue recovery
 - P: Buy-box share up 44% and returns down 17%, once one catalogue problem was found behind both.
 - A: Read the full story -> /vac-vacuums-amazon-marketplace-europe/
 
 ### Story 3 — Kitchenary
 - IMG alt: "Dazzle Commerce paid media specialists reviewing campaign performance" (live file: cases-Kitchenary.webp)
-- H3 link: Kitchenary -> /kitchenary-home-kitchen-shopify-usa/
-- H4: Contribution margin recovery
+- H6 link: Kitchenary -> /kitchenary-home-kitchen-shopify-usa/
+- H3: Contribution margin recovery
 - P: Contribution margin up 38% once every order was made to carry its own delivery cost.
 - A: Read the full story -> /kitchenary-home-kitchen-shopify-usa/
 
 ### Story 4 — Lumen Atelier
 - IMG alt: "Fashion studio with a clothing rack and styled garments" (live file: cs-lumen-hero.jpg)
-- H3 link: Lumen Atelier -> /lumen-atelier-fashion-ppc-shopify-usa/
-- H4: Creative supply, not media
+- H6 link: Lumen Atelier -> /lumen-atelier-fashion-ppc-shopify-usa/
+- H3: Creative supply, not media
 - P: Cost per acquisition down 31% net of returns, once the constraint turned out to be the creative pipeline.
 - A: Read the full story -> /lumen-atelier-fashion-ppc-shopify-usa/
 
 ### Story 5 — Sabaa Beauty
 - IMG alt: "Luxury skincare products arranged for a beauty campaign" (live file: cs-sabaa-hero.jpg)
-- H3 link: Sabaa Beauty -> /sabaa-beauty-noon-seo-gcc/
-- H4: Arabic search and prepaid trust
+- H6 link: Sabaa Beauty -> /sabaa-beauty-noon-seo-gcc/
+- H3: Arabic search and prepaid trust
 - P: Organic revenue 2.4x and prepaid share up 38 points, after the Arabic site stopped being a translation.
 - A: Read the full story -> /sabaa-beauty-noon-seo-gcc/
 
 ### Story 6 — Verdano Foods
 - IMG alt: "Packaged food products displayed on a retail shelf" (live file: cs-verdano-hero.jpg)
-- H3 link: Verdano Foods -> /verdano-foods-bigcommerce-cro-australia/
-- H4: An honest delivery promise
+- H6 link: Verdano Foods -> /verdano-foods-bigcommerce-cro-australia/
+- H3: An honest delivery promise
 - P: Conversion up 41% after the quoted delivery window got longer rather than shorter.
 - A: Read the full story -> /verdano-foods-bigcommerce-cro-australia/
 
