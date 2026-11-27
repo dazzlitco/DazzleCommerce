@@ -112,22 +112,27 @@ const halfHourSteps = [
 
 const commitments = [
   {
+    icon: "fa-solid fa-display",
     title: "Present slides at you",
     body: "Nobody has ever bought an agency because of slide fourteen. If we send anything afterwards it is a written summary, not a deck.",
   },
   {
+    icon: "fa-solid fa-hourglass-end",
     title: "Create artificial urgency",
     body: "No expiring discounts, no “we only take two clients a quarter”, no pressure to decide on the call. The pricing is published and does not move because you hesitated.",
   },
   {
+    icon: "fa-solid fa-comments",
     title: "Run a qualification script",
     body: "You will not be asked to rate your pain out of ten, or which of four personas you identify with. It is a conversation between two people who know eCommerce.",
   },
   {
+    icon: "fa-solid fa-user-tie",
     title: "Hand you to somebody else afterwards",
     body: "The strategist on the call is the strategist on the account. There is no transition to an implementation team you have not met.",
   },
   {
+    icon: "fa-solid fa-chart-simple",
     title: "Quote numbers we cannot stand behind",
     body: (
       <>
@@ -138,6 +143,7 @@ const commitments = [
     ),
   },
   {
+    icon: "fa-solid fa-envelope",
     title: "Put you into a nurture sequence",
     body: "One follow-up after the call. If you do not reply, we stop. You will not receive a monthly newsletter you did not ask for.",
   },
@@ -180,18 +186,21 @@ const afterwards = [
 
 const timingCards = [
   {
+    icon: "fa-solid fa-list-check",
     title: "You have never measured the basics",
     body: "If you do not know your conversion rate, your abandonment rate or your margin by category, the call becomes us asking questions you cannot answer. Run the growth assessment first — forty minutes, free, and it makes this call twice as useful.",
     linkText: "growth assessment",
     href: "/ecommerce-growth-assessment/",
   },
   {
+    icon: "fa-solid fa-magnifying-glass-chart",
     title: "You need evidence, not an opinion",
     body: "A thirty-minute conversation produces a view. If you need something defensible enough to take to a board or to settle an internal argument, ask for the free audit instead.",
     linkText: "free audit",
     href: "/ecommerce-audit/",
   },
   {
+    icon: "fa-solid fa-file-signature",
     title: "You have already decided and need a number",
     body: "If you know what you want built and just need scope and price, skip the conversation and request a proposal. We will call you if something in it needs discussing.",
     linkText: "request a proposal",
@@ -319,127 +328,111 @@ export default function BookStrategyCallPage() {
     ) : null;
 
   return (
-    <>
+    <div className="bsc-page">
       {/* 1. Hero */}
       <section className="hero">
         <div className="container">
-          <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
+          <p className="bsc-breadcrumb">
             <Link href="/">Home</Link> › <Link href="/contact/">Contact</Link> › Book a
             Strategy Call
           </p>
-          <div className="hero-grid">
-            <div>
-              <Pill>Strategy call</Pill>
-              <p style={{ fontWeight: 700, color: "var(--blue)", marginBottom: "0.5rem" }}>
-                Thirty minutes · free
-              </p>
-              <h1>Book a Thirty-Minute Strategy Call</h1>
-              <p className="lead">
-                A conversation with the strategist who would actually run your account,
-                about the one thing most likely to be holding your revenue down. No slide
-                deck, no discovery questionnaire, no second call to meet the real team.
-                You get a written summary afterwards whether or not anything follows.
-              </p>
-              <div className="btn-row">
-                <Link className="btn" href="#bc-form">
-                  Go to the booking form
-                </Link>
-                <Link className="btn btn-outline" href="/request-a-proposal/">
-                  Ask for a proposal instead
-                </Link>
-              </div>
-              <p style={{ marginTop: "1.25rem", color: "var(--muted)" }}>
-                One strategist, one call, and a written summary you keep — including the
-                parts where we tell you not to hire us.
-              </p>
-            </div>
-            <div className="hero-img">
-              <Image
-                src="/images/book-a-strategy-call-hero.webp"
-                alt="Business team meeting in a modern office"
-                width={1920}
-                height={1280}
-                priority
-              />
-            </div>
+          <div className="bsc-hero-pills">
+            <span className="bsc-hero-pill">Strategy call</span>
+            <span className="bsc-hero-pill">Thirty minutes · free</span>
           </div>
-          <div className="trust-badges">
-            <div className="trust-badge">
-              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>LENGTH</p>
+          <h1>Book a Thirty-Minute Strategy Call</h1>
+          <p className="lead">
+            A conversation with the strategist who would actually run your account,
+            about the one thing most likely to be holding your revenue down. No slide
+            deck, no discovery questionnaire, no second call to meet the real team.
+            You get a written summary afterwards whether or not anything follows.
+          </p>
+          <div className="bsc-stats">
+            <div className="bsc-stat">
+              <h4>LENGTH</h4>
               <p>Thirty minutes</p>
             </div>
-            <div className="trust-badge">
-              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>WHO YOU MEET</p>
+            <div className="bsc-stat">
+              <h4>WHO YOU MEET</h4>
               <p>A senior strategist</p>
             </div>
-            <div className="trust-badge">
-              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>COST</p>
+            <div className="bsc-stat">
+              <h4>COST</h4>
               <p>Free</p>
             </div>
-            <div className="trust-badge">
-              <p style={{ fontWeight: 800, color: "var(--navy)", fontSize: "1rem", marginBottom: "0.25rem" }}>SLIDES</p>
+            <div className="bsc-stat">
+              <h4>SLIDES</h4>
               <p>None</p>
             </div>
           </div>
+          <div className="bsc-hero-btns">
+            <Link className="tm-btn tm-btn-blue" href="#bc-form">
+              <i className="fa-solid fa-phone" aria-hidden="true" />
+              Go to the booking form
+            </Link>
+            <Link className="read-more" href="/request-a-proposal/">
+              Ask for a proposal instead
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="bsc-hero-media">
+            <Image
+              src="/images/book-a-strategy-call-hero.webp"
+              alt="Business team meeting in a modern office"
+              width={1920}
+              height={1280}
+              priority
+            />
+          </div>
+          <p className="bsc-standalone">
+            One strategist, one call, and a written summary you keep — including the
+            parts where we tell you not to hire us.
+          </p>
         </div>
       </section>
 
       {/* 2. What it is, and what it is not */}
       <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-headset" center>The call</Pill>
-          <h2>What it is, and what it is not</h2>
-          <p className="lead">
-            Most agency “discovery calls” are qualification interviews with a demo at the
-            end. This is not that, and it is worth being specific about the difference.
-          </p>
-          <div className="card-grid card-grid-2">
-            <article className="card">
-              <h3>What it is</h3>
-              <ul className="check-list">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-headset" center>The call</Pill>
+            <h2 className="bsc-h2">What it is, and what it is not</h2>
+            <p className="lead">
+              Most agency “discovery calls” are qualification interviews with a demo at the
+              end. This is not that, and it is worth being specific about the difference.
+            </p>
+          </div>
+          <div className="bsc-call-grid">
+            <article className="bsc-card bsc-call-card">
+              <div className="bsc-card-head">
+                <span className="bsc-card-icon">
+                  <i className="fa-solid fa-circle-check" aria-hidden="true" />
+                </span>
+                <h3>What it is</h3>
+              </div>
+              <ul className="check-list check-list-blue">
                 <li>A working conversation about your numbers, not about us</li>
                 <li>Run by the strategist who would own your account</li>
                 <li>An honest read on what we think your constraint is</li>
                 <li>A place to argue with that read and change our mind</li>
               </ul>
             </article>
-            <article className="card">
-              <h3>What it is not</h3>
-              <ul style={{ listStyle: "none", padding: 0, margin: "1.25rem 0" }}>
-                {[
-                  "A slide deck about our methodology and client logos",
-                  "A qualification call that hands you to somebody senior later",
-                  "A pricing negotiation — the numbers are already published",
-                  "A commitment to anything, including a second call",
-                ].map((item) => (
-                  <li key={item} style={{ padding: "0.45rem 0 0.45rem 2rem", position: "relative" }}>
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        position: "absolute",
-                        left: 0,
-                        top: "0.45rem",
-                        width: "1.4rem",
-                        height: "1.4rem",
-                        borderRadius: "50%",
-                        background: "var(--bg-soft)",
-                        color: "#dc2626",
-                        fontWeight: 800,
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "0.85rem",
-                      }}
-                    >
-                      ✕
-                    </span>
-                    {item}
-                  </li>
-                ))}
+            <article className="bsc-card bsc-call-card">
+              <div className="bsc-card-head">
+                <span className="bsc-card-icon">
+                  <i className="fa-solid fa-circle-xmark" aria-hidden="true" />
+                </span>
+                <h3>What it is not</h3>
+              </div>
+              <ul className="check-list check-list-blue">
+                <li>A slide deck about our methodology and client logos</li>
+                <li>A qualification call that hands you to somebody senior later</li>
+                <li>A pricing negotiation — the numbers are already published</li>
+                <li>A commitment to anything, including a second call</li>
               </ul>
             </article>
           </div>
-          <p style={{ marginTop: "1.5rem", color: "var(--muted)" }}>
+          <p className="bsc-closing">
             If thirty minutes is not enough for your situation, we will say so on the call
             and tell you which of the free routes fits better.
           </p>
@@ -447,23 +440,25 @@ export default function BookStrategyCallPage() {
       </section>
 
       {/* 3. How the thirty minutes is actually spent */}
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>The half hour</Pill>
-          <h2>How the thirty minutes is actually spent</h2>
-          <p className="lead">
-            Roughly this shape, though we will follow whatever turns out to matter.
-          </p>
-          <div className="card-grid card-grid-4">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>The half hour</Pill>
+            <h2 className="bsc-h2">How the thirty minutes is actually spent</h2>
+            <p className="lead">
+              Roughly this shape, though we will follow whatever turns out to matter.
+            </p>
+          </div>
+          <div className="bsc-step-grid">
             {halfHourSteps.map((s) => (
-              <article className="card" key={s.num}>
-                <p className="card-num">{s.num}</p>
+              <article className="bsc-card bsc-step-card" key={s.num}>
+                <span className="bsc-num-tile">{s.num}</span>
                 <h3>{s.title}</h3>
                 <p>{s.body}</p>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "1.5rem", color: "var(--muted)" }}>
+          <p className="bsc-closing">
             You will get a written summary within one business day, with the constraint
             we named and the reasoning behind it. It is yours to use with or without us.
           </p>
@@ -473,14 +468,16 @@ export default function BookStrategyCallPage() {
       {/* 4. Which eCommerce consultant you will actually be speaking to */}
       <section className="section">
         <div className="container">
-          <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-layer-group" center>The other side</Pill>
-              <h2>Which eCommerce consultant you will actually be speaking to</h2>
-              <p>
-                The eCommerce consultant on the call is the person who would run the work.
-                This is the whole point.
-              </p>
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>The other side</Pill>
+            <h2 className="bsc-h2">Which eCommerce consultant you will actually be speaking to</h2>
+            <p className="lead">
+              The eCommerce consultant on the call is the person who would run the work.
+              This is the whole point.
+            </p>
+          </div>
+          <div className="bsc-split">
+            <div className="bsc-split-text">
               <p>
                 Depending on what your form says, you will be booked with the strategist
                 whose discipline matches your likely constraint — search, paid, retention,
@@ -501,7 +498,7 @@ export default function BookStrategyCallPage() {
                 <li>The same person you would work with if you went ahead</li>
               </ul>
             </div>
-            <div className="split-img">
+            <div className="bsc-split-img">
               <Image
                 src="/images/book-a-strategy-call-consultant.webp"
                 alt="eCommerce strategists brainstorming a growth plan around a meeting table"
@@ -514,10 +511,18 @@ export default function BookStrategyCallPage() {
       </section>
 
       {/* 5. What to have open, and what not to bother with */}
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
-          <div className="split">
-            <div className="split-img">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>Preparation</Pill>
+            <h2 className="bsc-h2">What to have open, and what not to bother with</h2>
+            <p className="lead">
+              Thirty minutes goes quickly. Five minutes of preparation roughly doubles
+              what you get out of it.
+            </p>
+          </div>
+          <div className="bsc-split">
+            <div className="bsc-split-img">
               <Image
                 src="/images/book-a-strategy-call-preparation.webp"
                 alt="Tablet showing eCommerce performance charts on a desk"
@@ -525,13 +530,7 @@ export default function BookStrategyCallPage() {
                 height={1280}
               />
             </div>
-            <div>
-              <Pill icon="fa-solid fa-layer-group" center>Preparation</Pill>
-              <h2>What to have open, and what not to bother with</h2>
-              <p>
-                Thirty minutes goes quickly. Five minutes of preparation roughly doubles
-                what you get out of it.
-              </p>
+            <div className="bsc-split-text">
               <p>
                 None of this is required. If you turn up with nothing we will still have
                 a useful conversation from what is publicly visible on your store.
@@ -542,12 +541,12 @@ export default function BookStrategyCallPage() {
                 <li>A rough gross margin band for your main categories</li>
                 <li>The one thing that has been bothering you for months</li>
               </ul>
-              <p>
-                <strong>What not to prepare:</strong> a brief, a deck, a list of agency
+              <p className="bsc-split-note">
+                What not to prepare: a brief, a deck, a list of agency
                 questions, or a tidied-up version of your numbers. Messy and real is more
                 useful to us than clean and approximate.
               </p>
-              <p>
+              <p className="bsc-split-close">
                 If you would like to arrive already knowing your constraint, the{" "}
                 <Link href="/ecommerce-growth-assessment/">growth assessment</Link> takes
                 about forty minutes and is published in full.
@@ -560,21 +559,28 @@ export default function BookStrategyCallPage() {
       {/* 6. Six things we will not do on this call */}
       <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Our commitments</Pill>
-          <h2>Six things we will not do on this call</h2>
-          <p className="lead">
-            Each of these costs us conversions. They are on the page because the
-            alternative is a worse conversation.
-          </p>
-          <div className="card-grid">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>Our commitments</Pill>
+            <h2 className="bsc-h2">Six things we will not do on this call</h2>
+            <p className="lead">
+              Each of these costs us conversions. They are on the page because the
+              alternative is a worse conversation.
+            </p>
+          </div>
+          <div className="bsc-commit-grid">
             {commitments.map((c) => (
-              <article className="card" key={c.title}>
-                <h3>{c.title}</h3>
+              <article className="bsc-card" key={c.title}>
+                <div className="bsc-card-head">
+                  <span className="bsc-card-icon">
+                    <i className={c.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{c.title}</h3>
+                </div>
                 <p>{c.body}</p>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "1.5rem", color: "var(--muted)" }}>
+          <p className="bsc-closing bsc-closing-15">
             If any of that happens on your call, reply to the summary email and tell us.
             It would be a failure of ours, not a tactic.
           </p>
@@ -584,14 +590,16 @@ export default function BookStrategyCallPage() {
       {/* 7. Booking form */}
       <section className="section section-soft" id="bc-form">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Book it</Pill>
-          <h2>Nine fields, five of them required</h2>
-          <p className="lead">
-            We use the answers to pick which strategist you speak to and to prepare, so
-            the first ten minutes is not spent on basics.
-          </p>
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>Book it</Pill>
+            <h2 className="bsc-h2">Nine fields, five of them required</h2>
+            <p className="lead">
+              We use the answers to pick which strategist you speak to and to prepare, so
+              the first ten minutes is not spent on basics.
+            </p>
+          </div>
           {submitted ? (
-            <div className="card" role="status" style={{ background: "#fff", marginTop: "32px" }}>
+            <div className="bsc-form-card" role="status">
               <Pill icon="fa-solid fa-circle-check">Call booked</Pill>
               <h2 style={{ fontSize: "1.5rem" }}>
                 Thank you, {form.name.split(" ")[0] || "there"} — your strategy call is
@@ -608,23 +616,22 @@ export default function BookStrategyCallPage() {
                 Focus for the call: <strong>{form.focus}</strong>
               </p>
               <div className="btn-row">
-                <button className="btn" type="button" onClick={resetForm}>
+                <button className="tm-btn tm-btn-blue" type="button" onClick={resetForm}>
                   Book another call
                 </button>
-                <Link className="btn btn-outline" href="/case-studies/">
+                <Link className="read-more" href="/case-studies/">
                   Read case studies first
                 </Link>
               </div>
             </div>
           ) : (
             <form
-              className="card"
-              style={{ background: "#fff", marginTop: "32px" }}
+              className="bsc-form-card"
               onSubmit={handleSubmit}
               noValidate
               aria-label="Strategy Call Booking"
             >
-              <div className="card-grid card-grid-2" style={{ marginTop: 0 }}>
+              <div className="bsc-form-grid">
                 <div className="form-field">
                   <label htmlFor="bc-name">
                     Full name <span className="required">*</span>
@@ -754,8 +761,8 @@ export default function BookStrategyCallPage() {
                       onChange={(e) => set("consent", e.target.checked)}
                     />
                     <span>
-                      Consent <span className="required">*</span> — I agree to Dazzle
-                      Commerce using these details to arrange and prepare for the call.
+                      I agree to Dazzle Commerce using these details to arrange and
+                      prepare for the call. <span className="required">*</span>
                     </span>
                   </label>
                   {err("consent")}
@@ -766,43 +773,36 @@ export default function BookStrategyCallPage() {
                   {submitError}
                 </p>
               )}
-              <button className="btn" type="submit">
+              <button className="tm-btn tm-btn-blue" type="submit">
+                <i className="fa-regular fa-calendar-check" aria-hidden="true" />
                 Book My Strategy Call
               </button>
-              <p style={{ color: "var(--muted)", marginTop: "1rem", marginBottom: 0 }}>
-                One inbox, one reply, one follow-up if we do not hear back. No sequence,
-                no newsletter, no third parties.
-              </p>
             </form>
           )}
+          <p className="bsc-form-note" style={{ marginTop: "24px" }}>
+            One inbox, one reply, one follow-up if we do not hear back. No sequence,
+            no newsletter, no third parties.
+          </p>
         </div>
       </section>
 
       {/* 8. What you get, whether or not you hire us */}
       <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
-          <h2>What you get, whether or not you hire us</h2>
-          <p className="lead">The summary is the deliverable. Everything else is optional.</p>
-          <div className="card-grid card-grid-4">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>Afterwards</Pill>
+            <h2 className="bsc-h2">What you get, whether or not you hire us</h2>
+            <p className="lead">The summary is the deliverable. Everything else is optional.</p>
+          </div>
+          <div className="bsc-after-grid">
             {afterwards.map((a) => (
-              <article className="card" key={a.num}>
-                <p className="card-num">{a.num}</p>
-                <p
-                  style={{
-                    fontSize: "0.8rem",
-                    fontWeight: 800,
-                    letterSpacing: "0.06em",
-                    color: "var(--blue)",
-                    marginBottom: "0.4rem",
-                  }}
-                >
-                  {a.tag}
-                </p>
+              <article className="bsc-card bsc-after-card" key={a.num}>
+                <p className="bsc-after-num">{a.num}</p>
+                <p className="bsc-after-tag">{a.tag}</p>
                 <h3>{a.title}</h3>
                 <p>{a.body}</p>
-                <p style={{ marginTop: "1rem", marginBottom: 0 }}>
-                  <Link href={a.href} style={{ fontWeight: 700 }}>
+                <p style={{ margin: 0 }}>
+                  <Link className="bsc-after-link" href={a.href}>
                     {a.linkText}
                   </Link>
                 </p>
@@ -813,15 +813,22 @@ export default function BookStrategyCallPage() {
       </section>
 
       {/* 9. Three times a call is the wrong first step */}
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Timing</Pill>
-          <h2>Three times a call is the wrong first step</h2>
-          <p className="lead">Not a refusal — just a better use of your half hour.</p>
-          <div className="card-grid">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-layer-group" center>Timing</Pill>
+            <h2 className="bsc-h2">Three times a call is the wrong first step</h2>
+            <p className="lead">Not a refusal — just a better use of your half hour.</p>
+          </div>
+          <div className="bsc-timing-grid">
             {timingCards.map((t) => (
-              <article className="card" key={t.title}>
-                <h3>{t.title}</h3>
+              <article className="bsc-card" key={t.title}>
+                <div className="bsc-card-head">
+                  <span className="bsc-card-icon">
+                    <i className={t.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{t.title}</h3>
+                </div>
                 <p>
                   {t.title === "You have never measured the basics" ? (
                     <>
@@ -849,7 +856,7 @@ export default function BookStrategyCallPage() {
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "1.5rem", color: "var(--muted)" }}>
+          <p className="bsc-closing bsc-closing-15">
             All four routes are free and none of them requires the others. Pick whichever
             matches where you actually are.
           </p>
@@ -858,46 +865,50 @@ export default function BookStrategyCallPage() {
 
       {/* 10. Strategy call FAQs */}
       <section className="section">
-        <div className="container center">
-          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
-          <h2>Strategy call FAQs</h2>
-          <p className="lead" style={{ margin: "0 auto" }}>
-            What people ask before booking.
-          </p>
-          <FaqAccordion faqs={faqs} />
+        <div className="container">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
+            <h2 className="bsc-h2">Strategy call FAQs</h2>
+            <p className="lead">What people ask before booking.</p>
+          </div>
+          <FaqAccordion faqs={faqs} rotateIcon />
         </div>
       </section>
 
       {/* 11. Three alternatives to a call */}
-      <section className="section section-soft">
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
-          <h2>Three alternatives to a call</h2>
-          <p className="lead">All free, all ungated, none of them requiring this one.</p>
-          <div className="card-grid">
+          <div className="bsc-header">
+            <Pill icon="fa-solid fa-route" center>Other routes in</Pill>
+            <h2 className="bsc-h2">Three alternatives to a call</h2>
+            <p className="lead">All free, all ungated, none of them requiring this one.</p>
+          </div>
+          <div className="bsc-route-grid">
             {otherRoutes.map((r) => (
-              <article className="case-card" key={r.title}>
+              <article className="bsc-card bsc-route-card" key={r.title}>
                 <Image src={r.img} alt={r.imgAlt} width={1200} height={800} />
-                <div className="case-body">
-                  <p className="case-cat">{r.tag}</p>
-                  <h3>
-                    <Link href={r.href}>{r.title}</Link>
-                  </h3>
-                  <p style={{ color: "var(--muted)" }}>{r.body}</p>
-                </div>
+                <p className="bsc-route-label">{r.tag}</p>
+                <h3>
+                  <Link href={r.href}>{r.title}</Link>
+                </h3>
+                <p>{r.body}</p>
               </article>
             ))}
           </div>
-          <div className="center mt">
-            <Link className="btn btn-outline" href="/guides/">
+          <div className="bsc-route-btn">
+            <Link className="read-more" href="/guides/">
               All guides
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* 12. Final CTA */}
-      <section className="section section-blue final-cta">
+      <section
+        className="section final-cta final-cta-blue"
+        style={{ padding: "90px 0 100px" }}
+      >
         <div className="container">
           <h2>Half an hour, and you keep the summary either way</h2>
           <p className="lead">
@@ -905,24 +916,17 @@ export default function BookStrategyCallPage() {
             think is causing it, in writing, whether or not anything follows.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-light" href="#bc-form">
+            <Link className="tm-btn tm-btn-white" href="#bc-form">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" />
               Book Your Strategy Call
             </Link>
-            <Link
-              className="btn"
-              href="/pricing/"
-              style={{ background: "transparent", borderColor: "#fff" }}
-            >
+            <Link className="tm-btn tm-btn-ghost" href="/pricing/">
               See Pricing &amp; Packages
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
-          <ul className="final-checks">
-            <li>Free 30-minute call</li>
-            <li>No long-term contracts</li>
-            <li>Actionable audit you keep</li>
-          </ul>
         </div>
       </section>
-    </>
+    </div>
   );
 }
