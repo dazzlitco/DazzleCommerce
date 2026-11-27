@@ -272,6 +272,64 @@ p { margin: 0 0 1rem; }
 .industry-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--navy); margin: 0 0 0.25rem; }
 .industry-card p { margin: 0; }
 
+/* Portfolio (live /portfolio/, 2026-11-26 redo). White secondary button and
+   blue check-list variant, plus all page-specific layouts. */
+.btn-white { background: #fff; border-color: #D9E1EE; color: var(--navy); }
+.btn-white:hover { background: var(--bg-soft); border-color: var(--blue); color: var(--blue); }
+.check-list-blue li::before { background: var(--blue); }
+
+/* Hero stats: 2x2 grid of white cards under the hero image, overlapping it. */
+.pf-hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: -42px; padding: 0 10px; position: relative; z-index: 1; }
+.pf-hero-stat { display: flex; align-items: center; gap: 11px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; box-shadow: 0 2px 8px rgba(9,19,37,0.04); }
+.pf-hero-stat-icon { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; background: #EFF4FD; color: var(--blue); border-radius: 10px; font-size: 15px; }
+.pf-hero-stat strong { display: block; font-size: 23px; font-weight: 800; color: var(--blue); line-height: 1.05; letter-spacing: -0.9px; }
+.pf-hero-stat span { display: block; font-size: 0.9rem; color: var(--muted); margin-top: 1px; }
+
+/* Featured cards: 2-col grid, inset photo, blue bold chips, 4-metric row. */
+.pf-featured-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 32px; }
+.pf-featured-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 26px 32px; display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.pf-featured-card img { width: 100%; border-radius: 16px; aspect-ratio: 3 / 2; object-fit: cover; }
+.pf-featured-card h3 { font-size: 23px; font-weight: 800; color: var(--navy); letter-spacing: -0.6px; line-height: 1.28; margin: 0; }
+.pf-featured-card .pf-body { color: var(--muted); margin: 0; }
+.pf-featured-card .read-more { margin-top: auto; }
+.pf-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-chip { flex: 1 1 auto; background: #EFF4FD; color: var(--blue); font-size: 12.5px; font-weight: 700; line-height: 1.3; text-align: left; padding: 6px 13px; border-radius: 999px; }
+.pf-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pf-metrics strong { display: block; font-size: 24px; font-weight: 800; color: var(--blue); line-height: 1.1; letter-spacing: -0.8px; }
+.pf-metrics span { display: block; font-size: 13px; font-weight: 500; color: #6B7280; line-height: 1.4; }
+
+/* Browse cards: single-column stack, green right-aligned metric. */
+.pf-browse-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 34px; }
+.pf-browse-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 7px; }
+.pf-browse-card h3 { font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.4px; line-height: 1.3; margin: 0; }
+.pf-browse-card h3 a { color: var(--navy); }
+.pf-browse-card h3 a:hover { color: var(--blue); }
+.pf-browse-subtitle { font-size: 15.5px; color: #5D6675; margin: 0; }
+.pf-browse-metric { font-size: 18px; font-weight: 800; color: #0D9668; text-align: right; margin: 0; }
+.pf-browse-cat { font-size: 14px; color: #6B7280; text-align: right; margin: 0; }
+
+/* Capability cards: icon tile + title row, blue check bullets. */
+.pf-cap-card { padding: 30px 28px; border-radius: 22px; }
+.pf-cap-head { display: flex; align-items: center; gap: 13px; }
+.pf-cap-head h3 { margin: 0; }
+.pf-cap-icon { display: inline-flex; align-items: center; justify-content: center; width: 47px; height: 47px; background: #EFF4FD; color: var(--blue); border-radius: 13px; font-size: 21px; flex-shrink: 0; }
+
+/* Spotlight: stats row under the image, blue-tile steps, info box below. */
+.pf-spot-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.pf-spot-stat { background: #fff; border: 1px solid #E6EBF3; border-radius: 16px; padding: 26px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pf-spot-stat strong { font-size: 44px; font-weight: 800; color: var(--blue); line-height: 1; letter-spacing: -1.4px; }
+.pf-spot-label { font-size: 15px; font-weight: 700; color: #1B2437; }
+.pf-spot-sub { font-size: 13px; color: #6B7280; }
+.pf-steps { display: flex; flex-direction: column; gap: 26px; }
+.pf-step { display: flex; gap: 18px; align-items: flex-start; }
+.pf-step-num { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; flex-shrink: 0; background: var(--blue); color: #fff; font-weight: 800; font-size: 16px; border-radius: 12px; }
+.pf-step h3 { font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.4px; line-height: 1.3; margin: 0 0 6px; }
+.pf-step p { color: var(--muted); margin: 0; }
+.pf-howto { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 32px; display: flex; gap: 18px; align-items: flex-start; }
+.pf-howto-icon { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: #EFF4FD; color: var(--blue); border-radius: 13px; font-size: 20px; }
+.pf-howto h3 { margin: 0 0 8px; }
+.pf-howto p { color: var(--muted); margin: 0; }
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
