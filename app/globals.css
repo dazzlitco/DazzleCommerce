@@ -480,6 +480,81 @@ p { margin: 0 0 1rem; }
   .cr-values { flex-direction: column; gap: 14px; }
 }
 
+/* Partners (live /partners/, 2026-11-27 redo). Hero is a flat #F7F9FC split
+   (text 56% / image 39%, gap 56px); section H2s are 44px, centred except the
+   commitments H2 (left); all content sections are 100px, alternating white /
+   #F7F9FC. */
+.partners-page h1 { font-size: clamp(2.25rem, 4.3vw, 3.875rem); letter-spacing: -2px; }
+.partners-page .pt-h2 { font-size: clamp(1.875rem, 3.05vw, 2.75rem); letter-spacing: -1px; }
+.partners-page .hero { background: #F7F9FC; padding: 88px 0 92px; }
+.partners-page .hero-grid { grid-template-columns: 56% 39%; justify-content: space-between; gap: 56px; }
+.partners-page .hero-img { box-shadow: 0 18px 44px -12px rgb(9 19 37 / .22); }
+.partners-page .pf-hero-stat { box-shadow: 0 8px 24px -6px rgb(9 19 37 / .14); border-color: #E6EBF3; }
+.partners-page .pf-hero-stat span { font-size: 12.5px; }
+/* Badges: 6-in-a-row white cards, logo/icon on top, DM Sans 15px name. */
+.pt-badge-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 28px 20px 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; }
+.pt-badge-card i { font-size: 40px; }
+.pt-badge-card h4 { font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 700; line-height: 1.4; letter-spacing: -0.2px; color: #1B2437; margin: 0; }
+/* Programs: 2-col cards, navy H4 headline, green check bullets, outlined button. */
+.pt-program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 32px; }
+.pt-program-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 34px 32px; display: flex; flex-direction: column; gap: 14px; }
+.pt-program-card h3 { font-size: 22px; font-weight: 800; line-height: 1.25; letter-spacing: -0.5px; color: #091325; margin: 0; }
+.pt-program-card .pt-audience { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.68; color: #5D6675; margin: 0; }
+.pt-program-card h4 { font-size: 22px; font-weight: 800; line-height: 1.25; letter-spacing: -0.5px; color: #091325; margin: 0; }
+.pt-program-card .check-list { margin: 0; }
+.pt-program-card .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+/* Why: icon-box cards (same geometry as the FAQ browse cards, all-blue tiles). */
+.pt-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; }
+.pt-why-grid .fq-card { padding: 32px; }
+.pt-why-grid .fq-card-icon { margin-bottom: 22px; }
+/* Working Stack: white cards with a small blue icon tile, H3 and blue checks. */
+.pt-stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; }
+.pt-stack-cell { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 28px 26px; display: flex; flex-direction: column; gap: 14px; }
+.pt-stack-icon { display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; background: #EFF4FD; color: #0B5BF4; font-size: 19px; padding: 12px; border-radius: 12px; }
+.pt-stack-cell h3 { font-size: 19px; font-weight: 800; line-height: 1.3; letter-spacing: -0.3px; color: #091325; margin: 0; }
+.pt-stack-cell .check-list { margin: 0; }
+.pt-stack-cell .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+/* Process: 3-col cards, blue 46px number tile with shadow, left-aligned. */
+.pt-process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 32px; }
+.pt-process-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 32px 26px; display: flex; flex-direction: column; gap: 9px; }
+.pt-process-card p.pt-step-num { display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; width: 46px; min-height: 46px; background: #0B5BF4; color: #fff; font-weight: 800; font-size: 17px; border-radius: 13px; box-shadow: 0 10px 26px -6px rgb(11 91 244 / .42); margin: 0 0 8px; }
+.pt-process-card h3 { font-size: 19px; font-weight: 800; line-height: 1.3; letter-spacing: -0.3px; color: #091325; margin: 0; }
+.pt-process-card p { font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.62; color: #5D6675; margin: 0; }
+/* Commitments: 44% text column (pill centred in the column, H2 left) + 52%
+   white card column with green-check rows (bold statement + grey subtext). */
+.pt-commit { display: flex; justify-content: space-between; gap: 52px; align-items: flex-start; margin-top: 40px; }
+.pt-commit-text { width: 44%; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.pt-commit-text .lead { margin: 0; }
+.pt-commit-card { width: 52%; flex-shrink: 0; background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 36px 34px; }
+.pt-commit-card .check-list { margin: 0; color: #5D6675; }
+.pt-commit-card .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; }
+/* Partner FAQs use the same nested-accordion look as the FAQs page. */
+.partners-page .faq-list { max-width: none; width: 70%; max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.partners-page .faq-item { margin-bottom: 0; border-color: #E6EBF3; border-radius: 16px; }
+.partners-page .faq-item.open { border-color: #B7CEFB; box-shadow: 0 2px 4px rgb(9 19 37 / .05), 0 4px 10px rgb(9 19 37 / .04); }
+.partners-page .faq-q { padding: 22px 26px; gap: 20px; font-size: 17px; line-height: 1.45; color: #091325; align-items: flex-start; }
+.partners-page .faq-q:hover { color: var(--blue); }
+.partners-page .faq-q .faq-toggle { display: grid; place-items: center; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: #EFF4FD; color: var(--blue); font-size: 15px; line-height: 1; margin-top: 1px; transition: transform .28s ease, background-color .22s ease, color .22s ease; }
+.partners-page .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--blue); color: #fff; }
+.partners-page .faq-a { padding: 0 26px 24px; font-size: 15.5px; line-height: 1.72; color: #5D6675; }
+.partners-page .faq-a p { max-width: 70ch; }
+@media (max-width: 1024px) {
+  .partners-page .hero { padding: 72px 0; }
+  .partners-page .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .partners-page .faq-list { width: 88%; }
+  .pt-badge-grid { grid-template-columns: repeat(3, 1fr); }
+  .pt-why-grid, .pt-stack-grid, .pt-process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 960px) {
+  .pt-commit { flex-direction: column; gap: 34px; }
+  .pt-commit-text, .pt-commit-card { width: 100%; }
+}
+@media (max-width: 767px) {
+  .partners-page .hero { padding: 56px 0; }
+  .pt-badge-grid { grid-template-columns: repeat(2, 1fr); }
+  .pt-program-grid, .pt-why-grid, .pt-stack-grid, .pt-process-grid { grid-template-columns: 1fr; }
+}
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }

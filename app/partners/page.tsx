@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Pill } from "@/components/Pill";
-import { PartnerBadge, type PartnerBrandKey } from "@/components/PartnerBadge";
+import PlatformLogo, { type PlatformLogoKey } from "@/components/PlatformLogo";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 
 // Live-page note: the live /partners/ page has no in-page application form —
@@ -41,13 +41,20 @@ const faqs: Faq[] = [
   },
 ];
 
-const badges: { name: string; brand: PartnerBrandKey }[] = [
-  { name: "Shopify Partner", brand: "shopify" },
-  { name: "Amazon Ads Partner", brand: "amazon" },
-  { name: "Google Partner", brand: "google" },
-  { name: "Meta Business Partner", brand: "meta" },
-  { name: "Microsoft Advertising Partner", brand: "microsoft" },
-  { name: "LinkedIn Marketing Partner", brand: "linkedin" },
+const heroStats = [
+  { value: "40+", label: "Active partners", icon: "fa-solid fa-handshake" },
+  { value: "22%", label: "Referral share", icon: "fa-solid fa-chart-line" },
+  { value: "9 yrs", label: "Operating history", icon: "fa-solid fa-chart-column" },
+  { value: "48 hrs", label: "Referral response", icon: "fa-solid fa-gauge-high" },
+];
+
+const badges: { name: string; logo?: PlatformLogoKey; icon?: string; color?: string }[] = [
+  { name: "Shopify Partner", logo: "shopify" },
+  { name: "Amazon Ads Partner", logo: "amazon" },
+  { name: "Google Partner", icon: "fa-brands fa-google", color: "#4285f4" },
+  { name: "Meta Business Partner", logo: "meta" },
+  { name: "Microsoft Advertising Partner", icon: "fa-brands fa-microsoft", color: "#00a4ef" },
+  { name: "LinkedIn Marketing Partner", icon: "fa-brands fa-linkedin-in", color: "#0a66c2" },
 ];
 
 const programs = [
@@ -113,52 +120,64 @@ const whyPartner = [
   {
     title: "We will not poach your client",
     body: "Every agency and white-label agreement carries a non-solicitation clause that runs 24 months past the last invoice. We have never breached one, and we will put it in writing before you send us a name.",
+    icon: "fa-solid fa-shield-halved",
   },
   {
     title: "Named people, not a pool",
     body: "Your account gets the same strategist and specialists every month. You will know their names, see them on calls, and reach them in the shared channel without going through an account manager first.",
+    icon: "fa-solid fa-user-check",
   },
   {
     title: "Payouts you can audit",
     body: "Referral share is calculated on revenue we actually collected, shown line by line in a monthly statement. If a client churns or short-pays, you see exactly why the number moved.",
+    icon: "fa-solid fa-file-invoice",
   },
   {
     title: "A 48-hour clock on every intro",
     body: "Referrals get a first call within two business days. You get told what happened either way — scoped, deferred or declined — so you are never the last to know about your own introduction.",
+    icon: "fa-solid fa-gauge-high",
   },
   {
     title: "Six disciplines under one roof",
     body: "Store management, SEO, paid media, CRO, retention and development sit in one team. You are not stitching four vendors together on your client’s behalf.",
+    icon: "fa-solid fa-diagram-project",
   },
   {
     title: "We say no in front of you",
     body: "If a referral is not a fit — wrong stage, wrong margin, wrong expectations — we tell you before we tell them, with the reasoning. Bad-fit engagements cost you more reputation than they earn us fees.",
+    icon: "fa-solid fa-comments",
   },
 ];
 
 const stack = [
   {
     group: "Store platforms",
+    icon: "fa-brands fa-shopify",
     tools: ["Shopify & Shopify Plus", "BigCommerce", "WooCommerce", "Magento / Adobe Commerce"],
   },
   {
     group: "Marketplaces",
+    icon: "fa-solid fa-store",
     tools: ["Amazon Seller & Vendor Central", "Walmart Marketplace", "eBay", "Etsy"],
   },
   {
     group: "Ads & analytics",
+    icon: "fa-solid fa-chart-line",
     tools: ["Google Ads & GA4", "Meta Ads Manager", "Amazon Ads", "Microsoft Advertising"],
   },
   {
     group: "Email & retention",
+    icon: "fa-solid fa-envelope-open-text",
     tools: ["Klaviyo", "Attentive", "Postscript", "Yotpo"],
   },
   {
     group: "CRO & testing",
+    icon: "fa-solid fa-flask",
     tools: ["Shopify native A/B", "Hotjar", "Microsoft Clarity", "Convert"],
   },
   {
     group: "SEO & data",
+    icon: "fa-solid fa-magnifying-glass-chart",
     tools: ["Ahrefs & Semrush", "Screaming Frog", "Google Search Console", "Looker Studio"],
   },
 ];
@@ -191,26 +210,42 @@ const processSteps = [
   },
 ];
 
-const commitments = [
-  "We will not solicit your clients. Non-solicitation runs 24 months past the final invoice, on every agency and white-label agreement.",
-  "Your referral hears from us in 48 hours. And you hear the outcome, whether we scoped it, deferred it or turned it down.",
-  "Payouts are calculated on collected revenue. Monthly statements show the invoices behind the number, not just the number.",
-  "No exclusivity, no minimums, no lock-in. Either side can end the arrangement with 30 days notice and no clawback on earned share.",
-  "We decline bad-fit referrals openly. You get the reasoning before your client does, so you are never contradicted in front of them.",
-  "Your data stays yours. Client lists, pricing and scope documents are never used for our own outbound. Ever.",
+const commitments: { statement: string; sub: string }[] = [
+  {
+    statement: "We will not solicit your clients.",
+    sub: "Non-solicitation runs 24 months past the final invoice, on every agency and white-label agreement.",
+  },
+  {
+    statement: "Your referral hears from us in 48 hours.",
+    sub: "And you hear the outcome, whether we scoped it, deferred it or turned it down.",
+  },
+  {
+    statement: "Payouts are calculated on collected revenue.",
+    sub: "Monthly statements show the invoices behind the number, not just the number.",
+  },
+  {
+    statement: "No exclusivity, no minimums, no lock-in.",
+    sub: "Either side can end the arrangement with 30 days notice and no clawback on earned share.",
+  },
+  {
+    statement: "We decline bad-fit referrals openly.",
+    sub: "You get the reasoning before your client does, so you are never contradicted in front of them.",
+  },
+  {
+    statement: "Your data stays yours.",
+    sub: "Client lists, pricing and scope documents are never used for our own outbound. Ever.",
+  },
 ];
 
 export default function PartnersPage() {
   return (
-    <>
+    <div className="partners-page">
       {/* 1. Hero */}
       <section className="hero" id="partners-hero">
         <div className="container">
           <div className="hero-grid">
             <div>
-              <Pill icon="fa-solid fa-users" center>
-                Partnership Program
-              </Pill>
+              <Pill icon="fa-solid fa-users">Partnership Program</Pill>
               <h1>Partnerships That Send Work Both Ways</h1>
               <p className="lead">
                 We partner with agencies, platforms, consultants and app developers who serve
@@ -219,66 +254,73 @@ export default function PartnersPage() {
                 documented, revenue-shared and referenceable.
               </p>
               <div className="btn-row">
-                <Link className="btn" href="#become-a-partner">
-                  Become a Partner
+                <Link
+                  className="tm-btn tm-btn-blue"
+                  href="#become-a-partner"
+                  style={{ boxShadow: "0 10px 26px -6px rgb(11 91 244 / .42)" }}
+                >
+                  Become a Partner <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
-                <Link className="btn btn-outline" href="#partner-programs">
+                <Link className="read-more" href="#partner-programs">
                   See Partner Programs
                 </Link>
               </div>
             </div>
-            <div className="hero-img">
-              <Image
-                src="/images/partners-hero.webp"
-                alt="Two people shaking hands on a partnership agreement"
-                width={1600}
-                height={1100}
-                priority
-              />
-            </div>
-          </div>
-          <div className="stat-row">
-            <div className="stat">
-              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>40+</h3>
-              <span>Active partners</span>
-            </div>
-            <div className="stat">
-              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>22%</h3>
-              <span>Referral share</span>
-            </div>
-            <div className="stat">
-              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>9 yrs</h3>
-              <span>Operating history</span>
-            </div>
-            <div className="stat">
-              <h3 style={{ fontSize: "1.9rem", color: "var(--blue)", fontWeight: 800 }}>48 hrs</h3>
-              <span>Referral response</span>
+            <div>
+              <div className="hero-img">
+                <Image
+                  src="/images/partners-hero.webp"
+                  alt="Two people shaking hands on a partnership agreement"
+                  width={1600}
+                  height={1100}
+                  priority
+                />
+              </div>
+              <div className="pf-hero-stats">
+                {heroStats.map((s) => (
+                  <div className="pf-hero-stat" key={s.value}>
+                    <span className="pf-hero-stat-icon">
+                      <i className={s.icon} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <strong>{s.value}</strong>
+                      <span>{s.label}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. Certified & Badged */}
-      <section className="section" id="platform-partners">
+      <section className="section" id="platform-partners" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-screwdriver-wrench" center>
             Certified &amp; Badged
           </Pill>
-          <h2>The platforms we are accountable to</h2>
-          <p className="lead">
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            The platforms we are accountable to
+          </h2>
+          <p className="lead center">
             Badges are not decoration. Each one carries spend thresholds, certification exams
             and account reviews we have to keep passing. If a platform revokes a badge, it
             comes off this page the same week.
           </p>
-          <div className="card-grid">
+          <div className="card-grid card-grid-6">
             {badges.map((b) => (
-              <div className="card platform-card" key={b.name}>
-                <PartnerBadge brand={b.brand} name={b.name} />
-                <h4 className="platform-name">{b.name}</h4>
+              <div className="pt-badge-card" key={b.name}>
+                {b.logo ? (
+                  <PlatformLogo brand={b.logo} size={56} />
+                ) : (
+                  <i className={b.icon} style={{ color: b.color }} aria-hidden="true" />
+                )}
+                <h4>{b.name}</h4>
               </div>
             ))}
           </div>
-          <p style={{ color: "var(--muted)", marginTop: "24px" }}>
+          <p style={{ color: "var(--muted)", marginTop: "24px", textAlign: "center" }}>
             Partner status is verified annually. Shopify Partner since 2018 · Google Partner
             since 2019 · Amazon Ads Partner Network since 2021.
           </p>
@@ -286,29 +328,35 @@ export default function PartnersPage() {
       </section>
 
       {/* 3. Four Ways In — Partnership programs */}
-      <section className="section section-soft" id="partner-programs">
+      <section
+        className="section section-soft"
+        id="partner-programs"
+        style={{ padding: "100px 0" }}
+      >
         <div className="container">
           <Pill icon="fa-solid fa-layer-group" center>
             Four Ways In
           </Pill>
-          <h2>Partnership programs</h2>
-          <p className="lead">
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            Partnership programs
+          </h2>
+          <p className="lead center">
             Pick the one that matches how you already make money. Terms are written down
             before anything is signed, and every program is cancellable with 30 days notice.
           </p>
-          <div className="card-grid card-grid-2">
+          <div className="pt-program-grid">
             {programs.map((p) => (
-              <article className="card" key={p.name}>
+              <article className="pt-program-card" key={p.name}>
                 <h3>{p.name}</h3>
-                <p>{p.audience}</p>
-                <h4 style={{ color: "var(--blue)", margin: "1rem 0 0.75rem" }}>{p.headline}</h4>
-                <ul className="check-list" style={{ margin: "0 0 1.25rem" }}>
+                <p className="pt-audience">{p.audience}</p>
+                <h4>{p.headline}</h4>
+                <ul className="check-list">
                   {p.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>
-                <Link className="btn btn-outline" href={p.href}>
-                  {p.cta}
+                <Link className="read-more" href={p.href}>
+                  {p.cta} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                 </Link>
               </article>
             ))}
@@ -317,19 +365,31 @@ export default function PartnersPage() {
       </section>
 
       {/* 4. Why Partner With Us */}
-      <section className="section" id="why-partner">
+      <section className="section" id="why-partner" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-award" center>
             Why Partner With Us
           </Pill>
-          <h2>What you get that a referral fee does not cover</h2>
-          <p>
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            What you get that a referral fee does not cover
+          </h2>
+          <p className="lead center">
             Most partner programs are a commission rate and a contact form. These are the
             six things partners tell us actually mattered once work started moving.
           </p>
-          <div className="card-grid">
+          <div className="pt-why-grid">
             {whyPartner.map((w) => (
-              <article className="card" key={w.title}>
+              <article
+                className="fq-card"
+                key={w.title}
+                style={{ "--fq-tile": "#0B5BF4" } as React.CSSProperties}
+              >
+                <span
+                  className="fq-card-icon"
+                  style={{ background: "#EFF4FD", color: "#0B5BF4" }}
+                >
+                  <i className={w.icon} aria-hidden="true" />
+                </span>
                 <h3>{w.title}</h3>
                 <p>{w.body}</p>
               </article>
@@ -339,33 +399,29 @@ export default function PartnersPage() {
       </section>
 
       {/* 5. Working Stack */}
-      <section className="section section-soft">
+      <section className="section section-soft" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-calendar-days" center>
             Working Stack
           </Pill>
-          <h2>The tools we are in every day</h2>
-          <p className="lead">
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            The tools we are in every day
+          </h2>
+          <p className="lead center">
             If your product is on this list, an integration conversation is short. If it is
             not, tell us what it does and we will say honestly whether our clients would use
             it.
           </p>
-          <div className="card-grid">
+          <div className="pt-stack-grid">
             {stack.map((s) => (
-              <article className="card" key={s.group}>
+              <article className="pt-stack-cell" key={s.group}>
+                <span className="pt-stack-icon">
+                  <i className={s.icon} aria-hidden="true" />
+                </span>
                 <h3>{s.group}</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: "0.75rem 0 0" }}>
+                <ul className="check-list check-list-blue">
                   {s.tools.map((t) => (
-                    <li
-                      key={t}
-                      style={{
-                        padding: "0.35rem 0",
-                        borderBottom: "1px solid var(--line)",
-                        color: "var(--muted)",
-                      }}
-                    >
-                      {t}
-                    </li>
+                    <li key={t}>{t}</li>
                   ))}
                 </ul>
               </article>
@@ -375,70 +431,82 @@ export default function PartnersPage() {
       </section>
 
       {/* 6. The Process */}
-      <section className="section">
+      <section className="section" style={{ padding: "100px 0" }}>
         <div className="container">
           <Pill icon="fa-solid fa-diagram-project" center>
             The Process
           </Pill>
-          <h2>How a partnership actually starts</h2>
-          <p>
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            How a partnership actually starts
+          </h2>
+          <p className="lead center">
             Five steps from first call to first statement. Most partners are enabled and
             taking referrals inside three weeks.
           </p>
-          {processSteps.map((s) => (
-            <div key={s.num} style={{ marginTop: "1.25rem" }}>
-              <p className="card-num" style={{ fontSize: "1.4rem" }}>
-                {s.num}
-              </p>
-              <h3>{s.title}</h3>
-              <p style={{ color: "var(--muted)" }}>{s.body}</p>
-            </div>
-          ))}
+          <div className="pt-process-grid">
+            {processSteps.map((s) => (
+              <article className="pt-process-card" key={s.num}>
+                <p className="pt-step-num">{s.num}</p>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 7. Our Side of It */}
-      <section className="section section-soft">
+      <section className="section section-soft" style={{ padding: "100px 0" }}>
         <div className="container">
-          <Pill icon="fa-solid fa-compass" center>
-            Our Side of It
-          </Pill>
-          <h2>What we commit to, in writing</h2>
-          <p className="lead">
-            A partnership is only worth having if the obligations run both ways. These six
-            are in every agreement we sign, and every one of them is enforceable rather than
-            aspirational.
-          </p>
-          <ul className="check-list">
-            {commitments.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-          <div className="btn-row">
-            <Link className="btn btn-outline" href="/contact/">
-              Read our full terms
-            </Link>
+          <div className="pt-commit">
+            <div className="pt-commit-text">
+              <Pill icon="fa-solid fa-compass" center>
+                Our Side of It
+              </Pill>
+              <h2 className="pt-h2" style={{ textAlign: "left" }}>
+                What we commit to, in writing
+              </h2>
+              <p className="lead">
+                A partnership is only worth having if the obligations run both ways. These six
+                are in every agreement we sign, and every one of them is enforceable rather
+                than aspirational.
+              </p>
+              <Link className="read-more" href="/contact/">
+                Read our full terms <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
+            <div className="pt-commit-card">
+              <ul className="check-list">
+                {commitments.map((c) => (
+                  <li key={c.statement}>
+                    <strong>{c.statement}</strong> {c.sub}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 8. Partner FAQs */}
-      <section className="section" id="partner-faqs">
+      <section className="section" id="partner-faqs" style={{ padding: "100px 0" }}>
         <div className="container center">
           <Pill icon="fa-solid fa-circle-question" center>
             Partner FAQs
           </Pill>
-          <h2>Questions partners ask before signing</h2>
-          <p className="lead" style={{ margin: "0 auto" }}>
+          <h2 className="pt-h2" style={{ textAlign: "center" }}>
+            Questions partners ask before signing
+          </h2>
+          <p className="lead center">
             Seven things worth settling before the first introduction. Anything else, the
             intro call covers.
           </p>
-          <FaqAccordion faqs={faqs} />
+          <FaqAccordion faqs={faqs} rotateIcon />
         </div>
       </section>
 
       {/* 9. Final CTA (links only on live — no in-page form) */}
-      <section className="section section-blue final-cta" id="become-a-partner">
+      <section className="section final-cta final-cta-blue" id="become-a-partner">
         <div className="container">
           <h2>Let’s find out if this is worth both our time</h2>
           <p className="lead">
@@ -447,18 +515,15 @@ export default function PartnersPage() {
             or that none of them do.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-light" href="/contact/">
-              Book a partner call
+            <Link className="tm-btn tm-btn-white" href="/contact/">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" /> Book a partner
+              call
             </Link>
-            <Link
-              className="btn"
-              href="/pricing/"
-              style={{ background: "transparent", borderColor: "#fff" }}
-            >
-              See our pricing
+            <Link className="tm-btn tm-btn-ghost" href="/pricing/">
+              See our pricing <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
-          <p style={{ color: "#c6d2e4", marginTop: "1.5rem" }}>
+          <p style={{ color: "#fff", marginTop: "1.5rem" }}>
             Prefer email?{" "}
             <a href="mailto:partners@dazzlecommerce.com" style={{ color: "#fff" }}>
               partners@dazzlecommerce.com
@@ -467,6 +532,6 @@ export default function PartnersPage() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
