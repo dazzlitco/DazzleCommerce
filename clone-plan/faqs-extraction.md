@@ -2,6 +2,8 @@
 Fetched fresh 2026-11-23 via curl (386,602 bytes, HTTP 200). Source: WordPress / Hello Elementor / Elementor Pro. Font: Plus Jakarta Sans. Brand blue in inline CSS: #0B5BF4 / #0340FB, dark navy #091325, light blue #EFF4FD / #E6EBF3.
 Copy below is word-for-word from the live HTML. Nothing invented. Where the live copy has a typo or quirk, it is kept and noted. Every question and answer was cross-checked against the live page's own JSON-LD `FAQPage` schema (33 entities) — all 33 questions and all 33 answers match the visible copy exactly.
 
+> **REDO note — 2026-11-27 (page 10, one-page-at-a-time method).** Fresh fetch 2026-11-27: 386,602 bytes, byte-identical size to 2026-11-23 — page unchanged. The walkthrough landed on an A/B experiment variant (ninth occurrence: closing intro rewritten to "the first call is free…", footer blurb rewritten to "grow profitably — without the agency theatre"); NEITHER variant string is in the served HTML — control copy kept, 0 variant strings. Structure corrections proven from live's element-id CSS, stack-parser probes and the page's inline `<style>` accordion block, and applied in the redo (code `365075a`): hero is centred on flat #F7F9FC (72px/66px) with 12px-radius icon buttons (NOT pill buttons); browse cards are white icon-box cards in a 4-col grid (gap 24px), whole-card links, with tinted icon tiles cycling blue/green/purple/orange (icon map below); each GROUP is ONE section (header + categories inside, no background break) — G1/G3 #F7F9FC, G2 white, 100px padding; group H2s (44px) + intros centred, category H2s (25px) LEFT and led by a solid-blue icon tile (same icon as the card); accordions are Elementor nested accordions — 70%/880px centred column, 16px-radius white cards, 14px gap, 17px/700 titles, 26px pale-blue circle toggle that rotates 45° into a white × on solid blue when open, #B7CEFB open border + shadow, blue on hover; single-open PER category, independent across categories, all collapsed on load; closing is the blue-gradient panel (125deg #0B5BF4 → #0A44C4, radius 28px, 72px/56px) with a white calendar button + ghost arrow button (NOT a plain section, NOT pill buttons). The walkthrough's "fully-rounded pill buttons" and "solid blue (no gradient)" closing panel were rejected against the control CSS (global `.elementor-button` radius is 12px; panel has the gradient). No photos on this page (0 images in `<main>`).
+
 ## Meta
 - Title: `eCommerce Agency FAQs | Dazzle Commerce`
 - Description: `Answers to 33 questions about eCommerce management and marketing services: scope, process, SEO, platforms, marketplaces, pricing, reporting and results.`
@@ -26,28 +28,33 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
 
 ### 1. Hero
 - Eyebrow: `Frequently Asked Questions`
-- H1: `eCommerce Agency Questions, Answered Properly`
-- Copy: `Thirty-three questions we are actually asked, grouped by topic. Where the honest answer is "it depends", we have said what it depends on rather than leaving you with a slogan.`
-- CTAs: `Browse by Category` → #categories ; `Ask Us Directly` → /contact/
+- H1: `eCommerce Agency Questions, Answered Properly` (62px/800, centred, #091325)
+- Copy: `Thirty-three questions we are actually asked, grouped by topic. Where the honest answer is "it depends", we have said what it depends on rather than leaving you with a slogan.` (DM Sans 18px/1.7, #5D6675, centred)
+- Hero: flat #F7F9FC background, padding 72px top / 66px bottom; everything centred.
+- CTAs (12px-radius rectangles with icons, NOT pills): `Browse by Category` → #categories (blue bg #0B5BF4, white text, arrow-down icon before the text) ; `Ask Us Directly` → /contact/ (white bg, 2px #D9E1EE border, navy text, comment-dots icon)
 - No hero image on the live page (text-only hero). No search box on the live page.
 
 ### 2. Browse FAQs by Category (id="categories")
 - Eyebrow/heading: `Browse FAQs by Category`
-- H2: `Eight topics, thirty-three answers`
-- Copy: `Jump straight to what you came for.`
-- Eight category cards, each a link to its anchor with a question count:
-  - `General Services` → #faq-general — `5 questions`
-  - `Process & Communication` → #faq-process — `4 questions`
-  - `eCommerce Management` → #faq-management — `4 questions`
-  - `Marketing & Advertising` → #faq-marketing — `4 questions`
-  - `SEO` → #faq-seo — `4 questions`
-  - `Platforms & Marketplaces` → #faq-platforms — `4 questions`
-  - `Pricing & Packages` → #faq-pricing — `4 questions`
-  - `Results & Reporting` → #faq-results — `4 questions`
+- H2: `Eight topics, thirty-three answers` (44px/800, centred)
+- Copy: `Jump straight to what you came for.` (centred)
+- Section: white background, 72px padding. Eight category cards in a 4-column grid (gap 24px), each a WHOLE-CARD link to its anchor. Card: white bg, 1px #E6EBF3 border, radius 22px, padding 26px/24px, left-aligned; tinted 56px icon tile on top (26px icon, 15px radius; tile turns solid on hover, icon goes pale), bold 21px title, grey 16px question count below:
+  - `General Services` → #faq-general — `5 questions` — icon `fa-circle-question`, tile #EFF4FD / icon #0B5BF4 (blue)
+  - `Process & Communication` → #faq-process — `4 questions` — icon `fa-comments`, tile #E6F6F0 / icon #0D9668 (green)
+  - `eCommerce Management` → #faq-management — `4 questions` — icon `fa-boxes-stacked`, tile #F1ECFE / icon #8B5CF6 (purple)
+  - `Marketing & Advertising` → #faq-marketing — `4 questions` — icon `fa-bullhorn`, tile #FEF0E7 / icon #F97316 (orange)
+  - `SEO` → #faq-seo — `4 questions` — icon `fa-magnifying-glass`, tile #EFF4FD / icon #0B5BF4 (blue)
+  - `Platforms & Marketplaces` → #faq-platforms — `4 questions` — icon `fa-store`, tile #E6F6F0 / icon #0D9668 (green)
+  - `Pricing & Packages` → #faq-pricing — `4 questions` — icon `fa-tags`, tile #F1ECFE / icon #8B5CF6 (purple)
+  - `Results & Reporting` → #faq-results — `4 questions` — icon `fa-chart-line`, tile #FEF0E7 / icon #F97316 (orange)
+- Tile tints cycle blue → green → purple → orange, twice.
 
 ### 3. Category group label: `General & Agency`
-- H2: `How we work, and who does the work`
-- Copy: `Questions about the agency itself — scope, people and process.`
+- H2: `How we work, and who does the work` (44px/800, centred)
+- Copy: `Questions about the agency itself — scope, people and process.` (centred)
+- GROUP STRUCTURE (applies to all three groups): each group is ONE top-level section containing its header block AND all its categories — no background break between the group header and its first category. Group 1 bg #F7F9FC, Group 2 white, Group 3 #F7F9FC; padding 100px top/bottom. Categories inside a group are 50px apart.
+- CATEGORY HEADER (applies to all eight categories): the H2 is LEFT-aligned (25px/800, #091325) and is preceded — in a row, 11px gap, 20px below — by a solid-blue rounded-square icon tile (17px icon, 11px padding, 12px radius, bg #0B5BF4, icon #EFF4FD) using the SAME icon as the category's browse card.
+- ACCORDION (applies to all eight categories): Elementor nested accordion (`default_state: all_collapsed`, `max_items_expended: one` per widget — single-open WITHIN a category, independent ACROSS categories; all 33 collapsed on load). Column: 70% width, max 880px, centred. Items: white bg, 1px #E6EBF3 border, 16px radius, 14px gap; title 17px/700 #091325, padding 22px/26px, blue on hover; toggle is a 26px pale-blue (#EFF4FD) circle with a blue 15px "+" that rotates 45° into a white × on a solid-blue circle when open; open item gets a #B7CEFB border + subtle shadow; answers 15.5px/1.72 #5D6675, padding 0/24px/26px.
 
 #### 3a. General Services (id="faq-general") — 5 questions
 - H2: `General Services`
@@ -148,9 +155,10 @@ Copy below is word-for-word from the live HTML. Nothing invented. Where the live
   - A: `You will have heard it from us in a monthly review before you have to ask. The agreement is month-to-month after the first 90 days, so you can leave. We would rather tell you a channel is not working than wait for you to notice.`
 
 ### 6. Still have questions? (closing section)
-- H2: `Still have questions?`
-- Copy: `If your question is not here, it is probably a good one. Ask a senior strategist directly — the first reply comes from a person who does the work, not a sales development rep.`
-- CTAs: `Book Your Free Strategy Call` → /book-a-strategy-call/ ; `See Pricing & Packages` → /pricing/
+- H2: `Still have questions?` (44px/800, white, centred)
+- Copy: `If your question is not here, it is probably a good one. Ask a senior strategist directly — the first reply comes from a person who does the work, not a sales development rep.` (white, centred)
+- Closing: white section containing a blue-GRADIENT panel (125deg #0B5BF4 → #0A44C4, radius 28px, padding 72px/56px), NOT a plain section and NOT a solid-blue panel.
+- CTAs (12px-radius rectangles with icons, NOT pills): `Book Your Free Strategy Call` → /book-a-strategy-call/ (white bg, blue text, calendar icon) ; `See Pricing & Packages` → /pricing/ (transparent bg, 2px rgb(255 255 255/.42) border, white text, arrow-right icon after the text)
 - No form on this section (and no form anywhere on the live page — no `<form>` or `<input>` elements in `<main>`).
 
 ## Quirks / notes
