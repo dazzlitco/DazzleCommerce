@@ -1,8 +1,39 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion, { type Faq } from "../../components/FaqAccordion";
 import { Pill } from "@/components/Pill";
+
+export const metadata: Metadata = {
+  title: "eCommerce Growth Assessment: The 12-Point Framework",
+  description:
+    "Run our twelve-point eCommerce growth assessment yourself. Every check, every threshold, and how to turn a list of flags into the one constraint worth fixing.",
+  alternates: { canonical: "https://dazzlecommerce.com/ecommerce-growth-assessment/" },
+  openGraph: {
+    type: "article",
+    locale: "en_US",
+    url: "https://dazzlecommerce.com/ecommerce-growth-assessment/",
+    siteName: "Dazzle Commerce",
+    title: "eCommerce Growth Assessment: The 12-Point Framework",
+    description:
+      "Run our twelve-point eCommerce growth assessment yourself. Every check, every threshold, and how to turn a list of flags into the one constraint worth fixing.",
+    images: [
+      {
+        url: "/images/ecommerce-growth-assessment-hero.webp",
+        width: 1400,
+        height: 933,
+        alt: "Team reviewing an eCommerce growth plan in an office",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "eCommerce Growth Assessment: The 12-Point Framework",
+    description:
+      "Run our twelve-point eCommerce growth assessment yourself. Every check, every threshold, and how to turn a list of flags into the one constraint worth fixing.",
+  },
+};
 
 // NOTE: the live page has no interactive tool — its FAQ says "Not yet. This
 // page is the framework in full, designed to be worked through on paper or in
@@ -460,108 +491,139 @@ const DATA_SOURCES = [
   "A gross margin figure per product category, however rough",
 ];
 
-const tableStyle: React.CSSProperties = {
-  width: "100%",
-  borderCollapse: "collapse",
-  marginTop: "32px",
-  textAlign: "left",
-  fontSize: "0.98rem",
-};
-const thStyle: React.CSSProperties = {
-  borderBottom: "2px solid var(--navy)",
-  padding: "12px 16px 12px 0",
-  color: "var(--navy)",
-};
-const tdStyle: React.CSSProperties = {
-  borderBottom: "1px solid var(--line)",
-  padding: "16px 16px 16px 0",
-  verticalAlign: "top",
-  color: "var(--muted)",
-};
-const tdStrongStyle: React.CSSProperties = { ...tdStyle, color: "var(--navy)", fontWeight: 700 };
+// Section 4 — How to score it: four equal cards, each with a blue icon tile
+// (fa-circle-check / fa-triangle-exclamation / fa-circle-question / fa-ban on live).
+const SCORE_CARDS = [
+  {
+    icon: "fa-solid fa-circle-check",
+    title: "Cleared",
+    items: [
+      "The stated threshold is met, measured rather than assumed",
+      "You could show somebody the number today",
+      "Move on — a cleared point is not worth optimising further this quarter",
+    ],
+  },
+  {
+    icon: "fa-solid fa-triangle-exclamation",
+    title: "Flagged",
+    items: [
+      "The threshold is missed, by any margin",
+      "Write down the actual figure next to it, not just the flag",
+      "A near miss and a catastrophic miss look identical here, on purpose",
+    ],
+  },
+  {
+    icon: "fa-solid fa-circle-question",
+    title: "Unknown",
+    items: [
+      "You cannot measure it with the access you have",
+      "Count it as flagged when you rank, not as cleared",
+      "Three or more unknowns is itself the finding: you are flying blind",
+    ],
+  },
+  {
+    icon: "fa-solid fa-ban",
+    title: "What not to do",
+    items: [
+      "Do not add the marks up into a score out of twelve",
+      "Do not weight the disciplines you happen to be good at",
+      "Do not skip a discipline because it is somebody else’s job",
+    ],
+  },
+];
+
+// Section 17 — Getting it wrong: icon per card, in live order
+// (fa-calculator / fa-user-check / fa-wand-magic-sparkles / fa-list-check /
+// fa-forward / fa-rotate).
+const MISTAKE_ICONS = [
+  "fa-solid fa-calculator",
+  "fa-solid fa-user-check",
+  "fa-solid fa-wand-magic-sparkles",
+  "fa-solid fa-list-check",
+  "fa-solid fa-forward",
+  "fa-solid fa-rotate",
+];
 
 export default function GrowthAssessmentPage() {
   return (
-    <>
-      {/* 1. Hero */}
+    <div className="ega-page">
+      {/* 1. Hero — stacked on flat #F7F9FC, 40/70 padding (live control). */}
       <section className="hero">
         <div className="container">
-          <p style={{ color: "var(--muted)", fontSize: "0.95rem", marginBottom: "1rem" }}>
+          <p className="ega-breadcrumb">
             <Link href="/">Home</Link> ›{" "}
             <Link href="/ecommerce-audit/">eCommerce Audit</Link> › Growth Assessment
           </p>
-          <div className="hero-grid">
-            <div>
-              <Link href="/ecommerce-audit/">
-                <Pill>Assessment framework</Pill>
-              </Link>
-              <p style={{ fontWeight: 700, color: "var(--blue)", marginBottom: "0.5rem" }}>
-                Free · nothing gated
-              </p>
-              <h1>The eCommerce Growth Assessment, Published in Full</h1>
-              <p className="lead">
-                Twelve checks across six disciplines, each with the threshold that decides
-                whether it clears or gets flagged. This is the same framework our audit works
-                from. It is here so you can run the short version yourself and decide whether
-                you need us at all.
-              </p>
-              <div className="stat-row" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-                <div className="stat">
-                  <strong>12 checks</strong>
-                  <span>Checks</span>
-                </div>
-                <div className="stat">
-                  <strong>About 40 minutes</strong>
-                  <span>Time to run</span>
-                </div>
-                <div className="stat">
-                  <strong>September 2026</strong>
-                  <span>Last updated</span>
-                </div>
-                <div className="stat">
-                  <strong>In-house team</strong>
-                  <span>Level</span>
-                </div>
-              </div>
-              <div className="btn-row">
-                <Link className="btn" href="#ga-list">
-                  Go to the twelve points
-                </Link>
-                <Link className="btn btn-outline" href="/ecommerce-audit/">
-                  Have us run it instead
-                </Link>
-              </div>
+          <div className="ega-hero-pills">
+            <Link className="ega-hero-pill" href="/ecommerce-audit/">
+              Assessment framework
+            </Link>
+            <span className="ega-hero-pill">Free · nothing gated</span>
+          </div>
+          <h1>The eCommerce Growth Assessment, Published in Full</h1>
+          <p className="lead">
+            Twelve checks across six disciplines, each with the threshold that decides
+            whether it clears or gets flagged. This is the same framework our audit works
+            from. It is here so you can run the short version yourself and decide whether
+            you need us at all.
+          </p>
+          <div className="ega-stats">
+            <div className="ega-stat">
+              <h4>CHECKS</h4>
+              <p>12 checks</p>
             </div>
-            <div className="hero-img">
-              <Image
-                src="/images/ecommerce-growth-assessment-hero.webp"
-                alt="Team reviewing an eCommerce growth plan in an office"
-                width={1400}
-                height={933}
-                priority
-              />
+            <div className="ega-stat">
+              <h4>TIME TO RUN</h4>
+              <p>About 40 minutes</p>
+            </div>
+            <div className="ega-stat">
+              <h4>LAST UPDATED</h4>
+              <p>September 2026</p>
+            </div>
+            <div className="ega-stat">
+              <h4>LEVEL</h4>
+              <p>In-house team</p>
             </div>
           </div>
-          <p style={{ marginTop: "32px", maxWidth: "760px" }}>
+          <div className="ega-hero-btns">
+            <Link className="tm-btn tm-btn-blue" href="#ga-list">
+              Go to the twelve points
+            </Link>
+            <Link className="tm-btn ega-btn-white" href="/ecommerce-audit/">
+              Have us run it instead
+            </Link>
+          </div>
+          <div className="ega-hero-media">
+            <Image
+              src="/images/ecommerce-growth-assessment-hero.webp"
+              alt="Team reviewing an eCommerce growth plan in an office"
+              width={1400}
+              height={933}
+              priority
+            />
+          </div>
+          <p className="ega-hero-caption">
             The assessment is designed to be run by your own team, with the data you already
             have, in a single sitting.
           </p>
-          <ul className="check-list">
-            <li>Nothing here is gated, emailed or exchanged for a form</li>
-            <li>Every threshold is stated, including the ones most stores fail</li>
-            <li>Where a number comes from published research, it is cited</li>
-          </ul>
         </div>
       </section>
 
-      {/* 2. Why publish it */}
-      <section className="section">
+      {/* 2. Why publish it — #F7F9FC, centred header, split text left / image right. */}
+      <section className="section ega-soft">
         <div className="container">
-          <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-award" center>Why publish it</Pill>
-              <h2>Most stores do not have twelve problems</h2>
-              <p>They have one that matters and eleven that are fine for now. The point of an assessment is to find which is which.</p>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-award" center>
+              Why publish it
+            </Pill>
+            <h2 className="ega-h2">Most stores do not have twelve problems</h2>
+            <p className="lead">
+              They have one that matters and eleven that are fine for now. The point of an
+              assessment is to find which is which.
+            </p>
+          </div>
+          <div className="ega-split">
+            <div className="ega-split-text">
               <p>
                 A store turning over a million a year rarely fails on everything. It usually
                 clears nine or ten of these points comfortably and fails badly on one, and that
@@ -575,8 +637,13 @@ export default function GrowthAssessmentPage() {
                 are better than a discovery call spent establishing basic facts about your own
                 store.
               </p>
+              <ul className="check-list">
+                <li>Nothing here is gated, emailed or exchanged for a form</li>
+                <li>Every threshold is stated, including the ones most stores fail</li>
+                <li>Where a number comes from published research, it is cited</li>
+              </ul>
             </div>
-            <div className="split-img">
+            <div className="ega-split-img">
               <Image
                 src="/images/ecommerce-growth-assessment-analyst.webp"
                 alt="Analyst reviewing eCommerce performance charts on a tablet"
@@ -588,11 +655,21 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 4. What you need in front of you */}
-      <section className="section section-soft">
+      {/* 3. Before you start — white, centred header, split image left / text right. */}
+      <section className="section">
         <div className="container">
-          <div className="split">
-            <div className="split-img">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-flag-checkered" center>
+              Before you start
+            </Pill>
+            <h2 className="ega-h2">What you need in front of you</h2>
+            <p className="lead">
+              Forty minutes is only realistic if these are open before you begin. Chasing
+              access mid-assessment is what turns it into a fortnight.
+            </p>
+          </div>
+          <div className="ega-split">
+            <div className="ega-split-img">
               <Image
                 src="/images/ecommerce-growth-assessment-stock-check.webp"
                 alt="An inspector checking stock with a clipboard"
@@ -600,13 +677,7 @@ export default function GrowthAssessmentPage() {
                 height={800}
               />
             </div>
-            <div>
-              <Pill icon="fa-solid fa-flag-checkered" center>Before you start</Pill>
-              <h2>What you need in front of you</h2>
-              <p>
-                Forty minutes is only realistic if these are open before you begin. Chasing
-                access mid-assessment is what turns it into a fortnight.
-              </p>
+            <div className="ega-split-text">
               <p>
                 Six things. If you cannot get two of them, run the assessment anyway and mark
                 those points unknown rather than cleared — an unknown is a finding in itself.
@@ -625,111 +696,89 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 5. How to score it */}
-      <section className="section">
+      {/* 4. How to score it — #F7F9FC, centred header, four equal white cards. */}
+      <section className="section ega-soft">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>How to score it</Pill>
-          <h2>Three outcomes per check, and one rule</h2>
-          <p className="lead">
-            Each of the twelve points gets one of three marks. There is deliberately no
-            partial credit and no weighting.
-          </p>
-          <div className="card-grid">
-            <article className="card">
-              <h3>Cleared</h3>
-              <ul className="check-list">
-                <li>The stated threshold is met, measured rather than assumed</li>
-                <li>You could show somebody the number today</li>
-                <li>Move on — a cleared point is not worth optimising further this quarter</li>
-              </ul>
-            </article>
-            <article className="card">
-              <h3>Flagged</h3>
-              <ul className="check-list">
-                <li>The threshold is missed, by any margin</li>
-                <li>Write down the actual figure next to it, not just the flag</li>
-                <li>A near miss and a catastrophic miss look identical here, on purpose</li>
-              </ul>
-            </article>
-            <article className="card">
-              <h3>Unknown</h3>
-              <ul className="check-list">
-                <li>You cannot measure it with the access you have</li>
-                <li>Count it as flagged when you rank, not as cleared</li>
-                <li>Three or more unknowns is itself the finding: you are flying blind</li>
-              </ul>
-            </article>
-          </div>
-          <div className="card" style={{ marginTop: "20px" }}>
-            <h3>What not to do</h3>
-            <ul className="check-list">
-              <li>Do not add the marks up into a score out of twelve</li>
-              <li>Do not weight the disciplines you happen to be good at</li>
-              <li>Do not skip a discipline because it is somebody else’s job</li>
-            </ul>
-            <p style={{ marginBottom: 0 }}>
-              A total out of twelve is the one output that makes this worse. Ten out of twelve
-              reads like a healthy store, and a store failing badly on checkout is not healthy
-              at any score. Ranking, not totalling, is covered further down.
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              How to score it
+            </Pill>
+            <h2 className="ega-h2">Three outcomes per check, and one rule</h2>
+            <p className="lead">
+              Each of the twelve points gets one of three marks. There is deliberately no
+              partial credit and no weighting.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* 6. Why the order matters */}
-      <section className="section section-soft">
-        <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Before the list</Pill>
-          <h2>Why the order matters more than the checklist</h2>
-          <p className="lead">
-            Checklists are easy to find. The sequence they run in is what makes them useful.
-            Each point assumes the layer above it has cleared, because a finding at point nine
-            is meaningless if point one is broken.
+          <div className="ega-score-grid">
+            {SCORE_CARDS.map((c) => (
+              <article className="ega-card" key={c.title}>
+                <div className="ega-card-head">
+                  <span className="ega-card-icon">
+                    <i className={c.icon} aria-hidden="true" />
+                  </span>
+                  <h3>{c.title}</h3>
+                </div>
+                <ul className="check-list check-list-blue">
+                  {c.items.map((it) => (
+                    <li key={it}>{it}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <p className="ega-closing">
+            A total out of twelve is the one output that makes this worse. Ten out of twelve
+            reads like a healthy store, and a store failing badly on checkout is not healthy
+            at any score. Ranking, not totalling, is covered further down.
           </p>
-          <table style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={thStyle}>Layer</th>
-                <th style={thStyle}>What it governs, and why it comes first</th>
-              </tr>
-            </thead>
-            <tbody>
-              {LAYERS.map((l) => (
-                <tr key={l.name}>
-                  <td style={tdStrongStyle}>{l.name}</td>
-                  <td style={tdStyle}>{l.body}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </section>
 
-      {/* 7. The checklist index + the twelve points */}
+      {/* 5. Before the list — white, centred header, navy-header container table. */}
+      <section className="section">
+        <div className="container">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              Before the list
+            </Pill>
+            <h2 className="ega-h2">Why the order matters more than the checklist</h2>
+            <p className="lead">
+              Checklists are easy to find. The sequence they run in is what makes them useful.
+              Each point assumes the layer above it has cleared, because a finding at point
+              nine is meaningless if point one is broken.
+            </p>
+          </div>
+          <div className="ega-table-scroll">
+            <div className="ega-table ega-table-2col">
+              <div className="ega-table-head">
+                <p>Layer</p>
+                <p>What it governs, and why it comes first</p>
+              </div>
+              <div className="ega-table-body">
+                {LAYERS.map((l) => (
+                  <div className="ega-table-row" key={l.name}>
+                    <p className="ega-table-first">{l.name}</p>
+                    <p>{l.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. The checklist — white, sticky sidebar + the twelve points. */}
       <section className="section" id="ga-list">
         <div className="container">
-          <div className="ga-checklist-layout">
-            <aside className="ga-checklist-sidebar">
-              <div className="card">
-                <p
-                  style={{
-                    color: "var(--blue)",
-                    fontWeight: 800,
-                    letterSpacing: "0.06em",
-                    fontSize: "0.85rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  THE CHECKLIST
-                </p>
-                <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <div className="ega-checklist-layout">
+            <aside className="ega-checklist-sidebar">
+              <div className="ega-checklist-card">
+                <p className="ega-checklist-label">THE CHECKLIST</p>
+                <ul className="ega-checklist-links">
                   {SECTIONS.map((s) => (
-                    <li key={s.id} style={{ margin: "0 0 11px 0" }}>
-                      <Link
-                        href={`#${s.id}`}
-                        style={{ color: "#1b2437", textDecoration: "none" }}
-                      >
-                        <strong style={{ color: "#0a4ed4" }}>{s.num}</strong>
+                    <li key={s.id}>
+                      <Link href={`#${s.id}`}>
+                        <strong>{s.num}</strong>
                         &nbsp;&nbsp;{s.title}
                       </Link>
                     </li>
@@ -738,60 +787,33 @@ export default function GrowthAssessmentPage() {
               </div>
             </aside>
             <div>
-              {SECTIONS.map((s, i) => (
-                <div
-                  key={s.id}
-                  id={s.id}
-                  style={{ marginTop: i === 0 ? 0 : "56px", scrollMarginTop: "90px" }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "12px",
-                      alignItems: "baseline",
-                      marginBottom: "0.75rem",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontWeight: 800,
-                        color: "var(--blue)",
-                        letterSpacing: "0.06em",
-                        fontSize: "0.85rem",
-                        margin: 0,
-                      }}
-                    >
-                      SECTION {s.num}
-                    </p>
-                    <p style={{ color: "var(--muted)", margin: 0 }}>2 checks</p>
+              {SECTIONS.map((s) => (
+                <div className="ega-check-section" key={s.id} id={s.id}>
+                  <div className="ega-check-label">
+                    <p className="ega-sec">SECTION {s.num}</p>
+                    <p className="ega-count">2 checks</p>
                   </div>
-                  <h2>{s.title}</h2>
-                  <p className="lead">{s.intro}</p>
+                  <h2 className="ega-check-h2">{s.title}</h2>
+                  <p className="ega-check-intro">{s.intro}</p>
                   {s.img && (
-                    <div className="split-img" style={{ marginTop: "24px" }}>
+                    <div className="ega-check-img">
                       <Image src={s.img} alt={s.imgAlt ?? ""} width={1200} height={800} />
                     </div>
                   )}
-                  {s.note && (
-                    <p style={{ marginTop: "24px", fontWeight: 700 }}>{s.note}</p>
-                  )}
-                  {CHECKS.filter((c) => c.sectionId === s.id).map((c) => (
-                    <article className="card" key={c.num} style={{ marginTop: "16px" }}>
-                      <div
-                        style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}
-                      >
-                        <i
-                          className="fa-regular fa-square"
-                          aria-hidden="true"
-                          style={{ color: "var(--blue)", fontSize: "1.3rem", lineHeight: 1.4 }}
-                        />
-                        <div style={{ minWidth: 0 }}>
+                  {s.note && <p className="ega-check-note">{s.note}</p>}
+                  <div className="ega-checks">
+                    {CHECKS.filter((c) => c.sectionId === s.id).map((c) => (
+                      <article className="ega-check-card" key={c.num}>
+                        <span className="ega-check-box">
+                          <i className="fa-regular fa-square" aria-hidden="true" />
+                        </span>
+                        <div className="ega-check-body">
                           <h3>{c.title}</h3>
-                          <p style={{ marginBottom: 0 }}>{c.threshold}</p>
+                          <p>{c.threshold}</p>
                         </div>
-                      </div>
-                    </article>
-                  ))}
+                      </article>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -799,46 +821,62 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 8. Where the numbers come from */}
-      <section className="section section-soft">
+      {/* 7. Where the numbers come from — white, centred header, container table. */}
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-globe" center>Where the numbers come from</Pill>
-          <h2>Four thresholds are published research. The rest are ours.</h2>
-          <p className="lead">
-            A framework that presents its own house rules as industry standards is not worth
-            running. Here is which is which, so you can weigh them differently if you
-            disagree.
-          </p>
-          <table style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={thStyle}>Threshold</th>
-                <th style={thStyle}>Where it comes from</th>
-              </tr>
-            </thead>
-            <tbody>
-              {SOURCES.map((row) => (
-                <tr key={row.threshold}>
-                  <td style={tdStrongStyle}>{row.threshold}</td>
-                  <td style={tdStyle}>{row.source}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-globe" center>
+              Where the numbers come from
+            </Pill>
+            <h2 className="ega-h2">Four thresholds are published research. The rest are ours.</h2>
+            <p className="lead">
+              A framework that presents its own house rules as industry standards is not worth
+              running. Here is which is which, so you can weigh them differently if you
+              disagree.
+            </p>
+          </div>
+          <div className="ega-table-scroll">
+            <div className="ega-table ega-table-2col">
+              <div className="ega-table-head">
+                <p>Threshold</p>
+                <p>Where it comes from</p>
+              </div>
+              <div className="ega-table-body">
+                {SOURCES.map((row) => (
+                  <div className="ega-table-row" key={row.threshold}>
+                    <p className="ega-table-first">{row.threshold}</p>
+                    <p>{row.source}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 9. Do not add it up. Rank it. */}
-      <section className="section">
+      {/* 8. Reading the result — #F7F9FC, centred header, split image left / text right. */}
+      <section className="section ega-soft">
         <div className="container">
-          <div className="split">
-            <div>
-              <Pill icon="fa-solid fa-book-open" center>Reading the result</Pill>
-              <h2>Do not add it up. Rank it.</h2>
-              <p>
-                The output of this assessment is not a score. It is an ordered list, and only
-                the top item matters this quarter.
-              </p>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-book-open" center>
+              Reading the result
+            </Pill>
+            <h2 className="ega-h2">Do not add it up. Rank it.</h2>
+            <p className="lead">
+              The output of this assessment is not a score. It is an ordered list, and only
+              the top item matters this quarter.
+            </p>
+          </div>
+          <div className="ega-split">
+            <div className="ega-split-img">
+              <Image
+                src="/images/ecommerce-growth-assessment-report.webp"
+                alt="Comparing a printed report against a laptop"
+                width={1200}
+                height={800}
+              />
+            </div>
+            <div className="ega-split-text">
               <p>
                 A total out of twelve is the most comfortable and least useful thing you can do
                 with these marks. Ten out of twelve sounds like a healthy store. A store that
@@ -858,48 +896,44 @@ export default function GrowthAssessmentPage() {
                 <li>A flag you cannot size is a flag you have not investigated yet</li>
               </ul>
             </div>
-            <div className="split-img">
-              <Image
-                src="/images/ecommerce-growth-assessment-report.webp"
-                alt="Comparing a printed report against a laptop"
-                width={1200}
-                height={800}
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 10. Impact against effort */}
-      <section className="section section-soft">
+      {/* 9. Ranking your flags — white, centred header, four-band container table. */}
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Ranking your flags</Pill>
-          <h2>Impact against effort, in four bands</h2>
-          <p className="lead">
-            Put every flagged point into one of these. The band decides the order; the order
-            decides your quarter.
-          </p>
-          <table style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={thStyle}>Band</th>
-                <th style={thStyle}>What belongs here</th>
-                <th style={thStyle}>What to do with it</th>
-                <th style={thStyle}>Typical time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {BANDS.map((b) => (
-                <tr key={b.band}>
-                  <td style={tdStrongStyle}>{BAND_LABELS[b.band]}</td>
-                  <td style={tdStyle}>{b.belongs}</td>
-                  <td style={tdStyle}>{b.action}</td>
-                  <td style={tdStyle}>{b.time}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p style={{ marginTop: "24px" }}>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              Ranking your flags
+            </Pill>
+            <h2 className="ega-h2">Impact against effort, in four bands</h2>
+            <p className="lead">
+              Put every flagged point into one of these. The band decides the order; the order
+              decides your quarter.
+            </p>
+          </div>
+          <div className="ega-table-scroll">
+            <div className="ega-table ega-table-4col">
+              <div className="ega-table-head">
+                <p>Band</p>
+                <p>What belongs here</p>
+                <p>What to do with it</p>
+                <p>Typical time</p>
+              </div>
+              <div className="ega-table-body">
+                {BANDS.map((b) => (
+                  <div className="ega-table-row" key={b.band}>
+                    <p className="ega-table-first">{BAND_LABELS[b.band]}</p>
+                    <p>{b.belongs}</p>
+                    <p>{b.action}</p>
+                    <p>{b.time}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="ega-closing">
             Impact means revenue that moves, not tidiness gained. If you cannot name the metric
             that changes and roughly by how much, the flag is not ready to rank yet — it is
             ready to be investigated.
@@ -907,98 +941,124 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 11. By stage */}
-      <section className="section">
+      {/* 10. By stage — #F7F9FC, centred header, container table. */}
+      <section className="section ega-soft">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>By stage</Pill>
-          <h2>What clearing looks like at your size</h2>
-          <p className="lead">
-            The twelve points do not change with revenue. Which failures are acceptable does.
-          </p>
-          <table style={tableStyle}>
-            <thead>
-              <tr>
-                <th style={thStyle}>Monthly revenue</th>
-                <th style={thStyle}>What to expect, and what to prioritise</th>
-              </tr>
-            </thead>
-            <tbody>
-              {STAGES.map((st) => (
-                <tr key={st.revenue}>
-                  <td style={tdStrongStyle}>{st.revenue}</td>
-                  <td style={tdStyle}>{st.body}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              By stage
+            </Pill>
+            <h2 className="ega-h2">What clearing looks like at your size</h2>
+            <p className="lead">
+              The twelve points do not change with revenue. Which failures are acceptable does.
+            </p>
+          </div>
+          <div className="ega-table-scroll">
+            <div className="ega-table ega-table-2col">
+              <div className="ega-table-head">
+                <p>Monthly revenue</p>
+                <p>What to expect, and what to prioritise</p>
+              </div>
+              <div className="ega-table-body">
+                {STAGES.map((st) => (
+                  <div className="ega-table-row" key={st.revenue}>
+                    <p className="ega-table-first">{st.revenue}</p>
+                    <p>{st.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 12. Six ways a self-assessment goes wrong */}
-      <section className="section section-soft">
+      {/* 11. Getting it wrong — white, centred header, 3-column icon-tile cards. */}
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Getting it wrong</Pill>
-          <h2>Six ways a self-assessment goes wrong</h2>
-          <p className="lead">
-            Most of these are ways of arriving at a comfortable answer. The assessment is only
-            worth running if it can return one you do not like.
-          </p>
-          <div className="card-grid card-grid-2">
-            {MISTAKES.map((m) => (
-              <article className="card" key={m.title}>
-                <h3>{m.title}</h3>
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              Getting it wrong
+            </Pill>
+            <h2 className="ega-h2">Six ways a self-assessment goes wrong</h2>
+            <p className="lead">
+              Most of these are ways of arriving at a comfortable answer. The assessment is
+              only worth running if it can return one you do not like.
+            </p>
+          </div>
+          <div className="ega-mistake-grid">
+            {MISTAKES.map((m, i) => (
+              <article className="ega-card" key={m.title}>
+                <div className="ega-card-head">
+                  <span className="ega-card-icon">
+                    <i className={MISTAKE_ICONS[i]} aria-hidden="true" />
+                  </span>
+                  <h3>{m.title}</h3>
+                </div>
                 <p>{m.body}</p>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "24px", fontWeight: 700 }}>
+          <p className="ega-closing ega-closing-15">
             If your assessment comes back with nothing flagged, it was marked too generously.
             We have never run this on a live store and found twelve clears.
           </p>
         </div>
       </section>
 
-      {/* 13. What to do with the result */}
-      <section className="section">
+      {/* 12. What next — #F7F9FC, centred header, four outcome cards with text links. */}
+      <section className="section ega-soft">
         <div className="container">
-          <Pill icon="fa-solid fa-forward" center>What next</Pill>
-          <h2>What to do with the result you got</h2>
-          <p className="lead">
-            Four outcomes, four different next steps. Only one of them involves us.
-          </p>
-          <div className="card-grid card-grid-2">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-forward" center>
+              What next
+            </Pill>
+            <h2 className="ega-h2">What to do with the result you got</h2>
+            <p className="lead">
+              Four outcomes, four different next steps. Only one of them involves us.
+            </p>
+          </div>
+          <div className="ega-outcome-grid">
             {OUTCOMES.map((o) => (
-              <article className="card" key={o.num}>
-                <p className="card-num">{o.num}</p>
-                <p className="case-cat">{o.label}</p>
+              <article className="ega-outcome-card" key={o.num}>
+                <p className="ega-outcome-num">{o.num}</p>
+                <p className="ega-outcome-tag">{o.label}</p>
                 <h3>{o.title}</h3>
                 <p>{o.body}</p>
-                <Link className="read-more" href={o.href}>
+                <Link className="ega-outcome-link" href={o.href}>
                   {o.cta}
                 </Link>
               </article>
             ))}
           </div>
-          <p style={{ marginTop: "24px", fontWeight: 700 }}>
+          <p className="ega-closing ega-closing-15">
             The assessment is deliberately capable of telling you not to hire anyone. That is
             the only version of it worth publishing.
           </p>
         </div>
       </section>
 
-      {/* 14. Yourself, or us */}
-      <section className="section section-soft">
+      {/* 13. Yourself, or us — white, centred header, two white compare cards. */}
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-hand-pointer" center>Yourself, or us</Pill>
-          <h2>When this is enough, and when it is not</h2>
-          <p className="lead">
-            The assessment and the audit work from the same twelve points. What differs is who
-            measures them and how deep the evidence goes.
-          </p>
-          <div className="card-grid card-grid-2">
-            <article className="card">
-              <h3>Run it yourself when</h3>
-              <ul className="check-list">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-hand-pointer" center>
+              Yourself, or us
+            </Pill>
+            <h2 className="ega-h2">When this is enough, and when it is not</h2>
+            <p className="lead">
+              The assessment and the audit work from the same twelve points. What differs is
+              who measures them and how deep the evidence goes.
+            </p>
+          </div>
+          <div className="ega-compare-grid">
+            <article className="ega-compare-card">
+              <div className="ega-card-head">
+                <span className="ega-card-icon-light">
+                  <i className="fa-solid fa-user-gear" aria-hidden="true" />
+                </span>
+                <h3>Run it yourself when</h3>
+              </div>
+              <ul className="check-list check-list-blue">
                 <li>You have access to the analytics, ad accounts and email platform</li>
                 <li>You trust the numbers in them enough to act on a flag</li>
                 <li>Somebody internally can own the fix once it is named</li>
@@ -1006,9 +1066,14 @@ export default function GrowthAssessmentPage() {
                 <li>You would rather keep the budget than buy a second opinion</li>
               </ul>
             </article>
-            <article className="card">
-              <h3>Ask for the audit when</h3>
-              <ul className="check-list">
+            <article className="ega-compare-card">
+              <div className="ega-card-head">
+                <span className="ega-card-icon-light">
+                  <i className="fa-solid fa-clipboard-check" aria-hidden="true" />
+                </span>
+                <h3>Ask for the audit when</h3>
+              </div>
+              <ul className="check-list check-list-blue">
                 <li>Three or more points come back unknown rather than flagged</li>
                 <li>Your flags contradict each other and you cannot rank them</li>
                 <li>The reporting itself is what you suspect is wrong</li>
@@ -1017,7 +1082,7 @@ export default function GrowthAssessmentPage() {
               </ul>
             </article>
           </div>
-          <p style={{ marginTop: "24px" }}>
+          <p className="ega-closing">
             The audit covers the same twelve points with the specialists who run each
             discipline, adds a ranked constraint list and a ninety-day sequence, and takes
             five working days. It is free, and it is not a prerequisite for anything on this
@@ -1026,91 +1091,95 @@ export default function GrowthAssessmentPage() {
         </div>
       </section>
 
-      {/* 15. Assessment FAQs */}
-      <section className="section">
-        <div className="container center">
-          <Pill icon="fa-solid fa-circle-question" center>Questions</Pill>
-          <h2>Assessment FAQs</h2>
-          <p className="lead" style={{ margin: "0 auto" }}>
-            The questions we get asked about running this without us.
-          </p>
-          <FaqAccordion faqs={faqs} />
+      {/* 14. Assessment FAQs — #F7F9FC, centred header, nested accordion. */}
+      <section className="section ega-soft">
+        <div className="container">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-circle-question" center>
+              Questions
+            </Pill>
+            <h2 className="ega-h2">Assessment FAQs</h2>
+            <p className="lead">The questions we get asked about running this without us.</p>
+          </div>
+          <FaqAccordion faqs={faqs} rotateIcon />
         </div>
       </section>
 
-      {/* 16. What to read once you have your flags */}
-      <section className="section section-soft">
+      {/* 15. Keep going — white, centred header, three image cards + All guides button. */}
+      <section className="section">
         <div className="container">
-          <Pill icon="fa-solid fa-layer-group" center>Keep going</Pill>
-          <h2>What to read once you have your flags</h2>
-          <p className="lead">Each of these picks up where a flagged point leaves off.</p>
-          <div className="card-grid">
-            <article className="case-card">
+          <div className="ega-header">
+            <Pill icon="fa-solid fa-layer-group" center>
+              Keep going
+            </Pill>
+            <h2 className="ega-h2">What to read once you have your flags</h2>
+            <p className="lead">Each of these picks up where a flagged point leaves off.</p>
+          </div>
+          <div className="ega-keep-grid">
+            <article className="ega-keep-card">
               <Image
                 src="/images/ecommerce-growth-assessment-checklist.webp"
                 alt="A written checklist on a clipboard beside a laptop during eCommerce planning"
                 width={1200}
                 height={800}
               />
-              <div className="case-body">
-                <p className="case-cat">Checklists</p>
-                <h3>
-                  <Link href="/resources/checklists/">eCommerce checklists</Link>
-                </h3>
-                <p style={{ color: "var(--muted)" }}>
-                  Working checklists for SEO, conversion and Amazon listings, every check
-                  stating the action first and the reason second.
-                </p>
-              </div>
+              <p className="ega-keep-label">CHECKLISTS</p>
+              <h3>
+                <Link href="/resources/checklists/">eCommerce checklists</Link>
+              </h3>
+              <p>
+                Working checklists for SEO, conversion and Amazon listings, every check
+                stating the action first and the reason second.
+              </p>
             </article>
-            <article className="case-card">
+            <article className="ega-keep-card">
               <Image
                 src="/images/ecommerce-growth-assessment-statistics.webp"
                 alt="Printed performance charts and a laptop used to review eCommerce market data"
                 width={1200}
                 height={800}
               />
-              <div className="case-body">
-                <p className="case-cat">Statistics</p>
-                <h3>
-                  <Link href="/resources/statistics/">eCommerce statistics</Link>
-                </h3>
-                <p style={{ color: "var(--muted)" }}>
-                  The benchmarks behind the published thresholds, each carrying its original
-                  source, year and sample.
-                </p>
-              </div>
+              <p className="ega-keep-label">STATISTICS</p>
+              <h3>
+                <Link href="/resources/statistics/">eCommerce statistics</Link>
+              </h3>
+              <p>
+                The benchmarks behind the published thresholds, each carrying its original
+                source, year and sample.
+              </p>
             </article>
-            <article className="case-card">
+            <article className="ega-keep-card">
               <Image
                 src="/images/ecommerce-growth-assessment-audit.webp"
                 alt="Senior strategists reviewing eCommerce performance charts during an audit session"
                 width={1200}
                 height={800}
               />
-              <div className="case-body">
-                <p className="case-cat">Free audit</p>
-                <h3>
-                  <Link href="/ecommerce-audit/">The same twelve points, run by us</Link>
-                </h3>
-                <p style={{ color: "var(--muted)" }}>
-                  Five working days, a ranked constraint list, a ninety-day sequence and a
-                  recorded walkthrough. Nothing owed afterwards.
-                </p>
-              </div>
+              <p className="ega-keep-label">FREE AUDIT</p>
+              <h3>
+                <Link href="/ecommerce-audit/">The same twelve points, run by us</Link>
+              </h3>
+              <p>
+                Five working days, a ranked constraint list, a ninety-day sequence and a
+                recorded walkthrough. Nothing owed afterwards.
+              </p>
             </article>
           </div>
-          <p style={{ marginTop: "32px" }}>
-            <Link href="/guides/">All guides</Link> — Want the reasoning rather than the
-            scorecard? Our{" "}
+          <div className="ega-guides-btn">
+            <Link className="read-more" href="/guides/">
+              All guides <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </div>
+          <p className="ega-guide-line">
+            Want the reasoning rather than the scorecard? Our{" "}
             <Link href="/guides/ecommerce-growth/">eCommerce Growth Guide</Link> covers the
             growth equation, stages, cash and cadence in eight chapters.
           </p>
         </div>
       </section>
 
-      {/* 17. Final CTA */}
-      <section className="section section-blue final-cta">
+      {/* 16. Final CTA — white section, gradient panel. */}
+      <section className="section final-cta final-cta-blue">
         <div className="container">
           <h2>Found your constraint, or found six of them?</h2>
           <p className="lead">
@@ -1119,19 +1188,17 @@ export default function GrowthAssessmentPage() {
             five working days with the specialists who would do the work.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-light" href="/ecommerce-audit/">
-              Request Your Free Audit
+            <Link className="tm-btn tm-btn-white" href="/ecommerce-audit/">
+              <i className="fa-solid fa-calendar-days" aria-hidden="true" /> Request Your Free
+              Audit
             </Link>
-            <Link
-              className="btn"
-              href="/contact/"
-              style={{ background: "transparent", borderColor: "#fff" }}
-            >
-              Talk It Through First
+            <Link className="tm-btn ega-ghost" href="/contact/">
+              Talk It Through First{" "}
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -935,6 +935,155 @@ a.loc-card-icon:hover { text-decoration: none; color: #0B5BF4; }
   .rp-page .faq-a { padding-left: 20px; padding-right: 20px; }
 }
 
+/* eCommerce Growth Assessment page (Batch 1, page 17) — redone 2026-11-27
+   against the live control DOM/CSS. Section padding 100px; backgrounds
+   #F7F9FC exactly where live has them (hero, Why publish, How to score,
+   Reading the result, By stage, What next, FAQ); all section headers centred
+   with 44px H2s; checklist H2s left at 28px. */
+.ega-page .section { padding: 100px 0; }
+.ega-soft { background: #F7F9FC; }
+.ega-page .hero { background: #F7F9FC; padding: 40px 0 70px; }
+.ega-page .hero .container { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.ega-page .hero h1 { font-size: clamp(33px, 3.15vw, 45px); font-weight: 800; line-height: 1.12; letter-spacing: -1.5px; color: #091325; text-align: left; margin: 0; }
+.ega-page .hero .lead { font-size: 19px; line-height: 1.7; color: #5D6675; max-width: 800px; margin: 0; }
+.ega-breadcrumb { font-family: "DM Sans", sans-serif; font-size: 13.5px; line-height: 1.5; color: #6B7280; margin: 0; }
+.ega-breadcrumb a { color: #0B5BF4; }
+.ega-hero-pills { display: flex; flex-direction: row; gap: 8px; padding-top: 14px; }
+.ega-hero-pill { font-family: "DM Sans", sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .4px; color: #0A4ED4; background: #EFF4FD; border: 1px solid #E6EBF3; border-radius: 999px; padding: 6px 13px; text-decoration: none; }
+a.ega-hero-pill:hover { color: #0B5BF4; text-decoration: none; }
+.ega-stats { background: #fff; border: 1px solid #E6EBF3; border-radius: 16px; padding: 16px; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px 18px; }
+.ega-stat { display: flex; flex-direction: column; gap: 6px; }
+.ega-stat h4 { font-family: "DM Sans", sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: 1.1px; color: #6B7280; margin: 0; }
+.ega-stat p { font-family: "DM Sans", sans-serif; font-size: 15.5px; font-weight: 700; color: #1B2437; margin: 0; }
+.ega-hero-btns { display: flex; flex-direction: row; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+.ega-hero-btns .tm-btn-blue { box-shadow: 0 10px 24px -8px rgb(11 91 244 / .45); }
+.ega-btn-white { background: #fff; border-color: #D9E1EE; color: #091325; }
+.ega-btn-white:hover { border-color: #0B5BF4; color: #0B5BF4; text-decoration: none; }
+.ega-hero-media { width: 100%; padding-top: 34px; }
+.ega-hero-media img { width: 100%; border-radius: 18px; box-shadow: 0 16px 40px -14px rgb(9 19 37 / .2); }
+.ega-hero-caption { width: 100%; font-family: "DM Sans", sans-serif; font-size: 13px; line-height: 1.5; color: #6B7280; text-align: center; margin: 10px 0 0; }
+.ega-header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-bottom: 46px; text-align: center; }
+.ega-h2 { font-size: clamp(30px, 3.05vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -1px; color: #091325; text-align: center; margin: 0; }
+.ega-header .lead { font-size: 17px; line-height: 1.7; color: #5D6675; margin: 0; max-width: none; }
+.ega-closing { font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.7; color: #6B7280; text-align: center; margin: 24px 0 0; }
+.ega-closing-15 { font-size: 15px; }
+.ega-split { display: flex; flex-direction: row; align-items: center; gap: 48px; margin-top: 8px; }
+.ega-split-text { width: 52%; display: flex; flex-direction: column; gap: 20px; }
+.ega-split-text p { font-family: "DM Sans", sans-serif; font-size: 17px; line-height: 1.78; color: #5D6675; margin: 0; }
+.ega-split-text .check-list { margin: 0; }
+.ega-split-text .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+.ega-split-img { width: 43%; }
+.ega-split-img img { width: 100%; border-radius: 18px; box-shadow: 0 16px 40px -14px rgb(9 19 37 / .2); }
+.ega-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; }
+.ega-card-head { display: flex; flex-direction: row; align-items: center; gap: 13px; }
+.ega-card-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #0B5BF4; color: #EFF4FD; font-size: 20px; padding: 13px; border-radius: 13px; }
+.ega-card-icon-light { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #EFF4FD; color: #0B5BF4; font-size: 20px; padding: 13px; border-radius: 13px; }
+.ega-card h3 { font-size: 19px; font-weight: 800; line-height: 1.3; letter-spacing: -.4px; color: #091325; margin: 0; }
+.ega-card p { font-family: "DM Sans", sans-serif; font-size: 15.5px; line-height: 1.7; color: #5D6675; margin: 0; }
+.ega-card .check-list { margin: 0; }
+.ega-card .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+.ega-score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.ega-table-scroll { overflow-x: auto; }
+.ega-table-head { display: grid; grid-template-columns: 42% 56%; column-gap: 20px; background: #091325; border-radius: 14px 14px 0 0; padding: 16px 26px; }
+.ega-table-head p { font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin: 0; }
+.ega-table-row { display: grid; grid-template-columns: 42% 56%; column-gap: 20px; padding: 18px 26px; border-bottom: 1px solid #E6EBF3; }
+.ega-table-body .ega-table-row:nth-child(odd) { background: #fff; }
+.ega-table-body .ega-table-row:nth-child(even) { background: #F7F9FC; }
+.ega-table-body .ega-table-row:last-child { border-bottom: none; border-radius: 0 0 14px 14px; }
+.ega-table-row p { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; margin: 0; }
+.ega-table-row .ega-table-first { font-size: 16px; font-weight: 800; color: #091325; }
+.ega-table-4col .ega-table-head, .ega-table-4col .ega-table-row { grid-template-columns: 34% 20% 20% 20%; }
+.ega-table-4col .ega-table-head { padding: 14px 20px; }
+.ega-table-4col .ega-table-row { padding: 18px 20px; }
+.ega-checklist-layout { display: grid; grid-template-columns: 26% 66%; justify-content: space-between; align-items: start; }
+.ega-checklist-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 18px; padding: 22px; }
+.ega-checklist-label { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 800; color: #0A4ED4; margin: 0 0 16px; }
+.ega-checklist-links { list-style: none; margin: 0; padding: 0; }
+.ega-checklist-links li { margin: 0 0 11px; }
+.ega-checklist-links li:last-child { margin-bottom: 0; }
+.ega-checklist-links a { color: #1B2437; text-decoration: none; font-size: 14px; line-height: 1.45; }
+.ega-checklist-links a:hover { color: #0B5BF4; }
+.ega-checklist-links strong { color: #0A4ED4; }
+@media (min-width: 1025px) { .ega-checklist-sidebar { position: sticky; top: 110px; } }
+.ega-check-section { display: flex; flex-direction: column; gap: 16px; padding: 30px 0; scroll-margin-top: 90px; }
+.ega-check-section + .ega-check-section { border-top: 1px solid #E6EBF3; }
+.ega-check-label { display: flex; flex-direction: row; gap: 8px 12px; align-items: baseline; }
+.ega-check-label .ega-sec { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 800; color: #0A4ED4; margin: 0; }
+.ega-check-label .ega-count { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 700; color: #6B7280; margin: 0; }
+.ega-check-h2 { font-size: 28px; font-weight: 800; line-height: 1.28; color: #091325; text-align: left; margin: 0; }
+.ega-check-intro { font-family: "DM Sans", sans-serif; font-size: 17px; line-height: 1.7; color: #5D6675; margin: 0; }
+.ega-check-img img { width: 100%; border-radius: 18px; box-shadow: 0 16px 40px -14px rgb(9 19 37 / .2); }
+.ega-check-note { font-family: "DM Sans", sans-serif; font-size: 13px; line-height: 1.5; color: #6B7280; text-align: center; margin: 0; }
+.ega-checks { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.ega-check-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 12px; padding: 15px 18px; display: flex; flex-direction: row; gap: 14px; align-items: flex-start; }
+.ega-check-box { flex-shrink: 0; width: 20px; display: flex; justify-content: center; padding-top: 2px; }
+.ega-check-box i { color: #0B5BF4; font-size: 17px; }
+.ega-check-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ega-check-body h3 { font-size: 16.5px; font-weight: 800; line-height: 1.45; color: #091325; margin: 0; }
+.ega-check-body p { font-family: "DM Sans", sans-serif; font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 0; }
+.ega-check-body p a { color: #0B5BF4; }
+.ega-mistake-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ega-outcome-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ega-outcome-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 11px; text-align: center; }
+.ega-outcome-num { font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 800; color: #0A4ED4; margin: 0; }
+.ega-outcome-tag { font-family: "DM Sans", sans-serif; font-size: 11.5px; font-weight: 800; color: #6B7280; margin: 0; }
+.ega-outcome-card h3 { font-size: 18px; font-weight: 800; line-height: 1.35; letter-spacing: -.35px; color: #091325; margin: 0; }
+.ega-outcome-card p { font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.65; color: #5D6675; margin: 0; }
+.ega-outcome-link { font-family: "DM Sans", sans-serif; font-size: 14.5px; font-weight: 700; color: #0A4ED4; }
+.ega-outcome-link:hover { color: #0B5BF4; }
+.ega-compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.ega-compare-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; }
+.ega-compare-card .check-list { margin: 0; }
+.ega-compare-card .check-list li { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; color: #5D6675; }
+/* Growth Assessment FAQ uses the same nested-accordion look as the FAQs page. */
+.ega-page .faq-list { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.ega-page .faq-item { margin-bottom: 0; border-color: #E6EBF3; border-radius: 16px; }
+.ega-page .faq-item.open { border-color: #B7CEFB; box-shadow: 0 2px 4px rgb(9 19 37 / .05), 0 4px 10px rgb(9 19 37 / .04); }
+.ega-page .faq-q { padding: 22px 26px; gap: 20px; font-size: 17px; line-height: 1.45; color: #091325; align-items: flex-start; }
+.ega-page .faq-q:hover { color: var(--blue); }
+.ega-page .faq-q .faq-toggle { display: grid; place-items: center; width: 26px; height: 26px; min-width: 26px; border-radius: 50%; background: #EFF4FD; color: var(--blue); font-size: 15px; line-height: 1; margin-top: 1px; transition: transform .28s ease, background-color .22s ease, color .22s ease; }
+.ega-page .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--blue); color: #fff; }
+.ega-page .faq-a { padding: 0 26px 24px; font-size: 15.5px; line-height: 1.72; color: #5D6675; }
+.ega-page .faq-a p { max-width: 70ch; }
+.ega-keep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ega-keep-card { background: #fff; border: 1px solid #E6EBF3; border-radius: 22px; padding: 18px 18px 24px; display: flex; flex-direction: column; gap: 10px; }
+.ega-keep-card img { width: 100%; border-radius: 12px; }
+.ega-keep-label { font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 800; color: #0B5BF4; margin: 0; }
+.ega-keep-card h3 { font-size: 18px; font-weight: 800; line-height: 1.35; color: #091325; margin: 0; }
+.ega-keep-card h3 a { color: #091325; text-decoration: none; }
+.ega-keep-card h3 a:hover { color: #0B5BF4; }
+.ega-keep-card p { font-family: "DM Sans", sans-serif; font-size: 14.5px; line-height: 1.6; color: #5D6675; margin: 0; }
+.ega-guides-btn { margin-top: 30px; }
+.ega-guide-line { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.7; color: #5D6675; text-align: center; margin: 24px 0 0; }
+.ega-page section.final-cta { padding: 90px 0 100px; }
+.ega-page .final-cta-blue h2 { font-size: clamp(30px, 3.05vw, 44px); letter-spacing: -1px; }
+.ega-page .final-cta-blue .lead { max-width: 640px; }
+.ega-ghost { background: transparent; border-color: rgb(255 255 255 / .42); color: #fff; }
+.ega-ghost:hover { background: rgb(255 255 255 / .08); color: #fff; text-decoration: none; }
+@media (max-width: 1024px) {
+  .ega-page .section { padding: 72px 0; }
+  .ega-page .hero { padding: 72px 0 56px; }
+  .ega-page section.final-cta { padding: 72px 0; }
+  .ega-score-grid, .ega-outcome-grid { grid-template-columns: repeat(2, 1fr); }
+  .ega-mistake-grid, .ega-keep-grid { grid-template-columns: repeat(2, 1fr); }
+  .ega-split { flex-direction: column; gap: 34px; align-items: flex-start; }
+  .ega-split-text, .ega-split-img { width: 100%; }
+  .ega-checklist-layout { grid-template-columns: 1fr; }
+  .ega-page .faq-list { width: 88%; }
+}
+@media (max-width: 767px) {
+  .ega-page .section { padding: 56px 0; }
+  .ega-page .hero { padding: 56px 0; }
+  .ega-page section.final-cta { padding: 56px 0; }
+  .ega-score-grid, .ega-outcome-grid, .ega-mistake-grid, .ega-keep-grid, .ega-compare-grid { grid-template-columns: 1fr; }
+  .ega-table-2col { min-width: 620px; }
+  .ega-table-4col { min-width: 760px; }
+  .ega-check-section { padding: 24px 0; }
+  .ega-page .faq-list { width: 100%; }
+  .ega-page .faq-q { padding: 19px 20px; gap: 14px; font-size: 16px; }
+  .ega-page .faq-a { padding-left: 20px; padding-right: 20px; }
+}
+
 /* Footer */
 .site-footer { background: var(--navy); color: #c6d2e4; padding: 64px 0 0; }
 .site-footer h2 { color: #fff; font-size: 1.05rem; margin-bottom: 1rem; }
